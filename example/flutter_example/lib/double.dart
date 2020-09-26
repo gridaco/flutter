@@ -1,0 +1,3 @@
+test(){
+  double.infinity
+}

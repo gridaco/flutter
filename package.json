@@ -8,6 +8,6 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@bridged.xyz/remote-ui-core": "0.0.30"
+    "@bridged.xyz/remote-ui-core": "0.0.31"
   }
 }

@@ -1,12 +1,12 @@
-import { Buildable } from "../interface/buildable";
-export type double = number | DartDouble;
+import { Buildable } from "../builder/buildable";
+export type double = number | Double;
 type doubleMode = "value" | "nan" | "infinity" | "negativeInfinity" | "minPositive" | "maxFinite"
-export class DartDouble implements Buildable {
-    static nan = new DartDouble(undefined, "nan");
-    static infinity = new DartDouble(undefined, "infinity");
-    static negativeInfinity = new DartDouble(undefined, "negativeInfinity");
-    static minPositive = new DartDouble(undefined, "minPositive");
-    static maxFinite = new DartDouble(undefined, "maxFinite");
+export class Double implements Buildable {
+    static nan = new Double(undefined, "nan");
+    static infinity = new Double(undefined, "infinity");
+    static negativeInfinity = new Double(undefined, "negativeInfinity");
+    static minPositive = new Double(undefined, "minPositive");
+    static maxFinite = new Double(undefined, "maxFinite");
 
     _mode: doubleMode
     _value: number
@@ -17,7 +17,7 @@ export class DartDouble implements Buildable {
     }
 
     static value(d: number) {
-        return new DartDouble(d);
+        return new Double(d);
     }
 
     /**

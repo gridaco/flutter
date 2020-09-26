@@ -1,3 +1,3 @@
 test(){
-  double.infinity
+  double.infinity;
 }

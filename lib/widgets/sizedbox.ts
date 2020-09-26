@@ -1,5 +1,5 @@
 import { Widget } from ".";
-import { DartDouble as Double, double } from "../dart/double";
+import { Double, double } from "../dart/double";
 import { Size } from "../dart-ui/size"
 /**
  * https://api.flutter.dev/flutter/widgets/SizedBox-class.html

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@bridged.xyz/remote-ui-core@0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@bridged.xyz/remote-ui-core/-/remote-ui-core-0.0.30.tgz#e0086f0381956be5995a4d5f0e1e36090c21448a"
-  integrity sha512-NJqXe/uoklC8XEgXdvmoEWSiLGEHjgwrjEuy7Dx3mH/NaUaAd4LjvaCcQwwfdHJZkK5HD61GhbJgj2oVC7/Meg==
+"@bridged.xyz/remote-ui-core@0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@bridged.xyz/remote-ui-core/-/remote-ui-core-0.0.31.tgz#1103f78a1ab86f435e352fe3ecc5713138d31341"
+  integrity sha512-WcNhCYAwY4fy1KxbDeZ38Q+Gpui+NA58lGm+8Ss023gxO1Rug1W1ZakfNS23vgbO+pIiybv6cvjG/w6Hk3OsIA==
   dependencies:
     mustache "^4.0.1"
     url-pattern "^1.0.3"

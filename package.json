@@ -1,0 +1,10 @@
+{
+  "name": "flutter-builder",
+  "version": "0.0.1",
+  "description": "flutter widget builder from nodejs",
+  "main": "index.js",
+  "repository": "https://github.com/bridgedxyz/flutter-js.git",
+  "author": "softmarshmallow <woojoo@softmarshmallow.com>",
+  "license": "MIT",
+  "private": false
+}

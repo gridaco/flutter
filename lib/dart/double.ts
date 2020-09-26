@@ -1,0 +1,5 @@
+class Double {
+    static infinity() {
+
+    }
+}

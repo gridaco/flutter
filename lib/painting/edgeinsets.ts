@@ -1,5 +1,5 @@
 import { double } from "../dart/double";
-import { EdgeInsetsGeometry } from "./edgeinsetsgeomatry";
+import { EdgeInsetsGeometry } from "./edge-insets-geomatry";
 
 export class EdgeInsets extends EdgeInsetsGeometry {
     left: double

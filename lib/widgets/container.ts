@@ -1,9 +1,9 @@
 import { Color } from "@bridged.xyz/remote-ui-core";
 import { Widget } from ".";
 import { double } from "../dart/double";
-import { AlignmentGeometry } from "../painting/aligmentgeomatry";
+import { AlignmentGeometry } from "../painting/aligment-geomatry";
 import { Decoration } from "../painting/decoration";
-import { EdgeInsetsGeometry } from "../painting/edgeinsetsgeomatry";
+import { EdgeInsetsGeometry } from "../painting/edge-insets-geomatry";
 import { Matrix4 } from "../vector-math-64/matrix4";
 
 /**

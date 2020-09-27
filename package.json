@@ -9,5 +9,8 @@
   "private": false,
   "dependencies": {
     "@bridged.xyz/remote-ui-core": "0.0.31"
+  },
+  "devDependencies": {
+    "@types/node": "latest"
   }
 }

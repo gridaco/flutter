@@ -1,8 +1,8 @@
 import { Alignment } from "./alignment";
-import { BoxDecoration } from "./boxdecoration";
+import { BoxDecoration } from "./box-decoration";
 import { EdgeInsets } from "./edgeinsets";
-import { TextBaseline } from "./textbaseline";
-import { VerticalDirection } from "./verticaldirection";
+import { TextBaseline } from "./text-baseline";
+import { VerticalDirection } from "./vertical-direction";
 
 export default {
     Alignment,

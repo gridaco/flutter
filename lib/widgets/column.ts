@@ -1,10 +1,10 @@
 import { Widget } from "."
-import { CrossAxisAlignment } from "../rendering/crossaxisalignment"
-import { MainAxisAlignment } from "../rendering/mainaxisalignment"
-import { MainAxisSize } from "../rendering/mainaxissize"
+import { CrossAxisAlignment } from "../rendering/cross-axis-alignment"
+import { MainAxisAlignment } from "../rendering/main-axis-alignment"
+import { MainAxisSize } from "../rendering/main-axis-size"
 import { TextDirection } from "../dart-ui/textdirection"
-import { VerticalDirection } from "../painting/verticaldirection"
-import { TextBaseline } from "../painting/textbaseline"
+import { VerticalDirection } from "../painting/vertical-direction"
+import { TextBaseline } from "../painting/text-baseline"
 
 /**
  * https://api.flutter.dev/flutter/widgets/Column-class.html

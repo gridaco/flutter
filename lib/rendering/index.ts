@@ -1,6 +1,6 @@
-import { CrossAxisAlignment } from "./crossaxisalignment";
-import { MainAxisAlignment } from "./mainaxisalignment";
-import { MainAxisSize } from "./mainaxissize";
+import { CrossAxisAlignment } from "./cross-axis-alignment";
+import { MainAxisAlignment } from "./main-axis-alignment";
+import { MainAxisSize } from "./main-axis-size";
 
 export {
     CrossAxisAlignment,

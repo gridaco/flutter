@@ -1,0 +1,6 @@
+{
+    "name": "example",
+    "dependencies": {
+        "flutter-builder": "file:../../"
+    }
+}

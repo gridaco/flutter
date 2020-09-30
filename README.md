@@ -7,6 +7,19 @@ flutter widget builder for nodejs
 yarn add flutter-builder
 ```
 
+## How to use
+
+```ts
+
+const text = new Text("this is written in typescript", {textStyle: new TextStyle(color: Colors.black)})
+console.log(text.build().toString())
+
+// >>
+// Text("this is written in typescript", textStyle: TextStyle(color: Colors.black))
+
+```
+
+
 ## flutter code export
 
 [Widget catalog](https://flutter.dev/docs/development/ui/widgets)

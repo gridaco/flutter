@@ -13,6 +13,15 @@ export class BuildingTree {
         this.namedArguments.set(key, value);
     }
 
+    pushNamedArray(key: string, array: Array<string>) {
+        let content = "";
+        array.forEach((el) => {
+            content += `${el},\n`
+        })
+        const code = `[\n${content}]`
+        this.namedArguments.set(key, code);
+    }
+
     constructor(containerName: string, depth: number) {
         this.containerName = containerName;
         this.depth = depth;

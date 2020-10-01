@@ -7,7 +7,7 @@ import { Double } from "../dart";
 import { BuildingTree } from "./building-tree";
 
 export class BuildableTree implements Buildable {
-    build(depth?: number): string {
+    build(depth?: number): BuildingTree {
 
         // if no depth is provided, make it as 0, which is root treee
         depth = depth ?? 0;
@@ -49,13 +49,28 @@ export class BuildableTree implements Buildable {
                         registerOnParam(key, `${field}`)
                         break;
                     case "object":
-                        try {
-                            registerOnParam(key, field.build(depth + 1))
-                        } catch (e) {
-                            console.log(key, "of type", typeof field, "does not support build()")
+                        // handle array
+                        if (Array.isArray(field)) {
+                            const builds = []
+                            field.forEach((f) => {
+                                try {
+                                    builds.push((f as any).build(depth + 1).lookup())
+                                } catch (e) { }
+                            })
+                            tree.pushNamedArray(key, builds)
+                        } else {
+                            tryBuild(key, field)
                         }
                         break;
                 }
+            }
+        }
+
+        function tryBuild(key: string, field: any) {
+            try {
+                registerOnParam(key, field.build(depth + 1).lookup())
+            } catch (e) {
+                console.log(key, "of type", typeof field, "does not support build()")
             }
         }
         // region build params
@@ -63,7 +78,7 @@ export class BuildableTree implements Buildable {
         // endregion
 
         // return 
-        return tree.build().finalize();
+        return tree.build();
     }
 
     get widgetClassName(): string {

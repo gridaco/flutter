@@ -2,7 +2,8 @@ import { FontWeight } from "../dart-ui/font-weight";
 import { TextStyle } from "../painting/text-style";
 // build text
 
-import { Text } from "../widgets";
+import { Column, Row, Text } from "../widgets";
+import { Center } from "../widgets/center";
 
 const textWidget = new Text("hello world", {
     style: new TextStyle({
@@ -12,6 +13,17 @@ const textWidget = new Text("hello world", {
     })
 })
 
-const dart = textWidget.build()
+
+const column = new Column({
+    children: [
+        new Center(
+            {
+                child: textWidget
+            }
+        ), textWidget
+    ]
+})
+
+const dart = column.build().finalize()
 
 console.log(dart)

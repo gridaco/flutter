@@ -1,3 +1,5 @@
+import { BuildingTree } from "./building-tree";
+
 export interface Buildable {
-    build(): string
+    build(): BuildingTree
 }

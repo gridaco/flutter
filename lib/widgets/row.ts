@@ -17,7 +17,16 @@ export class Row extends Widget {
     verticalDirection: VerticalDirection = VerticalDirection.down
     textBaseline: TextBaseline
     children: Array<Widget> = Array<Widget>()
-    constructor() {
+    constructor(args: {
+        children: Array<Widget>
+        mainAxisAlignment?: MainAxisAlignment
+        crossAxisAlignment?: CrossAxisAlignment
+        mainAxisSize?: MainAxisSize
+    }) {
         super()
+        this.children = args.children;
+        this.mainAxisAlignment = args?.mainAxisAlignment
+        this.crossAxisAlignment = args?.crossAxisAlignment;
+        this.mainAxisSize = args?.mainAxisSize;
     }
 }

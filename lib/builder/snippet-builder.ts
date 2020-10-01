@@ -8,7 +8,7 @@ export class SnippetBuilder {
         return new SnippetBuilder(snippet);
     }
 
-    build() {
+    build(): any {
         return this._defaultSnippet;
     }
 

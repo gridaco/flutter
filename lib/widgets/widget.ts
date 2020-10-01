@@ -1,5 +1,12 @@
-import { BuildableWidget } from "../builder/buildable-widget";
+import { BuildableTree } from "../builder/buildable-widget";
 
-export class Widget extends BuildableWidget {
+export class Widget extends BuildableTree {
 
+    constructor() {
+        super()
+    }
+
+    build() {
+        return super.build()
+    }
 }

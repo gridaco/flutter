@@ -1,19 +1,21 @@
 import assert from "assert";
 import { Widget } from ".";
-import { param } from "../decorations/params";
+import { SnippetBuilder } from "../builder/snippet-builder";
+import { defaultParam, param } from "../decorations/params";
 import { TextStyle } from "../painting/text-style";
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html
  */
 export class Text extends Widget {
     @param({ name: "data", default: true })
+    @defaultParam()
     data: string
 
     @param({ name: "data", default: false })
-    style: TextStyle
+    style: TextStyle | SnippetBuilder
 
     constructor(data: string, args?: {
-        style: TextStyle
+        style: TextStyle | SnippetBuilder
     }) {
         super()
         assert(

@@ -1,16 +1,33 @@
 import { Color } from "@bridged.xyz/remote-ui-core";
-import { FontStyle, FontWeight } from "@bridged.xyz/remote-ui-core/dist/lib/widgets/text";
+import { FontStyle } from "@bridged.xyz/remote-ui-core/dist/lib/widgets/text";
+import { BuildableTree } from "../builder/buildable-widget";
 import { double } from "../dart";
+import { FontWeight } from "../dart-ui/font-weight";
 
 /**
  * https://api.flutter.dev/flutter/painting/TextStyle-class.html
  * 
  */
-export class TextStyle {
-    color: Color
-    fontSize: double
-    fontWeight: FontWeight
-    fontStyle: FontStyle
+export class TextStyle extends BuildableTree {
+    color?: Color
+    fontSize?: double
+    fontWeight?: FontWeight
+    fontStyle?: FontStyle
+    fontFamily?: string
+    constructor(args?: {
+        color?: Color
+        fontSize?: double
+        fontWeight?: FontWeight
+        fontStyle?: FontStyle
+        fontFamily?: string
+    }) {
+        super();
+        this.color = args?.color;
+        this.fontSize = args?.fontSize;
+        this.fontWeight = args?.fontWeight;
+        this.fontStyle = args?.fontStyle;
+        this.fontFamily = args?.fontFamily
+    }
 }
 
 // original

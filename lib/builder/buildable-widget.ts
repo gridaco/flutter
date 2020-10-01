@@ -1,47 +1,69 @@
-import { TextStyle } from "@bridged.xyz/remote-ui-core/dist/lib/widgets/text";
-import { Widget } from "../widgets";
 import { Buildable } from "./buildable";
 import 'reflect-metadata';
-import { paramMetadataKey } from "../decorations/params";
+import { getDefaultParamProperties, paramMetadataKey } from "../decorations/params";
+import { SnippetBuilder } from "./snippet-builder";
+import { TextStyle } from "../painting/text-style";
+import { Double } from "../dart";
+import { BuildingTree } from "./building-tree";
 
-export class BuildableWidget implements Buildable {
-    build(): string {
+export class BuildableTree implements Buildable {
+    build(depth?: number): string {
 
-        let final = ""
+        // if no depth is provided, make it as 0, which is root treee
+        depth = depth ?? 0;
+
+        const defaultParamKeys: ReadonlyArray<string> = Reflect.getMetadata(paramMetadataKey, this) ?? [];
 
         const result = new Map<any, PropertyDescriptor>();
         for (let key of Reflect.ownKeys(this)) {
             result.set(key, Object.getOwnPropertyDescriptor(this, key))
         }
 
-        const defaultArguments: Array<string> = Array<string>()
+        const tree = new BuildingTree(this.widgetClassName, depth)
+        function registerOnParam(name: string, value: string) {
+            // checker logic if default field or not
+            const named: boolean = !defaultParamKeys.includes(name);
+            if (named) {
+                tree.pushNamedArgument(name, value)
+            } else {
+                tree.pushDefaultArgument(value)
+            }
+        }
+
 
         let keys = Array.from(result.keys());
         for (const key of keys) {
             const fieldM = result.get(key)
             const field = fieldM.value
+            console.log(key, typeof field, field)
 
-            // TODO add checker logic if default field or not
-
-            if (key instanceof Widget) {
-                final += (field as Widget).build()
+            if (field === undefined) {
+                // ignore
             }
-
-            if (key instanceof TextStyle) {
-                final += JSON.stringify(field, null, 2)
-            }
-
-            switch (typeof (field)) {
-                case "string":
-                    final += `"${field}"`
+            else {
+                switch (typeof (field)) {
+                    case "string":
+                        registerOnParam(key, `"${field}"`)
+                        break;
+                    case "number":
+                        registerOnParam(key, `${field}`)
+                        break;
+                    case "object":
+                        try {
+                            registerOnParam(key, field.build(depth + 1))
+                        } catch (e) {
+                            console.log(key, "of type", typeof field, "does not support build()")
+                        }
+                        break;
+                }
             }
         }
+        // region build params
+
+        // endregion
 
         // return 
-        return `${this.widgetClassName}(
-    ${final}
-)
-`
+        return tree.build().finalize();
     }
 
     get widgetClassName(): string {
@@ -50,26 +72,9 @@ export class BuildableWidget implements Buildable {
 }
 
 
-function getDecorators(target: any, propertyName: string | symbol): string[] {
-    // get info about keys that used in current property
-    const keys: any[] = Reflect.getMetadataKeys(target, propertyName);
-    console.log(keys)
-    const decorators = keys
-        // filter your custom decorators
-        .filter(key => key.toString().startsWith("custom:anotations"))
-        .reduce((values, key) => {
-            // get metadata value.
-            const currValues = Reflect.getMetadata(key, target, propertyName);
-            return values.concat(currValues);
-        }, []);
-
-    return decorators;
-}
-
-
-function getFilteredProperties(origin: object): object {
-    const properties: string[] = Reflect.getMetadata(paramMetadataKey, origin);
-    const result = {};
-    properties.forEach(key => result[key] = origin[key]);
-    return result;
+export class SnippetBuildableTree extends BuildableTree implements SnippetBuilder {
+    _defaultSnippet: string;
+    get widgetClassName(): string {
+        return this.constructor.name;
+    }
 }

@@ -2,6 +2,8 @@
 flutter widget builder for nodejs
 > flutter-builder uses *[dynamic](https://github.com/bridgedxyz/dynamic)* for handling dynamic configurable data such as button action handling.
 
+*CoLI: Computer Language Interface*
+
 ## Installation
 ``` sh
 yarn add flutter-builder

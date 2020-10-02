@@ -1,6 +1,7 @@
 import { formatCode } from "dart-style"
+import { Buildable } from "./buildable";
 
-export class BuildingTree {
+export class BuildingTree implements Buildable {
     readonly defaultArguments: Array<string> = Array<string>()
     readonly namedArguments: Map<string, string> = new Map();
     readonly containerName: string
@@ -22,7 +23,7 @@ export class BuildingTree {
         this.namedArguments.set(key, code);
     }
 
-    constructor(containerName: string, depth: number) {
+    constructor(containerName?: string, depth?: number) {
         this.containerName = containerName;
         this.depth = depth;
     }

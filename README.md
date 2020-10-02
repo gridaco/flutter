@@ -12,12 +12,112 @@ yarn add flutter-builder
 ```ts
 
 const text = new Text("this is written in typescript", {textStyle: new TextStyle(color: Colors.black)})
-console.log(text.build().toString())
+console.log(text.build().finalize())
 
 // >>
 // Text("this is written in typescript", textStyle: TextStyle(color: Colors.black))
 
 ```
+
+## Usecase
+**build widget tree**
+- ts ClassTree -> dart ClassTree
+
+
+
+``` typescript
+const text = new Text("this is written in typescript", {textStyle: new TextStyle(color: Colors.black)})
+
+const row = new Row({children: [
+  text,
+]})
+
+console.log(row.build().finalize())
+
+// >>
+// Row(
+//	children: [
+// 		Text("this is written in typescript", textStyle: TextStyle(color: Colors.black))
+// 	]
+// );
+```
+
+
+
+
+
+**function as function**
+> ts function -> dart in-code function
+
+*from*
+``` ts
+const functionInRow = new Row(
+    {
+        children: [
+            Function.from(_buildWidget())
+        ]
+    }
+)
+
+function _buildWidget(): Widget{
+    return new Text("👋")
+}
+
+functionInRow.build().finalize()
+
+// Row(
+//    children: [
+//        _buildWidget()
+//    ]
+// )
+//
+// Widget _buildWidget(){
+//     return Text("👋");
+// }
+```
+
+
+
+**full class build**
+
+```typescript
+const classWidget = new StatelessWidget("Component")
+
+const builder = new Row();
+
+classWidget.buildFrom(builder)
+
+classWidget.build()
+
+// class Component extends StatelessWidget{
+// 		@override
+//		Widget build(BuildContext context){
+//			return Row();
+//		}
+// }
+
+```
+
+
+
+**slots (variables)**
+
+```typescript
+
+const argument = Variable.from("some text")
+const text = new Text(argument);
+text.build().finalize()
+
+// >>
+// final String argument = "some text";
+// Text(argument);
+
+```
+
+
+
+
+
 
 
 ## flutter code export

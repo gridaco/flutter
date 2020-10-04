@@ -1,6 +1,6 @@
 {
   "name": "flutter-builder",
-  "version": "0.1.13",
+  "version": "1.23.0-7.0.pre.2",
   "description": "flutter widget builder from nodejs",
   "main": "index.js",
   "repository": "https://github.com/bridgedxyz/flutter-js.git",

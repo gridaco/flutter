@@ -1,12 +1,13 @@
 {
   "name": "flutter-builder",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "description": "flutter widget builder from nodejs",
   "main": "index.js",
   "repository": "https://github.com/bridgedxyz/flutter-js.git",
   "author": "softmarshmallow <woojoo@softmarshmallow.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {},
   "dependencies": {
     "@abraham/reflection": "^0.7.0",
     "@bridged.xyz/remote-ui-core": "0.0.31",

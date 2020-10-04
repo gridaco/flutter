@@ -16,7 +16,7 @@ export class SnippetBuilder {
         return this._defaultSnippet;
     }
 
-    get widgetClassName(): string {
+    get constructorName(): string {
         return this.constructor.name;
     }
 }

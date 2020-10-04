@@ -19,7 +19,7 @@ export class BuildableTree implements Buildable {
             result.set(key, Object.getOwnPropertyDescriptor(this, key))
         }
 
-        const tree = new BuildingTree(this.widgetClassName, depth)
+        const tree = new BuildingTree(this.constructorName, depth)
         function registerOnParam(name: string, value: string) {
             // checker logic if default field or not
             const named: boolean = !defaultParamKeys.includes(name);
@@ -82,18 +82,33 @@ export class BuildableTree implements Buildable {
         return tree.build();
     }
 
-    get widgetClassName(): string {
+    /**
+     * I.E "Transform" is default class name, when you want to make "Transform.rotate()", override with this.
+     * @param name new name for the class invocation
+     */
+    // @ignore()
+    private factoryName: string = null;
+    extendWithFactoryName(name: string) {
+        this.factoryName = this.factoryName
+        return this;
+    }
+
+    get constructorName(): string {
+        if (this.factoryName) {
+            return `${this.constructor.name}.${this.factoryName}`;
+        }
         return this.constructor.name;
     }
 }
 
 
 export class SnippetBuildableTree extends BuildableTree implements SnippetBuilder {
+
     lookup() {
         return this._defaultSnippet;
     }
     _defaultSnippet: string;
-    get widgetClassName(): string {
+    get constructorName(): string {
         return this.constructor.name;
     }
 }

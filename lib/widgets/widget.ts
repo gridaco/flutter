@@ -4,16 +4,8 @@ import { SnippetBuilder } from "../builder/snippet-builder";
 
 export class Widget extends BuildableTree {
 
-    private _defaultSnippet: string
-    constructor(args?: {
-        _defaultSnippet?: string
-    }) {
+    constructor() {
         super()
-        this._defaultSnippet = args?._defaultSnippet
-    }
-
-    static fromStatic(code: string): Widget {
-        return new Widget({ _defaultSnippet: code });
     }
 
     build(): BuildingTree {

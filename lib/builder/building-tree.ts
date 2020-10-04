@@ -64,7 +64,44 @@ export class BuildingTree implements Buildable {
         return this.lookup();
     }
 
-    lookup(): string {
+    lookup(options?: {
+        withComma?: boolean
+    }): string {
+
+        if (options.withComma && canAddComma(this.code)) {
+            return addComma({ code: this.code, safetyCheck: true });
+        }
+
         return this.code
     }
+}
+
+function canAddComma(code: string): boolean {
+    const trimmed = code.trimEnd();
+    if (trimmed.endsWith(";")) {
+        return false;
+    }
+    if (trimmed.endsWith(",")) {
+        return false;
+    }
+    if (trimmed.endsWith(")")) {
+        return true;
+    }
+    return false;
+}
+
+function addComma({ code, safetyCheck = false }: { code: string; safetyCheck?: boolean; }): string {
+    function add() {
+        code = code + ",";
+    }
+
+    if (safetyCheck) {
+        if (canAddComma(code)) {
+            add();
+        }
+    } else {
+        add();
+    }
+
+    return code;
 }

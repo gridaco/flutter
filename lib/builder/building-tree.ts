@@ -1,4 +1,4 @@
-import { formatCode } from "dart-style"
+// import { formatCode } from "dart-style"
 import { Buildable } from "./buildable";
 
 export class BuildingTree implements Buildable {
@@ -58,7 +58,7 @@ export class BuildingTree implements Buildable {
     }
 
     format(): string {
-        this.code = formatCode(this.code).code;
+        // this.code = formatCode(this.code).code;
         return this.lookup();
     }
 

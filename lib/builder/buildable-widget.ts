@@ -1,10 +1,10 @@
 import { Buildable } from "./buildable";
-import 'reflect-metadata';
 import { getDefaultParamProperties, paramMetadataKey } from "../decorations/params";
 import { SnippetBuilder } from "./snippet-builder";
 import { TextStyle } from "../painting/text-style";
 import { Double } from "../dart";
 import { BuildingTree } from "./building-tree";
+import { Reflection as Reflect } from '@abraham/reflection';
 
 export class BuildableTree implements Buildable {
     build(depth?: number): BuildingTree {
@@ -15,7 +15,7 @@ export class BuildableTree implements Buildable {
         const defaultParamKeys: ReadonlyArray<string> = Reflect.getMetadata(paramMetadataKey, this) ?? [];
 
         const result = new Map<any, PropertyDescriptor>();
-        for (let key of Reflect.ownKeys(this)) {
+        for (let key of Object.keys(this)) {
             result.set(key, Object.getOwnPropertyDescriptor(this, key))
         }
 

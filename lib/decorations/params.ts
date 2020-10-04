@@ -1,6 +1,5 @@
-import "reflect-metadata";
-
 export const paramMetadataKey = Symbol("param");
+import { Reflection as Reflect } from '@abraham/reflection';
 
 export function param(props?: {
     name?: string,

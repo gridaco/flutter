@@ -9,6 +9,10 @@ export class SnippetBuilder {
     }
 
     build(): any {
+        return this;
+    }
+
+    lookup(): any {
         return this._defaultSnippet;
     }
 

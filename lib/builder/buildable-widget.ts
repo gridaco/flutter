@@ -71,6 +71,7 @@ export class BuildableTree implements Buildable {
                 registerOnParam(key, field.build(depth + 1).lookup())
             } catch (e) {
                 console.log(key, "of type", typeof field, "does not support build()")
+                console.error(e)
             }
         }
         // region build params
@@ -88,6 +89,9 @@ export class BuildableTree implements Buildable {
 
 
 export class SnippetBuildableTree extends BuildableTree implements SnippetBuilder {
+    lookup() {
+        return this._defaultSnippet;
+    }
     _defaultSnippet: string;
     get widgetClassName(): string {
         return this.constructor.name;

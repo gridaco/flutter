@@ -35,17 +35,17 @@ export class BuildingTree implements Buildable {
     code: string
 
     build(): BuildingTree {
-        let final = ""
+        let kvContents = ""
         this.defaultArguments.forEach((v) => {
-            final += `${v},\n`
+            kvContents += `${v},\n`
         })
         this.namedArguments.forEach((v, k) => {
-            final += `${k}: ${v},\n`
+            kvContents += `${k}: ${v},\n`
         })
-        final = `${this.containerName}(
-    ${final}
+        kvContents = `${this.containerName}(
+    ${kvContents}
 )`
-        this.code = final;
+        this.code = kvContents;
         return this;
     }
 
@@ -59,6 +59,8 @@ export class BuildingTree implements Buildable {
 
     format(): string {
         // this.code = formatCode(this.code).code;
+        const dart = require("dart-style")
+        this.code = dart.formatCode(this.code).code;
         return this.lookup();
     }
 

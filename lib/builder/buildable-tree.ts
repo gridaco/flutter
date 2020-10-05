@@ -1,5 +1,5 @@
 import { Buildable } from "./buildable";
-import { getDefaultParamProperties, ignore, paramMetadataKey, ignoreMetadataKey } from "../decorations/params";
+import { getDefaultParamProperties, ignore, paramMetadataKey, ignoreMetadataKey, defaultParam } from "../decorations/params";
 import { SnippetBuilder } from "./snippet-builder";
 import { TextStyle } from "../painting/text-style";
 import { Double } from "../dart";
@@ -27,14 +27,31 @@ export class BuildableTree implements Buildable {
         }
 
         const tree = new BuildingTree(this.constructorName, depth)
-        function registerOnParam(name: string, value: string) {
+        function registerOnParam(key: string, value: string) {
             // checker logic if default field or not
-            const named: boolean = !defaultParamKeys.includes(name);
-            if (named) {
-                tree.pushNamedArgument(name, value)
-            } else {
+            const isDefault: boolean = checkIfDefault(key)
+            // const isNamed: boolean = !defaultParamKeys.includes(key);
+            if (isDefault) {
                 tree.pushDefaultArgument(value)
+            } else {
+                tree.pushNamedArgument(key, value)
             }
+        }
+
+
+        /**
+         * returns false if named
+         * returns true if default argument
+         */
+        function checkIfDefault(key: string): boolean {
+            // the field name contains __default__ is special character, recognized as default param by default
+            if (key.includes("__default__")) {
+                return true
+            }
+            if (defaultParamKeys.includes(key)) {
+                return true
+            }
+            return false
         }
 
 

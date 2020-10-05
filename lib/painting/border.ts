@@ -1,3 +1,5 @@
+import { BuildableTree } from "../builder/buildable-tree";
+import { SnippetBuilder } from "../builder/snippet-builder";
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
 import { BoxBorder } from "./box-border";
@@ -6,8 +8,9 @@ import { BoxBorder } from "./box-border";
  * https://api.flutter.dev/flutter/painting/Border-class.html
  */
 export class Border extends BoxBorder {
-    static all(args?: { color?: Color, width: double }): Border {
-        // TODO
-        return null;
+    static all(args: { color: Color, width: double }): Border {
+        return new Border()
+            .extendWithFactoryName("all")
+            .overrideArguments(args)
     }
 }

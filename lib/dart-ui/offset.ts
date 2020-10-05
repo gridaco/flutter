@@ -1,4 +1,4 @@
-import { BuildableTree } from "../builder/buildable-widget";
+import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
 import { defaultParam } from "../decorations/params";
 

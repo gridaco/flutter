@@ -1,5 +1,5 @@
 import { Buildable } from "../builder/buildable";
-import { BuildableTree } from "../builder/buildable-widget";
+import { BuildableTree } from "../builder/buildable-tree";
 import { SnippetBuilder } from "../builder/snippet-builder";
 export type double = number | Double | SnippetBuilder;
 type doubleMode = "value" | "nan" | "infinity" | "negativeInfinity" | "minPositive" | "maxFinite"

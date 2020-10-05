@@ -1,5 +1,5 @@
 import { FontWeight as D_FontWeight } from "@bridged.xyz/remote-ui-core/dist/lib/widgets/text";
-import { SnippetBuildableTree } from "../builder/buildable-widget";
+import { SnippetBuildableTree } from "../builder/buildable-tree";
 import { SnippetBuilder } from "../builder/snippet-builder";
 
 export class FontWeight extends SnippetBuildableTree {

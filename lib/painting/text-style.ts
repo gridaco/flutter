@@ -1,5 +1,5 @@
 import { Color } from "@bridged.xyz/remote-ui-core";
-import { BuildableTree } from "../builder/buildable-widget";
+import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
 import { FontStyle } from "../dart-ui/font-style";
 import { FontWeight } from "../dart-ui/font-weight";

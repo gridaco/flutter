@@ -11,22 +11,23 @@ export class BuildableTree implements Buildable {
 
         // if no depth is provided, make it as 0, which is root treee
         depth = depth ?? 0;
+        const target = this.targetObject ?? this
+        // console.log("target", target)
 
-        const defaultParamKeys: ReadonlyArray<string> = Reflect.getMetadata(paramMetadataKey, this) ?? [];
-        const ignoreFeildKeys: ReadonlyArray<string> = Reflect.getMetadata(ignoreMetadataKey, this) ?? [];
+        const defaultParamKeys: ReadonlyArray<string> = Reflect.getMetadata(paramMetadataKey, target) ?? [];
+        const ignoreFeildKeys: ReadonlyArray<string> = Reflect.getMetadata(ignoreMetadataKey, target) ?? [];
 
         const result = new Map<any, PropertyDescriptor>();
-        for (let key of Object.keys(this)) {
-            result.set(key, Object.getOwnPropertyDescriptor(this, key))
+        for (let key of Object.keys(target)) {
+            // if key is from native node's field, ignore it.
+            if (ignoreFeildKeys.includes(key)) {
+            } else {
+                result.set(key, Object.getOwnPropertyDescriptor(target, key))
+            }
         }
 
         const tree = new BuildingTree(this.constructorName, depth)
         function registerOnParam(name: string, value: string) {
-            // if key is from native node's field, ignore it.
-            if (ignoreFeildKeys.includes(name)) {
-                return;
-            }
-
             // checker logic if default field or not
             const named: boolean = !defaultParamKeys.includes(name);
             if (named) {
@@ -41,8 +42,7 @@ export class BuildableTree implements Buildable {
         for (const key of keys) {
             const fieldM = result.get(key)
             const field = fieldM.value
-            console.log(key, typeof field, field)
-
+            // console.log(key, typeof field, field)
             if (field === undefined) {
                 // ignore
             }
@@ -84,7 +84,8 @@ export class BuildableTree implements Buildable {
             try {
                 registerOnParam(key, field.build(depth + 1).lookup())
             } catch (e) {
-                console.log(key, "of type", typeof field, "does not support build()")
+                console.error(key, "of type", typeof field, "does not support build()")
+                console.error("failed object is ", field)
                 console.error(e)
             }
         }
@@ -103,8 +104,22 @@ export class BuildableTree implements Buildable {
     @ignore()
     private factoryName: string = null;
     extendWithFactoryName(name: string) {
-        this.factoryName = this.factoryName
+        this.factoryName = name
         return this;
+    }
+
+    @ignore()
+    private targetObject: BuildableTree
+    overrideTarget(target: BuildableTree): BuildableTree {
+        this.targetObject = target;
+        return this;
+    }
+
+    overrideArguments(args: {}): BuildableTree {
+        const target = <BuildableTree>{
+            ...args
+        }
+        return this.overrideTarget(target)
     }
 
     get constructorName(): string {

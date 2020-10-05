@@ -14,6 +14,7 @@ export class Color extends BuildableTree {
     }
 
     static fromHex(hex: string): Color {
+        hex = hex.replace('#', '')
         return new Color(parseInt(hex, 16));
     }
 }

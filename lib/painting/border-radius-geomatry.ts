@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-widget";
 
-export class Decoration extends BuildableTree {
+export class BorderRadiusGeometry extends BuildableTree {
 
 }

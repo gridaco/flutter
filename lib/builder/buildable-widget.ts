@@ -1,5 +1,5 @@
 import { Buildable } from "./buildable";
-import { getDefaultParamProperties, paramMetadataKey } from "../decorations/params";
+import { getDefaultParamProperties, ignore, paramMetadataKey, ignoreMetadataKey } from "../decorations/params";
 import { SnippetBuilder } from "./snippet-builder";
 import { TextStyle } from "../painting/text-style";
 import { Double } from "../dart";
@@ -13,6 +13,7 @@ export class BuildableTree implements Buildable {
         depth = depth ?? 0;
 
         const defaultParamKeys: ReadonlyArray<string> = Reflect.getMetadata(paramMetadataKey, this) ?? [];
+        const ignoreFeildKeys: ReadonlyArray<string> = Reflect.getMetadata(ignoreMetadataKey, this) ?? [];
 
         const result = new Map<any, PropertyDescriptor>();
         for (let key of Object.keys(this)) {
@@ -21,6 +22,11 @@ export class BuildableTree implements Buildable {
 
         const tree = new BuildingTree(this.constructorName, depth)
         function registerOnParam(name: string, value: string) {
+            // if key is from native node's field, ignore it.
+            if (ignoreFeildKeys.includes(name)) {
+                return;
+            }
+
             // checker logic if default field or not
             const named: boolean = !defaultParamKeys.includes(name);
             if (named) {
@@ -49,8 +55,16 @@ export class BuildableTree implements Buildable {
                         registerOnParam(key, `${field}`)
                         break;
                     case "object":
+                        // handle null value
+                        if (field == null) {
+                            registerOnParam(key, `null`)
+                        }
+                        // handle undefined -> ignore field
+                        else if (field == undefined) {
+                            // ignore
+                        }
                         // handle array
-                        if (Array.isArray(field)) {
+                        else if (Array.isArray(field)) {
                             const builds = []
                             field.forEach((f) => {
                                 try {
@@ -66,7 +80,7 @@ export class BuildableTree implements Buildable {
             }
         }
 
-        function tryBuild(key: string, field: any) {
+        function tryBuild(key: string, field: BuildableTree) {
             try {
                 registerOnParam(key, field.build(depth + 1).lookup())
             } catch (e) {
@@ -86,7 +100,7 @@ export class BuildableTree implements Buildable {
      * I.E "Transform" is default class name, when you want to make "Transform.rotate()", override with this.
      * @param name new name for the class invocation
      */
-    // @ignore()
+    @ignore()
     private factoryName: string = null;
     extendWithFactoryName(name: string) {
         this.factoryName = this.factoryName

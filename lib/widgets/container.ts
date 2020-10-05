@@ -1,7 +1,9 @@
-import { Color } from "@bridged.xyz/remote-ui-core";
+import { assert } from "console";
 import { Widget } from ".";
+import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";
 import { AlignmentGeometry } from "../painting/aligment-geomatry";
+import { BoxDecoration } from "../painting/box-decoration";
 import { Decoration } from "../painting/decoration";
 import { EdgeInsetsGeometry } from "../painting/edge-insets-geomatry";
 import { Matrix4 } from "../vector-math-64/matrix4";
@@ -40,7 +42,6 @@ export class Container extends Widget {
     alignment: AlignmentGeometry
 
 
-
     width: double
     height: double
     padding: EdgeInsetsGeometry
@@ -49,4 +50,25 @@ export class Container extends Widget {
     foregroundDecoration: Decoration
     margin: EdgeInsetsGeometry
     transform: Matrix4
+
+    constructor(args?: {
+        color?: Color
+        width?: double
+        height?: double
+        margin?: EdgeInsetsGeometry
+        padding?: EdgeInsetsGeometry
+        decoration?: BoxDecoration
+    }) {
+        super()
+
+        assert(!args?.decoration || !args?.color, `Cannot provide both a color and a decoration\n
+        To provide both, use "decoration: BoxDecoration(color: color)".`)
+
+        this.color = args?.color
+        this.width = args?.width
+        this.height = args?.height
+        this.margin = args?.margin
+        this.padding = args?.padding
+        this.decoration = args?.decoration
+    }
 }

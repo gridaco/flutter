@@ -68,7 +68,7 @@ export class BuildingTree implements Buildable {
         withComma?: boolean
     }): string {
 
-        if (options.withComma && canAddComma(this.code)) {
+        if (options?.withComma && canAddComma(this.code)) {
             return addComma({ code: this.code, safetyCheck: true });
         }
 

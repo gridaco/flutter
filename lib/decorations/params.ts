@@ -8,12 +8,12 @@ export function param(props?: {
     return Reflect.metadata(paramMetadataKey, props.name);
 }
 
-
+//#region default param
 export function defaultParam(): (target: object, propertyKey: string) => void {
-    return registerProperty;
+    return registerDefaultParamProperty;
 }
 
-function registerProperty(target: object, propertyKey: string): void {
+function registerDefaultParamProperty(target: object, propertyKey: string): void {
     let properties: string[] = Reflect.getMetadata(paramMetadataKey, target);
 
     if (properties) {
@@ -30,3 +30,36 @@ export function getDefaultParamProperties(origin: object): object {
     properties.forEach(key => result[key] = origin[key]);
     return result;
 }
+
+//#endregion
+
+
+
+//#region ignore
+
+
+export const ignoreMetadataKey = Symbol("param");
+
+export function ignore(): (target: object, propertyKey: string) => void {
+    return registerIgnoreFieldProperty;
+}
+
+function registerIgnoreFieldProperty(target: object, propertyKey: string): void {
+    let properties: string[] = Reflect.getMetadata(ignoreMetadataKey, target);
+
+    if (properties) {
+        properties.push(propertyKey);
+    } else {
+        properties = [propertyKey];
+        Reflect.defineMetadata(ignoreMetadataKey, properties, target);
+    }
+}
+
+export function getIgnoreProperties(origin: object): object {
+    const properties: string[] = Reflect.getMetadata(ignoreMetadataKey, origin);
+    const result = {};
+    properties.forEach(key => result[key] = origin[key]);
+    return result;
+}
+
+//#endregion

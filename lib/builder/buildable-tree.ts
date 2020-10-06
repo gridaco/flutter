@@ -1,8 +1,5 @@
 import { Buildable } from "./buildable";
-import { getDefaultParamProperties, ignore, paramMetadataKey, ignoreMetadataKey, defaultParam } from "../decorations/params";
-import { Snippet } from "./snippet-builder";
-import { TextStyle } from "../painting/text-style";
-import { Double } from "../dart";
+import { ignore, paramMetadataKey, ignoreMetadataKey } from "../decorations/params";
 import { BuildingTree } from "./building-tree";
 import { Reflection as Reflect } from '@abraham/reflection';
 
@@ -151,4 +148,49 @@ export class BuildableTree implements Buildable {
         return this.constructor.name;
     }
 }
+
+
+
+
+export class Snippet extends BuildableTree {
+    _defaultSnippet: string;
+    constructor(defaultSnippet?: string) {
+        super();
+        this._defaultSnippet = defaultSnippet;
+    }
+
+    static fromStatic(snippet: string): Snippet {
+        return new Snippet(snippet);
+    }
+
+    build(depth?: number): BuildingTree {
+        return new SnippetBuildingTree(this._defaultSnippet);
+    }
+
+    lookup(): string {
+        return this._defaultSnippet;
+    }
+
+    get constructorName(): string {
+        return this.constructor.name;
+    }
+}
+
+
+export class SnippetBuildingTree extends BuildingTree {
+    snippet: string
+    constructor(snippet: string) {
+        super()
+        this.snippet = snippet;
+    }
+
+    build() {
+        return this;
+    }
+
+    lookup() {
+        return this.snippet;
+    }
+}
+
 

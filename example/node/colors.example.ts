@@ -1,5 +1,4 @@
-import { Color } from "../dart-ui/color";
-
+import { Color } from "flutter-builder/dist/dart-ui/color";
 
 const color = new Color(0xFF0000)
 

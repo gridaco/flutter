@@ -1,5 +1,5 @@
 import { icons } from "@bridged.xyz/remote-ui-core"
-import { Snippet } from "../builder/snippet-builder"
+import { Snippet } from "../builder/buildable-tree"
 
 
 /**

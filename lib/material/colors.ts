@@ -1,4 +1,4 @@
-import { Snippet } from "../builder/snippet-builder";
+import { Snippet } from "../builder/buildable-tree"
 
 /**
  * 

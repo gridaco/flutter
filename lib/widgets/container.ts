@@ -1,4 +1,4 @@
-import { assert } from "console";
+import assert from "assert";
 import { Widget } from ".";
 import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";

@@ -1,5 +1,4 @@
-import { BuildableTree } from "../builder/buildable-tree";
-import { Snippet } from "../builder/snippet-builder";
+import { BuildableTree, Snippet } from "../builder/buildable-tree";
 import { double } from "../dart";
 export class Radius extends BuildableTree {
     static circular(radius: double): Radius {

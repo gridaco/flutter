@@ -1,6 +1,6 @@
 import assert from "assert";
 import { Widget } from ".";
-import { Snippet } from "../builder/snippet-builder";
+import { Snippet } from "../builder/buildable-tree";
 import { TextAlign } from "../dart-ui/text-align";
 import { defaultParam, param } from "../decorations/params";
 import { TextStyle } from "../painting/text-style";

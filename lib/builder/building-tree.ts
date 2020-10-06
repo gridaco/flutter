@@ -42,10 +42,13 @@ export class BuildingTree implements Buildable {
         this.namedArguments.forEach((v, k) => {
             kvContents += `${k}: ${v},\n`
         })
-        kvContents = `${this.containerName}(
+        this.code = `${this.containerName}(
     ${kvContents}
 )`
-        this.code = kvContents;
+
+        // safe logic
+        this.code = this.code.replace(",,", ",")
+
         return this;
     }
 

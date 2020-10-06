@@ -1,6 +1,4 @@
-import { Buildable } from "../builder/buildable";
-import { BuildableTree } from "../builder/buildable-tree";
-import { Snippet } from "../builder/snippet-builder";
+import { Snippet } from "../builder/buildable-tree";
 export type double = number | Double | Snippet;
 type doubleMode = "value" | "nan" | "infinity" | "negativeInfinity" | "minPositive" | "maxFinite"
 export class Double extends Snippet {

@@ -6,7 +6,7 @@ flutter widget builder for nodejs
 
 ## Installation
 ``` sh
-yarn add flutter-builder
+yarn add @bridged.xyz/flutter-builder
 ```
 
 ## How to use

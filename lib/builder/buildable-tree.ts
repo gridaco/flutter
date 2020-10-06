@@ -134,7 +134,7 @@ export class BuildableTree implements Buildable {
         return Snippet.fromStatic(snippet)
     }
 
-    overrideArguments(args: {}): BuildableTree {
+    overrideArguments<T>(args: {}): BuildableTree | T {
         const target = <BuildableTree>{
             ...args
         }

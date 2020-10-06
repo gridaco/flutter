@@ -1,9 +1,9 @@
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 
 /**
  * 
  */
-export class Colors extends SnippetBuilder {
-    static readonly white: SnippetBuilder = SnippetBuilder.fromStatic("Colors.white")
-    static readonly black: SnippetBuilder = SnippetBuilder.fromStatic("Colors.black")
+export class Colors extends Snippet {
+    static readonly white: Snippet = Snippet.fromStatic("Colors.white")
+    static readonly black: Snippet = Snippet.fromStatic("Colors.black")
 }

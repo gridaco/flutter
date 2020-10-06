@@ -1,6 +1,6 @@
 import { Buildable } from "./buildable";
 import { getDefaultParamProperties, ignore, paramMetadataKey, ignoreMetadataKey, defaultParam } from "../decorations/params";
-import { SnippetBuilder } from "./snippet-builder";
+import { Snippet } from "./snippet-builder";
 import { TextStyle } from "../painting/text-style";
 import { Double } from "../dart";
 import { BuildingTree } from "./building-tree";
@@ -132,6 +132,11 @@ export class BuildableTree implements Buildable {
         return this;
     }
 
+    // overrides full snippet, returns static string data on build()
+    overrideSnippet(snippet: string): BuildableTree {
+        return Snippet.fromStatic(snippet)
+    }
+
     overrideArguments(args: {}): BuildableTree {
         const target = <BuildableTree>{
             ...args
@@ -147,14 +152,3 @@ export class BuildableTree implements Buildable {
     }
 }
 
-
-export class SnippetBuildableTree extends BuildableTree implements SnippetBuilder {
-
-    lookup() {
-        return this._defaultSnippet;
-    }
-    _defaultSnippet: string;
-    get constructorName(): string {
-        return this.constructor.name;
-    }
-}

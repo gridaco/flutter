@@ -1,9 +1,9 @@
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 
 /**
  * https://api.flutter.dev/flutter/painting/BoxShape-class.html
  */
-export class BoxShape extends SnippetBuilder {
-    static readonly circle = SnippetBuilder.fromStatic("BoxShape.circle");
-    static readonly rectangle = SnippetBuilder.fromStatic("BoxShape.rectangle");
+export class BoxShape extends Snippet {
+    static readonly circle = Snippet.fromStatic("BoxShape.circle");
+    static readonly rectangle = Snippet.fromStatic("BoxShape.rectangle");
 }

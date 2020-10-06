@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-tree";
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
 import { BoxBorder } from "./box-border";

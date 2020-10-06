@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-tree";
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 import { double } from "../dart";
 export class Radius extends BuildableTree {
     static circular(radius: double): Radius {
@@ -15,5 +15,5 @@ export class Radius extends BuildableTree {
         })
     }
 
-    static readonly zero = SnippetBuilder.fromStatic("Radius.zero")
+    static readonly zero = Snippet.fromStatic("Radius.zero")
 }

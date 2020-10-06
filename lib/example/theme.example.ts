@@ -1,3 +1,4 @@
 import { Theme } from "../material/theme";
 
-console.log(Theme.of().textStyle.button)
+const textStyle = Theme.of().textStyle.button
+console.log(textStyle.build().lookup())

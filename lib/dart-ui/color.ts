@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-tree";
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 import { defaultParam } from "../decorations/params";
 
 /**
@@ -7,10 +7,10 @@ import { defaultParam } from "../decorations/params";
  */
 export class Color extends BuildableTree {
     @defaultParam()
-    value: SnippetBuilder | number
+    value: Snippet | number
     constructor(value: number) {
         super()
-        this.value = SnippetBuilder.fromStatic("0x" + value.toString(16))
+        this.value = Snippet.fromStatic("0x" + value.toString(16))
     }
 
     static fromHex(hex: string): Color {

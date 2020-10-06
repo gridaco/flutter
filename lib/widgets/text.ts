@@ -1,6 +1,6 @@
 import assert from "assert";
 import { Widget } from ".";
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 import { TextAlign } from "../dart-ui/text-align";
 import { defaultParam, param } from "../decorations/params";
 import { TextStyle } from "../painting/text-style";
@@ -13,12 +13,12 @@ export class Text extends Widget {
     data: string
 
     // @param({ name: "data", default: false })
-    style: TextStyle | SnippetBuilder
+    style: TextStyle | Snippet
 
     textAlign: TextAlign
 
     constructor(data: string, args?: {
-        style?: TextStyle | SnippetBuilder
+        style?: TextStyle | Snippet
         textAlign?: TextAlign
     }) {
         super()

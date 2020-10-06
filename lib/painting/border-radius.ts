@@ -1,4 +1,4 @@
-import { SnippetBuilder } from "../builder/snippet-builder";
+import { Snippet } from "../builder/snippet-builder";
 import { Border } from "./border";
 import { BorderRadiusGeometry } from "./border-radius-geomatry";
 import { Radius } from "../dart-ui/radius"

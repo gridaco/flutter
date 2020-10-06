@@ -1,10 +1,9 @@
-import { PrebuiltWidget } from "../builder/prebuilt-widget";
-import { Double } from "../dart";
+import { Widget } from "../widgets";
 import { Opacity } from "../widgets/opacity";
 
 
 
-const prebuilt = new PrebuiltWidget("UndifinedCustomWidget()")
+const prebuilt = Widget.prebuilt("UndifinedCustomWidget()")
 
 
 const opacity = new Opacity({

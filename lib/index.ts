@@ -3,11 +3,14 @@ import * as ui from "./dart-ui"
 import * as dart from "./dart"
 import * as vectormath from "./vector-math-64"
 import * as painting from "./painting"
-
+import * as material from "./material"
+import * as x from "./dynamic"
 export {
     widgets,
     ui,
     dart,
     vectormath,
-    painting
+    painting,
+    material,
+    x
 }

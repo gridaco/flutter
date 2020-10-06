@@ -52,6 +52,7 @@ export class Container extends Widget {
     transform: Matrix4
 
     constructor(args?: {
+        child?: Widget
         color?: Color
         width?: double
         height?: double
@@ -64,6 +65,7 @@ export class Container extends Widget {
         assert(!args?.decoration || !args?.color, `Cannot provide both a color and a decoration\n
         To provide both, use "decoration: BoxDecoration(color: color)".`)
 
+        this.child = args?.child
         this.color = args?.color
         this.width = args?.width
         this.height = args?.height

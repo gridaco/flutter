@@ -1,6 +1,7 @@
 import { Double } from "../dart";
 import { Color } from "../dart-ui/color";
 import { Radius } from "../dart-ui/radius";
+import { Icons } from "../material/icons";
 import { Border } from "../painting/border";
 import { BorderRadius } from "../painting/border-radius";
 import { BoxDecoration } from "../painting/box-decoration";
@@ -20,8 +21,9 @@ const container = new Container(
                 width: 12
             }),
             shape: BoxShape.circle,
-            borderRadius: BorderRadius.only({ topLeft: Radius.circular(12) })
-        })
+            borderRadius: BorderRadius.only({ topLeft: Radius.circular(12) }),
+
+        }),
     }
 );
 

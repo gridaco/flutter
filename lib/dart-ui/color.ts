@@ -7,7 +7,7 @@ import { defaultParam } from "../decorations/params";
 export class Color extends BuildableTree {
     @defaultParam()
     value: Snippet | number
-    constructor(value: number) {
+    constructor(value?: number) {
         super()
         this.value = Snippet.fromStatic("0x" + value.toString(16))
     }

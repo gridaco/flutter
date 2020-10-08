@@ -18,5 +18,9 @@ export class BorderRadius extends BorderRadiusGeometry {
         return new BorderRadius().extendWithFactoryName("circular").overrideArguments(args)
     }
 
+    static zero(): BorderRadius {
+        return new BorderRadius().extendWithFactoryName("zero").overrideArguments({})
+    }
+
     // static 
 }

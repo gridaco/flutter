@@ -1,10 +1,12 @@
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
-import { AlignmentGeometry } from "./aligment-geomatry";
+import { AlignmentGeometry } from "./alignment-geomatry";
 import { Gradient } from "./gradient";
 
-
-export class LinearGradients extends Gradient {
+/**
+ * https://api.flutter.dev/flutter/painting/LinearGradient-class.html
+ */
+export class LinearGradient extends Gradient {
     begin: AlignmentGeometry
     end: AlignmentGeometry
     colors: Array<Color>

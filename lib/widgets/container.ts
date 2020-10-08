@@ -6,7 +6,7 @@ import { BoxDecoration } from "../painting/box-decoration";
 import { Decoration } from "../painting/decoration";
 import { EdgeInsetsGeometry } from "../painting/edge-insets-geometry";
 import { Matrix4 } from "../vector-math-64/matrix4";
-import { Widget } from "./widget";
+import { Widget } from ".";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Container-class.html

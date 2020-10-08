@@ -1,5 +1,5 @@
 import { double } from "../dart";
-import { Widget } from "./widget";
+import { Widget } from ".";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Opacity-class.html

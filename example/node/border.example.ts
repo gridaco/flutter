@@ -1,5 +1,5 @@
-import { Color } from "flutter-builder/dist/dart-ui/color";
-import { Border } from "flutter-builder/dist/painting/border";
+import { Color } from "@bridged.xyz/flutter-builder/dist/dart-ui/color";
+import { Border } from "@bridged.xyz/flutter-builder/dist/painting/border";
 
 const border = Border.all({
     color: Color.fromHex("#BBBBBB"),

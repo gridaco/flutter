@@ -9,11 +9,20 @@ export class Color extends BuildableTree {
     value: Snippet | number
     constructor(value?: number) {
         super()
-        this.value = Snippet.fromStatic("0x" + value.toString(16))
+        if (value) {
+            this.value = Snippet.fromStatic("0x" + value?.toString(16))
+        } else {
+            throw "the value:number provided must be a valid color value"
+        }
     }
 
     static fromHex(hex: string): Color {
-        hex = hex.replace('#', '')
-        return new Color(parseInt(hex, 16));
+        try {
+            hex = hex.replace('#', '')
+            return new Color(parseInt(hex, 16));
+        }
+        catch (e) {
+            return undefined
+        }
     }
 }

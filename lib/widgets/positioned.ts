@@ -1,6 +1,5 @@
 import { Widget } from ".";
 import { double } from "../dart";
-import { Alignment } from "../painting/alignment";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Positioned-class.html
@@ -24,13 +23,13 @@ export class Positioned extends Widget {
         child: Widget
     }) {
         super()
-        this.left = args.left
-        this.top = args.top
-        this.right = args.right
-        this.bottom = args.bottom
-        this.width = args.width
-        this.height = args.height
-        this.child = args.child
+        this.left = args?.left
+        this.top = args?.top
+        this.right = args?.right
+        this.bottom = args?.bottom
+        this.width = args?.width
+        this.height = args?.height
+        this.child = args?.child
     }
 
     static fill(args: {

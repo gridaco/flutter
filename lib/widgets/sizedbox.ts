@@ -9,7 +9,7 @@ export class SizedBox extends Widget {
     height: double
     child: Widget
     constructor(args: {
-        child: Widget
+        child?: Widget
         width?: double
         height?: double
     }) {

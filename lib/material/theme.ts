@@ -1,4 +1,3 @@
-import { actions } from "@bridged.xyz/remote-ui-core";
 import { TextThemeDefaults } from "./text-theme";
 
 /**

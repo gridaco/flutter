@@ -1,6 +1,6 @@
-import { TextStyle } from "@bridged.xyz/remote-ui-core/dist/lib/widgets/text";
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
+import { TextStyle } from "../painting";
 import { BorderRadiusGeometry } from "../painting/border-radius-geomatry";
 import { ShapeBorder } from "../painting/shape-border";
 import { Widget } from "../widgets";

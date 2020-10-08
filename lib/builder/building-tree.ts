@@ -62,8 +62,8 @@ export class BuildingTree implements Buildable {
 
     format(): string {
         // this.code = formatCode(this.code).code;
-        const dart = require("dart-style")
-        this.code = dart.formatCode(this.code).code;
+        // const dart = require("dart-style")
+        // this.code = dart.formatCode(this.code).code;
         return this.lookup();
     }
 

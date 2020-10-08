@@ -2,7 +2,7 @@ import assert from "assert";
 import { Widget } from ".";
 import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";
-import { AlignmentGeometry } from "../painting/aligment-geomatry";
+import { AlignmentGeometry } from "../painting/alignment-geomatry";
 import { BoxDecoration } from "../painting/box-decoration";
 import { Decoration } from "../painting/decoration";
 import { EdgeInsetsGeometry } from "../painting/edge-insets-geomatry";

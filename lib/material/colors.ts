@@ -1,9 +1,25 @@
 import { Snippet } from "../builder/buildable-tree"
+import { Color } from "../dart-ui/color"
 
 /**
- * 
+ * https://api.flutter.dev/flutter/material/Colors-class.html
  */
 export class Colors extends Snippet {
-    static readonly white: Snippet = Snippet.fromStatic("Colors.white")
-    static readonly black: Snippet = Snippet.fromStatic("Colors.black")
+    static get white(): Color {
+        const color = new Color(0xffffff)
+        color.overrideSnippet("Colors.white")
+        return color;
+    }
+
+    static get black(): Color {
+        const color = new Color(0x000000)
+        color.overrideSnippet("Colors.black")
+        return color;
+    }
+
+    static get transparent(): Color {
+        const color = new Color(0x00000000)
+        color.overrideSnippet("Colors.transparent")
+        return color;
+    }
 }

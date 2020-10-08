@@ -1,12 +1,12 @@
-import { Double } from "flutter-builder/dist/dart";
-import { Color } from "flutter-builder/dist/dart-ui/color";
-import { Radius } from "flutter-builder/dist/dart-ui/radius";
-import { Border } from "flutter-builder/dist/painting/border";
-import { BorderRadius } from "flutter-builder/dist/painting/border-radius";
-import { BoxDecoration } from "flutter-builder/dist/painting/box-decoration";
-import { BoxShape } from "flutter-builder/dist/painting/box-shape";
-import { LinearGradients } from "flutter-builder/dist/painting/linear-gradient";
-import { Container } from "flutter-builder/dist/widgets";
+import { Double } from "@bridged.xyz/flutter-builder/dist/dart";
+import { Color } from "@bridged.xyz/flutter-builder/dist/dart-ui/color";
+import { Radius } from "@bridged.xyz/flutter-builder/dist/dart-ui/radius";
+import { Border } from "@bridged.xyz/flutter-builder/dist/painting/border";
+import { BorderRadius } from "@bridged.xyz/flutter-builder/dist/painting/border-radius";
+import { BoxDecoration } from "@bridged.xyz/flutter-builder/dist/painting/box-decoration";
+import { BoxShape } from "@bridged.xyz/flutter-builder/dist/painting/box-shape";
+import { LinearGradient } from "@bridged.xyz/flutter-builder/dist/painting/linear-gradient";
+import { Container } from "@bridged.xyz/flutter-builder/dist/widgets";
 
 
 
@@ -21,7 +21,7 @@ const container = new Container(
       }),
       shape: BoxShape.circle,
       borderRadius: BorderRadius.only({ topLeft: Radius.circular(12) }),
-      gradient: new LinearGradients({
+      gradient: new LinearGradient({
         colors: [
           Color.fromHex("#AAAAAA"),
         ]

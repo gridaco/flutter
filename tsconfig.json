@@ -9,6 +9,7 @@
       "dom"
     ],
     "declaration": true,
+    "strictNullChecks": false,
     "outDir": "dist",
     "esModuleInterop": true,
     "sourceMap": true,

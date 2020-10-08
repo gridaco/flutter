@@ -1,6 +1,11 @@
 {
     "name": "example",
+    "license": "MIT",
     "dependencies": {
-        "flutter-builder": "file:../.."
+        "@bridged.xyz/flutter-builder": "file:../.."
+    },
+    "devDependencies": {
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.3"
     }
 }

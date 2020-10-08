@@ -1,5 +1,5 @@
-import { Theme } from "../material/theme";
-import { Text } from "../widgets";
+import { Theme } from "@bridged.xyz/flutter-builder/dist/material/theme";
+import { Text } from "@bridged.xyz/flutter-builder/dist/widgets";
 
 
 const text = new Text("", {

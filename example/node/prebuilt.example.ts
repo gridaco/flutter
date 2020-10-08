@@ -1,5 +1,5 @@
-import { Widget } from "../widgets";
-import { Opacity } from "../widgets/opacity";
+import { Widget } from "@bridged.xyz/flutter-builder/dist/widgets/widget";
+import { Opacity } from "@bridged.xyz/flutter-builder/dist/widgets/opacity";
 
 
 

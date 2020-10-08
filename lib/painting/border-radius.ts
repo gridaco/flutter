@@ -5,8 +5,10 @@ import { double } from "../dart";
  * https://api.flutter.dev/flutter/painting/BorderRadius-class.html
  */
 export class BorderRadius extends BorderRadiusGeometry {
-    static circular(_: double): BorderRadius {
-        return new BorderRadius().extendWithFactoryName("circular").overrideArguments({ _ })
+    static circular(value: double): BorderRadius {
+        return new BorderRadius()
+            .extendWithFactoryName("circular")
+            .overrideArguments({ __default__: value })
     }
 
     static only(args: {
@@ -15,7 +17,15 @@ export class BorderRadius extends BorderRadiusGeometry {
         bottomLeft?: Radius
         bottomRight?: Radius
     }): BorderRadius {
-        return new BorderRadius().extendWithFactoryName("circular").overrideArguments(args)
+        return new BorderRadius()
+            .extendWithFactoryName("only")
+            .overrideArguments(args)
+    }
+
+    static zero(): BorderRadius {
+        return new BorderRadius()
+            .extendWithFactoryName("zero")
+            .overrideArguments({})
     }
 
     // static 

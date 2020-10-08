@@ -5,6 +5,7 @@ import { Row } from "./row";
 import { SizedBox } from "./sizedbox";
 import { Spacer } from "./spacer";
 import { Text } from "./text";
+import { Stack } from "./stack";
 
 
 export {
@@ -14,5 +15,6 @@ export {
     SizedBox,
     Spacer,
     Text,
-    Widget
+    Widget,
+    Stack
 }

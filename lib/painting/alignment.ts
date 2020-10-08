@@ -1,4 +1,4 @@
-import { AlignmentGeometry } from "./aligment-geomatry";
+import { AlignmentGeometry } from "./alignment-geomatry";
 
 /**
  * https://api.flutter.dev/flutter/painting/Alignment-class.html

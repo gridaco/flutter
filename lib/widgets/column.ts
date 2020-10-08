@@ -2,7 +2,7 @@ import { Widget } from "."
 import { CrossAxisAlignment } from "../rendering/cross-axis-alignment"
 import { MainAxisAlignment } from "../rendering/main-axis-alignment"
 import { MainAxisSize } from "../rendering/main-axis-size"
-import { TextDirection } from "../dart-ui/textdirection"
+import { TextDirection } from "../dart-ui/text-direction"
 import { VerticalDirection } from "../painting/vertical-direction"
 import { TextBaseline } from "../painting/text-baseline"
 

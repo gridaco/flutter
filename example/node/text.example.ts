@@ -1,6 +1,4 @@
-import { Theme } from "@bridged.xyz/flutter-builder/dist/material/theme";
-import { Text } from "@bridged.xyz/flutter-builder/dist/widgets";
-
+import { Text, Theme } from "@bridged.xyz/flutter-builder"
 
 const text = new Text("", {
     style: Theme.of().textStyle.headline5

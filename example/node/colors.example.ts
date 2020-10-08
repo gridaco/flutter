@@ -1,6 +1,7 @@
-import { Color } from "@bridged.xyz/flutter-builder/dist/dart-ui/color";
 
 // const color = new Color(0xFF0000)
+
+import { Color } from "@bridged.xyz/flutter-builder"
 
 // const color = Color.fromHex(undefined)
 

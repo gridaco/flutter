@@ -1,5 +1,4 @@
-import { CrossAxisAlignment } from "@bridged.xyz/flutter-builder/dist/rendering/cross-axis-alignment";
-import { Row } from "@bridged.xyz/flutter-builder/dist/widgets";
+import { Row, CrossAxisAlignment } from "@bridged.xyz/flutter-builder"
 
 const row = new Row({
     children: [],

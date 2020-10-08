@@ -1,7 +1,4 @@
-import { Widget } from "@bridged.xyz/flutter-builder/dist/widgets/widget";
-import { Opacity } from "@bridged.xyz/flutter-builder/dist/widgets/opacity";
-
-
+import { Opacity, Widget } from "@bridged.xyz/flutter-builder"
 
 const prebuilt = Widget.prebuilt("UndifinedCustomWidget()")
 

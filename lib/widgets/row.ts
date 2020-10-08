@@ -1,5 +1,5 @@
 import { Widget } from "."
-import { TextDirection } from "../dart-ui/textdirection"
+import { TextDirection } from "../dart-ui/text-direction"
 import { TextBaseline } from "../painting/text-baseline"
 import { VerticalDirection } from "../painting/vertical-direction"
 import { CrossAxisAlignment } from "../rendering/cross-axis-alignment"

@@ -1,13 +1,4 @@
-import { Double } from "@bridged.xyz/flutter-builder/dist/dart";
-import { Color } from "@bridged.xyz/flutter-builder/dist/dart-ui/color";
-import { Radius } from "@bridged.xyz/flutter-builder/dist/dart-ui/radius";
-import { Border } from "@bridged.xyz/flutter-builder/dist/painting/border";
-import { BorderRadius } from "@bridged.xyz/flutter-builder/dist/painting/border-radius";
-import { BoxDecoration } from "@bridged.xyz/flutter-builder/dist/painting/box-decoration";
-import { BoxShape } from "@bridged.xyz/flutter-builder/dist/painting/box-shape";
-import { LinearGradient } from "@bridged.xyz/flutter-builder/dist/painting/linear-gradient";
-import { Container } from "@bridged.xyz/flutter-builder/dist/widgets";
-
+import { Border, BorderRadius, BoxDecoration, BoxShape, Color, Container, Double, LinearGradient, Radius } from "@bridged.xyz/flutter-builder"
 
 
 const container = new Container(

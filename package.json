@@ -2,8 +2,8 @@
   "name": "@bridged.xyz/flutter-builder",
   "version": "1.23.0-7.0.pre.23",
   "description": "flutter widget builder from nodejs",
-  "main": "index.js",
-  "repository": "https://github.com/bridgedxyz/flutter-js.git",
+  "main": "dist",
+  "repository": "https://github.com/bridgedxyz/flutter-builder.git",
   "author": "softmarshmallow <woojoo@softmarshmallow.com>",
   "license": "MIT",
   "private": false,
@@ -22,6 +22,12 @@
     "jest": "^26.5.2",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./widgets": "./dist/widgets"
   },
   "jest": {
     "transform": {

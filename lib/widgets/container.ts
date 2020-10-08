@@ -1,12 +1,12 @@
 import assert from "assert";
-import { Widget } from ".";
 import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";
 import { AlignmentGeometry } from "../painting/alignment-geomatry";
 import { BoxDecoration } from "../painting/box-decoration";
 import { Decoration } from "../painting/decoration";
-import { EdgeInsetsGeometry } from "../painting/edge-insets-geomatry";
+import { EdgeInsetsGeometry } from "../painting/edge-insets-geometry";
 import { Matrix4 } from "../vector-math-64/matrix4";
+import { Widget } from "./widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Container-class.html

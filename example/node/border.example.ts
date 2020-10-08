@@ -1,6 +1,4 @@
-import { Color } from "@bridged.xyz/flutter-builder/dist/dart-ui/color";
-import { Border } from "@bridged.xyz/flutter-builder/dist/painting/border";
-
+import { Border, Color } from "@bridged.xyz/flutter-builder"
 const border = Border.all({
     color: Color.fromHex("#BBBBBB"),
     width: 12

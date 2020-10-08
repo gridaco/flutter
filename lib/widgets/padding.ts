@@ -1,5 +1,5 @@
 import { Widget } from ".";
-import { EdgeInsetsGeometry } from "../painting/edge-insets-geomatry";
+import { EdgeInsetsGeometry } from "../painting/edge-insets-geometry";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Padding-class.html

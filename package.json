@@ -1,6 +1,6 @@
 {
   "name": "@bridged.xyz/flutter-builder",
-  "version": "1.23.0-7.0.pre.15",
+  "version": "1.23.0-7.0.pre.16",
   "description": "flutter widget builder from nodejs",
   "main": "index.js",
   "repository": "https://github.com/bridgedxyz/flutter-js.git",

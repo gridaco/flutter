@@ -81,6 +81,14 @@ export class BuildableTree implements Buildable {
                         else if (Array.isArray(field)) {
                             const builds = []
                             field.forEach((f) => {
+                                switch (typeof (f)) {
+                                    case "string":
+                                        builds.push(`"${f}"`)
+                                        break;
+                                    case "number":
+                                        builds.push(`${f}`)
+                                        break;
+                                }
                                 try {
                                     builds.push((f as any).build(depth + 1).lookup())
                                 } catch (e) { }

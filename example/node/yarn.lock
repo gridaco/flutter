@@ -8,7 +8,7 @@
   integrity sha512-W4V4I0PzxeWCiMKnS4n4x3Fzb8cQp2qlmBO7RACS/00YsvIgijjcBz5Mp3P1PPP9vSzpbmi0qwuVYZ4twXKwxg==
 
 "@bridged.xyz/flutter-builder@file:../..":
-  version "1.23.0-7.0.pre.20"
+  version "1.23.0-7.0.pre.22"
   dependencies:
     "@abraham/reflection" "^0.7.0"
     "@bridged.xyz/remote-ui-core" "0.0.31"

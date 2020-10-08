@@ -24,7 +24,7 @@ const container = new Container(
       gradient: new LinearGradient({
         colors: [
           Color.fromHex("#AAAAAA"),
-        ]
+        ], stops: [1, 2]
       })
     }),
   }

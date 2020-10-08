@@ -25,4 +25,8 @@ export class Color extends BuildableTree {
             return undefined
         }
     }
+
+    static fromRGBO(r: number, g: number, b: number, o: number): Color {
+        throw "not implemented"
+    }
 }

@@ -134,10 +134,10 @@ widget supported
 
 ### Core
 
-- Gradient
+- ✅ Gradient
 - RadialGradient
-- Radius
-- EdgeInsets
+- ✅ Radius
+- ✅ EdgeInsets
 - ✅ Color
 - ✅ Icon
 - ✅ IconData
@@ -150,27 +150,27 @@ widget supported
 - ✅ SizedBox
 - ✅ Column
 - ✅ Row
-- Stack
-- Positioned
-- Align
-- Text
-    - DefaultTextStyle
+- ✅ Stack
+- ✅ Positioned
+- ✅ Align
+- ✅ Text
+    - ✅ DefaultTextStyle
 - RichText
-- Padding
-- Center
+- ✅ Padding
+- ✅ Center
 - Clip
     - ClipRRect
     - ClipRect
     - ClipOval
     - ClipPath
-- Expanded
+- ✅ Expanded
 - Flex
 - Flexible
-- Opacity
+- ✅ Opacity
 - GestureDetector
 - Placeholder
 - ✅ Spacer
-- Transform
+- ✅ Transform
 - Wrap
 
 ### Later
@@ -190,6 +190,7 @@ widget supported
 - GirdView
     - horizontal
     - vertical
+- ✅ SingleChildScrollView
 
 ### MISC
 

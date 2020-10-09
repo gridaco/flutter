@@ -8,6 +8,7 @@ import { Opacity } from "./opacity"
 import { Padding } from "./padding"
 import { Positioned } from "./positioned"
 import { Row } from "./row";
+import { SingleChildScrollView } from "./single-child-scroll-view";
 import { SizedBox } from "./sizedbox";
 import { Spacer } from "./spacer";
 import { Text } from "./text";
@@ -26,6 +27,7 @@ export {
     Padding,
     Positioned,
     Row,
+    SingleChildScrollView,
     SizedBox,
     Spacer,
     Stack,

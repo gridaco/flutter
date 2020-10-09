@@ -27,7 +27,7 @@ export class EdgeInsets extends EdgeInsetsGeometry {
     }
 
     static all(value: double): EdgeInsets {
-        return new EdgeInsets().extendWithFactoryName("symmetric").overrideArguments({
+        return new EdgeInsets().extendWithFactoryName("all").overrideArguments({
             __default__: value
         })
     }

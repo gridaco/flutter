@@ -1,8 +1,7 @@
 {
   "name": "@bridged.xyz/flutter-builder",
-  "version": "1.23.0-7.0.pre.31",
+  "version": "1.23.0-7.0.pre.32",
   "description": "flutter widget builder from nodejs",
-  "main": "dist",
   "repository": "https://github.com/bridgedxyz/flutter-builder.git",
   "author": "softmarshmallow <woojoo@softmarshmallow.com>",
   "license": "MIT",

@@ -16,10 +16,12 @@ import { VerticalDirection } from "./vertical-direction";
 import { EdgeInsets } from "./edgeinsets";
 import { Gradient } from "./gradient"
 import { LinearGradient } from "./linear-gradient"
+import { RadialGradient } from "./radial-gradient";
 import { RoundedRectangleBorder } from "./rounded-rectangle-border"
 import { ShapeBorder } from "./shape-border"
 import { TextBaseline } from "./text-baseline";
 import { TextStyle } from "./text-style"
+import { GradientTransform } from "./gradient-transform";
 
 export {
     AlignmentGeometry,
@@ -38,8 +40,10 @@ export {
     EdgeInsetsGeometry,
     EdgeInsets,
     Gradient,
+    GradientTransform,
     TextBaseline,
     LinearGradient,
+    RadialGradient,
     RoundedRectangleBorder,
     ShapeBorder,
     TextStyle,

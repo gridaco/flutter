@@ -1,3 +1,4 @@
+import { TileMode } from "./tile-mode";
 import { Color } from "./color";
 import { FontStyle } from "./font-style";
 import { FontWeight } from "./font-weight";
@@ -18,4 +19,5 @@ export {
     TextAlign,
     TextDecoration,
     TextDirection,
+    TileMode
 }

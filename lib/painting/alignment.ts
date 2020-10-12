@@ -1,42 +1,65 @@
+import { double } from "../dart";
+import { defaultParam } from "../decorations/params";
 import { AlignmentGeometry } from "./alignment-geomatry";
 
 /**
  * https://api.flutter.dev/flutter/painting/Alignment-class.html
  */
 export class Alignment extends AlignmentGeometry {
+
+    @defaultParam()
+    x: double
+    @defaultParam()
+    y: double
+
+    constructor(x: double, y: double) {
+        super()
+        this.x = x;
+        this.y = y
+    }
+
     static get bottomCenter(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.bottomCenter");
+        return new Alignment(0, 1)
+            .overrideSnippet("Alignment.bottomCenter");
     }
 
     static get bottomLeft(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.bottomLeft");
+        return new Alignment(-1.0, 1.0)
+            .overrideSnippet("Alignment.bottomLeft");
     }
 
     static get bottomRight(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.bottomRight");
+        return new Alignment(1.0, 1.0)
+            .overrideSnippet("Alignment.bottomRight");
     }
 
     static get center(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.center");
+        return new Alignment(0.0, 0.0)
+            .overrideSnippet("Alignment.center");
     }
 
     static get centerLeft(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.centerLeft");
+        return new Alignment(-1.0, 0.0)
+            .overrideSnippet("Alignment.centerLeft");
     }
 
     static get centerRight(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.centerRight");
+        return new Alignment(1.0, 0.0)
+            .overrideSnippet("Alignment.centerRight");
     }
 
     static get topCenter(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.topCenter");
+        return new Alignment(0.0, -1.0)
+            .overrideSnippet("Alignment.topCenter");
     }
 
     static get topLeft(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.topLeft");
+        return new Alignment(-1.0, -1.0)
+            .overrideSnippet("Alignment.topLeft");
     }
 
     static get topRight(): Alignment {
-        return new Alignment().overrideSnippet("Alignment.topRight");
+        return new Alignment(1.0, -1.0)
+            .overrideSnippet("Alignment.topRight");
     }
 }

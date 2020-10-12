@@ -125,24 +125,24 @@ export class BuildableTree implements Buildable {
      */
     @ignore()
     private factoryName: string = null;
-    extendWithFactoryName(name: string) {
+    extendWithFactoryName(name: string): this {
         this.factoryName = name
         return this;
     }
 
     @ignore()
     private targetObject: BuildableTree
-    overrideTarget(target: BuildableTree): BuildableTree {
+    overrideTarget(target: BuildableTree): this {
         this.targetObject = target;
         return this;
     }
 
     // overrides full snippet, returns static string data on build()
-    overrideSnippet(snippet: string): BuildableTree {
-        return Snippet.fromStatic(snippet)
+    overrideSnippet(snippet: string): this {
+        return Snippet.fromStatic(snippet) as any
     }
 
-    overrideArguments<T>(args: {}): BuildableTree | T {
+    overrideArguments<T>(args: {}): this | T {
         const target = <BuildableTree>{
             ...args
         }

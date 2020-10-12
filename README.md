@@ -139,7 +139,7 @@ widget supported
 - ✅ Radius
 - ✅ EdgeInsets
 - ✅ Color
-- ✅ Icon
+- ⚠️ Icon
 - ✅ IconData
 - Image → XImage
 
@@ -167,11 +167,12 @@ widget supported
 - Flex
 - Flexible
 - ✅ Opacity
-- GestureDetector
+- ⚠️ GestureDetector
 - Placeholder
 - ✅ Spacer
 - ✅ Transform
 - Wrap
+- ✅ Divider
 
 ### Later
 

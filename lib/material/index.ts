@@ -1,4 +1,5 @@
 import { Colors } from "./colors";
+import { Divider } from "./divider";
 import { FlatButton } from "./flat-button";
 import { Icons } from "./icons";
 import { Material } from "./material";
@@ -10,6 +11,7 @@ import { Theme } from "./theme";
 
 export {
     Colors,
+    Divider,
     FlatButton,
     Icons,
     MaterialButton,

@@ -4,6 +4,8 @@ import { Center } from './center'
 import { Column } from "./column";
 import { Container } from "./container";
 import { DefaultTextStyle } from "./default-text-style"
+import { Expanded } from "./expanded";
+import { GestureDetector } from "./gesture-detector";
 import { Opacity } from "./opacity"
 import { Padding } from "./padding"
 import { Positioned } from "./positioned"
@@ -23,6 +25,8 @@ export {
     Column,
     Container,
     DefaultTextStyle,
+    Expanded,
+    GestureDetector,
     Opacity,
     Padding,
     Positioned,

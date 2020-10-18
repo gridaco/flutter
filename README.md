@@ -1,4 +1,7 @@
+![](./docs/cover.jpg)
+
 # flutter-builder
+
 flutter widget builder for nodejs
 > flutter-builder uses *[dynamic](https://github.com/bridgedxyz/dynamic)* for handling dynamic configurable data such as button action handling.
 

@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "postinstall": "tsc",
     "prepublish": "tsc",
     "test": "jest"
   },

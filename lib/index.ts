@@ -6,13 +6,4 @@ export * from "./painting"
 export * from "./material"
 export * from "./rendering"
 export * from "./dynamic"
-
-// export {
-//     widgets,
-//     ui,
-//     dart,
-//     vectormath,
-//     painting,
-//     material,
-//     x
-// }
+export * from "./composer"

@@ -1,8 +1,13 @@
 import { Widget } from "../widgets";
 
 
-export function composeSimpleApplication(component: Widget): string {
-  const componentSource = component.build().finalize()
+export function composeSimpleApplication(component: Widget | string): string {
+  let componentSource: string
+  if (component instanceof Widget) {
+    componentSource = component.build().finalize()
+  } else {
+    componentSource = component;
+  }
 
   const APP = `
   import 'package:flutter/material.dart';

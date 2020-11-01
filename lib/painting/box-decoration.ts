@@ -4,6 +4,7 @@ import { BoxBorder } from "./box-border";
 import { BoxShadow } from "./box-shadow";
 import { BoxShape } from "./box-shape";
 import { Decoration } from "./decoration";
+import { DecorationImage } from "./decoration-image";
 import { Gradient } from "./gradient";
 
 /**
@@ -11,7 +12,7 @@ import { Gradient } from "./gradient";
  */
 export class BoxDecoration extends Decoration {
     color?: Color
-    // image?: DecorationImage
+    image?: DecorationImage
     border?: BoxBorder
     borderRadius?: BorderRadiusGeometry
     boxShadow?: Array<BoxShadow>

@@ -1,6 +1,7 @@
 import { Alignment } from "./alignment";
 import { AlignmentGeometry } from "./alignment-geomatry"
 import { BoxDecoration } from "./box-decoration";
+import { BoxFit } from "./box-fit"
 import { BorderRadiusGeometry } from "./border-radius-geomatry"
 import { BorderRadius } from "./border-radius"
 import { BorderSide } from "./border-side"
@@ -10,12 +11,17 @@ import { BoxBorder } from "./box-border"
 import { BoxShadow } from "./box-shadow"
 import { BoxShape } from "./box-shape"
 import { CircleBorder } from "./circle-border"
+import { DecorationImage } from "./decoration-image"
 import { Decoration } from "./decoration"
 import { EdgeInsetsGeometry } from "./edge-insets-geometry"
 import { VerticalDirection } from "./vertical-direction";
 import { EdgeInsets } from "./edgeinsets";
 import { Gradient } from "./gradient"
+import { ImageErrorListener } from "./image-error-listener"
+import { ImageProvider } from "./image-provider"
+import { ImageRepeat } from "./image-repeat"
 import { LinearGradient } from "./linear-gradient"
+import { NetworkImage } from "./network-image"
 import { RadialGradient } from "./radial-gradient";
 import { RoundedRectangleBorder } from "./rounded-rectangle-border"
 import { ShapeBorder } from "./shape-border"
@@ -33,16 +39,22 @@ export {
     Border,
     BoxBorder,
     BoxDecoration,
+    BoxFit,
     BoxShadow,
     BoxShape,
     CircleBorder,
     Decoration,
+    DecorationImage,
     EdgeInsetsGeometry,
     EdgeInsets,
     Gradient,
     GradientTransform,
     TextBaseline,
+    ImageErrorListener,
+    ImageProvider,
+    ImageRepeat,
     LinearGradient,
+    NetworkImage,
     RadialGradient,
     RoundedRectangleBorder,
     ShapeBorder,

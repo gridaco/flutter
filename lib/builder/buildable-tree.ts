@@ -184,6 +184,13 @@ export class Snippet extends BuildableTree {
     }
 }
 
+export class EnumClass extends Snippet {
+
+}
+
+export class EnumField extends Snippet {
+
+}
 
 export class SnippetBuildingTree extends BuildingTree {
     snippet: string

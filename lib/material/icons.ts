@@ -1,5 +1,6 @@
 // import { icons } from "@bridged.xyz/remote-ui-core"
 import { Snippet } from "../builder/buildable-tree"
+import { IconData } from "../widgets/icon-data"
 
 
 /**
@@ -8,10 +9,11 @@ import { Snippet } from "../builder/buildable-tree"
  */
 
 export class Icons extends Snippet {
-    static fromName(name: string): Icons {
+    static fromName(name: string): IconData {
         // if (icons.material[name] !== undefined) {
         // return Snippet.fromStatic(`Icons.${name}`)
         // }
-        throw new Error(`the icon with name ${name} does not exists on bridged.xyz/dynamic. if you think this is a bug, please report on https://github.com/bridgedxyz/dynamic`)
+        return Snippet.fromStatic(`Icons.${name}`)
+        // throw new Error(`the icon with name ${name} does not exists on bridged.xyz/dynamic. if you think this is a bug, please report on https://github.com/bridgedxyz/dynamic`)
     }
 }

@@ -65,6 +65,8 @@ export class BuildableTree implements Buildable {
                     case "string":
                         registerOnParam(key, `"${field}"`)
                         break;
+                    case "boolean":
+                        registerOnParam(key, `${field}`)
                     case "number":
                         registerOnParam(key, `${field}`)
                         break;

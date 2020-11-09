@@ -9,6 +9,7 @@ import { Expanded } from "./expanded";
 import { GestureDetector } from "./gesture-detector";
 import { ImageLoadingBuilder } from "./image-loading-builder";
 import { Image } from "./image"
+import { Icon } from './icon'
 import { Opacity } from "./opacity"
 import { Padding } from "./padding"
 import { Positioned } from "./positioned"
@@ -21,6 +22,7 @@ import { Text } from "./text";
 import { Stack } from "./stack";
 import { Transform } from "./transform";
 import { Visibility } from "./visibility";
+import { WidgetBuilder } from "./widget-builder"
 
 export {
     Align,
@@ -33,6 +35,7 @@ export {
     GestureDetector,
     ImageLoadingBuilder,
     Image,
+    Icon,
     Opacity,
     Padding,
     Positioned,
@@ -46,4 +49,5 @@ export {
     Transform,
     Visibility,
     Widget,
+    WidgetBuilder
 }

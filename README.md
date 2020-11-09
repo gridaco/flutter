@@ -142,7 +142,7 @@ widget supported
 - ✅ Radius
 - ✅ EdgeInsets
 - ✅ Color
-- ⚠️ Icon
+- ✅ Icon
 - ✅ IconData
 - Image → XImage
 

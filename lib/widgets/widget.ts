@@ -11,7 +11,13 @@ export class Widget extends BuildableTree {
         return super.build()
     }
 
-    static prebuilt(code: string): Widget {
+    static prebuilt(code: string, args?: {
+        root: boolean
+    }): Widget {
+        if (!args?.root) {
+            // remove last ';' if exists.
+            code = code.replace(/;([^_]*)$/, '$1')
+        }
         return new PrebuiltWidget(code)
     }
 }

@@ -12,6 +12,7 @@ import { Image } from "./image"
 import { Opacity } from "./opacity"
 import { Padding } from "./padding"
 import { Positioned } from "./positioned"
+import { RichText } from "./rich-text"
 import { Row } from "./row";
 import { SingleChildScrollView } from "./single-child-scroll-view";
 import { SizedBox } from "./sizedbox";
@@ -35,6 +36,7 @@ export {
     Opacity,
     Padding,
     Positioned,
+    RichText,
     Row,
     SingleChildScrollView,
     SizedBox,

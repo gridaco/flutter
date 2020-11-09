@@ -1,9 +1,12 @@
 import assert from "assert";
 import { Widget } from ".";
 import { Snippet } from "../builder/buildable-tree";
+import { TextDirection } from "../dart-ui";
 import { TextAlign } from "../dart-ui/text-align";
 import { defaultParam, param } from "../decorations/params";
-import { TextStyle } from "../painting/text-style";
+import { InlineSpan, TextStyle } from "../painting";
+import { TextOverflow } from "../rendering";
+
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html
  */
@@ -29,5 +32,23 @@ export class Text extends Widget {
         this.data = data;
         this.style = args?.style
         this.textAlign = args?.textAlign
+    }
+
+
+    /**
+     * https://api.flutter.dev/flutter/widgets/Text/Text.rich.html
+     * @param textSpan 
+     * @param porps 
+     */
+    static rich(textSpan: InlineSpan, porps?: {
+        style?: TextStyle,
+        textAlign?: TextAlign,
+        textDirection?: TextDirection
+        overflow?: TextOverflow
+    }): Text {
+        return new Text('__empty__').extendWithFactoryName('rich').overrideArguments({
+            __default__: textSpan,
+            ...porps
+        })
     }
 }

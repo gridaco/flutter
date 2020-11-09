@@ -20,6 +20,7 @@ import { Gradient } from "./gradient"
 import { ImageErrorListener } from "./image-error-listener"
 import { ImageProvider } from "./image-provider"
 import { ImageRepeat } from "./image-repeat"
+import { InlineSpan } from "./inline-span"
 import { LinearGradient } from "./linear-gradient"
 import { NetworkImage } from "./network-image"
 import { RadialGradient } from "./radial-gradient";
@@ -27,6 +28,7 @@ import { RoundedRectangleBorder } from "./rounded-rectangle-border"
 import { ShapeBorder } from "./shape-border"
 import { TextBaseline } from "./text-baseline";
 import { TextStyle } from "./text-style"
+import { TextSpan } from "./text-span"
 import { GradientTransform } from "./gradient-transform";
 
 export {
@@ -53,11 +55,13 @@ export {
     ImageErrorListener,
     ImageProvider,
     ImageRepeat,
+    InlineSpan,
     LinearGradient,
     NetworkImage,
     RadialGradient,
     RoundedRectangleBorder,
     ShapeBorder,
     TextStyle,
+    TextSpan,
     VerticalDirection
 }

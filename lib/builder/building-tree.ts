@@ -1,4 +1,5 @@
 // import { formatCode } from "dart-style"
+import { endsWithSemicolon } from "../utils";
 import { Buildable } from "./buildable";
 
 export class BuildingTree implements Buildable {
@@ -54,7 +55,9 @@ export class BuildingTree implements Buildable {
 
     finalize() {
         if (this.isRootTree) {
-            this.code += ";"
+            if (!endsWithSemicolon(this.code)) {
+                this.code += ";"
+            }
         }
         this.format();
         return this.lookup();

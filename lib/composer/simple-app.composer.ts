@@ -5,8 +5,10 @@ import { SingleChildScrollView, Widget } from "../widgets";
 export function composeSimpleApplication(component: Widget | string): string {
     let componentSource: string
     if (component instanceof Widget) {
+        console.log('start composeSimpleApplication .. from instance of Widget')
         componentSource = component.build().finalize()
     } else {
+        console.log('start composeSimpleApplication .. from Prebuilt Widget code')
         componentSource = component;
     }
 

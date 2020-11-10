@@ -1,5 +1,6 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { BuildingTree } from "../builder/building-tree";
+import { removeLastSemicolon } from "../utils";
 
 export class Widget extends BuildableTree {
 
@@ -16,7 +17,7 @@ export class Widget extends BuildableTree {
     }): Widget {
         if (!args?.root) {
             // remove last ';' if exists.
-            code = code.replace(/;([^_]*)$/, '$1')
+            code = removeLastSemicolon(code)
         }
         return new PrebuiltWidget(code)
     }

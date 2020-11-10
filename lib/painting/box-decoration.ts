@@ -22,6 +22,7 @@ export class BoxDecoration extends Decoration {
 
     constructor(args: {
         color?: Color
+        image?: DecorationImage
         border?: BoxBorder
         borderRadius?: BorderRadiusGeometry
         boxShadow?: Array<BoxShadow>
@@ -30,6 +31,7 @@ export class BoxDecoration extends Decoration {
     }) {
         super()
         this.color = args.color
+        this.image = args.image
         this.border = args.border
         this.borderRadius = args.borderRadius
         this.boxShadow = args.boxShadow

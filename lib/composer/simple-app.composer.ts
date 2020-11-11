@@ -1,8 +1,28 @@
 import { MaterialApp, Scaffold } from "../material";
 import { SingleChildScrollView, Widget } from "../widgets";
 
+export function composeAppWithHome(home: Widget | string) {
+    if (home instanceof Widget) {
+        home = home.build().finalize()
+    }
 
-export function composeSimpleApplication(component: Widget | string): string {
+    const APP = `import 'package:flutter/material.dart';
+
+void main() {
+    runApp(App());
+}
+
+class App extends StatelessWidget {
+@override
+Widget build(BuildContext context) { return
+${home}
+}}
+  `
+
+    return APP
+}
+
+export function composeAppWithComponent(component: Widget | string): string {
     let componentSource: string
     if (component instanceof Widget) {
         console.log('start composeSimpleApplication .. from instance of Widget')
@@ -28,20 +48,5 @@ export function composeSimpleApplication(component: Widget | string): string {
 
     const MATERIAL_APP_SOURCE = materialApp.build().finalize()
 
-    const APP = `
-  import 'package:flutter/material.dart';
-  
-  void main() {
-      runApp(App());
-  }
-  
-  class App extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-      return ${MATERIAL_APP_SOURCE}
-    }
-  }
-  `
-
-    return APP
+    return composeAppWithHome(MATERIAL_APP_SOURCE)
 }

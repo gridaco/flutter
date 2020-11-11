@@ -13,6 +13,6 @@ export class Transform extends Widget {
         angle: double
         child?: Widget
     }): Transform {
-        return new Transform().extendWithFactoryName("rotate").overrideArguments(args)
+        return new Transform().extendWithFactory("rotate").overrideArguments(args)
     }
 }

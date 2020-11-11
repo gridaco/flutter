@@ -8,7 +8,7 @@ import { BoxBorder } from "./box-border";
 export class Border extends BoxBorder {
     static all(args: { color: Color, width: double }): Border {
         return new Border()
-            .extendWithFactoryName("all")
+            .extendWithFactory("all")
             .overrideArguments(args)
     }
 }

@@ -36,7 +36,7 @@ export class Positioned extends Widget {
         child: Widget
     }): Positioned {
         return new Positioned(null)
-            .extendWithFactoryName("fill")
+            .extendWithFactory("fill")
             .overrideArguments<Positioned>(args) as Positioned;
     }
 }

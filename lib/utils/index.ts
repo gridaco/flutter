@@ -1,1 +1,1 @@
-export * from "./semicolon"
+export * from "./code-normalizer"

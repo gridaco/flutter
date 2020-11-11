@@ -4,6 +4,11 @@ import { BuildingTree } from "./building-tree";
 import { Reflection as Reflect } from '@abraham/reflection';
 
 export class BuildableTree implements Buildable {
+
+    constructor(private readonly _name?: string) {
+
+    }
+
     build(depth?: number): BuildingTree {
 
         // if no depth is provided, make it as 0, which is root treee
@@ -23,7 +28,14 @@ export class BuildableTree implements Buildable {
             }
         }
 
-        const tree = new BuildingTree(this.constructorName, depth)
+        // create a building tree
+        const tree = new BuildingTree({
+            name: this.name,
+            depth: depth,
+            extensions: this.extensions,
+            overrideSnippet: this.overridenSnippet
+        })
+
         function registerOnParam(key: string, value: string) {
             // checker logic if default field or not
             const isDefault: boolean = checkIfDefault(key)
@@ -126,11 +138,26 @@ export class BuildableTree implements Buildable {
      * @param name new name for the class invocation
      */
     @ignore()
-    private factoryName: string = null;
-    extendWithFactoryName(name: string): this {
-        this.factoryName = name
+    private _factoryName: string = null;
+
+    @ignore()
+    private get _factoryExtended(): boolean {
+        return this._factoryName !== null
+    }
+    extendWithFactory(name: string): this {
+        this._factoryName = name
         return this;
     }
+
+    // region extensions
+    @ignore()
+    private extensions: Array<BuildableTree> = [];
+    extendWithExtensionFunction<T>(name: string, args: {}): this | T {
+        const extension = new BuildableTree(name).overrideArguments<this>(args)
+        this.extensions.push(extension)
+        return this;
+    }
+    // endregion extensions
 
     @ignore()
     private targetObject: BuildableTree
@@ -140,8 +167,11 @@ export class BuildableTree implements Buildable {
     }
 
     // overrides full snippet, returns static string data on build()
+    @ignore()
+    private overridenSnippet: Snippet
     overrideSnippet(snippet: string): this {
-        return Snippet.fromStatic(snippet) as any
+        this.overridenSnippet = Snippet.fromStatic(snippet) as any
+        return this;
     }
 
     overrideArguments<T>(args: {}): this | T {
@@ -151,9 +181,14 @@ export class BuildableTree implements Buildable {
         return this.overrideTarget(target)
     }
 
-    get constructorName(): string {
-        if (this.factoryName) {
-            return `${this.constructor.name}.${this.factoryName}`;
+    get name(): string {
+        // if name is explicitly provided, use that name as a constructor
+        if (this._name) {
+            return this._name
+        }
+
+        if (this._factoryExtended) {
+            return `${this.constructor.name}.${this._factoryName}`;
         }
         return this.constructor.name;
     }
@@ -181,7 +216,7 @@ export class Snippet extends BuildableTree {
         return this._defaultSnippet;
     }
 
-    get constructorName(): string {
+    get name(): string {
         return this.constructor.name;
     }
 }

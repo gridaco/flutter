@@ -46,7 +46,7 @@ export class Text extends Widget {
         textDirection?: TextDirection
         overflow?: TextOverflow
     }): Text {
-        return new Text('__empty__').extendWithFactoryName('rich').overrideArguments({
+        return new Text('__empty__').extendWithFactory('rich').overrideArguments({
             __default__: textSpan,
             ...porps
         })

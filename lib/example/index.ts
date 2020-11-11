@@ -1,13 +1,12 @@
-import { FontWeight } from "../dart-ui/font-weight";
+import { Color } from "../dart-ui";
 import { Theme } from "../material/theme";
-import { TextStyle } from "../painting/text-style";
-// build text
-
 import { Column, Row, Text } from "../widgets";
 import { Center } from "../widgets/center";
 
 const textWidget = new Text("hello world", {
-    style: Theme.of().textStyle.headline1
+    style: Theme.of().textTheme.headline1.copyWith({
+        color: Color.fromHex('#FFFFFF')
+    })
 })
 
 

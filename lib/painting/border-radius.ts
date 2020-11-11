@@ -7,7 +7,7 @@ import { double } from "../dart";
 export class BorderRadius extends BorderRadiusGeometry {
     static circular(value: double): BorderRadius {
         return new BorderRadius()
-            .extendWithFactoryName("circular")
+            .extendWithFactory("circular")
             .overrideArguments({ __default__: value })
     }
 
@@ -18,13 +18,13 @@ export class BorderRadius extends BorderRadiusGeometry {
         bottomRight?: Radius
     }): BorderRadius {
         return new BorderRadius()
-            .extendWithFactoryName("only")
+            .extendWithFactory("only")
             .overrideArguments(args)
     }
 
     static zero(): BorderRadius {
         return new BorderRadius()
-            .extendWithFactoryName("zero")
+            .extendWithFactory("zero")
             .overrideArguments({})
     }
 

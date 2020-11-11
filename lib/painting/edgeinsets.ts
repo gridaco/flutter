@@ -16,18 +16,18 @@ export class EdgeInsets extends EdgeInsetsGeometry {
         right?: double
         bottom?: double
     }): EdgeInsets {
-        return new EdgeInsets().extendWithFactoryName("only").overrideArguments(args)
+        return new EdgeInsets().extendWithFactory("only").overrideArguments(args)
     }
 
     static symmetric(args?: {
         horizontal?: double
         vertical?: double
     }): EdgeInsets {
-        return new EdgeInsets().extendWithFactoryName("symmetric").overrideArguments(args)
+        return new EdgeInsets().extendWithFactory("symmetric").overrideArguments(args)
     }
 
     static all(value: double): EdgeInsets {
-        return new EdgeInsets().extendWithFactoryName("all").overrideArguments({
+        return new EdgeInsets().extendWithFactory("all").overrideArguments({
             __default__: value
         })
     }

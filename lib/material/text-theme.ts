@@ -59,17 +59,44 @@ export class TextTheme extends BuildableTree {
  */
 export class TextThemeDefaults {
     constructor() { }
-    public static readonly headline1: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline1")
-    public static readonly headline2: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline2")
-    public static readonly headline3: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline3")
-    public static readonly headline4: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline4")
-    public static readonly headline5: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline5")
-    public static readonly headline6: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.headline6")
-    public static readonly subtitle1: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.subtitle1")
-    public static readonly subtitle2: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.subtitle2")
-    public static readonly bodyText1: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.body1")
-    public static readonly bodyText2: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.body2")
-    public static readonly button: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.button")
-    public static readonly caption: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.caption")
-    public static readonly overline: Snippet = Snippet.fromStatic("Theme.of(context).textTheme.overline")
+
+    public static get headline1(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline1")
+    }
+    public static get headline2(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline2")
+    }
+    public static get headline3(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline3")
+    }
+    public static get headline4(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline4")
+    }
+    public static get headline5(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline5")
+    }
+    public static get headline6(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.headline6")
+    }
+    public static get subtitle1(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.subtitle1")
+    }
+    public static get subtitle2(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.subtitle2")
+    }
+    public static get bodyText1(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.bodyText1")
+    }
+    public static get bodyText2(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.bodyText2")
+    }
+    public static get button(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.button")
+    }
+    public static get caption(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.caption")
+    }
+    public static get overline(): TextStyle {
+        return new TextStyle().overrideSnippet("Theme.of(context).textTheme.overline")
+    }
 }

@@ -6,7 +6,7 @@ import { double } from "../dart";
  */
 export class Image extends Widget {
     static network(src: string, args?: { width?: double, height?: double }): Image {
-        return new Image().extendWithFactoryName('network').overrideArguments({
+        return new Image().extendWithFactory('network').overrideArguments({
             __default__: src,
             ...args
         })
@@ -14,7 +14,7 @@ export class Image extends Widget {
 
 
     static asset(src: string, args?: { loadingBuilder?, width?: double, height?: double }): Image {
-        return new Image().extendWithFactoryName('asset').overrideArguments({
+        return new Image().extendWithFactory('asset').overrideArguments({
             __default__: src,
             ...args
         })

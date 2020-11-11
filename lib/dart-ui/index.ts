@@ -9,6 +9,7 @@ import { Rect } from "./rect"
 import { Size } from "./size";
 import { TextAlign } from "./text-align";
 import { TextDecoration } from "./text-decoration";
+import { TextDecorationStyle } from "./text-decoration-style"
 import { TextDirection } from "./text-direction";
 
 export {
@@ -22,6 +23,7 @@ export {
     Size,
     TextAlign,
     TextDecoration,
+    TextDecorationStyle,
     TextDirection,
     TileMode
 }

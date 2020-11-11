@@ -10,3 +10,7 @@ export function removeLastSemicolon(code: string) {
 export function endsWithSemicolon(code: string): boolean {
     return code.endsWith(';')
 }
+
+export function exportDuplicatedCommas(code: string) {
+    return code.replace(",,", ",")
+}

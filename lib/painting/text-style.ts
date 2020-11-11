@@ -1,9 +1,10 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
-import { Color } from "../dart-ui";
+import { Color, TextDecorationStyle } from "../dart-ui";
 import { FontStyle } from "../dart-ui/font-style";
 import { FontWeight } from "../dart-ui/font-weight";
 import { TextDecoration } from "../dart-ui/text-decoration";
+import { TextBaseline } from "./text-baseline";
 
 /**
  * https://api.flutter.dev/flutter/painting/TextStyle-class.html
@@ -35,33 +36,35 @@ export class TextStyle extends BuildableTree {
         this.decoration = args?.decoration
         this.letterSpacing = args?.letterSpacing
     }
-}
 
-// original
-/**
- * const TextStyle(
-{bool inherit: true,
-Color color,
-Color backgroundColor,
-double fontSize,
-FontWeight fontWeight,
-FontStyle fontStyle,
-double letterSpacing,
-double wordSpacing,
-TextBaseline textBaseline,
-double height,
-Locale locale,
-Paint foreground,
-Paint background,
-List<Shadow> shadows,
-List<FontFeature> fontFeatures,
-TextDecoration decoration,
-Color decorationColor,
-TextDecorationStyle decorationStyle,
-double decorationThickness,
-String debugLabel,
-String fontFamily,
-List<String> fontFamilyFallback,
-String package}
-)
- */
+
+    /**
+     * https://api.flutter.dev/flutter/painting/TextStyle/copyWith.html
+     */
+    copyWith(args: {
+        inherit?: boolean,
+        color?: Color,
+        backgroundColor?: Color,
+        fontFamily?: string,
+        fontFamilyFallback?: Array<string>,
+        fontSize?: double,
+        fontWeight?: FontWeight,
+        fontStyle?: FontStyle,
+        letterSpacing?: double,
+        wordSpacing?: double,
+        textBaseline?: TextBaseline,
+        height?: double,
+        // Locale? locale,
+        // Paint? foreground,
+        // Paint? background,
+        // List<Shadow>? shadows,
+        // List<FontFeature>?fontFeatures,
+        decoration?: TextDecoration,
+        decorationColor?: Color,
+        decorationStyle?: TextDecorationStyle,
+        decorationThickness?: double,
+        debugLabel?: string
+    }): this {
+        return this.extendWithExtensionFunction('copyWith', args)
+    }
+}

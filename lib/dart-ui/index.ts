@@ -11,7 +11,7 @@ import { TextAlign } from "./text-align";
 import { TextDecoration } from "./text-decoration";
 import { TextDecorationStyle } from "./text-decoration-style"
 import { TextDirection } from "./text-direction";
-
+import { VoidCallback } from "./void-callback"
 export {
     ColorFilter,
     Color,
@@ -25,5 +25,6 @@ export {
     TextDecoration,
     TextDecorationStyle,
     TextDirection,
-    TileMode
+    TileMode,
+    VoidCallback
 }

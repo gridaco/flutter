@@ -1,11 +1,22 @@
 import { Widget } from ".";
 import { double } from "../dart";
+import { BoxFit } from "../painting/box-fit";
+
+
+interface FactoryArgs {
+    width?: double
+    height?: double
+    loadingBuilder?
+    semanticLabel?: string
+    fit?: BoxFit
+}
+
 
 /**
  * https://api.flutter.dev/flutter/widgets/Image-class.html
  */
 export class Image extends Widget {
-    static network(src: string, args?: { width?: double, height?: double }): Image {
+    static network(src: string, args?: FactoryArgs): Image {
         return new Image().extendWithFactory('network').overrideArguments({
             __default__: src,
             ...args
@@ -13,7 +24,7 @@ export class Image extends Widget {
     }
 
 
-    static asset(src: string, args?: { loadingBuilder?, width?: double, height?: double }): Image {
+    static asset(src: string, args?: FactoryArgs): Image {
         return new Image().extendWithFactory('asset').overrideArguments({
             __default__: src,
             ...args

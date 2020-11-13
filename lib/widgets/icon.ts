@@ -28,9 +28,9 @@ export class Icon extends Widget {
         super()
         this.icon = icon
 
-        this.size = args.size
-        this.color = args.color
-        this.semanticLabel = args.semanticLabel
-        this.textDirection = args.textDirection
+        this.size = args?.size
+        this.color = args?.color
+        this.semanticLabel = args?.semanticLabel
+        this.textDirection = args?.textDirection
     }
 }

@@ -1,12 +1,14 @@
 import { MaterialApp, Scaffold } from "../material";
 import { SingleChildScrollView, Widget } from "../widgets";
 
-export function composeAppWithHome(home: Widget | string) {
+export function composeAppWithHome(home: Widget | string, options?: {
+    withReplacements: Map<string, string>
+}) {
     if (home instanceof Widget) {
         home = home.build().finalize()
     }
 
-    const APP = `import 'package:flutter/material.dart';
+    let APP = `import 'package:flutter/material.dart';
 
 void main() {
     runApp(App());
@@ -19,10 +21,16 @@ ${home}
 }}
   `
 
+    if (options?.withReplacements) {
+        APP = replaceSourceContent(APP, options!.withReplacements)
+    }
+
     return APP
 }
 
-export function composeAppWithComponent(component: Widget | string): string {
+export function composeAppWithComponent(component: Widget | string, options?: {
+    withReplacements: Map<string, string>
+}): string {
     let componentSource: string
     if (component instanceof Widget) {
         console.log('start composeSimpleApplication .. from instance of Widget')
@@ -46,7 +54,19 @@ export function composeAppWithComponent(component: Widget | string): string {
         })
     });
 
-    const MATERIAL_APP_SOURCE = materialApp.build().finalize()
+    let MATERIAL_APP_SOURCE = materialApp.build().finalize()
 
+    if (options?.withReplacements) {
+        MATERIAL_APP_SOURCE = replaceSourceContent(MATERIAL_APP_SOURCE, options.withReplacements)
+    }
     return composeAppWithHome(MATERIAL_APP_SOURCE)
+}
+
+
+function replaceSourceContent(source: string, replacements: Map<string, string>): string {
+    for (const key of Object.keys(replacements)) {
+        const newValue = replacements[key]
+        source = source.split(key).join(newValue)
+    }
+    return source
 }

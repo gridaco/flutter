@@ -12,6 +12,7 @@ import { Scaffold } from "./scaffold"
 import { TextTheme } from "./text-theme";
 import { ThemeData } from "./theme-data";
 import { Theme } from "./theme";
+import { VerticalDivider } from "./vrtical-divider"
 
 export {
     Colors,
@@ -28,4 +29,5 @@ export {
     TextTheme,
     Theme,
     ThemeData,
+    VerticalDivider
 }

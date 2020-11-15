@@ -165,6 +165,13 @@ export class BuildableTree implements Buildable {
         this.extensions.push(extension)
         return this;
     }
+
+    extendWithAccessor<T extends BuildableTree>(accessor: string): T {
+        const extension = Snippet.fromStatic<T>(accessor)
+        this.extensions.push(extension)
+        return extension as T
+    }
+
     // endregion extensions
 
     @ignore()
@@ -220,8 +227,9 @@ export class Snippet extends BuildableTree {
         this._defaultSnippet = defaultSnippet;
     }
 
-    static fromStatic(snippet: string): Snippet {
-        return new Snippet(snippet);
+    static fromStatic<T extends BuildableTree>(snippet: string): Snippet | T {
+        // dangerously cast type
+        return new Snippet(snippet) as any as T;
     }
 
     build(depth?: number): BuildingTree {

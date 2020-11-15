@@ -70,29 +70,13 @@ export class BuildingTree implements Buildable {
 
     code: string
 
-    buildComments(): string {
-        const empty = ''
-        if (this.comments) {
-            const rawComment = this.comments.join('\n')
-            if (rawComment.length == 0) {
-                return empty
-            }
-
-            let finalComment = ''
-            for (const comment of this.comments) {
-                finalComment += '\n' + `/// ` + comment
-            }
-            return finalComment + '\n'
-
-        }
-        return empty
-    }
-
-
     build(): BuildingTree {
         if (this.isSnippetOverriden) {
-            this.code = this.overrideSnippet.build().lookup({ withComma: false })
+            const comment = buildComments(this.overrideSnippet.comments, { forceSingleLine: true })
+            this.code = `${this.overrideSnippet.build().lookup({ withComma: false })}${comment}`
         } else {
+            const comment = buildComments(this.comments)
+
             let kvContents = ""
             this.defaultArguments.forEach((v) => {
                 kvContents += `${v},\n`
@@ -109,7 +93,7 @@ export class BuildingTree implements Buildable {
              * Button.flat(label: Text('label'))
              * ```
              */
-            this.code = `${this.buildComments()}${this.name}(
+            this.code = `${comment}${this.name}(
     ${kvContents}
 )`
         }
@@ -130,7 +114,7 @@ export class BuildingTree implements Buildable {
         }
 
         // safe logic
-        this.code = exportDuplicatedCommas(this.code)
+        this.code = `${exportDuplicatedCommas(this.code)}`
 
         return this;
     }
@@ -192,4 +176,30 @@ function addComma({ code, safetyCheck = false }: { code: string; safetyCheck?: b
     }
 
     return code;
+}
+
+
+function buildComments(comments: Array<string>, options?: {
+    forceSingleLine: boolean
+}): string {
+    const empty = ''
+    if (comments) {
+        const rawComment = comments.join('\n')
+        if (rawComment.length == 0) {
+            return empty
+        }
+
+        if (options?.forceSingleLine) {
+            return `/*${rawComment}*/`
+        }
+
+        let finalComment = ''
+        comments.forEach((v, i) => {
+            const linebreak = i === 0 ? '' : '\n'
+            finalComment += linebreak + `/// ` + v
+        })
+        return finalComment + '\n'
+
+    }
+    return empty
 }

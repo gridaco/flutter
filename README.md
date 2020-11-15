@@ -177,6 +177,10 @@ widget supported
 - Wrap
 - ✅ Divider
 
+### Button
+- ✅ FlatButton
+- ✅ RaisedButton
+
 ### Later
 
 - FittedBox
@@ -199,4 +203,4 @@ widget supported
 ### MISC
 
 - ErrorWidget
-- MediaQuery
+- ✅ MediaQuery

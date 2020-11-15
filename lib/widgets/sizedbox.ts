@@ -1,6 +1,7 @@
 import { Widget } from ".";
 import { Double, double } from "../dart/double";
 import { Size } from "../dart-ui/size"
+import { Snippet } from "../builder/buildable-tree";
 /**
  * https://api.flutter.dev/flutter/widgets/SizedBox-class.html
  */
@@ -22,8 +23,8 @@ export class SizedBox extends Widget {
     static expand(child: Widget) {
         return new SizedBox({
             child: child,
-            width: Double.infinity,
-            height: Double.infinity
+            width: Double.infinity as Snippet,
+            height: Double.infinity as Snippet
         });
     }
 

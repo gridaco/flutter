@@ -10,6 +10,7 @@ import { GestureDetector } from "./gesture-detector";
 import { ImageLoadingBuilder } from "./image-loading-builder";
 import { Image } from "./image"
 import { Icon } from './icon'
+import { MediaQuery } from "./media-query"
 import { Opacity } from "./opacity"
 import { Padding } from "./padding"
 import { Positioned } from "./positioned"
@@ -36,6 +37,7 @@ export {
     ImageLoadingBuilder,
     Image,
     Icon,
+    MediaQuery,
     Opacity,
     Padding,
     Positioned,

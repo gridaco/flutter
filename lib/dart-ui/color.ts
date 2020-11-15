@@ -10,7 +10,7 @@ export class Color extends BuildableTree {
     constructor(value?: number) {
         super()
         if (value) {
-            this.value = Snippet.fromStatic("0x" + value?.toString(16))
+            this.value = Snippet.fromStatic<Snippet>("0x" + value?.toString(16))
         } else {
             throw "the value:number provided must be a valid color value"
         }

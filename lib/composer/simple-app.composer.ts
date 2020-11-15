@@ -1,6 +1,23 @@
 import { MaterialApp, Scaffold } from "../material";
 import { SingleChildScrollView, Widget } from "../widgets";
 
+
+const BRANDING_COMMENT = `
+/// awesome product built with bridged.xyz at ${Date.now().toLocaleString()}
+/// coyright - all yours!
+/// 
+/// 
+///                 ██████╗ ██████╗ ██╗██████╗  ██████╗ ███████╗██████╗            ██╗  ██╗██╗   ██╗███████╗
+///                 ██╔══██╗██╔══██╗██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗           ╚██╗██╔╝╚██╗ ██╔╝╚══███╔╝
+///                 ██████╔╝██████╔╝██║██║  ██║██║  ███╗█████╗  ██║  ██║            ╚███╔╝  ╚████╔╝   ███╔╝ 
+///                 ██╔══██╗██╔══██╗██║██║  ██║██║   ██║██╔══╝  ██║  ██║            ██╔██╗   ╚██╔╝   ███╔╝  
+///                 ██████╔╝██║  ██║██║██████╔╝╚██████╔╝███████╗██████╔╝    ██╗    ██╔╝ ██╗   ██║   ███████╗
+///                 ╚═════╝ ╚═╝  ╚═╝╚═╝╚═════╝  ╚═════╝ ╚══════╝╚═════╝     ╚═╝    ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+/// 
+///                                                                                     
+`
+
+
 export function composeAppWithHome(home: Widget | string, options?: {
     withReplacements: Map<string, string>
 }) {
@@ -19,7 +36,9 @@ class App extends StatelessWidget {
 Widget build(BuildContext context) { return
 ${home}
 }}
-  `
+
+${BRANDING_COMMENT}
+`
 
     if (options?.withReplacements) {
         APP = replaceSourceContent(APP, options!.withReplacements)

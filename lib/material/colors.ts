@@ -6,20 +6,14 @@ import { Color } from "../dart-ui/color"
  */
 export class Colors extends Snippet {
     static get white(): Color {
-        const color = new Color(0xffffff)
-        color.overrideSnippet("Colors.white")
-        return color;
+        return new Color(0xffffffffff).overrideSnippet("Colors.white")
     }
 
     static get black(): Color {
-        const color = new Color(0x000000)
-        color.overrideSnippet("Colors.black")
-        return color;
+        return new Color(0xff000000).overrideSnippet("Colors.black")
     }
 
     static get transparent(): Color {
-        const color = new Color(0x00000000)
-        color.overrideSnippet("Colors.transparent")
-        return color;
+        return new Color(0xff000000).overrideSnippet("Colors.transparent")
     }
 }

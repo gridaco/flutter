@@ -11,6 +11,7 @@ export class BuildingTree implements Buildable {
     readonly depth: number
     readonly extensions: Array<BuildableTree>
     readonly overrideSnippet?: Snippet
+    readonly comments: Array<string>
 
     pushDefaultArgument(value: string) {
         this.defaultArguments.push(value);
@@ -46,11 +47,13 @@ export class BuildingTree implements Buildable {
         depth?: number,
         overrideSnippet?: Snippet
         extensions?: Array<BuildableTree>
+        comments: Array<string>
     }) {
         this.name = props?.name;
         this.depth = props?.depth;
         this.extensions = props?.extensions
         this.overrideSnippet = props?.overrideSnippet
+        this.comments = props?.comments
     }
 
     get isRootTree() {
@@ -66,6 +69,25 @@ export class BuildingTree implements Buildable {
     }
 
     code: string
+
+    buildComments(): string {
+        const empty = ''
+        if (this.comments) {
+            const rawComment = this.comments.join('\n')
+            if (rawComment.length == 0) {
+                return empty
+            }
+
+            let finalComment = ''
+            for (const comment of this.comments) {
+                finalComment += '\n' + `/// ` + comment
+            }
+            return finalComment + '\n'
+
+        }
+        return empty
+    }
+
 
     build(): BuildingTree {
         if (this.isSnippetOverriden) {
@@ -87,7 +109,7 @@ export class BuildingTree implements Buildable {
              * Button.flat(label: Text('label'))
              * ```
              */
-            this.code = `${this.name}(
+            this.code = `${this.buildComments()}${this.name}(
     ${kvContents}
 )`
         }

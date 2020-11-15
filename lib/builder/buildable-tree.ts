@@ -28,13 +28,16 @@ export class BuildableTree implements Buildable {
             }
         }
 
+        // =========================
         // create a building tree
         const tree = new BuildingTree({
             name: this.name,
             depth: depth,
             extensions: this.extensions,
-            overrideSnippet: this.overridenSnippet
+            overrideSnippet: this.overridenSnippet,
+            comments: this.comments
         })
+        // =========================
 
         function registerOnParam(key: string, value: string) {
             // checker logic if default field or not
@@ -109,14 +112,19 @@ export class BuildableTree implements Buildable {
                             })
                             tree.pushNamedArray(key, builds)
                         } else {
-                            tryBuild(key, field)
+                            trySingleFieldBuild(key, field)
                         }
                         break;
                 }
             }
         }
 
-        function tryBuild(key: string, field: BuildableTree) {
+        /**
+         * try building the givven field, if failed, ignore.
+         * @param key 
+         * @param field 
+         */
+        function trySingleFieldBuild(key: string, field: BuildableTree) {
             try {
                 registerOnParam(key, field.build(depth + 1).lookup())
             } catch (e) {
@@ -179,6 +187,14 @@ export class BuildableTree implements Buildable {
             ...args
         }
         return this.overrideTarget(target)
+    }
+
+
+    @ignore()
+    comments = Array<string>();
+    addComment(comment: string): this {
+        this.comments.push(comment)
+        return this
     }
 
     get name(): string {

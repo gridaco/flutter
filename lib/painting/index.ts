@@ -26,6 +26,7 @@ import { NetworkImage } from "./network-image"
 import { RadialGradient } from "./radial-gradient";
 import { RoundedRectangleBorder } from "./rounded-rectangle-border"
 import { ShapeBorder } from "./shape-border"
+import { TextAlignVertical } from "./text-align-vertical"
 import { TextBaseline } from "./text-baseline";
 import { TextStyle } from "./text-style"
 import { TextSpan } from "./text-span"
@@ -52,6 +53,7 @@ export {
     Gradient,
     GradientTransform,
     TextBaseline,
+    TextAlignVertical,
     ImageErrorListener,
     ImageProvider,
     ImageRepeat,

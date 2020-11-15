@@ -20,6 +20,7 @@ import { SingleChildScrollView } from "./single-child-scroll-view";
 import { SizedBox } from "./sizedbox";
 import { Spacer } from "./spacer";
 import { Text } from "./text";
+import { ToolbarOptions } from "./toolbar-options"
 import { Stack } from "./stack";
 import { Transform } from "./transform";
 import { Visibility } from "./visibility";
@@ -48,6 +49,7 @@ export {
     Spacer,
     Stack,
     Text,
+    ToolbarOptions,
     Transform,
     Visibility,
     Widget,

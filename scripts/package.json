@@ -1,0 +1,23 @@
+{
+    "name": "dart-doc-parser",
+    "version": "0.0.1",
+    "repository": "https://github.com/bridgedxyz/flutter-builder",
+    "author": "bridged.xyz <softmarshamllow>",
+    "license": "MIT",
+    "private": false,
+    "main": "dist/index.js",
+    "dependencies": {
+        "axios": "^0.21.0",
+        "coli": "^0.0.1",
+        "xmldom": "^0.4.0",
+        "xpath": "^0.0.32"
+    },
+    "devDependencies": {
+        "typescript": "^4.0.5"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ]
+}

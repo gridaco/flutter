@@ -1,6 +1,5 @@
 import { BuildableTree, Snippet } from "../builder/buildable-tree";
 import { double } from "../dart";
-import { MediaQueryData } from "./media-query-data";
 import { Widget } from "./widget";
 
 /**

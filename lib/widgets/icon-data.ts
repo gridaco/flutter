@@ -7,6 +7,5 @@ import { Snippet } from "../builder/buildable-tree";
 export class IconData extends Snippet {
     constructor() {
         super()
-        throw 'not implemented'
     }
 }

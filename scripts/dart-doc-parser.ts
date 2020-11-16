@@ -104,4 +104,4 @@ async function readDocsHtml(docUrl: string) {
 }
 
 
-main("https://api.flutter.dev/flutter/material/TextFormField/TextFormField.html", "constructor")
+main("https://api.flutter.dev/flutter/material/FlatButton/FlatButton.icon.html", "constructor")

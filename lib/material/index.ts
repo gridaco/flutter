@@ -19,6 +19,7 @@ import { TextField } from "./text-field"
 import { Theme } from "./theme";
 import { UnderlineInputBorder } from "./underline-input-border"
 import { VerticalDivider } from "./vrtical-divider"
+import { Chip } from "./chip"
 
 export {
     Colors,
@@ -41,5 +42,6 @@ export {
     Theme,
     ThemeData,
     UnderlineInputBorder,
-    VerticalDivider
+    VerticalDivider,
+    Chip,
 }

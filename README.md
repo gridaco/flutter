@@ -176,6 +176,7 @@ widget supported
 - ✅ Transform
 - Wrap
 - ✅ Divider
+- ✅ Chip
 
 ### Button
 - ✅ FlatButton

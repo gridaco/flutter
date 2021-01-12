@@ -1,5 +1,1 @@
-import { double, Double } from "./double";
-export {
-    Double,
-    double
-}
+export { double, Double } from "./double";

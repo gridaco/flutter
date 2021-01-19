@@ -8,7 +8,7 @@
     "main": "dist/index.js",
     "dependencies": {
         "axios": "^0.21.0",
-        "coli": "^0.0.1",
+        "coli": "^0.0.2",
         "xmldom": "^0.4.0",
         "xpath": "^0.0.32"
     },

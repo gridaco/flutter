@@ -2,9 +2,9 @@
     "name": "flutter-builder",
     "version": "0.0.0",
     "private": true,
-    "workspace": [
+    "workspaces": [
         "example",
-        "flutter-builder",
+        "@bridged.xyz/flutter-builder",
         "packages/coli/coli"
     ]
 }

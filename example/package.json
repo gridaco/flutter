@@ -1,8 +1,9 @@
 {
     "name": "example",
+    "version": "0.0.0",
     "license": "MIT",
     "dependencies": {
-        "@bridged.xyz/flutter-builder": "file:../.."
+        "@bridged.xyz/flutter-builder": "1.23.0-7.0.pre.40"
     },
     "devDependencies": {
         "ts-node": "^9.0.0",

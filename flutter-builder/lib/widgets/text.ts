@@ -1,11 +1,11 @@
 import assert from "assert";
 import { Widget } from ".";
-import { Snippet } from "../builder/buildable-tree";
 import { TextDirection } from "../dart-ui";
 import { TextAlign } from "../dart-ui/text-align";
 import { defaultParam, param } from "coli/lib/utils/decorations/params";
 import { InlineSpan, TextStyle } from "../painting";
 import { TextOverflow } from "../rendering";
+import { Snippet } from "coli/lib/snippet";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html

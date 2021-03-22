@@ -1,5 +1,3 @@
-import { BuildableTree } from "../builder/buildable-tree";
+import { BuildableTree } from "../builder";
 
-export class AlignmentGeometry extends BuildableTree {
-
-}
+export class AlignmentGeometry extends BuildableTree {}

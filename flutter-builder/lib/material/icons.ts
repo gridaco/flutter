@@ -1,5 +1,4 @@
-// import { icons } from "@bridged.xyz/remote-ui-core"
-import { Snippet } from "../builder/buildable-tree"
+import { Snippet } from "coli/lib/snippet";
 import { IconData } from "../widgets/icon-data"
 
 

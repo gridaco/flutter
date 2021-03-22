@@ -1,15 +1,13 @@
+import { EnumClass, EnumField } from "coli/lib/snippet/utils/enum";
 /**
  * https://api.flutter.dev/flutter/painting/BoxFit-class.html
  */
-
-import { Snippet } from "../builder/buildable-tree";
-
-export class BoxFit extends Snippet {
-    static readonly contain = Snippet.fromStatic('BoxFit.contain')
-    static readonly cover = Snippet.fromStatic('BoxFit.cover')
-    static readonly fill = Snippet.fromStatic('BoxFit.fill')
-    static readonly fitHeight = Snippet.fromStatic('BoxFit.fitHeight')
-    static readonly fitWidth = Snippet.fromStatic('BoxFit.fitWidth')
-    static readonly none = Snippet.fromStatic('BoxFit.none')
-    static readonly scaleDown = Snippet.fromStatic('BoxFit.scaleDown')
+export class BoxFit extends EnumClass {
+  static readonly contain = EnumField.fromStatic("BoxFit.contain");
+  static readonly cover = EnumField.fromStatic("BoxFit.cover");
+  static readonly fill = EnumField.fromStatic("BoxFit.fill");
+  static readonly fitHeight = EnumField.fromStatic("BoxFit.fitHeight");
+  static readonly fitWidth = EnumField.fromStatic("BoxFit.fitWidth");
+  static readonly none = EnumField.fromStatic("BoxFit.none");
+  static readonly scaleDown = EnumField.fromStatic("BoxFit.scaleDown");
 }

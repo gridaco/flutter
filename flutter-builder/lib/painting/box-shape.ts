@@ -1,9 +1,9 @@
-import { Snippet } from "../builder/buildable-tree";
+import { EnumField, EnumClass } from "coli/lib/snippet/utils/enum";
 
 /**
  * https://api.flutter.dev/flutter/painting/BoxShape-class.html
  */
-export class BoxShape extends Snippet {
-    static readonly circle = Snippet.fromStatic("BoxShape.circle");
-    static readonly rectangle = Snippet.fromStatic("BoxShape.rectangle");
+export class BoxShape extends EnumClass {
+  static readonly circle = EnumField.fromStatic("BoxShape.circle");
+  static readonly rectangle = EnumField.fromStatic("BoxShape.rectangle");
 }

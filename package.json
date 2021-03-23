@@ -4,7 +4,7 @@
     "private": true,
     "workspaces": [
         "example",
-        "@bridged.xyz/flutter-builder",
-        "packages/coli/coli"
+        "flutter-builder",
+        "packages/coli/packages/*"
     ]
 }

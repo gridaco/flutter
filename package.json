@@ -1,6 +1,6 @@
 {
   "name": "@bridged.xyz/flutter-builder",
-  "version": "1.23.0-7.0.pre.40",
+  "version": "1.23.0-7.0.pre.41",
   "description": "flutter widget builder from nodejs",
   "main": "dist/index.js",
   "repository": "https://github.com/bridgedxyz/flutter-builder.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prepublish": "tsc",
+    "prepack": "tsc",
     "test": "jest"
   },
   "dependencies": {
@@ -23,8 +23,11 @@
     "typescript": "^4.0.5"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
   ],
   "jest": {
     "transform": {

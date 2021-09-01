@@ -1,5 +1,4 @@
 import { Snippet } from "coli";
-import { BuildableTree } from "../builder";
 import { double } from "@coli.codes/dart-builder";
 import { Widget } from "./widget";
 
@@ -27,14 +26,10 @@ export interface MediaQueryDefaults {
 
 export class MediaQueryDataSizeDefaults {
   public static get width(): double {
-    return Snippet.fromStatic<BuildableTree>(
-      "MediaQuery.of(context).size.width"
-    ) as double;
+    return Snippet.fromStatic("MediaQuery.of(context).size.width") as double;
   }
 
   public static get height(): double {
-    return Snippet.fromStatic<BuildableTree>(
-      "MediaQuery.of(context).size.height"
-    ) as double;
+    return Snippet.fromStatic("MediaQuery.of(context).size.height") as double;
   }
 }

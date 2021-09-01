@@ -1,7 +1,7 @@
-import { Widget } from ".";
-import { Double, double } from "../dart/double";
-import { Size } from "../dart-ui/size";
 import { Snippet } from "coli";
+import { Double, double } from "@coli.codes/dart-builder";
+import { Widget } from ".";
+import { Size } from "../dart-ui/size";
 /**
  * https://api.flutter.dev/flutter/widgets/SizedBox-class.html
  */

@@ -1,4 +1,4 @@
-import { EnumClass, EnumField } from "coli/lib/snippet/utils/enum";
+import { EnumClass, EnumField } from "@coli.codes/builder/snippet/utils/enum";
 
 export class FontWeight extends EnumClass {
   /// Thin, the least thick

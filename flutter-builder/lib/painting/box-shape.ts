@@ -1,4 +1,4 @@
-import { EnumField, EnumClass } from "coli/lib/snippet/utils/enum";
+import { EnumClass, EnumField } from "@coli.codes/builder/snippet/utils/enum";
 
 /**
  * https://api.flutter.dev/flutter/painting/BoxShape-class.html

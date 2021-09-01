@@ -1523,11 +1523,6 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-coli@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/coli/-/coli-0.0.2.tgz#830bcdbecc5936b8cfe7bfa68621544bdcda0726"
-  integrity sha512-GDum+hiIcQj8bCV8swxsFzPebfJ57z9on4SapKL4tUN6TQbazxfT6YPZV5NK90mKstP2R+v9rut7lJdfF7p8CQ==
-
 collect-v8-coverage@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/collect-v8-coverage/-/collect-v8-coverage-1.0.1.tgz#cc2c8e94fc18bbdffe64d6534570c8a673b27f59"

@@ -1,4 +1,4 @@
-import { AstBuildableTree } from "coli/lib/_out/ast-builder/buildable-tree";
-import { AstBuildingTree } from "coli/lib/_out/ast-builder/building-tree";
+import { AstBuildableTree } from "@coli.codes/dart-builder";
+import { AstBuildingTree } from "@coli.codes/dart-builder";
 
 export { AstBuildableTree as BuildableTree, AstBuildingTree as BuildingTree };

@@ -1,6 +1,6 @@
 import { BuildableTree } from "../builder";
-import { defaultParam } from "coli/lib/utils/decorations/params";
-import { Snippet } from "coli/lib/snippet";
+import { defaultParam } from "@coli.codes/builder-annotations";
+import { Snippet } from "coli";
 
 /**
  * https://api.flutter.dev/flutter/dart-ui/Color-class.html

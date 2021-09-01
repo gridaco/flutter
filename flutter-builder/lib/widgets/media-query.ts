@@ -1,6 +1,6 @@
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 import { BuildableTree } from "../builder";
-import { double } from "../dart";
+import { double } from "@coli.codes/dart-builder";
 import { Widget } from "./widget";
 
 /**

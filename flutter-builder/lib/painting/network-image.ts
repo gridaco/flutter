@@ -1,5 +1,5 @@
-import { double } from "../dart";
-import { defaultParam } from "coli/lib/utils/decorations/params";
+import { double } from "@coli.codes/dart-builder";
+import { defaultParam } from "@coli.codes/builder-annotations";
 import { ImageProvider } from "./image-provider";
 
 /**

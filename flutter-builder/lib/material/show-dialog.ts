@@ -1,4 +1,4 @@
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 import { Color } from "../dart-ui";
 import { BuildContext } from "../widgets";
 

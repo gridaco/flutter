@@ -2,10 +2,10 @@ import assert from "assert";
 import { Widget } from ".";
 import { TextDirection } from "../dart-ui";
 import { TextAlign } from "../dart-ui/text-align";
-import { defaultParam, param } from "coli/lib/utils/decorations/params";
+import { defaultParam, param } from "@coli.codes/builder-annotations";
 import { InlineSpan, TextStyle } from "../painting";
 import { TextOverflow } from "../rendering";
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html

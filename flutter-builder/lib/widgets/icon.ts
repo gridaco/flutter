@@ -1,7 +1,7 @@
 import { Widget } from ".";
-import { double } from "../dart";
+import { double } from "@coli.codes/dart-builder";
 import { Color, TextDirection } from "../dart-ui";
-import { defaultParam } from "coli/lib/utils/decorations/params";
+import { defaultParam } from "@coli.codes/builder-annotations";
 import { IconData } from "./icon-data";
 
 /**

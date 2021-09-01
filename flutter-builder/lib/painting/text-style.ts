@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder";
-import { double } from "../dart";
+import { double } from "@coli.codes/dart-builder";
 import { Color, TextDecorationStyle } from "../dart-ui";
 import { FontStyle } from "../dart-ui/font-style";
 import { FontWeight } from "../dart-ui/font-weight";

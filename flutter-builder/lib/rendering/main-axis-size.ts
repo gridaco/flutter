@@ -1,4 +1,4 @@
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 
 export class MainAxisSize extends Snippet {
   static readonly max = new Snippet("MainAxisSize.max");

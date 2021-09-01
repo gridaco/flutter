@@ -1,6 +1,6 @@
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 import { BuildableTree } from "../builder";
-import { double } from "../dart";
+import { double } from "@coli.codes/dart-builder";
 export class Radius extends BuildableTree {
   static circular(radius: double): Radius {
     return new Radius().extendWithFactory("circular").overrideArguments({

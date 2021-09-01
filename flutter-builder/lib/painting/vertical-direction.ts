@@ -1,4 +1,4 @@
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 
 /**
  * https://api.flutter.dev/flutter/painting/VerticalDirection-class.html

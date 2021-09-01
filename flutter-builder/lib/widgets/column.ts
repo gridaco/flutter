@@ -5,7 +5,7 @@ import { MainAxisSize } from "../rendering/main-axis-size";
 import { TextDirection } from "../dart-ui/text-direction";
 import { VerticalDirection } from "../painting/vertical-direction";
 import { TextBaseline } from "../painting/text-baseline";
-import { Snippet } from "coli/lib/snippet";
+import { Snippet } from "coli";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Column-class.html

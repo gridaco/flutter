@@ -1,4 +1,4 @@
-import { Widget } from ".";
+import { Widget } from "./widget";
 import { double } from "../dart";
 import { Key } from "../foundation";
 import { Alignment, AlignmentGeometry } from "../painting";

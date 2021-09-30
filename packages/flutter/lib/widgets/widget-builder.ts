@@ -1,7 +1,7 @@
+import type { Widget } from "./widget";
+import type { BuildContext } from "./build-context";
+
 /**
  * https://api.flutter.dev/flutter/widgets/WidgetBuilder.html
  */
-
-import { BuildContext, Widget } from "."
-
-export type WidgetBuilder = (context: BuildContext) => Widget
+export type WidgetBuilder = (context: BuildContext) => Widget;

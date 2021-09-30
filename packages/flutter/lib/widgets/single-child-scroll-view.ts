@@ -1,5 +1,5 @@
 import assert from "assert";
-import { Widget } from ".";
+import { Widget } from "./widget";
 import { Clip } from "../dart-ui/clip";
 import { Axis } from "../painting/axis";
 import { EdgeInsetsGeometry } from "../painting/edge-insets-geometry";

@@ -1,30 +1,22 @@
-import { InputBorder } from ".";
-import { BorderRadius } from "../painting/border-radius";
-import { BorderSide } from "../painting/border-side";
-
+import { InputBorder } from "./input-boarder";
+import type { BorderRadius } from "../painting/border-radius";
+import type { BorderSide } from "../painting/border-side";
 
 /**
  * https://api.flutter.dev/flutter/material/UnderlineInputBorder-class.html
  */
 export class UnderlineInputBorder extends InputBorder {
-    borderSide?: BorderSide
-    borderRadius?: BorderRadius
+  borderSide?: BorderSide;
+  borderRadius?: BorderRadius;
 
-    /**
-     * https://api.flutter.dev/flutter/material/UnderlineInputBorder/UnderlineInputBorder.html
-     * @param args 
-     */
-    constructor(args?:
-        {
-            borderSide?: BorderSide
-            borderRadius?: BorderRadius
-        }
-    ) {
-        super()
+  /**
+   * https://api.flutter.dev/flutter/material/UnderlineInputBorder/UnderlineInputBorder.html
+   * @param args
+   */
+  constructor(args?: { borderSide?: BorderSide; borderRadius?: BorderRadius }) {
+    super();
 
-        this.borderSide = args?.borderSide
-        this.borderRadius = args?.borderRadius
-
-    }
-
+    this.borderSide = args?.borderSide;
+    this.borderRadius = args?.borderRadius;
+  }
 }

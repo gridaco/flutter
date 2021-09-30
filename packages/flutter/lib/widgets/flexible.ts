@@ -1,4 +1,4 @@
-import { Widget } from ".";
+import { Widget } from "./widget";
 import { Key } from "../foundation";
 import { FlexFit } from "../rendering";
 

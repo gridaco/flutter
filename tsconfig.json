@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2016",
     "module": "commonjs",
-    "lib": ["es2017", "es7", "es6", "dom"],
+    "lib": ["es2019", "es2017", "es7", "es6", "dom"],
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

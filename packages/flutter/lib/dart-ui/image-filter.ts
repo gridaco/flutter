@@ -1,6 +1,6 @@
-import { BuildableTree } from "..";
-import { double } from "../dart";
+import { BuildableTree } from "../builder/buildable-tree";
 import { TileMode } from "./tile-mode";
+import type { double } from "../dart";
 
 /**
  * https://api.flutter.dev/flutter/dart-ui/ImageFilter-class.html

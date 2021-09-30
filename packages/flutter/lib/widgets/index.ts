@@ -1,16 +1,22 @@
 import { Widget } from "./widget";
+
 import { Align } from "./align";
+import { BackdropFilter } from "./backdrop-filter";
 import { BuildContext } from "./build-context";
 import { Center } from "./center";
 import { Column } from "./column";
 import { Container } from "./container";
 import { DefaultTextStyle } from "./default-text-style";
+import { ErrorWidget } from "./error-widget";
 import { Expanded } from "./expanded";
+import { Flex } from "./flex";
+import { Flexible } from "./flexible";
 import { GestureDetector } from "./gesture-detector";
+import { IconData } from "./icon-data";
+import { Icon } from "./icon";
 import { ImageLoadingBuilder } from "./image-loading-builder";
 import { Image } from "./image";
-import { Icon } from "./icon";
-import { IconData } from "./icon-data";
+import { MediaQueryData } from "./media-query-data";
 import { MediaQuery } from "./media-query";
 import { Opacity } from "./opacity";
 import { Padding } from "./padding";
@@ -29,17 +35,22 @@ import { WidgetBuilder } from "./widget-builder";
 
 export {
   Align,
+  BackdropFilter,
   BuildContext,
   Center,
   Column,
   Container,
   DefaultTextStyle,
+  ErrorWidget,
   Expanded,
+  Flex,
+  Flexible,
   GestureDetector,
+  IconData,
+  Icon,
   ImageLoadingBuilder,
   Image,
-  Icon,
-  IconData,
+  MediaQueryData,
   MediaQuery,
   Opacity,
   Padding,

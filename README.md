@@ -3,13 +3,15 @@
 # flutter-builder
 
 flutter widget builder for nodejs
-> flutter-builder uses *[dynamic](https://github.com/bridgedxyz/dynamic)* for handling dynamic configurable data such as button action handling.
 
-*CoLI: Computer Language Interface*
+> flutter-builder uses _[dynamic](https://github.com/bridgedxyz/dynamic)_ for handling dynamic configurable data such as button action handling.
+
+_CoLI: Computer Language Interface_
 
 ## Installation
-``` sh
-yarn add @bridged.xyz/flutter-builder
+
+```sh
+yarn add @flutter-builder/flutter
 ```
 
 ## How to use
@@ -25,12 +27,12 @@ console.log(text.build().finalize())
 ```
 
 ## Usecase
+
 **build widget tree**
+
 - ts ClassTree -> dart ClassTree
 
-
-
-``` typescript
+```typescript
 const text = new Text("this is written in typescript", {textStyle: new TextStyle(color: Colors.black)})
 
 const row = new Row({children: [
@@ -47,28 +49,22 @@ console.log(row.build().finalize())
 // );
 ```
 
-
-
-
-
 **function as function**
+
 > ts function -> dart in-code function
 
-*from*
-``` ts
-const functionInRow = new Row(
-    {
-        children: [
-            Function.from(_buildWidget())
-        ]
-    }
-)
+_from_
 
-function _buildWidget(): Widget{
-    return new Text("👋")
+```ts
+const functionInRow = new Row({
+  children: [Function.from(_buildWidget())],
+});
+
+function _buildWidget(): Widget {
+  return new Text("👋");
 }
 
-functionInRow.build().finalize()
+functionInRow.build().finalize();
 
 // Row(
 //    children: [
@@ -81,18 +77,16 @@ functionInRow.build().finalize()
 // }
 ```
 
-
-
 **full class build**
 
 ```typescript
-const classWidget = new StatelessWidget("Component")
+const classWidget = new StatelessWidget("Component");
 
 const builder = new Row();
 
-classWidget.buildFrom(builder)
+classWidget.buildFrom(builder);
 
-classWidget.build()
+classWidget.build();
 
 // class Component extends StatelessWidget{
 // 		@override
@@ -100,30 +94,19 @@ classWidget.build()
 //			return Row();
 //		}
 // }
-
 ```
-
-
 
 **slots (variables)**
 
 ```typescript
-
-const argument = Variable.from("some text")
+const argument = Variable.from("some text");
 const text = new Text(argument);
-text.build().finalize()
+text.build().finalize();
 
 // >>
 // final String argument = "some text";
 // Text(argument);
-
 ```
-
-
-
-
-
-
 
 ## flutter code export
 
@@ -149,7 +132,7 @@ widget supported
 ### Basics
 
 - ✅ Container
-    - ✅ BoxDecoration
+  - ✅ BoxDecoration
 - ✅ SizedBox
 - ✅ Column
 - ✅ Row
@@ -157,15 +140,15 @@ widget supported
 - ✅ Positioned
 - ✅ Align
 - ✅ Text
-    - ✅ DefaultTextStyle
+  - ✅ DefaultTextStyle
 - RichText
 - ✅ Padding
 - ✅ Center
 - Clip
-    - ClipRRect
-    - ClipRect
-    - ClipOval
-    - ClipPath
+  - ClipRRect
+  - ClipRect
+  - ClipOval
+  - ClipPath
 - ✅ Expanded
 - Flex
 - Flexible
@@ -179,6 +162,7 @@ widget supported
 - ✅ Chip
 
 ### Button
+
 - ✅ FlatButton
 - ✅ RaisedButton
 
@@ -194,11 +178,11 @@ widget supported
 ### Layouts
 
 - ListView
-    - horizontal
-    - vertical
+  - horizontal
+  - vertical
 - GirdView
-    - horizontal
-    - vertical
+  - horizontal
+  - vertical
 - ✅ SingleChildScrollView
 
 ### MISC

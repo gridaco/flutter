@@ -1,10 +1,10 @@
-![](./docs/cover.jpg)
+![](https://raw.githubusercontent.com/gridaco/coli-flutter-builder/main/docs/cover.jpg)
 
 # flutter-builder
 
 flutter widget builder for nodejs
 
-> flutter-builder uses _[dynamic](https://github.com/bridgedxyz/dynamic)_ for handling dynamic configurable data such as button action handling.
+> flutter-builder uses _[dynamic](https://github.com/gridaco/dynamic)_ for handling dynamic configurable data such as button action handling.
 
 _CoLI: Computer Language Interface_
 

@@ -1,6 +1,6 @@
 {
   "name": "@flutter-builder/flutter",
-  "version": "1.23.0-8.0.pre.42",
+  "version": "2.5.0",
   "description": "flutter widget builder from nodejs",
   "main": "dist/index.js",
   "repository": "https://github.com/gridaco/coli-flutter-builder",
@@ -24,11 +24,12 @@
     "typescript": "^4.0.5"
   },
   "files": [
+    "../../README.md",
+    "LICENSE",
     "dist/index.js",
     "dist/index.d.ts",
-    "dist/**/*",
-    "README.md",
-    "LICENSE"
+    "dist/**/*.d.ts",
+    "dist/**/*.js"
   ],
   "jest": {
     "transform": {
@@ -40,5 +41,8 @@
       "tsx",
       "js"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

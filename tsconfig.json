@@ -2,25 +2,13 @@
   "compilerOptions": {
     "target": "ES2016",
     "module": "commonjs",
-    "lib": [
-      "es2017",
-      "es7",
-      "es6",
-      "dom"
-    ],
-    "outDir": "dist",
+    "lib": ["es2017", "es7", "es6", "dom"],
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "sourceMap": true,
     "experimentalDecorators": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": false
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "example",
-    "tests",
-    "scripts"
-  ]
+  "exclude": ["node_modules", "dist", "example", "__tests__", "scripts"]
 }

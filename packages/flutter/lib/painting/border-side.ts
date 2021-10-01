@@ -7,17 +7,28 @@ import { BorderStyle } from "./border-style";
  * https://api.flutter.dev/flutter/painting/BorderSide-class.html
  */
 export class BorderSide extends BuildableTree {
-    color?: Color
-    width?: double
-    style?: BorderStyle
-    constructor(args?: {
-        color?: Color
-        width?: double
-        style?: BorderStyle
-    }) {
-        super()
-        this.color = args?.color
-        this.width = args?.width
-        this.style = args?.style
-    }
+  color?: Color;
+  width?: double;
+  style?: BorderStyle;
+  constructor(args?: { color?: Color; width?: double; style?: BorderStyle }) {
+    super();
+    this.color = args?.color;
+    this.width = args?.width;
+    this.style = args?.style;
+  }
+
+  /**
+   * https://api.flutter.dev/flutter/painting/BorderSide/none-constant.html
+   */
+  static get none() {
+    return none;
+  }
 }
+
+/**
+ * https://api.flutter.dev/flutter/painting/BorderSide/none-constant.html
+ */
+const none = new BorderSide({
+  width: 0.0,
+  style: BorderStyle.none,
+});

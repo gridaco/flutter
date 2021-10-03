@@ -60,15 +60,15 @@ export function composeAppWithComponent(
 ): string {
   let componentSource: string;
   if (component instanceof Widget) {
-    console.log("start composeSimpleApplication .. from instance of Widget");
+    // console.log("start composeSimpleApplication .. from instance of Widget");
     componentSource = component.build().finalize();
   } else {
-    console.log("start composeSimpleApplication .. from Prebuilt Widget code");
+    // console.log("start composeSimpleApplication .. from Prebuilt Widget code");
     componentSource = component;
   }
 
   const materialApp = new MaterialApp({
-    title: "app built with bridged.xyz",
+    title: "app built with grida.co",
     debugShowCheckedModeBanner: false,
     // showSemanticsDebugger: true,
     // showPerformanceOverlay: true,

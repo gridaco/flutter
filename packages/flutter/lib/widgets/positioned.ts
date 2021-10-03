@@ -37,4 +37,11 @@ export class Positioned extends Widget {
       .extendWithFactory("fill")
       .overrideArguments<Positioned>(args) as Positioned;
   }
+
+  /**
+   * https://api.flutter.dev/flutter/widgets/Positioned/Positioned.directional.html
+   */
+  static directional() {
+    throw "not implemented";
+  }
 }

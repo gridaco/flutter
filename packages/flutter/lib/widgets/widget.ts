@@ -1,62 +1,67 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { BuildingTree } from "../builder/building-tree";
+import { Key } from "../foundation/key";
 import { removeLastSemicolon } from "../utils";
 
 export class Widget extends BuildableTree {
+  readonly key?: Key;
 
-    constructor() {
-        super()
-    }
+  constructor(p?: { key?: Key }) {
+    super();
+    this.key = p?.key;
+  }
 
-    build(): BuildingTree {
-        return super.build()
-    }
+  build(): BuildingTree {
+    return super.build();
+  }
 
-    static prebuilt(code: string, args?: {
-        root: boolean
-    }): Widget {
-        if (!args?.root) {
-            // remove last ';' if exists.
-            code = removeLastSemicolon(code)
-        }
-        return new PrebuiltWidget(code)
+  static prebuilt(
+    code: string,
+    args?: {
+      root: boolean;
     }
+  ): Widget {
+    if (!args?.root) {
+      // remove last ';' if exists.
+      code = removeLastSemicolon(code);
+    }
+    return new PrebuiltWidget(code);
+  }
 }
-
 
 /**
  * this is used for containing prebuilt code snippet as an widget
  */
 export class PrebuiltWidget extends Widget {
-    widget: string | Widget
+  widget: string | Widget;
 
-    // accepts both types anonymously.
-    constructor(widget: string | Widget) {
-        super()
-        this.widget = widget;
-    }
+  // accepts both types anonymously.
+  constructor(widget: string | Widget) {
+    super();
+    this.widget = widget;
+  }
 
-    build(): BuildingTree {
-        if (this.widget instanceof Widget) {
-            return this.widget.build();
-        } else {
-            return new PrebuiltBuildingTree(this.widget);
-        }
+  build(): BuildingTree {
+    if (this.widget instanceof Widget) {
+      return this.widget.build();
+    } else {
+      return new PrebuiltBuildingTree(this.widget);
     }
+  }
 }
 
 class PrebuiltBuildingTree extends BuildingTree {
-    final: string
-    constructor(final: string) {
-        super()
-        this.final = final
-    }
+  final: string;
+  constructor(final: string) {
+    super();
+    this.final = final;
+  }
 
-    build() {
-        return this;
-    }
+  build() {
+    return this;
+  }
 
-    lookup() {
-        return this.final;
-    }
+  lookup() {
+    return this.final;
+  }
 }

@@ -11,7 +11,7 @@ export class ErrorWidget extends Widget {
   /**
    * https://api.flutter.dev/flutter/widgets/ErrorWidget/ErrorWidget.withDetails.html
    */
-  static withDetails(args: { message: string }) {
+  static withDetails(args: { message: string }): ErrorWidget {
     return new ErrorWidget()
       .extendWithFactory("withDetails")
       .overrideArguments(args);

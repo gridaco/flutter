@@ -31,6 +31,7 @@ import { ToolbarOptions } from "./toolbar-options";
 import { Stack } from "./stack";
 import { Transform } from "./transform";
 import { Visibility } from "./visibility";
+import { Wrap } from "./wrap";
 import { WidgetBuilder } from "./widget-builder";
 
 export {
@@ -65,6 +66,7 @@ export {
   ToolbarOptions,
   Transform,
   Visibility,
+  Wrap,
   Widget,
   WidgetBuilder,
 };

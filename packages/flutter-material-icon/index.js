@@ -1,5 +1,4 @@
-import { Snippet } from "../builder/buildable-tree";
-import { IconData } from "../widgets/icon-data";
+import { Snippet, IconData } from "@flutter-builder/flutter";
 
 /**
  * retrives the flutter `Icons.icon_name` code snippet via name of the material icon
@@ -8,7 +7,11 @@ import { IconData } from "../widgets/icon-data";
  * https://api.flutter.dev/flutter/material/Icons-class.html
  */
 export class Icons extends Snippet {
-  static get [key]() {
+  static [key]() {
     return new IconData().overrideSnippet("Icons." + key);
   }
 }
+
+const Icons = {
+  [(k) => k]: Icons[k],
+};

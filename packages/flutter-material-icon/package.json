@@ -1,0 +1,19 @@
+{
+    "name": "@flutter-builder/flutter-material-icons",
+    "version": "0.0.4",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "private": false,
+    "scripts": {},
+    "files": [
+        "index.d.ts",
+        "README",
+        "LICENSE"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@flutter-builder/flutter": "2.5.0-f8"
+    }
+}

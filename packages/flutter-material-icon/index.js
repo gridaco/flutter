@@ -1,4 +1,4 @@
-import { Snippet, IconData } from "@flutter-builder/flutter";
+import { IconData } from "@flutter-builder/flutter";
 
 /**
  * retrives the flutter `Icons.icon_name` code snippet via name of the material icon
@@ -6,12 +6,16 @@ import { Snippet, IconData } from "@flutter-builder/flutter";
  * @param name name of the material icon. i.e. add, person_add
  * https://api.flutter.dev/flutter/material/Icons-class.html
  */
-export class Icons extends Snippet {
-  static [key]() {
-    return new IconData().overrideSnippet("Icons." + key);
+export const Icons = new Proxy(
+  {},
+  {
+    get: function (target, property, receiver) {
+      return new IconData().overrideSnippet("Icons." + property);
+    },
   }
-}
+);
 
-const Icons = {
-  [(k) => k]: Icons[k],
-};
+// Learn more about proxy
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
+// - https://www.reddit.com/r/typescript/comments/q5zeph/possible_solution_for_dynamically_populating_the/
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/revocable

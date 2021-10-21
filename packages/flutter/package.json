@@ -1,6 +1,6 @@
 {
   "name": "@flutter-builder/flutter",
-  "version": "2.5.0-f13",
+  "version": "2.5.0-f14",
   "description": "flutter widget builder from nodejs",
   "main": "dist/index.js",
   "repository": "https://github.com/gridaco/coli-flutter-builder",

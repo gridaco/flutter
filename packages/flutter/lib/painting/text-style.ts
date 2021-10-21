@@ -1,9 +1,13 @@
+import {
+  Shadow,
+  FontStyle,
+  FontWeight,
+  TextDecoration,
+  Color,
+  TextDecorationStyle,
+} from "./../dart-ui";
 import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
-import { Color, TextDecorationStyle } from "../dart-ui";
-import { FontStyle } from "../dart-ui/font-style";
-import { FontWeight } from "../dart-ui/font-weight";
-import { TextDecoration } from "../dart-ui/text-decoration";
 import { TextBaseline } from "./text-baseline";
 
 /**
@@ -19,6 +23,7 @@ export class TextStyle extends BuildableTree {
   decoration?: TextDecoration;
   height?: double;
   letterSpacing?: double;
+  shadows?: Array<Shadow>;
   constructor(args?: {
     color?: Color;
     fontSize?: double;
@@ -28,6 +33,7 @@ export class TextStyle extends BuildableTree {
     decoration?: TextDecoration;
     height?: double;
     letterSpacing?: double;
+    shadows?: Array<Shadow>;
   }) {
     super();
     this.color = args?.color;
@@ -38,6 +44,7 @@ export class TextStyle extends BuildableTree {
     this.decoration = args?.decoration;
     this.height = args?.height;
     this.letterSpacing = args?.letterSpacing;
+    this.shadows = args?.shadows;
   }
 
   /**
@@ -59,8 +66,8 @@ export class TextStyle extends BuildableTree {
     // Locale? locale,
     // Paint? foreground,
     // Paint? background,
-    // List<Shadow>? shadows,
     // List<FontFeature>?fontFeatures,
+    shadows?: Array<Shadow>;
     decoration?: TextDecoration;
     decorationColor?: Color;
     decorationStyle?: TextDecorationStyle;

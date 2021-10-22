@@ -11,4 +11,16 @@ export class Shadow {
   offset?: Offset;
   blurRadius?: double;
   spreadRadius?: double;
+
+  constructor(args: {
+    color?: Color;
+    offset?: Offset;
+    blurRadius?: double;
+    spreadRadius?: double;
+  }) {
+    this.color = args?.color;
+    this.offset = args?.offset;
+    this.blurRadius = args?.blurRadius;
+    this.spreadRadius = args?.spreadRadius;
+  }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@flutter-builder/flutter-material-icons",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "main": "index.js",
     "types": "index.d.ts",
     "private": false,
@@ -8,6 +8,7 @@
     "files": [
         "index.d.ts",
         "README",
+        "index.js",
         "LICENSE"
     ],
     "publishConfig": {

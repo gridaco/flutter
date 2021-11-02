@@ -8,6 +8,7 @@ import { ImageFilter } from "./image-filter";
 import { Offset } from "./offset";
 import { Radius } from "./radius";
 import { Rect } from "./rect";
+import { Shadow } from "./shadow";
 import { Size } from "./size";
 import { TileMode } from "./tile-mode";
 import { TextAlign } from "./text-align";
@@ -26,6 +27,7 @@ export {
   Offset,
   Radius,
   Rect,
+  Shadow,
   Size,
   TextAlign,
   TextDecoration,

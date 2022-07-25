@@ -1,0 +1,18 @@
+{
+  "name": "@flutter-builder/pubspec",
+  "version": "0.0.0",
+  "dependencies": {
+    "yaml": "^2.1.1"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/**/*.d.ts",
+    "dist/**/*.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

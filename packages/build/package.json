@@ -1,0 +1,13 @@
+{
+  "name": "@flutter-builder/build",
+  "version": "0.0.0",
+  "description": "flutter bin command wrapper for nodejs, which can be used on web applications with webworkers to compile flutter app in the browser.",
+  "keywords": [
+    "flutter",
+    "webworker"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.6.1",
+    "typescript": "^4.7.4"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "@flutter-builder/build-web-worker",
+  "description": "build flutter apps from browser with web workers"
+}

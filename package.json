@@ -1,0 +1,21 @@
+{
+  "name": "flutter-builder",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lerna": "lerna",
+    "clean": "yarn lerna clean && rimraf packages/*/dist",
+    "build": "yarn clean && lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^5.3.0",
+    "@types/assert": "^1.5.6",
+    "@types/jest": "^28.1.6",
+    "@types/node": "latest",
+    "jest": "^26.5.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.7.4"
+  }
+}

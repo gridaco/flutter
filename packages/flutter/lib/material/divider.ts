@@ -1,6 +1,7 @@
 import { Widget } from "../widgets";
-import { double } from "../dart";
-import { Color } from "../dart-ui";
+import type { double } from "../dart";
+import type { Color } from "../dart-ui";
+import type { Key } from "../foundation";
 
 /**
  * https://api.flutter.dev/flutter/material/Divider-class.html
@@ -11,18 +12,25 @@ export class Divider extends Widget {
   indent?: double;
   endIndent?: double;
   color: Color;
-  constructor(args: {
+  constructor({
+    key,
+    height,
+    thickness,
+    indent,
+    endIndent,
+    color,
+  }: { key?: Key } & {
     height: double;
     thickness: double;
     indent?: double;
     endIndent?: double;
     color: Color;
   }) {
-    super();
-    this.height = args.height;
-    this.thickness = args.thickness;
-    this.indent = args.indent;
-    this.endIndent = args.endIndent;
-    this.color = args.color;
+    super({ key });
+    this.height = height;
+    this.thickness = thickness;
+    this.indent = indent;
+    this.endIndent = endIndent;
+    this.color = color;
   }
 }

@@ -4,23 +4,20 @@ import { Column, Row, Text } from "../widgets";
 import { Center } from "../widgets/center";
 
 const textWidget = new Text("hello world", {
-    style: Theme.of().textTheme.headline1.copyWith({
-        color: Color.fromHex('#FFFFFF')
-    })
-})
-
-
+  style: Theme.of().textTheme.headline1.copyWith({
+    color: Color.fromHex("#FFFFFF"),
+  }),
+});
 
 const column = new Column({
-    children: [
-        new Center(
-            {
-                child: textWidget
-            }
-        ), textWidget
-    ]
-})
+  children: [
+    new Center({
+      child: textWidget,
+    }),
+    textWidget,
+  ],
+});
 
-const dart = column.build().finalize()
+const dart = column.build().finalize();
 
-console.log(dart)
+console.log(dart);

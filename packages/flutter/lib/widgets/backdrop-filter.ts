@@ -1,14 +1,14 @@
+import type { Key } from "../foundation";
+import type { Widget } from "./widget";
 import { ImageFilter, BlendMode } from "../dart-ui";
-import { Key } from "../foundation";
-import { Widget } from "./widget";
+import { SingleChildRenderObjectWidget } from "./single-child-render-object-widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/BackdropFilter-class.html
  */
-export class BackdropFilter extends Widget {
+export class BackdropFilter extends SingleChildRenderObjectWidget {
   key?: Key;
   filter: ImageFilter;
-  child?: Widget;
   blendMode: BlendMode;
 
   /**
@@ -19,15 +19,13 @@ export class BackdropFilter extends Widget {
     filter,
     child,
     blendMode = BlendMode.srcOver,
-  }: {
-    key?: Key;
+  }: { key?: Key } & {
     filter: ImageFilter;
     child?: Widget;
     blendMode: BlendMode;
   }) {
-    super();
+    super({ key, child });
 
-    this.key = key;
     this.filter = filter;
     this.child = child;
     this.blendMode = blendMode;

@@ -9,7 +9,7 @@ export class PositionedDirectional extends Widget {
    * https://api.flutter.dev/flutter/widgets/PositionedDirectional/PositionedDirectional.html
    */
   constructor() {
-    super();
+    super({ key: undefined });
     throw "not implemented";
   }
 }

@@ -7,6 +7,7 @@ import { ScrollController } from "./scroll-controller";
 import { DragStartBehavior } from "../gestures";
 import { ScrollPhysics } from "./scroll-physics";
 import { ScrollViewKeyboardDismissBehavior } from "./scroll-view-keyboard-dismiss-behavior";
+import { Key } from "../foundation";
 
 /**
  * https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html
@@ -29,6 +30,7 @@ export class SingleChildScrollView extends Widget {
    * @param args
    */
   constructor({
+    key,
     scrollDirection = Axis.vertical as Axis,
     reverse = false,
     padding,
@@ -40,7 +42,7 @@ export class SingleChildScrollView extends Widget {
     clipBehavior = Clip.hardEdge,
     restorationId,
     keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-  }: {
+  }: { key?: Key } & {
     scrollDirection?: Axis;
     reverse?: boolean;
     padding?: EdgeInsetsGeometry;
@@ -53,7 +55,7 @@ export class SingleChildScrollView extends Widget {
     restorationId?: string;
     keyboardDismissBehavior?: ScrollViewKeyboardDismissBehavior;
   }) {
-    super();
+    super({ key });
     assert(scrollDirection != null);
     assert(dragStartBehavior != null);
     assert(clipBehavior != null);

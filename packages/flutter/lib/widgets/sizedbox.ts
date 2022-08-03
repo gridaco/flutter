@@ -2,6 +2,7 @@ import { Widget } from "./widget";
 import { Double, double } from "../dart/double";
 import { Size } from "../dart-ui/size";
 import { Snippet } from "../builder/buildable-tree";
+import { Key } from "../foundation";
 /**
  * https://api.flutter.dev/flutter/widgets/SizedBox-class.html
  */
@@ -9,11 +10,18 @@ export class SizedBox extends Widget {
   width: double;
   height: double;
   child: Widget;
-  constructor(args: { child?: Widget; width?: double; height?: double }) {
-    super();
-    this.child = args.child;
-    this.width = args?.width;
-    this.height = args?.height;
+  constructor({
+    key,
+    child,
+    width,
+    height,
+  }: {
+    key?: Key;
+  } & { child?: Widget; width?: double; height?: double }) {
+    super({ key });
+    this.child = child;
+    this.width = width;
+    this.height = height;
   }
 
   static expand(child: Widget) {
@@ -24,7 +32,7 @@ export class SizedBox extends Widget {
     });
   }
 
-  static shrink(child: Widget) {
+  static shrink(child?: Widget) {
     return new SizedBox({
       child: child,
       width: 0.0,

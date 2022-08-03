@@ -5,6 +5,7 @@ import { VerticalDirection } from "../painting/vertical-direction";
 import { CrossAxisAlignment } from "../rendering/cross-axis-alignment";
 import { MainAxisAlignment } from "../rendering/main-axis-alignment";
 import { MainAxisSize } from "../rendering/main-axis-size";
+import { Key } from "../foundation";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Row/Row.html
@@ -17,16 +18,24 @@ export class Row extends Widget {
   verticalDirection: VerticalDirection; // = VerticalDirection.down
   textBaseline: TextBaseline;
   children: Array<Widget> = Array<Widget>();
-  constructor(args: {
+  constructor({
+    key,
+    children,
+    mainAxisAlignment,
+    crossAxisAlignment,
+    mainAxisSize,
+  }: {
+    key?: Key;
+  } & {
     children: Array<Widget>;
     mainAxisAlignment?: MainAxisAlignment;
     crossAxisAlignment?: CrossAxisAlignment;
     mainAxisSize?: MainAxisSize;
   }) {
-    super();
-    this.children = args.children;
-    this.mainAxisAlignment = args?.mainAxisAlignment;
-    this.crossAxisAlignment = args?.crossAxisAlignment;
-    this.mainAxisSize = args?.mainAxisSize;
+    super({ key });
+    this.children = children;
+    this.mainAxisAlignment = mainAxisAlignment;
+    this.crossAxisAlignment = crossAxisAlignment;
+    this.mainAxisSize = mainAxisSize;
   }
 }

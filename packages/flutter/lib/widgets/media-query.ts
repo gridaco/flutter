@@ -6,32 +6,34 @@ import { Widget } from "./widget";
  * https://api.flutter.dev/flutter/widgets/MediaQuery-class.html
  */
 export class MediaQuery extends Widget {
+  constructor() {
+    super({ key: undefined });
+  }
 
-    constructor() {
-        super()
-    }
-
-    /**
-     * https://api.flutter.dev/flutter/widgets/MediaQuery/of.html
-     */
-    static of(): MediaQueryDefaults {
-        return {
-            size: MediaQueryDataSizeDefaults
-        }
-    }
+  /**
+   * https://api.flutter.dev/flutter/widgets/MediaQuery/of.html
+   */
+  static of(): MediaQueryDefaults {
+    return {
+      size: MediaQueryDataSizeDefaults,
+    };
+  }
 }
 
 export interface MediaQueryDefaults {
-    size: typeof MediaQueryDataSizeDefaults
+  size: typeof MediaQueryDataSizeDefaults;
 }
 
-
 export class MediaQueryDataSizeDefaults {
-    public static get width(): double {
-        return Snippet.fromStatic<BuildableTree>('MediaQuery.of(context).size.width') as double
-    }
+  public static get width(): double {
+    return Snippet.fromStatic<BuildableTree>(
+      "MediaQuery.of(context).size.width"
+    ) as double;
+  }
 
-    public static get height(): double {
-        return Snippet.fromStatic<BuildableTree>('MediaQuery.of(context).size.height') as double
-    }
+  public static get height(): double {
+    return Snippet.fromStatic<BuildableTree>(
+      "MediaQuery.of(context).size.height"
+    ) as double;
+  }
 }

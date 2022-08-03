@@ -6,7 +6,6 @@ import { Widget } from "./widget";
  * https://api.flutter.dev/flutter/widgets/ImageFiltered-class.html
  */
 export class ImageFiltered extends Widget {
-  key?: Key;
   imageFilter: ImageFilter;
   child?: Widget;
 
@@ -17,14 +16,12 @@ export class ImageFiltered extends Widget {
     key,
     imageFilter,
     child,
-  }: {
-    key?: Key;
+  }: { key?: Key } & {
     imageFilter: ImageFilter;
     child?: Widget;
   }) {
-    super();
+    super({ key });
 
-    this.key = key;
     this.imageFilter = imageFilter;
     this.child = child;
   }

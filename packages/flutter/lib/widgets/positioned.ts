@@ -1,5 +1,6 @@
 import { Widget } from "./widget";
 import { double } from "../dart";
+import { Key } from "../foundation";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Positioned-class.html
@@ -13,7 +14,16 @@ export class Positioned extends Widget {
   height?: double;
   child: Widget;
 
-  constructor(args: {
+  constructor({
+    key,
+    left,
+    top,
+    right,
+    bottom,
+    width,
+    height,
+    child,
+  }: { key?: Key } & {
     left?: double;
     top?: double;
     right?: double;
@@ -22,14 +32,14 @@ export class Positioned extends Widget {
     height?: double;
     child: Widget;
   }) {
-    super();
-    this.left = args?.left;
-    this.top = args?.top;
-    this.right = args?.right;
-    this.bottom = args?.bottom;
-    this.width = args?.width;
-    this.height = args?.height;
-    this.child = args?.child;
+    super({ key });
+    this.left = left;
+    this.top = top;
+    this.right = right;
+    this.bottom = bottom;
+    this.width = width;
+    this.height = height;
+    this.child = child;
   }
 
   static fill(args: { child: Widget }): Positioned {

@@ -1,14 +1,40 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { BuildingTree } from "../builder/building-tree";
+import { ignore } from "../decorations/params";
 import { Key } from "../foundation/key";
 import { removeLastSemicolon } from "../utils";
 
-export class Widget extends BuildableTree {
-  readonly key?: Key;
+export class Widget<__Meta extends object = {}> extends BuildableTree {
+  readonly key?: Key | undefined;
 
-  constructor(p?: { key?: Key }) {
+  /**
+   * meta for internal api use.
+   * put any meta data you want to utilize here.
+   */
+  @ignore()
+  private __meta?: __Meta | undefined = undefined;
+
+  /**
+   * meta for internal api use.
+   * put any meta data you want to utilize here.
+   */
+  @ignore()
+  get meta(): __Meta | undefined {
+    return this.__meta;
+  }
+
+  /**
+   * meta for internal api use.
+   * put any meta data you want to utilize here.
+   */
+  // @ignore() - no need.
+  set meta(value: __Meta) {
+    this.__meta = value;
+  }
+
+  constructor({ key }: { key: Key | undefined }) {
     super();
-    this.key = p?.key;
+    this.key = key;
   }
 
   build(): BuildingTree {
@@ -37,7 +63,7 @@ export class PrebuiltWidget extends Widget {
 
   // accepts both types anonymously.
   constructor(widget: string | Widget) {
-    super();
+    super({ key: undefined });
     this.widget = widget;
   }
 

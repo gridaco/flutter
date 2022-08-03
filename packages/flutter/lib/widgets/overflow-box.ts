@@ -7,7 +7,6 @@ import { Alignment, AlignmentGeometry } from "../painting";
  * https://api.flutter.dev/flutter/widgets/OverflowBox-class.html
  */
 export class OverflowBox extends Widget {
-  readonly key?: Key;
   readonly alignment: AlignmentGeometry;
   readonly minWidth?: double;
   readonly maxWidth?: double;
@@ -26,8 +25,7 @@ export class OverflowBox extends Widget {
     minHeight,
     maxHeight,
     child,
-  }: {
-    key?: Key;
+  }: { key?: Key } & {
     alignment: AlignmentGeometry;
     minWidth?: double;
     maxWidth?: double;
@@ -35,9 +33,8 @@ export class OverflowBox extends Widget {
     maxHeight?: double;
     child?: Widget;
   }) {
-    super();
+    super({ key });
 
-    this.key = key;
     this.alignment = alignment;
     this.minWidth = minWidth;
     this.maxWidth = maxWidth;

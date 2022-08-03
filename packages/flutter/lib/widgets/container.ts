@@ -1,10 +1,13 @@
 import assert from "assert";
+import { Clip } from "../dart-ui";
 import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";
+import { Key } from "../foundation";
 import { AlignmentGeometry } from "../painting/alignment-geomatry";
 import { BoxDecoration } from "../painting/box-decoration";
 import { Decoration } from "../painting/decoration";
 import { EdgeInsetsGeometry } from "../painting/edge-insets-geometry";
+import { BoxConstraints } from "../rendering";
 import { Matrix4 } from "../vector-math-64/matrix4";
 import { Widget } from "./widget";
 
@@ -47,29 +50,54 @@ export class Container extends Widget {
   margin: EdgeInsetsGeometry;
   transform: Matrix4;
 
-  constructor(args?: {
-    child?: Widget;
+  /**
+   * https://api.flutter.dev/flutter/widgets/Container/Container.html
+   */
+  constructor({
+    key,
+    alignment,
+    padding,
+    color,
+    decoration,
+    foregroundDecoration,
+    width,
+    height,
+    constraints,
+    margin,
+    transform,
+    transformAlignment,
+    child,
+    // @default()
+    clipBehavior = Clip.none,
+  }: { key?: Key } & {
+    alignment?: AlignmentGeometry;
+    padding?: EdgeInsetsGeometry;
     color?: Color;
+    decoration?: Decoration;
+    foregroundDecoration?: Decoration;
     width?: double;
     height?: double;
+    constraints?: BoxConstraints;
     margin?: EdgeInsetsGeometry;
-    padding?: EdgeInsetsGeometry;
-    decoration?: BoxDecoration;
+    transform?: Matrix4;
+    transformAlignment?: AlignmentGeometry;
+    child?: Widget;
+    clipBehavior?: Clip;
   }) {
-    super();
+    super({ key });
 
     assert(
-      !args?.decoration || !args?.color,
+      !decoration || !color,
       `Cannot provide both a color and a decoration\n
         To provide both, use "decoration: BoxDecoration(color: color)".`
     );
 
-    this.child = args?.child;
-    this.color = args?.color;
-    this.width = args?.width;
-    this.height = args?.height;
-    this.margin = args?.margin;
-    this.padding = args?.padding;
-    this.decoration = args?.decoration;
+    this.child = child;
+    this.color = color;
+    this.width = width;
+    this.height = height;
+    this.margin = margin;
+    this.padding = padding;
+    this.decoration = decoration;
   }
 }

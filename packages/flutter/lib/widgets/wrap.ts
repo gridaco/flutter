@@ -12,7 +12,6 @@ import assert from "assert";
  * https://api.flutter.dev/flutter/widgets/Wrap-class.html
  */
 export class Wrap extends Widget {
-  key?: Key;
   direction: Axis;
   alignment: WrapAlignment;
   spacing: number;
@@ -39,8 +38,7 @@ export class Wrap extends Widget {
     verticalDirection = VerticalDirection.down,
     clipBehavior = Clip.none,
     children = [],
-  }: {
-    key?: Key;
+  }: { key?: Key } & {
     direction?: Axis;
     alignment?: WrapAlignment;
     spacing?: number;

@@ -1,3 +1,4 @@
+import { Key } from "../foundation";
 import { Widget } from "./widget";
 
 /**
@@ -9,16 +10,22 @@ export class GestureDetector extends Widget {
   onTap?: any;
   onDoubleTap?: any;
   onLongPress?: any;
-  constructor(args: {
-    child: Widget;
+  constructor({
+    key,
+    onTap,
+    onDoubleTap,
+    onLongPress,
+    child,
+  }: { key?: Key } & {
     onTap?: any;
     onDoubleTap?: any;
     onLongPress?: any;
+    child: Widget;
   }) {
-    super();
-    this.child = args.child;
-    this.onTap = args.onTap;
-    this.onDoubleTap = args.onDoubleTap;
-    this.onLongPress = args.onLongPress;
+    super({ key });
+    this.child = child;
+    this.onTap = onTap;
+    this.onDoubleTap = onDoubleTap;
+    this.onLongPress = onLongPress;
   }
 }

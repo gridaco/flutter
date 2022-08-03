@@ -6,6 +6,7 @@ import { TextAlign } from "../dart-ui/text-align";
 import { defaultParam, param } from "../decorations/params";
 import { InlineSpan, TextStyle } from "../painting";
 import { TextOverflow } from "../rendering";
+import { Key } from "../foundation";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html
@@ -21,13 +22,13 @@ export class Text extends Widget {
   textAlign: TextAlign;
 
   constructor(
-    data: string,
-    args?: {
+    data,
+    args?: { key?: Key } & {
       style?: TextStyle | Snippet;
       textAlign?: TextAlign;
     }
   ) {
-    super();
+    super({ key: args?.key });
     assert(
       data != null,
       "A non-null String must be provided to a Text widget."

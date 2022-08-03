@@ -1,4 +1,7 @@
 import { Widget } from "./widget";
+import { MultiChildRenderObjectWidget } from "./multi-child-render-object-widget";
+import { SingleChildRenderObjectWidget } from "./single-child-render-object-widget";
+import { RenderObjectWidget } from "./render-object-widget";
 
 import { Align } from "./align";
 import { BackdropFilter } from "./backdrop-filter";
@@ -33,8 +36,15 @@ import { Transform } from "./transform";
 import { Visibility } from "./visibility";
 import { Wrap } from "./wrap";
 import { WidgetBuilder } from "./widget-builder";
+import { Key } from "../foundation";
 
 export {
+  Key,
+  Widget,
+  RenderObjectWidget,
+  SingleChildRenderObjectWidget,
+  MultiChildRenderObjectWidget,
+  // sort alphabetically
   Align,
   BackdropFilter,
   BuildContext,
@@ -67,6 +77,5 @@ export {
   Transform,
   Visibility,
   Wrap,
-  Widget,
   WidgetBuilder,
 };

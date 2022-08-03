@@ -13,8 +13,6 @@ import assert from "assert";
  * https://api.flutter.dev/flutter/widgets/Flex-class.html
  */
 export class Flex extends Widget {
-  readonly key?: Key;
-
   // @required()
   direction: Axis;
   mainAxisAlignment: MainAxisAlignment;
@@ -29,6 +27,7 @@ export class Flex extends Widget {
    * https://api.flutter.dev/flutter/widgets/Flex/Flex.html
    */
   constructor({
+    key,
     direction,
     mainAxisAlignment,
     mainAxisSize,
@@ -39,6 +38,8 @@ export class Flex extends Widget {
     clipBehavior,
     children,
   }: {
+    key?: Key;
+  } & {
     direction: Axis;
     mainAxisAlignment: MainAxisAlignment;
     mainAxisSize: MainAxisSize;
@@ -49,7 +50,7 @@ export class Flex extends Widget {
     clipBehavior: Clip;
     children: Array<Widget>;
   }) {
-    super();
+    super({ key });
     assert(direction != null);
     assert(mainAxisAlignment != null);
     assert(mainAxisSize != null);

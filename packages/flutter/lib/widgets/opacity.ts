@@ -1,4 +1,5 @@
-import { double } from "../dart";
+import type { double } from "../dart";
+import type { Key } from "../foundation";
 import { Widget } from "./widget";
 
 /**
@@ -7,9 +8,15 @@ import { Widget } from "./widget";
 export class Opacity extends Widget {
   child?: Widget;
   opacity: double;
-  constructor(args: { opacity: double; child?: Widget }) {
-    super();
-    this.opacity = args.opacity;
-    this.child = args.child;
+  constructor({
+    key,
+    opacity,
+    child,
+  }: {
+    key?: Key;
+  } & { opacity: double; child?: Widget }) {
+    super({ key });
+    this.opacity = opacity;
+    this.child = child;
   }
 }

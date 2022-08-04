@@ -1,0 +1,6 @@
+{
+  "name": "@flutter-builder/google-maps-flutter",
+  "description": "flutter google_maps_flutter widget builder for nodejs",
+  "version": "2.1.10",
+  "main": "dist/index.js"
+}

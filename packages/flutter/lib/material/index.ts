@@ -21,6 +21,7 @@ import { OutlinedButton } from "./outlined-button";
 import { ProgressIndicator } from "./progress-indicator";
 import { RaisedButton } from "./raised-button";
 import { Scaffold } from "./scaffold";
+import { Slider } from "./slider";
 import { TextButton } from "./text-button";
 import { TextTheme } from "./text-theme";
 import { ThemeData } from "./theme-data";
@@ -54,6 +55,7 @@ export {
   ProgressIndicator,
   RaisedButton,
   Scaffold,
+  Slider,
   TextButton,
   TextField,
   TextFormField,

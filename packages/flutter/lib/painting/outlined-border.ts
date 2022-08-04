@@ -2,8 +2,8 @@ import { identifier } from "../decorations";
 import { BorderSide } from "./border-side";
 import { ShapeBorder } from "./shape-border";
 
-@identifier("OutlineBorder")
-export class OutlineBorder extends ShapeBorder {
+@identifier("OutlinedBorder")
+export class OutlinedBorder extends ShapeBorder {
   side: BorderSide;
 
   constructor({

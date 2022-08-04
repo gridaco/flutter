@@ -24,7 +24,7 @@ import { ImageRepeat } from "./image-repeat";
 import { InlineSpan } from "./inline-span";
 import { LinearGradient } from "./linear-gradient";
 import { NetworkImage } from "./network-image";
-import { OutlineBorder } from "./outline-border";
+import { OutlinedBorder } from "./outlined-border";
 import { RadialGradient } from "./radial-gradient";
 import { RoundedRectangleBorder } from "./rounded-rectangle-border";
 import { ShapeBorder } from "./shape-border";
@@ -64,7 +64,7 @@ export {
   InlineSpan,
   LinearGradient,
   NetworkImage,
-  OutlineBorder,
+  OutlinedBorder,
   RadialGradient,
   RoundedRectangleBorder,
   ShapeBorder,

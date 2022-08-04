@@ -11,7 +11,7 @@
     "copy:README": "cp ../../README.md README.md",
     "clean": "rimraf dist",
     "build": "tsc",
-    "prepack": "yarn test && yarn clean && yarn build && yarn copy:README",
+    "prepack": "yarn clean && yarn build && yarn copy:README",
     "test": "jest"
   },
   "dependencies": {

@@ -8,10 +8,12 @@ import { DragStartBehavior } from "../gestures";
 import { ScrollPhysics } from "./scroll-physics";
 import { ScrollViewKeyboardDismissBehavior } from "./scroll-view-keyboard-dismiss-behavior";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html
  */
+@identifier("SingleChildScrollView")
 export class SingleChildScrollView extends Widget {
   scrollDirection?: Axis;
   reverse: boolean;

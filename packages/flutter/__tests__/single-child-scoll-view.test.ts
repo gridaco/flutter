@@ -9,6 +9,6 @@ test("single-child-scroll-view", () => {
       })
         .build()
         .finalize()
-    )
+    ).code
   ).toBe(`SingleChildScrollView()`);
 });

@@ -8,6 +8,7 @@ import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/RaisedButton-class.html
+ * @deprecated use [ElevatedButton] instead
  */
 @identifier("RaisedButton")
 export class RaisedButton extends MaterialButton {

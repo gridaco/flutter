@@ -8,6 +8,7 @@ import { MaterialButton } from "./material-button";
 
 /**
  * https://api.flutter.dev/flutter/material/FlatButton-class.html
+ * @deprecated Use [TextButton] instead.
  */
 @identifier("FlatButton")
 export class FlatButton extends MaterialButton {

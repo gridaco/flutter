@@ -33,7 +33,9 @@ const container = new Container({
 test("container", () => {
   expect(formatCode(container.build().finalize()).code).toBe(
     formatCode(`Container(
-      key: Key("container"),
+  key: Key(
+    "container"
+  ),
   width: double.infinity,
   height: null,
   decoration: BoxDecoration(
@@ -53,6 +55,10 @@ test("container", () => {
         Color(
           0xaaaaaa,
         ),
+      ],
+      stops: [
+        1,
+        2,
       ],
     ),
     shape: BoxShape.circle,

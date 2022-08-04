@@ -138,8 +138,10 @@ export class BuildableTree implements Buildable, IIdentifier {
       try {
         registerOnParam(key, field.build(depth + 1).lookup());
       } catch (e) {
-        console.error(key, "of type", typeof field, "does not support build()");
-        console.error("failed object is ", field);
+        console.error(
+          `"${key}" (typeof ${typeof field}) does not support build() the failed object is: `,
+          field
+        );
         console.error(e);
       }
     }

@@ -27,11 +27,11 @@ export class Column extends MultiChildRenderObjectWidget {
    */
   constructor({
     key,
-    mainAxisAlignment = MainAxisAlignment.start as Snippet,
-    mainAxisSize = MainAxisAlignment.start as Snippet,
+    mainAxisAlignment = MainAxisAlignment.start,
+    mainAxisSize = MainAxisSize.max,
     crossAxisAlignment = CrossAxisAlignment.center,
     textDirection,
-    verticalDirection = VerticalDirection.down as Snippet,
+    verticalDirection = VerticalDirection.down,
     textBaseline,
     children,
   }: { key?: Key } & {

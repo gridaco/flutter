@@ -6,16 +6,22 @@ import { identifier } from "../decorations";
  */
 @identifier("MainAxisAlignment")
 export class MainAxisAlignment extends Snippet {
-  static readonly center = Snippet.fromStatic("MainAxisAlignment.center");
-  static readonly end = Snippet.fromStatic("MainAxisAlignment.end");
+  static readonly center = Snippet.fromStatic(
+    "MainAxisAlignment.center"
+  ) as MainAxisAlignment;
+  static readonly end = Snippet.fromStatic(
+    "MainAxisAlignment.end"
+  ) as MainAxisAlignment;
   static readonly spaceAround = Snippet.fromStatic(
     "MainAxisAlignment.spaceAround"
-  );
+  ) as MainAxisAlignment;
   static readonly spaceBetween = Snippet.fromStatic(
     "MainAxisAlignment.spaceBetween"
-  );
+  ) as MainAxisAlignment;
   static readonly spaceEvenly = Snippet.fromStatic(
     "MainAxisAlignment.spaceEvenly"
-  );
-  static readonly start = Snippet.fromStatic("MainAxisAlignment.start");
+  ) as MainAxisAlignment;
+  static readonly start = Snippet.fromStatic(
+    "MainAxisAlignment.start"
+  ) as MainAxisAlignment;
 }

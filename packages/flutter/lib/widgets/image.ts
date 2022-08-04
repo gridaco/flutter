@@ -2,6 +2,7 @@ import { Widget } from "./widget";
 import { double } from "../dart";
 import { BoxFit } from "../painting/box-fit";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 interface FactoryArgs {
   key?: Key;
@@ -15,6 +16,7 @@ interface FactoryArgs {
 /**
  * https://api.flutter.dev/flutter/widgets/Image-class.html
  */
+@identifier("Image")
 export class Image extends Widget {
   constructor(args?: { key?: Key }) {
     super({ key: args?.key });

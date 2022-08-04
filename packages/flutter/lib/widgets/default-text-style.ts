@@ -3,9 +3,11 @@ import { TextAlign } from "../dart-ui/text-align";
 import { TextStyle } from "../painting/text-style";
 import { TextOverflow } from "../rendering/text-overflow";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 /**
  * https://api.flutter.dev/flutter/widgets/DefaultTextStyle/DefaultTextStyle.html
  */
+@identifier("DefaultTextStyle")
 export class DefaultTextStyle extends Widget {
   style: TextStyle;
   textAlign: TextAlign;

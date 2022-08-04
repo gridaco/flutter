@@ -2,11 +2,12 @@ import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
 import { Offset } from "../dart-ui/offset";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/dart-ui/Shadow-class.html
  */
-
+@identifier("Shadow")
 export class Shadow extends BuildableTree {
   color?: Color;
   offset?: Offset;

@@ -3,14 +3,16 @@ import { Widget } from "./widget";
 import { Snippet } from "../builder/buildable-tree";
 import { TextDirection } from "../dart-ui";
 import { TextAlign } from "../dart-ui/text-align";
-import { defaultParam, param } from "../decorations/params";
+import { defaultParam } from "../decorations/params";
 import { InlineSpan, TextStyle } from "../painting";
 import { TextOverflow } from "../rendering";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Text-class.html
  */
+@identifier("Text")
 export class Text extends Widget {
   // @param({ name: "data", default: true })
   @defaultParam()

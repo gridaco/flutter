@@ -1,10 +1,12 @@
 import { BuildableTree, Snippet } from "../builder/buildable-tree";
 import { double } from "../dart";
+import { identifier } from "../decorations";
 import { Widget } from "./widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/MediaQuery-class.html
  */
+@identifier("MediaQuery")
 export class MediaQuery extends Widget {
   constructor() {
     super({ key: undefined });

@@ -1,10 +1,12 @@
 import { Widget } from "./widget";
 import { double } from "../dart";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Positioned-class.html
  */
+@identifier("Positioned")
 export class Positioned extends Widget {
   left?: double;
   top?: double;

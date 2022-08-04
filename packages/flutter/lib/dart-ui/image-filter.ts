@@ -1,10 +1,12 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { TileMode } from "./tile-mode";
 import type { double } from "../dart";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/dart-ui/ImageFilter-class.html
  */
+@identifier("ImageFilter")
 export class ImageFilter extends BuildableTree {
   /**
    * https://api.flutter.dev/flutter/dart-ui/ImageFilter/ImageFilter.blur.html

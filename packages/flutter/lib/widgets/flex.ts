@@ -8,10 +8,12 @@ import {
 } from "../rendering";
 import { Widget } from "./widget";
 import assert from "assert";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Flex-class.html
  */
+@identifier("Flex")
 export class Flex extends Widget {
   // @required()
   direction: Axis;

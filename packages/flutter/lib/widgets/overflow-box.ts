@@ -2,10 +2,12 @@ import { Widget } from "./widget";
 import { double } from "../dart";
 import { Key } from "../foundation";
 import { Alignment, AlignmentGeometry } from "../painting";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/OverflowBox-class.html
  */
+@identifier("OverflowBox")
 export class OverflowBox extends Widget {
   readonly alignment: AlignmentGeometry;
   readonly minWidth?: double;

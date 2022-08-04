@@ -1,8 +1,8 @@
 import { BuildableTree } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/painting/Gradient-class.html
  */
-export class Gradient extends BuildableTree {
-
-}
+@identifier("Gradient")
+export class Gradient extends BuildableTree {}

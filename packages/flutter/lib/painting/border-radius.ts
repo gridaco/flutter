@@ -1,32 +1,30 @@
 import { BorderRadiusGeometry } from "./border-radius-geomatry";
-import { Radius } from "../dart-ui/radius"
+import { Radius } from "../dart-ui/radius";
 import { double } from "../dart";
+import { identifier } from "../decorations";
 /**
  * https://api.flutter.dev/flutter/painting/BorderRadius-class.html
  */
+@identifier("BorderRadius")
 export class BorderRadius extends BorderRadiusGeometry {
-    static circular(value: double): BorderRadius {
-        return new BorderRadius()
-            .extendWithFactory("circular")
-            .overrideArguments({ __default__: value })
-    }
+  static circular(value: double): BorderRadius {
+    return new BorderRadius()
+      .extendWithFactory("circular")
+      .overrideArguments({ __default__: value });
+  }
 
-    static only(args: {
-        topLeft?: Radius
-        topRight?: Radius
-        bottomLeft?: Radius
-        bottomRight?: Radius
-    }): BorderRadius {
-        return new BorderRadius()
-            .extendWithFactory("only")
-            .overrideArguments(args)
-    }
+  static only(args: {
+    topLeft?: Radius;
+    topRight?: Radius;
+    bottomLeft?: Radius;
+    bottomRight?: Radius;
+  }): BorderRadius {
+    return new BorderRadius().extendWithFactory("only").overrideArguments(args);
+  }
 
-    static zero(): BorderRadius {
-        return new BorderRadius()
-            .extendWithFactory("zero")
-            .overrideArguments({})
-    }
+  static zero(): BorderRadius {
+    return new BorderRadius().extendWithFactory("zero").overrideArguments({});
+  }
 
-    // static 
+  // static
 }

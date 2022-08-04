@@ -1,9 +1,11 @@
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { Widget } from "./widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/GestureDetector-class.html
  */
+@identifier("GestureDetector")
 export class GestureDetector extends Widget {
   child: Widget;
   // TODO

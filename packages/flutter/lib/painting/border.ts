@@ -3,10 +3,12 @@ import { Color } from "../dart-ui/color";
 import { BoxBorder } from "./box-border";
 import { BorderSide } from "./border-side";
 import assert from "assert";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/painting/Border-class.html
  */
+@identifier("Border")
 export class Border extends BoxBorder {
   top: BorderSide;
   right: BorderSide;

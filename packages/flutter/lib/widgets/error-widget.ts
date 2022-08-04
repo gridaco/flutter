@@ -1,9 +1,11 @@
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { Widget } from "./widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/ErrorWidget-class.html
  */
+@identifier("ErrorWidget")
 export class ErrorWidget extends Widget {
   constructor({ key }: { key?: Key }) {
     super({ key });

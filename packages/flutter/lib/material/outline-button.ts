@@ -1,7 +1,7 @@
+import { identifier } from "../decorations";
 import { MaterialButton } from "./material-button";
 /**
  * https://api.flutter.dev/flutter/material/OutlineButton-class.html
  */
-export class OutlineButton extends MaterialButton {
-
-}
+@identifier("OutlineButton")
+export class OutlineButton extends MaterialButton {}

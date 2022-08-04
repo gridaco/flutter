@@ -1,9 +1,11 @@
+import { identifier } from "../decorations";
 import type { Key } from "../foundation";
 import { Widget } from "./widget";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Visibility-class.html
  */
+@identifier("Visibility")
 export class Visibility extends Widget {
   child: Widget;
   // @default()

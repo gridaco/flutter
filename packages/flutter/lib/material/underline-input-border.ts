@@ -1,10 +1,12 @@
 import { InputBorder } from "./input-boarder";
 import type { BorderRadius } from "../painting/border-radius";
 import type { BorderSide } from "../painting/border-side";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/UnderlineInputBorder-class.html
  */
+@identifier("UnderlineInputBorder")
 export class UnderlineInputBorder extends InputBorder {
   borderSide?: BorderSide;
   borderRadius?: BorderRadius;

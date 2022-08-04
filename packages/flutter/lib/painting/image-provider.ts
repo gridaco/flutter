@@ -1,8 +1,8 @@
 import { BuildableTree } from "../builder";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/painting/ImageProvider-class.html
  */
-export class ImageProvider extends BuildableTree {
-
-}
+@identifier("ImageProvider")
+export class ImageProvider extends BuildableTree {}

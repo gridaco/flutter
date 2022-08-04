@@ -4,10 +4,12 @@ import { Color, VoidCallback } from "../dart-ui";
 import { ShapeBorder } from "../painting";
 import { Widget } from "../widgets";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/RaisedButton-class.html
  */
+@identifier("RaisedButton")
 export class RaisedButton extends MaterialButton {
   onPressed: VoidCallback;
   child: Widget;

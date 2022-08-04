@@ -1,4 +1,5 @@
 import { Color } from "../dart-ui";
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { Widget } from "../widgets";
 import { PreferredSizeWidget } from "../widgets/preffered-size-widget";
@@ -6,6 +7,7 @@ import { FloatingActionButtonLocation } from "./floating-action-button-location"
 /**
  * https://api.flutter.dev/flutter/material/Scaffold-class.html
  */
+@identifier("Scaffold")
 export class Scaffold extends Widget {
   appBar?: PreferredSizeWidget;
   body?: Widget;

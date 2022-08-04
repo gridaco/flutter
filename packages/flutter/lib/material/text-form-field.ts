@@ -15,10 +15,12 @@ import type {
 import type { ToolbarOptions } from "../widgets";
 import type { InputDecoration } from "./input-decoration";
 import { Widget } from "../widgets";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/TextFormField-class.html
  */
+@identifier("TextFormField")
 export class TextFormField extends Widget {
   // key?: Key
   // controller?: TextEditingController

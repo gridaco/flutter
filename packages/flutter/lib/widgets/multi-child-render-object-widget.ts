@@ -2,10 +2,12 @@ import { RenderObjectWidget } from "./render-object-widget";
 import assert from "assert";
 import type { Widget } from "./widget";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/MultiChildRenderObjectWidget-class.html
  */
+@identifier("MultiChildRenderObjectWidget")
 export class MultiChildRenderObjectWidget extends RenderObjectWidget {
   children: Array<Widget>;
 

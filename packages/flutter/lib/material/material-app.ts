@@ -1,3 +1,4 @@
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { Widget, WidgetBuilder } from "../widgets";
 import { ThemeData } from "./theme-data";
@@ -5,6 +6,7 @@ import { ThemeData } from "./theme-data";
 /**
  * https://api.flutter.dev/flutter/material/MaterialApp-class.html
  */
+@identifier("MaterialApp")
 export class MaterialApp extends Widget {
   home: Widget;
   routes?: Map<string, WidgetBuilder>;

@@ -3,10 +3,12 @@ import { TextAlign, TextDirection } from "../dart-ui";
 import { InlineSpan } from "../painting";
 import { TextOverflow } from "../rendering";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/RichText-class.html
  */
+@identifier("RichText")
 export class RichText extends Widget {
   text: InlineSpan;
   textAlign?: TextAlign;

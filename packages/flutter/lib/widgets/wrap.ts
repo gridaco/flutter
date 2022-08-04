@@ -7,10 +7,12 @@ import { WrapCrossAlignment } from "../rendering/wrap-cross-alignment";
 import { WrapAlignment } from "../rendering/wrap-alignment";
 import { Axis } from "../painting/axis";
 import assert from "assert";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Wrap-class.html
  */
+@identifier("Wrap")
 export class Wrap extends Widget {
   direction: Axis;
   alignment: WrapAlignment;

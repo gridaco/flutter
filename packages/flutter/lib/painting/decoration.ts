@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 
-export class Decoration extends BuildableTree {
-
-}
+@identifier("Decoration")
+export class Decoration extends BuildableTree {}

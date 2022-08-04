@@ -4,10 +4,12 @@ import type { Color, VoidCallback } from "../dart-ui";
 import type { ShapeBorder, TextStyle } from "../painting";
 import { Widget } from "../widgets/widget";
 import type { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/Chip-class.html
  */
+@identifier("Chip")
 export class Chip extends Widget {
   // onSelected?: VoidCallback
   onDeleted?: VoidCallback;

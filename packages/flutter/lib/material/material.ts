@@ -1,5 +1,6 @@
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
+import { identifier } from "../decorations";
 import type { Key } from "../foundation";
 import { TextStyle } from "../painting";
 import { BorderRadiusGeometry } from "../painting/border-radius-geomatry";
@@ -9,6 +10,7 @@ import { Widget } from "../widgets";
 /**
  * https://api.flutter.dev/flutter/material/Material-class.html
  */
+@identifier("Material")
 export class Material extends Widget {
   elevation?: double;
   color?: Color;

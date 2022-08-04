@@ -6,10 +6,12 @@ import { CrossAxisAlignment } from "../rendering/cross-axis-alignment";
 import { MainAxisAlignment } from "../rendering/main-axis-alignment";
 import { MainAxisSize } from "../rendering/main-axis-size";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Row/Row.html
  */
+@identifier("Row")
 export class Row extends Widget {
   mainAxisAlignment: MainAxisAlignment; // = MainAxisAlignment.start
   mainAxisSize: MainAxisSize; // = MainAxisSize.max

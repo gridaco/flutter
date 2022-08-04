@@ -2,10 +2,12 @@ import type { double } from "../dart";
 import type { Key } from "../foundation";
 import type { Color } from "../dart-ui";
 import { Widget } from "../widgets";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/VerticalDivider-class.html
  */
+@identifier("VerticalDivider")
 export class VerticalDivider extends Widget {
   width: double;
   thickness: double;

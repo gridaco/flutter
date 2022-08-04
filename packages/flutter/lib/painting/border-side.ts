@@ -1,11 +1,13 @@
 import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
 import { Color } from "../dart-ui/color";
+import { identifier } from "../decorations";
 import { BorderStyle } from "./border-style";
 
 /**
  * https://api.flutter.dev/flutter/painting/BorderSide-class.html
  */
+@identifier("BorderSide")
 export class BorderSide extends BuildableTree {
   color?: Color;
   width?: double;

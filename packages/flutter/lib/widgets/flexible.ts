@@ -1,10 +1,12 @@
 import { Widget } from "./widget";
 import { Key } from "../foundation";
 import { FlexFit } from "../rendering";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Flexible-class.html
  */
+@identifier("Flexible")
 export class Flexible extends Widget {
   flex?: number;
   fit: FlexFit;

@@ -11,10 +11,12 @@ import type { TextStyle } from "../painting/text-style";
 import type { ToolbarOptions } from "../widgets";
 import type { InputDecoration } from "./input-decoration";
 import { Widget } from "../widgets";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/material/TextField-class.html
  */
+@identifier("TextField")
 export class TextField extends Widget {
   // controller: TextEditingController
   // focusNode: FocusNode

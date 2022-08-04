@@ -1,6 +1,6 @@
 // import { formatCode } from "dart-style"
 import { BuildableTree } from "./buildable-tree";
-import { endsWithSemicolon, exportDuplicatedCommas } from "../utils";
+import { endsWithSemicolon, exportDuplicatedCommas } from "../_utils";
 import { Buildable } from "./buildable";
 import { Snippet } from "./buildable-tree";
 

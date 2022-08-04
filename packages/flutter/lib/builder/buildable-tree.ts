@@ -6,12 +6,19 @@ import {
 } from "../decorations/params";
 import { BuildingTree } from "./building-tree";
 import { Reflection as Reflect } from "@abraham/reflection";
+import type { IIdentifier } from "../_utils/identifier";
 
-export class BuildableTree implements Buildable {
-  private readonly _name: string;
+export class BuildableTree implements Buildable, IIdentifier {
+  /**
+   * you can set this with `@identifier` decorator
+   */
+  @ignore()
+  readonly __identifier: string;
 
-  constructor(_name?: string) {
-    this._name = _name ?? this.name;
+  constructor(identifier?: string) {
+    if (identifier) {
+      this.__identifier = identifier;
+    }
   }
 
   build(depth?: number): BuildingTree {
@@ -208,9 +215,9 @@ export class BuildableTree implements Buildable {
 
   get name(): string {
     if (this._factoryExtended) {
-      return `${this._name}.${this._factoryName}`;
+      return `${this.__identifier}.${this._factoryName}`;
     }
-    return this._name;
+    return this.__identifier;
   }
 }
 

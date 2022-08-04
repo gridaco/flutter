@@ -1,4 +1,5 @@
 import { Snippet } from "../builder/buildable-tree";
+
 export type double = number | Double | Snippet;
 type doubleMode =
   | "value"
@@ -7,6 +8,7 @@ type doubleMode =
   | "negativeInfinity"
   | "minPositive"
   | "maxFinite";
+
 export class Double extends Snippet {
   static nan = Snippet.fromStatic("double.nan") as Double;
   static infinity = Snippet.fromStatic("double.infinity") as Double;

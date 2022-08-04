@@ -3,10 +3,12 @@ import type { AlignmentGeometry } from "./alignment-geomatry";
 import type { double } from "../dart";
 import type { Color, TileMode } from "../dart-ui";
 import type { GradientTransform } from "./gradient-transform";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/painting/RadialGradient-class.html
  */
+@identifier("RadialGradient")
 export class RadialGradient extends Gradient {
   center?: AlignmentGeometry;
   radius?: double;

@@ -1,5 +1,6 @@
 import { double } from "../dart";
 import { Color, VoidCallback } from "../dart-ui";
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { EdgeInsetsGeometry, ShapeBorder } from "../painting";
 import { Widget } from "../widgets";
@@ -8,6 +9,7 @@ import { MaterialButton } from "./material-button";
 /**
  * https://api.flutter.dev/flutter/material/FlatButton-class.html
  */
+@identifier("FlatButton")
 export class FlatButton extends MaterialButton {
   onPressed: VoidCallback;
   child: Widget;

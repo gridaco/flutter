@@ -9,11 +9,13 @@ import {
 import { BuildableTree } from "../builder/buildable-tree";
 import { double } from "../dart";
 import { TextBaseline } from "./text-baseline";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/painting/TextStyle-class.html
  *
  */
+@identifier("TextStyle")
 export class TextStyle extends BuildableTree {
   color?: Color;
   fontSize?: double;

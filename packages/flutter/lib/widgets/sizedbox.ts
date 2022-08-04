@@ -3,9 +3,11 @@ import { Double, double } from "../dart/double";
 import { Size } from "../dart-ui/size";
 import { Snippet } from "../builder/buildable-tree";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 /**
  * https://api.flutter.dev/flutter/widgets/SizedBox-class.html
  */
+@identifier("SizedBox")
 export class SizedBox extends Widget {
   width: double;
   height: double;

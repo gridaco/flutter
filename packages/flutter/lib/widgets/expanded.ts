@@ -1,10 +1,12 @@
 import { Widget } from "./widget";
 import assert from "assert";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Expanded-class.html
  */
+@identifier("Expanded")
 export class Expanded extends Widget {
   child: Widget;
   flex: number;

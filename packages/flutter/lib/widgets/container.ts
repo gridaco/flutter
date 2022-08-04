@@ -2,6 +2,7 @@ import assert from "assert";
 import { Clip } from "../dart-ui";
 import { Color } from "../dart-ui/color";
 import { double } from "../dart/double";
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { AlignmentGeometry } from "../painting/alignment-geomatry";
 import { BoxDecoration } from "../painting/box-decoration";
@@ -14,6 +15,7 @@ import { Widget } from "./widget";
 /**
  * https://api.flutter.dev/flutter/widgets/Container-class.html
  */
+@identifier("Container")
 export class Container extends Widget {
   /// The [child] contained by the container.
   ///
@@ -75,8 +77,8 @@ export class Container extends Widget {
     color?: Color;
     decoration?: Decoration;
     foregroundDecoration?: Decoration;
-    width?: double;
-    height?: double;
+    width?: double | null;
+    height?: double | null;
     constraints?: BoxConstraints;
     margin?: EdgeInsetsGeometry;
     transform?: Matrix4;

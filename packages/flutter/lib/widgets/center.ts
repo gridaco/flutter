@@ -1,4 +1,5 @@
 import { double } from "../dart";
+import { identifier } from "../decorations";
 import { Key } from "../foundation";
 import { Align } from "./align";
 import { Widget } from "./widget";
@@ -6,6 +7,7 @@ import { Widget } from "./widget";
 /**
  * https://api.flutter.dev/flutter/widgets/Center-class.html
  */
+@identifier("Center")
 export class Center extends Align {
   /**
    * https://api.flutter.dev/flutter/widgets/Center/Center.html

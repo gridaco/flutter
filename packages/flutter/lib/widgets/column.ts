@@ -8,10 +8,12 @@ import type { TextBaseline } from "../painting/text-baseline";
 import type { Snippet } from "../builder/buildable-tree";
 import type { Key } from "../foundation";
 import { MultiChildRenderObjectWidget } from "./multi-child-render-object-widget";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Column-class.html
  */
+@identifier("Column")
 export class Column extends MultiChildRenderObjectWidget {
   mainAxisAlignment: MainAxisAlignment;
   mainAxisSize: MainAxisSize;

@@ -4,10 +4,12 @@ import { Color, TextDirection } from "../dart-ui";
 import { defaultParam } from "../decorations/params";
 import { IconData } from "./icon-data";
 import { Key } from "../foundation";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Icon-class.html
  */
+@identifier("Icon")
 export class Icon extends Widget {
   @defaultParam()
   icon: IconData;

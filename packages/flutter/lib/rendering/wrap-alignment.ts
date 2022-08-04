@@ -1,5 +1,7 @@
 import { EnumClass } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 
+// @identifier("WrapAlignment")
 /**
  * https://api.flutter.dev/flutter/rendering/WrapAlignment-class.html
  */

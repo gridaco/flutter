@@ -6,11 +6,13 @@ import {
   Color,
   Container,
   Double,
+  Key,
   LinearGradient,
   Radius,
 } from "../";
 
 const container = new Container({
+  key: new Key("container"),
   width: Double.infinity,
   height: null,
   decoration: new BoxDecoration({
@@ -27,12 +29,10 @@ const container = new Container({
   }),
 });
 
-const built = container.build();
-// console.log(container)
-console.log(built.finalize());
+const built = container.build().finalize();
 
-/**
- Container(
+test("container", () => {
+  expect(built).toBe(`Container(
   width: double.infinity,
   height: null,
   decoration: BoxDecoration(
@@ -42,12 +42,12 @@ console.log(built.finalize());
       ),
       width: 12,
     ),
-    borderRadius: BorderRadius.circular(
+    borderRadius: BorderRadius.only(
       topLeft: Radius.circular(
         12,
       ),
     ),
-    gradient: LinearGradients(
+    gradient: LinearGradient(
       colors: [
         Color(
           0xaaaaaa,
@@ -56,5 +56,5 @@ console.log(built.finalize());
     ),
     shape: BoxShape.circle,
   ),
-);
- */
+);`);
+});

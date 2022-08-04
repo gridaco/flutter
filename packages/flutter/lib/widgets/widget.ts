@@ -2,7 +2,7 @@ import { BuildableTree } from "../builder/buildable-tree";
 import { BuildingTree } from "../builder/building-tree";
 import { ignore } from "../decorations/params";
 import { Key } from "../foundation/key";
-import { removeLastSemicolon } from "../utils";
+import { removeLastSemicolon } from "../_utils";
 
 export class Widget<__Meta extends object = {}> extends BuildableTree {
   readonly key?: Key | undefined;

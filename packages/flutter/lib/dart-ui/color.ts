@@ -1,9 +1,11 @@
 import { BuildableTree, Snippet } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 import { defaultParam } from "../decorations/params";
 
 /**
  * https://api.flutter.dev/flutter/dart-ui/Color-class.html
  */
+@identifier("Color")
 export class Color extends BuildableTree {
   @defaultParam()
   value: Snippet | number;

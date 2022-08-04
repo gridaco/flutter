@@ -1,5 +1,5 @@
 import { BuildableTree } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 
-export class BorderRadiusGeometry extends BuildableTree {
-
-}
+@identifier("BorderRadiusGeometry")
+export class BorderRadiusGeometry extends BuildableTree {}

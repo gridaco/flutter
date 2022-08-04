@@ -4,10 +4,12 @@ import type { double } from "../dart";
 import type { Widget } from "./widget";
 import { Alignment } from "../painting";
 import { SingleChildRenderObjectWidget } from "./single-child-render-object-widget";
+import { identifier } from "../decorations";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Align-class.html
  */
+@identifier("Align")
 export class Align extends SingleChildRenderObjectWidget {
   alignment?: AlignmentGeometry;
   widthFactor?: double;

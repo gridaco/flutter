@@ -1,9 +1,11 @@
 import { Snippet } from "../builder/buildable-tree";
+import { identifier } from "../decorations";
 import { Widget } from "../widgets";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Navigator-class.html
  */
+@identifier("Navigator")
 export class Navigator extends Widget {
   static of(): Navigator {
     return new Navigator({ key: undefined });

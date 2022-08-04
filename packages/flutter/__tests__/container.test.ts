@@ -1,3 +1,4 @@
+import { formatCode } from "dart-style";
 import {
   Border,
   BorderRadius,
@@ -29,10 +30,10 @@ const container = new Container({
   }),
 });
 
-const built = container.build().finalize();
-
 test("container", () => {
-  expect(built).toBe(`Container(
+  expect(formatCode(container.build().finalize()).code).toBe(
+    formatCode(`Container(
+      key: Key("container"),
   width: double.infinity,
   height: null,
   decoration: BoxDecoration(
@@ -56,5 +57,6 @@ test("container", () => {
     ),
     shape: BoxShape.circle,
   ),
-);`);
+);`).code
+  );
 });

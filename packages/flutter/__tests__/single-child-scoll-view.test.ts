@@ -1,4 +1,14 @@
+import { formatCode } from "dart-style";
 import { SingleChildScrollView } from "../";
-new SingleChildScrollView({
-  child: undefined,
+
+test("single-child-scroll-view", () => {
+  expect(
+    formatCode(
+      new SingleChildScrollView({
+        child: undefined,
+      })
+        .build()
+        .finalize()
+    )
+  ).toBe(`SingleChildScrollView()`);
 });

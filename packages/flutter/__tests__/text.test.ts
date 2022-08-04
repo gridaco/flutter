@@ -1,3 +1,4 @@
+import { formatCode } from "dart-style";
 import { RichText, Text, TextSpan, Theme } from "../";
 
 const text = new Text("", {
@@ -21,8 +22,30 @@ const richText = new RichText({
   }),
 });
 
-console.log(text.build().finalize());
+test("text", () => {
+  expect(formatCode(text.build().finalize()).code).toBe(`Text(
+    "",
+    style: Theme.of(context).textTheme.headline5);`);
+});
 
-console.log(textRich.build().finalize());
+test("text rich", () => {
+  expect(formatCode(textRich.build().finalize()).code).toBe(`TextSpan(
+    text: "hello",
+    style: Theme.of(context).textTheme.headline5);
+    `);
+});
 
-console.log(richText.build().finalize());
+test("rich text", () => {
+  expect(formatCode(richText.build().finalize()).code).toBe(`RichText(
+    text: TextSpan(
+      text: "hello",
+      style: Theme.of(context).textTheme.headline5,
+      children: [
+        TextSpan(
+          text: "world",
+          style: Theme.of(context).textTheme.headline6,
+          ),
+        ],
+      ),
+    );`);
+});

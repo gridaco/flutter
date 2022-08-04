@@ -7,15 +7,18 @@ import { Widget } from "./widget";
  */
 @identifier("ErrorWidget")
 export class ErrorWidget extends Widget {
-  constructor({ key }: { key?: Key }) {
-    super({ key });
+  /**
+   * https://api.flutter.dev/flutter/widgets/ErrorWidget/ErrorWidget.html
+   */
+  constructor() {
+    super({ key: undefined }); // uses unique key, no need to specify.
   }
 
   /**
    * https://api.flutter.dev/flutter/widgets/ErrorWidget/ErrorWidget.withDetails.html
    */
-  static withDetails(args: { key?: Key; message: string }): ErrorWidget {
-    return new ErrorWidget({ key: args.key })
+  static withDetails(args: { message: string }): ErrorWidget {
+    return new ErrorWidget()
       .extendWithFactory("withDetails")
       .overrideArguments(args);
   }

@@ -3,7 +3,7 @@
   "description": "flutter daemon server for nodejs",
   "version": "0.0.0",
   "scripts": {
-    "dev": "ts-node-dev index.ts",
+    "dev": "ts-node-dev bin.ts",
     "test": "jest"
   },
   "exports": {
@@ -13,6 +13,8 @@
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.3",
+    "@types/rimraf": "^3.0.2",
+    "@types/ws": "^8.5.3",
     "jest": "^28.1.3",
     "rimraf": "^3.0.2",
     "ts-jest": "^28.0.7",

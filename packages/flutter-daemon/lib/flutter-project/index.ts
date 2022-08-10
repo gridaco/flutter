@@ -1,25 +1,59 @@
 import { spawnSync } from "child_process";
 import path from "path";
+import fs from "fs";
+import { FlutterRun } from "../flutter-run";
 
 export class FlutterProject {
   readonly directory: string;
-  constructor(cwd: string, readonly name: string) {
+  private runner: FlutterRun;
+  constructor(cwd: string, readonly id: string, readonly name?: string) {
     // creates fresh flutter project
-    spawnSync("flutter", ["create", name], {
+    const nameorid = name || id;
+    this.directory = path.join(cwd, id);
+
+    spawnSync("flutter", ["create", nameorid], {
       cwd: cwd,
+      stdio: "ignore",
     });
 
-    this.directory = path.join(cwd, name);
+    // rename project dir to id
+    fs.renameSync(path.join(cwd, nameorid), path.join(cwd, id));
   }
 
   static template() {}
 
-  writeFile(path, contents) {}
+  writeFile(file, contents) {
+    fs.writeFileSync(path.join(this.directory, file), contents);
+  }
 
-  run() {}
+  run() {
+    this.runner = new FlutterRun({
+      projectDir: this.directory,
+      webServer: true,
+    });
+    return this.runner.resolve();
+  }
 
   /**
    * this does not actually save the file, it only triggers hot reloading to linked flutter run command. (saving is already done by writeFile)
    */
-  save() {}
+  save() {
+    setTimeout(() => {
+      this.runner.restart({
+        fullRestart: false,
+        reason: "save",
+      });
+    }, 500);
+  }
+
+  restart() {
+    return this.runner.restart({
+      fullRestart: true,
+      reason: "manual",
+    });
+  }
+
+  stop() {
+    return this.runner.stop();
+  }
 }

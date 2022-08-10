@@ -1,5 +1,10 @@
 import { FlutterDaemon } from "./flutter-daemon";
-import type { AppRestartRequest, AppStopRequest, AppStopEvent } from "./types";
+import type {
+  AppRestartRequest,
+  AppStopRequest,
+  AppStopEvent,
+  AppStartEvent,
+} from "./types";
 type FlutterRunEvents =
   | "start"
   | "debugPort"
@@ -12,6 +17,7 @@ type FlutterRunEvents =
  * flutter run --machine
  */
 export class FlutterRun extends FlutterDaemon {
+  private readonly web: boolean;
   private _appId: string | null = null;
   get appId(): string | null {
     return this._appId;
@@ -30,11 +36,16 @@ export class FlutterRun extends FlutterDaemon {
      */
     webServer?: boolean;
   }) {
-    super();
-    const args = [];
+    const args = ["run", "--machine"];
     if (webServer) {
       args.push("-d", "web-server");
     }
+
+    super(projectDir, {
+      bin: "flutter", // TODO: add flutter bin locator
+      args,
+    });
+    this.web = true;
     //
   }
 
@@ -44,7 +55,7 @@ export class FlutterRun extends FlutterDaemon {
       ...req,
     };
 
-    super.restart(payload);
+    return super.restart(payload);
   }
 
   public callServiceExtension() {
@@ -59,10 +70,28 @@ export class FlutterRun extends FlutterDaemon {
     };
   }
 
-  onStart(callback: (data: any) => void) {}
-  onDebugPort(callback: (data: any) => void) {}
-  onStarted(callback: (data: any) => void) {}
-  onLog(callback: (data: any) => void) {}
-  onProgress(callback: (data: any) => void) {}
-  onStop(callback: (data: any) => void) {}
+  public resolve() {
+    // awaits till the app is started
+    return new Promise((resolve, reject) => {
+      if (this.appId) {
+        resolve(this.appId);
+      } else {
+        this.on("app.start", (event: AppStartEvent) => {
+          this._appId = event.appId;
+          resolve(this.appId);
+        });
+      }
+    });
+  }
+
+  onStart({ appId }: AppStartEvent) {
+    console.log(`appId: ${appId}`);
+    this._appId = appId;
+  }
+
+  onDebugPort() {}
+  onStarted() {}
+  onLog() {}
+  onProgress() {}
+  onStop() {}
 }

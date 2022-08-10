@@ -2,6 +2,24 @@
 /// @see https://github.com/flutter/flutter/blob/master/packages/flutter_tools/doc/daemon.md
 ///
 
+export type AppEvent =
+  | AppLogEvent
+  | AppStopEvent
+  | AppStartEvent
+  | AppStartedEvent
+  | AppProgressEvent
+  | AppDebugPortEvent;
+
+type AppEventMap = {
+  "app.log": AppLogEvent;
+  "app.stop": AppStopEvent;
+  "app.start": AppStartEvent;
+  "app.started": AppStartedEvent;
+  "app.progress": AppProgressEvent;
+  "app.webLaunchUrl": AppStartedEvent;
+  "app.debugPort": AppDebugPortEvent;
+};
+
 export interface DaemonConnectedEvent {
   /**
    * The protocol version. This is the same version returned by the version() command.

@@ -1,7 +1,17 @@
 import * as child_process from "child_process";
 import * as stream from "stream";
 import fs from "fs";
-import { AppRestartRequest } from "./types";
+import {
+  AppEvent,
+  AppDebugPortEvent,
+  AppLogEvent,
+  AppProgressEvent,
+  AppRestartRequest,
+  AppStartedEvent,
+  AppStartEvent,
+  AppStopEvent,
+  DaemonConnectedEvent,
+} from "./types";
 
 export const isCI = !!process.env.CI;
 export const isDartCodeTestRun = !!process.env.DART_CODE_IS_TEST_RUN;
@@ -19,12 +29,31 @@ export type SpawnedProcess = child_process.ChildProcess & {
 export abstract class FlutterDaemon {
   proc?: SpawnedProcess;
 
-  constructor() {
+  constructor(cwd: string, { bin, args }: { bin?: string; args: string[] }) {
     console.log("Starting Flutter Daemon...");
-    this.proc = safeSpawn(process.cwd(), "flutter", ["daemon"], {});
-
-    this.proc.stdout.on("data", (data) => {
-      console.log(data.toString());
+    this.proc = safeSpawn(cwd, bin || "flutter", args, {});
+    this.proc.stdout.on("data", (payload) => {
+      const data: string = payload.toString().trim();
+      if (data.startsWith("[") && data.endsWith("]")) {
+        const event = parse_event_str(data);
+        switch (event.event) {
+          case "app.progress":
+            this.onProgress(event.params as AppProgressEvent);
+            break;
+          case "app.webLaunchUrl":
+            // this.onWebLaunchUrl(event.params as AppStartedEvent);
+            break;
+          case "app.start":
+            this.onStart(event.params as AppStartEvent);
+            break;
+          case "app.started":
+            this.onStarted(event.params as AppStartedEvent);
+            break;
+          case "daemon.connected":
+          // this.onConnected(event.params as DaemonConnectedEvent);
+        }
+      }
+      console.log(data);
     });
   }
 
@@ -54,19 +83,52 @@ export abstract class FlutterDaemon {
 
   protected command(method: string, args: object) {
     if (this.proc) {
-      this.proc.stdin.write(
-        make_command_str({
-          method: method,
+      const payload = make_command_str({
+        method: method,
+        params: {
           ...args,
-          id: Math.random().toString(),
-        })
-      );
+        },
+        id: Math.random().toString(),
+      });
+      console.log(`Calling ${method}`, payload);
+      this.proc.stdin.write(payload);
     }
+  }
+
+  abstract onStart(e: AppStartEvent);
+  abstract onDebugPort(e: AppDebugPortEvent);
+  abstract onStarted(e: AppStartedEvent);
+  abstract onLog(e: AppLogEvent);
+  abstract onProgress(e: AppProgressEvent);
+  abstract onStop(e: AppStopEvent);
+
+  on<T extends string>(event: T, callback: (e: AppEvent) => void) {
+    this.proc.stdout.on("data", (payload) => {
+      const data = payload.toString().trim();
+      if (data.startsWith("[") && data.endsWith("]")) {
+        const e = parse_event_str(data);
+        if (e.event === event) {
+          callback(e.params);
+        }
+      }
+    });
   }
 }
 
 function make_command_str(command: object) {
   return "[" + JSON.stringify(command) + "]\r\n";
+}
+
+function parse_event_str(str: string): {
+  event: string;
+  params?: AppEvent;
+} {
+  try {
+    return JSON.parse(str.split("\n")[0])[0];
+  } catch (e) {
+    console.error("error while parsing event", str, e);
+    return;
+  }
 }
 
 function safeSpawn(

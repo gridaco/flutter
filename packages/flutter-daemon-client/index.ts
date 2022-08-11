@@ -3,8 +3,10 @@ import type {
   Request,
   DaemonConnectedEvent,
   AppEventMap,
+  RequestMap,
 } from "@flutter-daemon/server";
 import { ReadFileResponse } from "@flutter-daemon/server";
+import assert from "assert";
 import { FlutterProject } from "./flutter-project";
 
 type ClientEventMap = {
@@ -24,8 +26,12 @@ export default class Client {
     });
   }
 
-  async project(id: string, name?: string): Promise<FlutterProject> {
-    await this.request(cmd("create-new-project", { id, name }));
+  async project(
+    id: string,
+    name?: string,
+    overwrites?: { [path: string]: string }
+  ): Promise<FlutterProject> {
+    await this.request(cmd("create-new-project", { id, name, overwrites }));
     const p = new FlutterProject(id, name, this);
     this.projects.set(id, p);
     return p;
@@ -33,7 +39,7 @@ export default class Client {
 
   async restart(projectId: string) {
     await this._connect();
-    return this.request(cmd("restart", { projectId: projectId }));
+    return await this.request(cmd("restart", { projectId: projectId }));
   }
 
   async writeFile(
@@ -66,9 +72,9 @@ export default class Client {
     ).content;
   }
 
-  async stop(appId: string) {
+  async stop(projectId: string) {
     await this._connect();
-    this.request(cmd("stop", { appId }));
+    this.request(cmd("stop", { projectId }));
   }
 
   on<K extends keyof ClientEventMap>(
@@ -77,7 +83,6 @@ export default class Client {
   ) {
     this.ws.addEventListener("message", (e) => {
       const data = JSON.parse(e.data);
-      console.log("on:message", data);
       if (data.type == type) {
         callback(data);
       }
@@ -85,6 +90,7 @@ export default class Client {
   }
 
   async request(r: Request): Promise<Response> {
+    assert(r.$id);
     await this._connect();
     this.ws.send(JSON.stringify(r));
 
@@ -102,11 +108,11 @@ export default class Client {
   }
 }
 
-function cmd<K extends Request["type"]>(
+function cmd<K extends keyof RequestMap>(
   type: K,
-  o: Omit<Request, "type" | "$id">
-): Request {
-  return { type: type, ...o, $id: $id() } as Request;
+  o: Omit<RequestMap[K], "type" | "$id">
+): RequestMap[K] {
+  return { type: type, ...o, $id: $id() } as RequestMap[K];
 }
 
 function $id() {

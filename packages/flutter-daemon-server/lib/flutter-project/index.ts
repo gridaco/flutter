@@ -6,7 +6,14 @@ import { FlutterRun } from "../flutter-run";
 export class FlutterProject {
   readonly directory: string;
   private runner: FlutterRun;
-  constructor(cwd: string, readonly id: string, readonly name?: string) {
+  constructor(
+    cwd: string,
+    readonly id: string,
+    readonly name?: string,
+    options?: {
+      overwrites: { [path: string]: string };
+    }
+  ) {
     // creates fresh flutter project
     const nameorid = name || id;
     this.directory = path.join(cwd, id);
@@ -17,8 +24,17 @@ export class FlutterProject {
     });
 
     // rename project dir to id
-    fs.renameSync(path.join(cwd, nameorid), path.join(cwd, id));
-    this._created = true;
+    fs.promises
+      .rename(path.join(cwd, nameorid), path.join(cwd, id))
+      .then(() => {
+        if (options?.overwrites) {
+          for (const [file, content] of Object.entries(options.overwrites)) {
+            fs.promises.writeFile(path.join(this.directory, file), content);
+          }
+        }
+
+        this._created = true;
+      });
   }
 
   static template() {}
@@ -29,21 +45,18 @@ export class FlutterProject {
       return true;
     }
     return new Promise((resolve, reject) => {
-      if (this._created) return true;
-      // check if project is created every 100ms
       const interval = setInterval(() => {
-        if (fs.existsSync(this.directory)) {
-          this._created = true;
+        if (this._created) {
           clearInterval(interval);
           resolve(true);
         }
-      }, 100);
+      }, 50);
     });
   }
 
   async writeFile(file, contents) {
     await this.created();
-    fs.writeFileSync(path.join(this.directory, file), contents);
+    await fs.promises.writeFile(path.join(this.directory, file), contents);
   }
 
   async readFile(file) {
@@ -63,16 +76,14 @@ export class FlutterProject {
    * this does not actually save the file, it only triggers hot reloading to linked flutter run command. (saving is already done by writeFile)
    */
   async save() {
-    setTimeout(() => {
-      this.runner.restart({
-        fullRestart: false,
-        reason: "save",
-      });
-    }, 500);
+    await this.runner.restart({
+      fullRestart: false,
+      reason: "save",
+    });
   }
 
-  restart() {
-    return this.runner.restart({
+  async restart() {
+    return await this.runner.restart({
       fullRestart: true,
       reason: "manual",
     });

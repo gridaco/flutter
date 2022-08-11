@@ -11,6 +11,7 @@ import {
   AppStartEvent,
   AppStopEvent,
   DaemonConnectedEvent,
+  AppEventMap,
 } from "./types";
 
 export const isCI = !!process.env.CI;
@@ -60,7 +61,7 @@ export abstract class FlutterDaemon {
     this.command("device.getDevices", { id: 2 });
   }
 
-  protected restart({
+  protected async restart({
     appId,
     fullRestart = false,
     reason,
@@ -73,6 +74,13 @@ export abstract class FlutterDaemon {
       reason,
       pause,
       debounce,
+    });
+    return new Promise((resolve) => {
+      this.on("app.progress", (e) => {
+        if (e.finished) {
+          resolve(e);
+        }
+      });
     });
   }
 
@@ -101,12 +109,15 @@ export abstract class FlutterDaemon {
   abstract onProgress(e: AppProgressEvent);
   abstract onStop(e: AppStopEvent);
 
-  on<T extends string>(event: T, callback: (e: AppEvent) => void) {
+  on<K extends keyof AppEventMap>(
+    event: K,
+    callback: (e: AppEventMap[K]) => void
+  ) {
     this.proc.stdout.on("data", (payload) => {
       const events = parse_events(payload.toString());
       events.forEach((e) => {
         if (e.event === event) {
-          callback(e.params);
+          callback(e.params as AppEventMap[K]);
         }
       });
     });
@@ -138,7 +149,7 @@ function parse_events(str: string): {
         return JSON.parse(l)[0];
       }
     })
-    .filter(Boolean);
+    .filter((i) => "event" in (i || {}));
 }
 
 function safeSpawn(

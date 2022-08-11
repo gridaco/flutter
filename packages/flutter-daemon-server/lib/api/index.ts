@@ -17,6 +17,14 @@ export type Request =
   | RestartRequet
   | StopRequest;
 
+export interface RequestMap {
+  "create-new-project": CreateNewProjectRequest;
+  "write-file": WriteFileRequest;
+  "read-file": ReadFileRequest;
+  restart: RestartRequet;
+  stop: StopRequest;
+}
+
 export type Response =
   | CreateNewProjectResponse
   | WriteFileResponse
@@ -42,8 +50,15 @@ export interface CreateNewProjectRequest extends Command {
   name: string;
   /**
    * @deprecated - not ready
+   * creates new project with initial files
    */
   initials?: File[];
+  /**
+   * creates new project and overwrites existing files
+   */
+  overwrites?: {
+    [path: string]: string;
+  };
 }
 
 export interface CreateNewProjectResponse extends CreateNewProjectRequest {}

@@ -17,8 +17,8 @@ export type AppEventMap = {
   "app.start": AppStartEvent;
   "app.started": AppStartedEvent;
   "app.progress": AppProgressEvent;
-  "app.webLaunchUrl": AppWebLaunchUrlEvent;
   "app.debugPort": AppDebugPortEvent;
+  "app.webLaunchUrl": AppWebLaunchUrlEvent;
 };
 
 export interface DaemonConnectedEvent {

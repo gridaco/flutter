@@ -39,12 +39,14 @@ import Editor from "@monaco-editor/react";
  * <!-- grida.meta.widget_declaration | engine : 0.0.1 | source : figma://KxtkLFdRQOURmYn3Q4bYTV/1:3 -->
  */
 export function Example({
+  onValueChange,
   value,
   initialValue,
   onRunClick,
   webLuanchUrl,
   refreshKey,
 }: {
+  onValueChange?: (value: string | undefined) => void;
   value?: string;
   initialValue?: string;
   onRunClick?: () => void;
@@ -59,12 +61,16 @@ export function Example({
           height="100vh"
           defaultLanguage="dart"
           defaultValue={initialValue}
+          onChange={(e) => {
+            onValueChange?.(e);
+          }}
           value={value}
         />
       </L>
       <R>
         {webLuanchUrl ? (
           <iframe
+            key={refreshKey}
             style={{
               width: "100%",
               height: "100%",

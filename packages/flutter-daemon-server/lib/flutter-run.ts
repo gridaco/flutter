@@ -49,7 +49,7 @@ export class FlutterRun extends FlutterDaemon {
     //
   }
 
-  public restart({ ...req }: Omit<AppRestartRequest, "appId">) {
+  public async restart({ ...req }: Omit<AppRestartRequest, "appId">) {
     const payload: AppRestartRequest = {
       appId: this.appId,
       ...req,

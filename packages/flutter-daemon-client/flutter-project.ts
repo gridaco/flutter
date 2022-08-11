@@ -39,7 +39,9 @@ export class FlutterProject {
 
   async restart() {}
 
-  async writeFile() {}
+  async writeFile(path: string, content: string, save?: boolean) {
+    return await this.client.writeFile(this.id, path, content, save);
+  }
 
   async readFile(path: string): Promise<string> {
     return await this.client.readFile(this.id, path);
@@ -61,7 +63,7 @@ export class FlutterProject {
   }
 
   async save() {
-    return this.client.restart(this.id);
+    return await this.client.restart(this.id);
   }
 
   on<K extends keyof AppEventMap>(type: K, cb: (e: AppEventMap[K]) => void) {

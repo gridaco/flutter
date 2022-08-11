@@ -45,7 +45,7 @@ export default class Server {
     console.log("received: ", data.type);
     switch (data.type) {
       case "create-new-project": {
-        this.createProject(data.id, data.name).then(() => {
+        this.createProject(data.id, data.name, data.overwrites).then(() => {
           this.response(ws, {
             ...data,
             $id: data.$id,
@@ -58,7 +58,7 @@ export default class Server {
         const project = this.project(data.projectId);
         await project.writeFile(data.path, data.content);
         if (data.save) {
-          project.save();
+          await project.save();
         }
         this.response(ws, {
           ...data,
@@ -69,7 +69,7 @@ export default class Server {
       }
       case "restart": {
         const project = this.project(data.projectId);
-        project.restart();
+        await project.restart();
         this.response(ws, {
           ...data,
           $id: data.$id,
@@ -106,9 +106,12 @@ export default class Server {
 
   protected async createProject(
     id: string,
-    name?: string
+    name?: string,
+    overwrites?: { [path: string]: string }
   ): Promise<FlutterProject> {
-    const p = new FlutterProject(INSTANCES_ROOT_DIR, id, name);
+    const p = new FlutterProject(INSTANCES_ROOT_DIR, id, name, {
+      overwrites,
+    });
     this.projects.push(p);
     await p.run();
 
@@ -124,7 +127,7 @@ export default class Server {
   }
 
   protected proxyEvent(type, params) {
-    console.log("proxyEvent: ", type, params);
+    // console.log("proxyEvent: ", type, params);
     this.connections.forEach((ws) => {
       ws.send(JSON.stringify({ type, ...params }));
     });

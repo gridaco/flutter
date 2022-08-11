@@ -59,6 +59,7 @@ export function Example({
         <Editor
           theme="vs-dark"
           height="100vh"
+          path="lib/main.dart"
           defaultLanguage="dart"
           defaultValue={initialValue}
           onChange={(e) => {
@@ -104,7 +105,6 @@ const RootWrapperExample = styled.div`
 
 const L = styled.div`
   width: 100%;
-  padding-top: 24px;
   overflow: hidden;
   background-color: rgb(30, 30, 30);
   border-top-left-radius: 0px;

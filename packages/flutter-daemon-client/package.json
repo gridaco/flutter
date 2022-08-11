@@ -1,16 +1,13 @@
 {
-  "name": "@flutter-builder/daemon",
-  "description": "flutter daemon server for nodejs",
+  "name": "@flutter-daemon/client",
+  "description": "flutter daemon client for nodejs",
   "version": "0.0.0",
   "scripts": {
     "dev": "ts-node-dev bin.ts",
     "test": "jest"
   },
-  "exports": {
-    "server": "./src/server.ts",
-    "client": "./src/client.ts"
-  },
   "devDependencies": {
+    "@flutter-daemon/server": "*",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.3",
     "@types/rimraf": "^3.0.2",

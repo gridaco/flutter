@@ -9,7 +9,7 @@
 ## Local dev server
 
 ```ts
-import Server from "@flutter-builder/daemon";
+import Server from "@flutter-builder/daemon/server";
 
 const server = Server();
 server.serve();
@@ -18,15 +18,23 @@ server.serve();
 ## Client (web app or IDE)
 
 ```ts
-import Client from "@flutter-builder/daemon";
+import Client from "@flutter-builder/daemon/client";
 
 const client = client("ws://localhost:8080").connect();
 
-client.on("build", () => {
+const app = client.project("tmp");
+
+app.writeFile("lib/main.dart", "void main() {}", {
+  save: true,
+});
+
+app.on("weblaunchUrl", () => {
   //
 });
 
-const app = client.app("app");
+app.on("restart", () => {
+  //
+});
 
 // app.log
 app.on("log", (log: string, error?: boolean) => {});

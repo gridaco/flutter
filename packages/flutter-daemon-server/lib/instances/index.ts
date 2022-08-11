@@ -4,14 +4,7 @@ import fs from "fs";
 import rimraf from "rimraf";
 
 export const HOMEDIR = os.homedir();
-export const CACHEDIR_FLUTTER_BUILDER_SHARED = path.join(
-  HOMEDIR,
-  ".@flutter-builder"
-);
-export const CACHEDIR_FLUTTER_DAEMON = path.join(
-  CACHEDIR_FLUTTER_BUILDER_SHARED,
-  "daemon"
-);
+export const CACHEDIR_FLUTTER_DAEMON = path.join(HOMEDIR, ".flutter-daemon");
 
 /**
  * directory used for creating new flutter apps.
@@ -21,13 +14,10 @@ export const INSTANCES_ROOT_DIR = path.join(
   CACHEDIR_FLUTTER_DAEMON,
   "instances"
 );
-const _readme_content = `# \`@flutter-builder/daemon\` instances directory
+const _readme_content = `# \`@flutter-daemon/server\` instances directory
 Learn more at https://github.com/gridaco/flutter-builder/tree/main/packages/flutter-daemon`;
 
 export function setup() {
-  if (!fs.existsSync(CACHEDIR_FLUTTER_BUILDER_SHARED)) {
-    fs.mkdirSync(CACHEDIR_FLUTTER_BUILDER_SHARED);
-  }
   if (!fs.existsSync(CACHEDIR_FLUTTER_DAEMON)) {
     fs.mkdirSync(CACHEDIR_FLUTTER_DAEMON);
   }

@@ -33,9 +33,8 @@ export abstract class FlutterDaemon {
     console.log("Starting Flutter Daemon...");
     this.proc = safeSpawn(cwd, bin || "flutter", args, {});
     this.proc.stdout.on("data", (payload) => {
-      const data: string = payload.toString().trim();
-      if (data.startsWith("[") && data.endsWith("]")) {
-        const event = parse_event_str(data);
+      const events = parse_events(payload.toString());
+      events.forEach((event) => {
         switch (event.event) {
           case "app.progress":
             this.onProgress(event.params as AppProgressEvent);
@@ -52,8 +51,8 @@ export abstract class FlutterDaemon {
           case "daemon.connected":
           // this.onConnected(event.params as DaemonConnectedEvent);
         }
-      }
-      console.log(data);
+        console.info("o:", event);
+      });
     });
   }
 
@@ -104,13 +103,21 @@ export abstract class FlutterDaemon {
 
   on<T extends string>(event: T, callback: (e: AppEvent) => void) {
     this.proc.stdout.on("data", (payload) => {
-      const data = payload.toString().trim();
-      if (data.startsWith("[") && data.endsWith("]")) {
-        const e = parse_event_str(data);
+      const events = parse_events(payload.toString());
+      events.forEach((e) => {
         if (e.event === event) {
           callback(e.params);
         }
-      }
+      });
+    });
+  }
+
+  onEvent(callback: (type, e: AppEvent) => void) {
+    this.proc.stdout.on("data", (payload) => {
+      const events = parse_events(payload.toString());
+      events.forEach((e) => {
+        callback(e.event, e.params);
+      });
     });
   }
 }
@@ -119,16 +126,19 @@ function make_command_str(command: object) {
   return "[" + JSON.stringify(command) + "]\r\n";
 }
 
-function parse_event_str(str: string): {
+function parse_events(str: string): {
   event: string;
   params?: AppEvent;
-} {
-  try {
-    return JSON.parse(str.split("\n")[0])[0];
-  } catch (e) {
-    console.error("error while parsing event", str, e);
-    return;
-  }
+}[] {
+  return str
+    .split("\n")
+    .map((l) => {
+      l = l.trim();
+      if (l.startsWith("[") && l.endsWith("]")) {
+        return JSON.parse(l)[0];
+      }
+    })
+    .filter(Boolean);
 }
 
 function safeSpawn(

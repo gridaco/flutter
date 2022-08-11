@@ -18,26 +18,51 @@ export class FlutterProject {
 
     // rename project dir to id
     fs.renameSync(path.join(cwd, nameorid), path.join(cwd, id));
+    this._created = true;
   }
 
   static template() {}
 
-  writeFile(file, contents) {
+  private _created = false;
+  private async created(): Promise<true> {
+    if (this._created) {
+      return true;
+    }
+    return new Promise((resolve, reject) => {
+      if (this._created) return true;
+      // check if project is created every 100ms
+      const interval = setInterval(() => {
+        if (fs.existsSync(this.directory)) {
+          this._created = true;
+          clearInterval(interval);
+          resolve(true);
+        }
+      }, 100);
+    });
+  }
+
+  async writeFile(file, contents) {
+    await this.created();
     fs.writeFileSync(path.join(this.directory, file), contents);
   }
 
-  run() {
+  async readFile(file) {
+    await this.created();
+    return fs.readFileSync(path.join(this.directory, file), "utf8");
+  }
+
+  async run() {
     this.runner = new FlutterRun({
       projectDir: this.directory,
       webServer: true,
     });
-    return this.runner.resolve();
+    return await this.runner.resolve();
   }
 
   /**
    * this does not actually save the file, it only triggers hot reloading to linked flutter run command. (saving is already done by writeFile)
    */
-  save() {
+  async save() {
     setTimeout(() => {
       this.runner.restart({
         fullRestart: false,
@@ -55,5 +80,13 @@ export class FlutterProject {
 
   stop() {
     return this.runner.stop();
+  }
+
+  on(type, cb) {
+    this.runner.on(type, cb);
+  }
+
+  onEvent(cb: (type, event) => void) {
+    this.runner.onEvent(cb);
   }
 }

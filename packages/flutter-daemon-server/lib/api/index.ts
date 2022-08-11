@@ -3,11 +3,26 @@ export interface File {
   content: string;
 }
 
+interface Command {
+  /**
+   * request, response id
+   */
+  $id: string;
+}
+
 export type Request =
   | CreateNewProjectRequest
   | WriteFileRequest
+  | ReadFileRequest
   | RestartRequet
   | StopRequest;
+
+export type Response =
+  | CreateNewProjectResponse
+  | WriteFileResponse
+  | ReadFileResponse
+  | RestartResponse
+  | StopResponse;
 
 /**
  * request for creating new flutter project. if no initials are provided, it uses the default `flutter create` command.
@@ -21,7 +36,7 @@ export type Request =
 }
   ```
  */
-export interface CreateNewProjectRequest {
+export interface CreateNewProjectRequest extends Command {
   type: "create-new-project";
   id: string;
   name: string;
@@ -31,8 +46,10 @@ export interface CreateNewProjectRequest {
   initials?: File[];
 }
 
+export interface CreateNewProjectResponse extends CreateNewProjectRequest {}
+
 interface IProjectRequest {
-  projectId: string;
+  readonly projectId: string;
 }
 
 /**
@@ -49,19 +66,32 @@ interface IProjectRequest {
  }
  * ```
  */
-export interface WriteFileRequest extends IProjectRequest {
+export interface WriteFileRequest extends IProjectRequest, Command {
   type: "write-file";
-  projectId: string;
   path: string;
   content: string;
   save?: boolean;
 }
 
-export interface RestartRequet extends IProjectRequest {
-  type: "restart";
-  projectId: string;
+export interface WriteFileResponse extends WriteFileRequest {}
+
+export interface ReadFileRequest extends IProjectRequest, Command {
+  type: "read-file";
+  path: string;
 }
 
-export interface StopRequest extends IProjectRequest {
+export interface ReadFileResponse extends ReadFileRequest, Command {
+  content: string;
+}
+
+export interface RestartRequet extends IProjectRequest, Command {
+  type: "restart";
+}
+
+export interface RestartResponse extends RestartRequet {}
+
+export interface StopRequest extends IProjectRequest, Command {
   type: "stop";
 }
+
+export interface StopResponse extends StopRequest {}

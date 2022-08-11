@@ -2,7 +2,8 @@
   "name": "flutter-builder",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "lerna": "lerna",

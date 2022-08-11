@@ -85,7 +85,6 @@ export class FlutterRun extends FlutterDaemon {
   }
 
   onStart({ appId }: AppStartEvent) {
-    console.log(`appId: ${appId}`);
     this._appId = appId;
   }
 

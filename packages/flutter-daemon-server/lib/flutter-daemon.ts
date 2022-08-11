@@ -131,6 +131,12 @@ export abstract class FlutterDaemon {
       });
     });
   }
+
+  public kill() {
+    if (this.proc) {
+      this.proc.kill();
+    }
+  }
 }
 
 function make_command_str(command: object) {

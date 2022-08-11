@@ -1,14 +1,15 @@
 {
   "name": "@flutter-daemon/client",
   "description": "flutter daemon client for nodejs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "private": false,
   "scripts": {
     "dev": "ts-node-dev bin.ts",
     "test": "jest",
     "clean": "rimraf dist",
-    "build": "tsc"
+    "build": "tsc",
+    "prepack": "yarn clean && yarn build"
   },
   "devDependencies": {
     "@flutter-daemon/server": "*",

@@ -2,6 +2,7 @@ import { spawnSync } from "child_process";
 import path from "path";
 import fs from "fs";
 import { FlutterRun } from "../flutter-run";
+import { validateFlutterProjectDirectory } from "../utils/validae-flutter-project-dir";
 
 export class FlutterProject {
   readonly directory: string;
@@ -11,12 +12,20 @@ export class FlutterProject {
     readonly id: string,
     readonly name?: string,
     options?: {
+      useExisting?: boolean;
       overwrites: { [path: string]: string };
     }
   ) {
     // creates fresh flutter project
     const nameorid = name || id;
     this.directory = path.join(cwd, id);
+
+    if (options?.useExisting) {
+      if (validateFlutterProjectDirectory(this.directory)) {
+        this._created = true;
+        return;
+      }
+    }
 
     spawnSync("flutter", ["create", nameorid], {
       cwd: cwd,
@@ -72,6 +81,15 @@ export class FlutterProject {
     return await this.runner.resolve();
   }
 
+  async appId(): Promise<string> {
+    await this.runner.resolve();
+    return this.runner.appId;
+  }
+
+  async webLaunchUrl() {
+    return await this.runner.webLaunchUrl();
+  }
+
   /**
    * this does not actually save the file, it only triggers hot reloading to linked flutter run command. (saving is already done by writeFile)
    */
@@ -99,5 +117,9 @@ export class FlutterProject {
 
   onEvent(cb: (type, event) => void) {
     this.runner.onEvent(cb);
+  }
+
+  kill() {
+    return this.runner.kill();
   }
 }

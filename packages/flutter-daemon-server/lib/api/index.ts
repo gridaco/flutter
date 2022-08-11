@@ -12,6 +12,7 @@ interface Command {
 
 export type Request =
   | CreateNewProjectRequest
+  | UseProjectRequest
   | WriteFileRequest
   | ReadFileRequest
   | RestartRequet
@@ -19,6 +20,7 @@ export type Request =
 
 export interface RequestMap {
   "create-new-project": CreateNewProjectRequest;
+  "use-project": UseProjectRequest;
   "write-file": WriteFileRequest;
   "read-file": ReadFileRequest;
   restart: RestartRequet;
@@ -27,6 +29,7 @@ export interface RequestMap {
 
 export type Response =
   | CreateNewProjectResponse
+  | UseProjectResponse
   | WriteFileResponse
   | ReadFileResponse
   | RestartResponse
@@ -63,6 +66,16 @@ export interface CreateNewProjectRequest extends Command {
 
 export interface CreateNewProjectResponse extends CreateNewProjectRequest {}
 
+export interface UseProjectRequest
+  extends Omit<CreateNewProjectRequest, "type"> {
+  type: "use-project";
+}
+
+export interface UseProjectResponse extends UseProjectRequest {
+  used: "existing" | "new";
+  appId?: string;
+  webLaunchUrl?: string;
+}
 interface IProjectRequest {
   readonly projectId: string;
 }

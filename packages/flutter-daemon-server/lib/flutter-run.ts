@@ -4,6 +4,7 @@ import type {
   AppStopRequest,
   AppStopEvent,
   AppStartEvent,
+  AppWebLaunchUrlEvent,
 } from "./types";
 type FlutterRunEvents =
   | "start"
@@ -22,6 +23,8 @@ export class FlutterRun extends FlutterDaemon {
   get appId(): string | null {
     return this._appId;
   }
+
+  readonly directory: string;
 
   constructor({
     projectDir,
@@ -46,7 +49,12 @@ export class FlutterRun extends FlutterDaemon {
       args,
     });
     this.web = true;
+    this.directory = projectDir;
     //
+
+    this.on("app.webLaunchUrl", (e) => {
+      this._webLaunchUrl = e.url;
+    });
   }
 
   public async restart({ ...req }: Omit<AppRestartRequest, "appId">) {
@@ -81,6 +89,17 @@ export class FlutterRun extends FlutterDaemon {
           resolve(this.appId);
         });
       }
+    });
+  }
+
+  private _webLaunchUrl: string | null = null;
+  async webLaunchUrl(): Promise<string> {
+    if (this._webLaunchUrl) return this._webLaunchUrl;
+    return new Promise((resolve, reject) => {
+      this.on("app.webLaunchUrl", (event: AppWebLaunchUrlEvent) => {
+        this._webLaunchUrl = event.url;
+        resolve(event.url);
+      });
     });
   }
 

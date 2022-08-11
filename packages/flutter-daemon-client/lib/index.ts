@@ -5,6 +5,7 @@ import type {
   ReadFileResponse,
   AppEventMap,
   RequestMap,
+  UseProjectResponse,
 } from "@flutter-daemon/server";
 import assert from "assert";
 import { FlutterProject } from "./flutter-project";
@@ -31,8 +32,22 @@ export default class Client {
     name?: string,
     overwrites?: { [path: string]: string }
   ): Promise<FlutterProject> {
-    await this.request(cmd("create-new-project", { id, name, overwrites }));
-    const p = new FlutterProject(id, name, this);
+    const { appId, webLaunchUrl, used } =
+      await this.request<UseProjectResponse>(
+        cmd("use-project", { id, name, overwrites })
+      );
+
+    const p = new FlutterProject(
+      id,
+      name,
+      this,
+      used === "existing"
+        ? {
+            appId,
+            webLaunchUrl,
+          }
+        : undefined
+    );
     this.projects.set(id, p);
     return p;
   }
@@ -89,7 +104,7 @@ export default class Client {
     });
   }
 
-  async request(r: Request): Promise<Response> {
+  async request<T extends Response = Response>(r: Request): Promise<T> {
     assert(r.$id);
     await this._connect();
     this.ws.send(JSON.stringify(r));
@@ -98,7 +113,7 @@ export default class Client {
       const listener = (e) => {
         const data = JSON.parse(e.data);
         if (data.$id && data.$id === r.$id) {
-          resolve(data as Response);
+          resolve(data as T);
           this.ws.removeEventListener("message", listener);
         }
       };

@@ -15,17 +15,26 @@ export class FlutterProject {
   constructor(
     readonly id,
     readonly name: string | undefined,
-    readonly client: Client
+    readonly client: Client,
+    cached?: {
+      appId: string;
+      webLaunchUrl: string;
+    }
   ) {
-    client.on("app.started", (e) => {
-      // TODO: change to app.start
-      console.log("on:app.started", e);
-      this._appId = e.appId;
-    });
-    client.on("app.webLaunchUrl", (e) => {
-      console.log("on:app.webLaunchUrl", e);
-      this._webLaunchUrl = e.url;
-    });
+    if (cached) {
+      this._appId = cached.appId;
+      this._webLaunchUrl = cached.webLaunchUrl;
+    } else {
+      client.on("app.started", (e) => {
+        // TODO: change to app.start
+        console.log("on:app.started", e);
+        this._appId = e.appId;
+      });
+      client.on("app.webLaunchUrl", (e) => {
+        console.log("on:app.webLaunchUrl", e);
+        this._webLaunchUrl = e.url;
+      });
+    }
   }
 
   protected _appId: string | undefined;

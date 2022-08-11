@@ -6,7 +6,7 @@ import type { Request, Response } from "./lib/api";
 export default class Server {
   private wss: ws.Server;
   private connections = new Set<ws.WebSocket>();
-  projects: FlutterProject[] = [];
+  readonly projects: Map<string, FlutterProject> = new Map();
 
   constructor() {
     clean();
@@ -53,6 +53,25 @@ export default class Server {
           });
         });
         break;
+      }
+      case "use-project": {
+        const { project, existing } = await this.useProject(
+          data.id,
+          data.name,
+          data.overwrites
+        );
+        this.response(ws, {
+          ...data,
+          ...{
+            appId: existing ? await project.appId() : undefined,
+            webLaunchUrl: existing ? await project.webLaunchUrl() : undefined,
+          },
+          $id: data.$id,
+          used: existing ? "existing" : "new",
+          type: "use-project",
+        });
+        break;
+        //
       }
       case "write-file": {
         const project = this.project(data.projectId);
@@ -101,18 +120,23 @@ export default class Server {
   }
 
   protected project(id: string): FlutterProject | undefined {
-    return this.projects.find((p) => p.id === id);
+    return this.projects.get(id);
   }
 
   protected async createProject(
     id: string,
     name?: string,
-    overwrites?: { [path: string]: string }
+    overwrites?: { [path: string]: string },
+    killExisting: boolean = true
   ): Promise<FlutterProject> {
+    if (killExisting && this.projects.has(id)) {
+      this.projects.get(id).kill();
+    }
+
     const p = new FlutterProject(INSTANCES_ROOT_DIR, id, name, {
       overwrites,
     });
-    this.projects.push(p);
+    this.projects.set(id, p);
     await p.run();
 
     p.onEvent((type, e) => {
@@ -120,6 +144,21 @@ export default class Server {
     });
 
     return p;
+  }
+
+  protected async useProject(
+    id: string,
+    name?: string,
+    overwrites?: { [path: string]: string }
+  ): Promise<{ project: FlutterProject; existing: boolean }> {
+    if (this.projects.has(id)) {
+      return { project: this.projects.get(id), existing: true };
+    } else {
+      return {
+        project: await this.createProject(id, name, overwrites),
+        existing: false,
+      };
+    }
   }
 
   protected response(ws: ws.WebSocket, r: Response) {

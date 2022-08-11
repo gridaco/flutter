@@ -1,3 +1,4 @@
-import { Server } from ".";
+import Server from ".";
 
-const server = new Server({});
+const server = new Server();
+server.listen({});

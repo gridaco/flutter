@@ -2,9 +2,13 @@
   "name": "@flutter-daemon/server",
   "description": "flutter daemon server for nodejs",
   "version": "0.0.0",
+  "main": "dist/index.js",
+  "private": false,
   "scripts": {
     "dev": "ts-node-dev bin.ts",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
@@ -20,5 +24,13 @@
   },
   "dependencies": {
     "ws": "^8.8.1"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

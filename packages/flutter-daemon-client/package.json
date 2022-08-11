@@ -2,9 +2,13 @@
   "name": "@flutter-daemon/client",
   "description": "flutter daemon client for nodejs",
   "version": "0.0.0",
+  "main": "dist/index.js",
+  "private": false,
   "scripts": {
     "dev": "ts-node-dev bin.ts",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist",
+    "build": "tsc"
   },
   "devDependencies": {
     "@flutter-daemon/server": "*",
@@ -21,5 +25,13 @@
   },
   "dependencies": {
     "ws": "^8.8.1"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

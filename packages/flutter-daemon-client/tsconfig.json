@@ -3,7 +3,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "allowJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "sourceMap": false
   },
+  "include": ["lib"],
   "exclude": ["node_modules", "dist", "__tests__", "**/*.spec.ts"]
 }

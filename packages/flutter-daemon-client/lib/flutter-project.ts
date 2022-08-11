@@ -1,5 +1,5 @@
 import Client from "./index";
-import type { AppEventMap } from "../flutter-daemon-server/lib/types";
+import type { AppEventMap } from "@flutter-daemon/server";
 /**
  * A client side flutter project interface instance with binded server connection.
  *

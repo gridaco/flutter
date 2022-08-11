@@ -2,10 +2,10 @@ import type {
   Response,
   Request,
   DaemonConnectedEvent,
+  ReadFileResponse,
   AppEventMap,
   RequestMap,
 } from "@flutter-daemon/server";
-import { ReadFileResponse } from "@flutter-daemon/server";
 import assert from "assert";
 import { FlutterProject } from "./flutter-project";
 

@@ -15,7 +15,8 @@ export class ImageFilter extends BuildableTree {
   static blur({
     sigmaX = 0.0,
     sigmaY = 0.0,
-    tileMode = TileMode.clamp as TileMode,
+    // = TileMode.clamp
+    tileMode,
   }: {
     sigmaX?: double;
     sigmaY?: double;

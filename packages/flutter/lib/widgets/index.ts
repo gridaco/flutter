@@ -19,6 +19,7 @@ import { IconData } from "./icon-data";
 import { Icon } from "./icon";
 import { ImageLoadingBuilder } from "./image-loading-builder";
 import { Image } from "./image";
+import { ImageFiltered } from "./image-filtered";
 import { MediaQueryData } from "./media-query-data";
 import { MediaQuery } from "./media-query";
 import { Opacity } from "./opacity";
@@ -61,6 +62,7 @@ export {
   Icon,
   ImageLoadingBuilder,
   Image,
+  ImageFiltered,
   MediaQueryData,
   MediaQuery,
   Opacity,

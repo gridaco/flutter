@@ -3,23 +3,51 @@
   "displayName": "grida-flutter",
   "description": "Grida Flutter Support",
   "version": "0.0.1",
+  "author": {
+    "name": "Grida Inc",
+    "email": "hello@grida.co"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gridaco/flutter-support"
+  },
+  "bugs": {
+    "url": "https://github.com/gridaco/flutter-support/issues"
+  },
+  "keywords": [
+    "flutter",
+    "design",
+    "preview",
+    "components"
+  ],
   "categories": [
-    "Other"
+    "Visualization"
   ],
   "activationEvents": [
-    "onCommand:grida-flutter.helloWorld"
+    "onCommand:grida-flutter.showPreview",
+    "onLanguage:dart",
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "grida-flutter.helloWorld",
-        "title": "Hello World"
+        "command": "grida-flutter.showPreview",
+        "title": "Preview"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "grida-flutter.componentsDetected",
+          "command": "grida-flutter.showPreview",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",

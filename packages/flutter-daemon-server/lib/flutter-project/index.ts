@@ -2,7 +2,7 @@ import { spawnSync } from "child_process";
 import path from "path";
 import fs from "fs";
 import { FlutterRun } from "../flutter-run";
-import { validateFlutterProjectDirectory } from "../utils/validae-flutter-project-dir";
+import { validateFlutterProjectDirectory } from "../utils/validate-flutter-project-dir";
 
 export class FlutterProject {
   readonly directory: string;

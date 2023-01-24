@@ -12,6 +12,7 @@ interface Command {
 
 export type Request =
   | CreateNewProjectRequest
+  | ImportProjectRequest
   | UseProjectRequest
   | WriteFileRequest
   | ReadFileRequest
@@ -20,6 +21,7 @@ export type Request =
 
 export interface RequestMap {
   "create-new-project": CreateNewProjectRequest;
+  "import-project": ImportProjectRequest;
   "use-project": UseProjectRequest;
   "write-file": WriteFileRequest;
   "read-file": ReadFileRequest;
@@ -29,6 +31,7 @@ export interface RequestMap {
 
 export type Response =
   | CreateNewProjectResponse
+  | ImportProjectResponse
   | UseProjectResponse
   | WriteFileResponse
   | ReadFileResponse
@@ -78,6 +81,25 @@ export interface UseProjectResponse extends UseProjectRequest {
 }
 interface IProjectRequest {
   readonly projectId: string;
+}
+
+export interface ImportProjectRequest extends Command {
+  type: "import-project";
+  path: string;
+}
+
+export type ImportProjectResponse =
+  | ImportProjectSuccessResponse
+  | ImportProjectFailedResponse;
+
+interface ImportProjectSuccessResponse extends ImportProjectRequest {
+  id: string;
+  name: string;
+  path: string;
+}
+
+interface ImportProjectFailedResponse extends ImportProjectRequest {
+  error: string;
 }
 
 /**

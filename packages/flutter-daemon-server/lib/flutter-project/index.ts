@@ -2,27 +2,67 @@ import { spawnSync } from "child_process";
 import path from "path";
 import fs from "fs";
 import { FlutterRun } from "../flutter-run";
-import { validateFlutterProjectDirectory } from "../utils/validate-flutter-project-dir";
+import { validateFlutterProject } from "../utils/validate-flutter-project-dir";
 
 export class FlutterProject {
-  readonly directory: string;
   private runner: FlutterRun;
   constructor(
-    cwd: string,
+    readonly root: string,
     readonly id: string,
-    readonly name?: string,
+    readonly name?: string
+  ) {}
+
+  /**
+   * @deprecated
+   */
+  static template() {
+    throw new Error("not implemented");
+  }
+
+  /**
+   * Use the local filesystem to link to an existing flutter project
+   * @param path path to existing flutter project on local filesystem
+   */
+  static from(path: string): FlutterProject {
+    const validation = validateFlutterProject(path);
+    if (!validation) {
+      throw new Error(validation.error.join(", "));
+    }
+
+    const { name } = validation;
+
+    return new FlutterProject(
+      path,
+      // set path as id
+      path,
+      name
+    );
+  }
+
+  /**
+   * Create a new (or use existing) temporary virtualized flutter project at tempdir
+   */
+  static async new({
+    cwd,
+    id,
+    name,
+    options,
+  }: {
+    cwd: string;
+    id: string;
+    name?: string;
     options?: {
       useExisting?: boolean;
       overwrites: { [path: string]: string };
-    }
-  ) {
+    };
+  }): Promise<FlutterProject> {
     // creates fresh flutter project
     const nameorid = name || id;
-    this.directory = path.join(cwd, id);
+
+    const projectPath = path.join(cwd, id);
 
     if (options?.useExisting) {
-      if (validateFlutterProjectDirectory(this.directory)) {
-        this._created = true;
+      if (validateFlutterProject(projectPath).valid) {
         return;
       }
     }
@@ -33,29 +73,25 @@ export class FlutterProject {
     });
 
     // rename project dir to id
-    fs.promises
-      .rename(path.join(cwd, nameorid), path.join(cwd, id))
-      .then(() => {
-        if (options?.overwrites) {
-          for (const [file, content] of Object.entries(options.overwrites)) {
-            fs.promises.writeFile(path.join(this.directory, file), content);
-          }
-        }
+    await fs.promises.rename(path.join(cwd, nameorid), path.join(cwd, id));
 
-        this._created = true;
-      });
+    if (options?.overwrites) {
+      for (const [file, content] of Object.entries(options.overwrites)) {
+        fs.promises.writeFile(path.join(projectPath, file), content);
+      }
+    }
+
+    return new FlutterProject(projectPath, id, name);
   }
 
-  static template() {}
-
-  private _created = false;
-  private async created(): Promise<true> {
-    if (this._created) {
+  private _resolved = false;
+  private async resolved(): Promise<true> {
+    if (this._resolved) {
       return true;
     }
     return new Promise((resolve, reject) => {
       const interval = setInterval(() => {
-        if (this._created) {
+        if (this._resolved) {
           clearInterval(interval);
           resolve(true);
         }
@@ -64,18 +100,18 @@ export class FlutterProject {
   }
 
   async writeFile(file, contents) {
-    await this.created();
-    await fs.promises.writeFile(path.join(this.directory, file), contents);
+    await this.resolved();
+    await fs.promises.writeFile(path.join(this.root, file), contents);
   }
 
   async readFile(file) {
-    await this.created();
-    return fs.readFileSync(path.join(this.directory, file), "utf8");
+    await this.resolved();
+    return fs.readFileSync(path.join(this.root, file), "utf8");
   }
 
   async run() {
     this.runner = new FlutterRun({
-      projectDir: this.directory,
+      projectDir: this.root,
       webServer: true,
     });
     return await this.runner.resolve();

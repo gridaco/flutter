@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "tmp": "^0.2.1",
-    "ws": "^8.8.1"
+    "ws": "^8.8.1",
+    "yaml": "^2.2.1"
   },
   "files": [
     "README.md",

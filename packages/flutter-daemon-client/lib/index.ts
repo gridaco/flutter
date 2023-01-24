@@ -6,6 +6,7 @@ import type {
   AppEventMap,
   RequestMap,
   UseProjectResponse,
+  ImportProjectResponse,
 } from "@flutter-daemon/server";
 import assert from "assert";
 import { FlutterProject } from "./flutter-project";
@@ -26,6 +27,19 @@ export default class Client {
     this.ws.addEventListener("open", (e) => {
       this._connected = true;
     });
+  }
+
+  async import(path: string) {
+    const res = await this.request<ImportProjectResponse>(
+      cmd("import-project", { path })
+    );
+
+    if ("error" in res) {
+      throw new Error(res.error);
+    } else {
+      const { id, name } = res;
+      return new FlutterProject(id, name, this);
+    }
   }
 
   async project(

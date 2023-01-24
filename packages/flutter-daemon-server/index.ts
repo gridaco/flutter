@@ -19,7 +19,7 @@ export default class Server {
     // Creating connection using websocket
     this.wss.on("connection", (ws) => {
       this.connections.add(ws);
-      console.log("new client connected");
+      console.info("new client connected");
       // sending message
       ws.on("message", async (payload, isBinary) => {
         const data: Request = JSON.parse(
@@ -29,7 +29,7 @@ export default class Server {
       });
       // handling what to do when clients disconnects from server
       ws.on("close", () => {
-        console.log("client disconnected");
+        console.info("client disconnected");
         this.connections.delete(ws);
       });
       // handling client connection error
@@ -38,7 +38,9 @@ export default class Server {
       };
     });
 
-    console.log(`The WebSocket server is running on port ${port}`);
+    console.info(
+      `The Flutter Daemon server is running on.. ws://localhost:${port}`
+    );
   }
 
   protected async handleRequest(ws, data: Request) {
@@ -72,6 +74,30 @@ export default class Server {
         });
         break;
         //
+      }
+      case "import-project": {
+        const { path } = data;
+        try {
+          const project = FlutterProject.from(path);
+          // set path as id (which project.id is)
+          this.projects.set(project.id, project);
+
+          this.response(ws, {
+            $id: data.$id,
+            type: "import-project",
+            path,
+            id: project.id,
+            name: project.name,
+          });
+        } catch (e) {
+          this.response(ws, {
+            $id: data.$id,
+            type: "import-project",
+            path,
+            error: e.message,
+          });
+        }
+        break;
       }
       case "write-file": {
         const project = this.project(data.projectId);
@@ -138,9 +164,15 @@ export default class Server {
       virtualized.INSTANCES_ROOT_DIR
     );
 
-    const p = new FlutterProject(virtualized.INSTANCES_ROOT_DIR, id, name, {
-      overwrites,
+    const p = await FlutterProject.new({
+      cwd: virtualized.INSTANCES_ROOT_DIR,
+      id,
+      name,
+      options: {
+        overwrites,
+      },
     });
+
     this.projects.set(id, p);
     await p.run();
 

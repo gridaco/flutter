@@ -9,6 +9,7 @@ import type {
 } from "@flutter-daemon/server";
 import assert from "assert";
 import { FlutterProject } from "./flutter-project";
+import { WebSocket } from "ws";
 
 type ClientEventMap = {
   connected: DaemonConnectedEvent;
@@ -97,7 +98,7 @@ export default class Client {
     callback: (e: ClientEventMap[K]) => void
   ) {
     this.ws.addEventListener("message", (e) => {
-      const data = JSON.parse(e.data);
+      const data = JSON.parse(e.data as any);
       if (data.type == type) {
         callback(data);
       }

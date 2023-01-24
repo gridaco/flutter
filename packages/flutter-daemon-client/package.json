@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "dev": "ts-node-dev bin.ts",
     "test": "jest",
     "clean": "rimraf dist",
     "build": "tsc",

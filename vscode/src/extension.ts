@@ -3,6 +3,8 @@ import { Analyzer } from "./analyzer";
 import { is_daemon_running, FlutterDaemon } from "./daemon";
 const langs = ["dart"] as const;
 
+const APP_HOST = "http://localhost:6630";
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -61,36 +63,37 @@ async function cmd_dart_preview_handler(
   // run flutter daemon
   const daemon = FlutterDaemon.instance;
   await daemon.initProject(text ?? "");
-  const url = await daemon.webLaunchUrl();
 
-  // listen to document changes
-  const changeSubscription = vscode.workspace.onDidChangeTextDocument(
+  const restart = async () => {
+    // force reload
+    panel.webview.postMessage({ type: "hot-restart" });
+  };
+
+  // if save, trigger immediate save
+  // if edit, use debounce
+  const subscription_on_save = vscode.workspace.onDidSaveTextDocument(
     async (e) => {
-      if (e.document.uri.toString() === document?.uri.toString()) {
-        const text = await document?.getText();
-        vscode.window.showInformationMessage("Saving changes to daemon");
-        await daemon.save(text ?? "");
-
-        // // force reload
-        // panel.webview.html = getWebviewContent({
-        //   name: panel_title,
-        //   iframe: url,
-        // });
-      }
+      const text = await document?.getText();
+      await daemon.save(text!);
+      restart();
     }
   );
 
+  const webLaunchUrl = await daemon.webLaunchUrl();
+  const host = `${APP_HOST}/preview/flutter?webLaunchUrl=${webLaunchUrl}`;
+
   panel.webview.html = getWebviewContent({
     name: panel_title,
-    iframe: url,
+    iframe: host,
   });
+
   panel.webview.onDidReceiveMessage((e) => {
     //
   });
 
   // listen to panel close
   panel.onDidDispose(() => {
-    changeSubscription.dispose();
+    subscription_on_save.dispose();
   });
 }
 
@@ -101,12 +104,23 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>${name}</title>
+    <script>
+      // Proxy the message event to the inner iframe
+      window.addEventListener('message', event => {
+        const message = event.data; // The JSON data our extension sent
+        // get app
+        const app = document.getElementById('app');
+        // send message to app
+        app.contentWindow.postMessage(message, '*');
+      });
+    </script>
 	</head>
 	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">
     <iframe
+      id="app"
       sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
       src="${iframe}"
-      style="width: 100%; height: 100%;">
+      style="width: 100%; height: 100%; border: none;">
     </iframe>
 	</body>
 	</html>`;

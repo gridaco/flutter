@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { Analyzer } from "./analyzer";
-
+import { is_daemon_running, FlutterDaemon } from "./daemon";
 const langs = ["dart"] as const;
 
 // This method is called when your extension is activated
@@ -37,35 +37,77 @@ async function cmd_dart_preview_handler(
 ) {
   const panel_title = `Preview: ${componentId}`;
 
-  // The code you place here will be executed every time your command is executed
-  // Display a message box to the user
-  vscode.window.showInformationMessage("Hello World from grida-flutter!");
+  const service_ready = await is_daemon_running("ws://localhost:43070");
+
+  if (service_ready) {
+    vscode.window.showInformationMessage("Flutter daemon connected");
+  } else {
+    vscode.window.showErrorMessage("Flutter daemon is not running");
+    return;
+  }
+
   const panel = vscode.window.createWebviewPanel(
     "flutter-preview", // Identifies the type of the webview. Used internally
     panel_title, // Title of the panel displayed to the user
     vscode.ViewColumn.Beside, // Editor column to show the new webview panel in.
-    {} // Webview options. More on these later.
+    {
+      // allow scripts
+      enableScripts: true,
+    }
   );
 
   const text = await document?.getText();
 
-  panel.webview.html = getWebviewContent(text ?? "");
+  // run flutter daemon
+  const daemon = FlutterDaemon.instance;
+  await daemon.initProject(text ?? "");
+  const url = await daemon.webLaunchUrl();
+
+  // listen to document changes
+  const changeSubscription = vscode.workspace.onDidChangeTextDocument(
+    async (e) => {
+      if (e.document.uri.toString() === document?.uri.toString()) {
+        const text = await document?.getText();
+        vscode.window.showInformationMessage("Saving changes to daemon");
+        await daemon.save(text ?? "");
+
+        // // force reload
+        // panel.webview.html = getWebviewContent({
+        //   name: panel_title,
+        //   iframe: url,
+        // });
+      }
+    }
+  );
+
+  panel.webview.html = getWebviewContent({
+    name: panel_title,
+    iframe: url,
+  });
   panel.webview.onDidReceiveMessage((e) => {
     //
   });
+
+  // listen to panel close
+  panel.onDidDispose(() => {
+    changeSubscription.dispose();
+  });
 }
 
-function getWebviewContent(src: string) {
+function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
   return `<!DOCTYPE html>
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>${name}</title>
 	</head>
-	<body>
-		<h1>hello world</h1>
-		<p>${src}</p>
+	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">
+    <iframe
+      sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+      src="${iframe}"
+      style="width: 100%; height: 100%;">
+    </iframe>
 	</body>
 	</html>`;
 }

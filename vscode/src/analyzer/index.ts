@@ -5,7 +5,8 @@ export class Analyzer {
 
   async widgets(): Promise<WidgetAnalysis[]> {
     const text = await this.document.getText();
-    const re = /class\s+(\w+)\s+extends\s+StatelessWidget/;
+    // StatefulWidget or StatelessWidget
+    const re = /class\s+(\w+)\s+extends\s+(StatelessWidget|StatefulWidget)/;
     const matches = text.match(re);
 
     if (!matches) {

@@ -1,6 +1,9 @@
 import * as vscode from "vscode";
 import { Analyzer } from "./analyzer";
 import { is_daemon_running, FlutterDaemon } from "./daemon";
+import { locatePubspec } from "./pub";
+import path from "path";
+
 const langs = ["dart"] as const;
 
 const APP_HOST = "http://localhost:6630";
@@ -34,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 async function cmd_dart_preview_handler(
-  document?: vscode.TextDocument,
+  document: vscode.TextDocument,
   componentId?: string
 ) {
   const panel_title = `Preview: ${componentId}`;
@@ -58,11 +61,26 @@ async function cmd_dart_preview_handler(
     }
   );
 
-  const text = await document?.getText();
+  const text = await document.getText();
 
   // run flutter daemon
   const daemon = FlutterDaemon.instance;
-  await daemon.initProject(text ?? "");
+
+  // find nearest pubspec.yaml
+  const filedir = path.dirname(document.fileName);
+  const pubspec = locatePubspec(filedir);
+  if (pubspec) {
+    const { base_dir } = pubspec;
+    const project = await daemon.import(base_dir);
+    console.log("daemon project imported", project);
+
+    project.on("app.log", (e) => {
+      console.log("app.log", e);
+    });
+  } else {
+    vscode.window.showErrorMessage("Cannot find pubspec.yaml");
+    return;
+  }
 
   const restart = async () => {
     // force reload
@@ -73,13 +91,14 @@ async function cmd_dart_preview_handler(
   // if edit, use debounce
   const subscription_on_save = vscode.workspace.onDidSaveTextDocument(
     async (e) => {
-      const text = await document?.getText();
-      await daemon.save(text!);
+      // const text = await document?.getText();
+      await daemon.restart();
       restart();
     }
   );
 
   const webLaunchUrl = await daemon.webLaunchUrl();
+  console.log("webLaunchUrl ready", webLaunchUrl);
   const host = `${APP_HOST}/preview/flutter?webLaunchUrl=${webLaunchUrl}`;
 
   panel.webview.html = getWebviewContent({

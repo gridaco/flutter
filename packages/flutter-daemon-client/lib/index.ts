@@ -38,7 +38,9 @@ export default class Client {
       throw new Error(res.error);
     } else {
       const { id, name } = res;
-      return new FlutterProject(id, name, this);
+      const p = new FlutterProject(id, name, this);
+      this.projects.set(id, p);
+      return p;
     }
   }
 

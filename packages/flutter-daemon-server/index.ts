@@ -77,26 +77,25 @@ export default class Server {
       }
       case "import-project": {
         const { path } = data;
-        try {
-          const project = FlutterProject.from(path);
-          // set path as id (which project.id is)
-          this.projects.set(project.id, project);
+        this.importProject(path)
+          .then((project) => {
+            this.response(ws, {
+              $id: data.$id,
+              type: "import-project",
+              path,
+              id: project.id,
+              name: project.name,
+            });
+          })
+          .catch((e) => {
+            this.response(ws, {
+              $id: data.$id,
+              type: "import-project",
+              path,
+              error: e.message,
+            });
+          });
 
-          this.response(ws, {
-            $id: data.$id,
-            type: "import-project",
-            path,
-            id: project.id,
-            name: project.name,
-          });
-        } catch (e) {
-          this.response(ws, {
-            $id: data.$id,
-            type: "import-project",
-            path,
-            error: e.message,
-          });
-        }
         break;
       }
       case "write-file": {
@@ -149,6 +148,23 @@ export default class Server {
     return this.projects.get(id);
   }
 
+  protected async importProject(path: string) {
+    const p = FlutterProject.from(path);
+
+    console.info("import flutter project at: ", path);
+
+    // set path as id (which project.id is)
+    this.projects.set(p.id, p);
+
+    await p.run();
+
+    p.onEvent((type, e) => {
+      this.proxyEvent(type, e);
+    });
+
+    return p;
+  }
+
   protected async createProject(
     id: string,
     name?: string,
@@ -159,11 +175,6 @@ export default class Server {
       this.projects.get(id).kill();
     }
 
-    console.info(
-      "virtualized flutter project at: ",
-      virtualized.INSTANCES_ROOT_DIR
-    );
-
     const p = await FlutterProject.new({
       cwd: virtualized.INSTANCES_ROOT_DIR,
       id,
@@ -173,7 +184,13 @@ export default class Server {
       },
     });
 
+    console.info(
+      "virtualized flutter project at: ",
+      virtualized.INSTANCES_ROOT_DIR
+    );
+
     this.projects.set(id, p);
+
     await p.run();
 
     p.onEvent((type, e) => {

@@ -46,7 +46,9 @@ export class FlutterProject {
 
   async stop() {}
 
-  async restart() {}
+  async restart() {
+    return await this.client.restart(this.id);
+  }
 
   async writeFile(path: string, content: string, save?: boolean) {
     return await this.client.writeFile(this.id, path, content, save);
@@ -57,7 +59,7 @@ export class FlutterProject {
   }
 
   private _webLaunchUrl: string | null = null;
-  webLaunchUrl(): Promise<string> {
+  async webLaunchUrl(): Promise<string> {
     return new Promise((resolve, reject) => {
       if (this._webLaunchUrl) {
         resolve(this._webLaunchUrl);

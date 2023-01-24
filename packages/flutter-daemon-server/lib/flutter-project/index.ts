@@ -84,28 +84,11 @@ export class FlutterProject {
     return new FlutterProject(projectPath, id, name);
   }
 
-  private _resolved = false;
-  private async resolved(): Promise<true> {
-    if (this._resolved) {
-      return true;
-    }
-    return new Promise((resolve, reject) => {
-      const interval = setInterval(() => {
-        if (this._resolved) {
-          clearInterval(interval);
-          resolve(true);
-        }
-      }, 50);
-    });
-  }
-
   async writeFile(file, contents) {
-    await this.resolved();
     await fs.promises.writeFile(path.join(this.root, file), contents);
   }
 
   async readFile(file) {
-    await this.resolved();
     return fs.readFileSync(path.join(this.root, file), "utf8");
   }
 

@@ -34,19 +34,15 @@ export class FlutterDaemon {
     }
   }
 
-  async initProject(main: string) {
+  async import(path: string) {
     if (!FlutterDaemon.project) {
-      FlutterDaemon.project = await FlutterDaemon.client.project(
-        "preview",
-        "preview",
-        { "lib/main.dart": main }
-      );
+      FlutterDaemon.project = await FlutterDaemon.client.import(path);
     }
     return FlutterDaemon.project;
   }
 
-  async save(content: string) {
-    await FlutterDaemon.project.writeFile("lib/main.dart", content, true);
+  async restart() {
+    await FlutterDaemon.project.restart();
   }
 
   async webLaunchUrl() {

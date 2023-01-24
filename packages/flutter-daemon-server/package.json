@@ -15,6 +15,7 @@
     "@types/jest": "^28.1.6",
     "@types/node": "^18.6.3",
     "@types/rimraf": "^3.0.2",
+    "@types/tmp": "^0.2.3",
     "@types/ws": "^8.5.3",
     "jest": "^28.1.3",
     "rimraf": "^3.0.2",
@@ -24,6 +25,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "tmp": "^0.2.1",
     "ws": "^8.8.1"
   },
   "files": [

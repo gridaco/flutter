@@ -1,6 +1,6 @@
 import ws from "ws";
 import { FlutterProject } from "./lib/flutter-project";
-import { clean, INSTANCES_ROOT_DIR, setup } from "./lib/instances";
+import * as virtualized from "./lib/virtualized";
 import type { Request, Response } from "./lib/api";
 
 export default class Server {
@@ -9,8 +9,8 @@ export default class Server {
   readonly projects: Map<string, FlutterProject> = new Map();
 
   constructor() {
-    clean();
-    setup();
+    virtualized.clean();
+    virtualized.setup();
   }
 
   listen({ port = 43070 }: { port?: number }) {
@@ -133,7 +133,12 @@ export default class Server {
       this.projects.get(id).kill();
     }
 
-    const p = new FlutterProject(INSTANCES_ROOT_DIR, id, name, {
+    console.info(
+      "virtualized flutter project at: ",
+      virtualized.INSTANCES_ROOT_DIR
+    );
+
+    const p = new FlutterProject(virtualized.INSTANCES_ROOT_DIR, id, name, {
       overwrites,
     });
     this.projects.set(id, p);

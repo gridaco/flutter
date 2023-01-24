@@ -1,10 +1,13 @@
-import os from "os";
 import path from "path";
 import fs from "fs";
+import tmp from "tmp";
 import rimraf from "rimraf";
 
-export const HOMEDIR = os.homedir();
-export const CACHEDIR_FLUTTER_DAEMON = path.join(HOMEDIR, ".flutter-daemon");
+const TMP_DIR = tmp.dirSync({
+  keep: false,
+  unsafeCleanup: true,
+}).name;
+export const CACHEDIR_FLUTTER_DAEMON = path.join(TMP_DIR, ".flutter-daemon");
 
 /**
  * directory used for creating new flutter apps.

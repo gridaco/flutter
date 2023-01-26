@@ -13,7 +13,8 @@ void npm() {
   var out = 'dist';
   var pubspec = yaml.loadYaml(getFile('pubspec.yaml').readAsStringSync());
   var homepage = pubspec['homepage'];
-  var fileName = 'index.js';
+  var fileName = 'ast.js';
+  var indexName = 'index.js';
   // Generate modified dart2js output suitable to run on node.
   var tempFile = File('${Directory.systemTemp.path}/temp.js');
   Dart2js.compile(File('tool/node_ast_service.dart'),
@@ -27,7 +28,7 @@ $dart2jsOutput''');
     'name': 'flutter-ast',
     'version': pubspec['version'],
     'description': pubspec['description'],
-    'main': fileName,
+    'main': indexName,
     'typings': 'dart-style.d.ts',
     'scripts': {'test': 'echo "Error: no test specified" && exit 1'},
     'repository': {'type': 'git', 'url': 'git+$homepage'},

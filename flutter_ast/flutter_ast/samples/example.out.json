@@ -1,0 +1,591 @@
+{
+  "errors": [],
+  "file": {
+    "classes": [
+      {
+        "comments": [
+          "This is a doc comment"
+        ],
+        "constructors": [
+          {
+            "name": "MyScreen",
+            "properties": [
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "dateField",
+                "type": "DateTime",
+                "value": null
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "key",
+                "type": "Key",
+                "value": null
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "listField",
+                "type": "List",
+                "value": "const []"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "mapField",
+                "type": "Map",
+                "value": "const {}"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "myField",
+                "type": "bool",
+                "value": "false"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "mySecondField",
+                "type": "double",
+                "value": "1"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "numField",
+                "type": "num",
+                "value": "3"
+              }
+            ]
+          },
+          {
+            "name": "alt",
+            "properties": [
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "dateField",
+                "type": "DateTime",
+                "value": null
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "key",
+                "type": "Key",
+                "value": null
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "listField",
+                "type": "List",
+                "value": "const []"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "mapField",
+                "type": "Map",
+                "value": "const {}"
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "mySecondField",
+                "type": "double",
+                "value": null
+              },
+              {
+                "isConst": false,
+                "isFinal": false,
+                "isNamed": true,
+                "isOptional": true,
+                "isOptionalNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredNamed": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "name": "numField",
+                "type": "num",
+                "value": "3"
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "name": "dateField",
+            "type": "DateTime"
+          },
+          {
+            "name": "listField",
+            "type": "List"
+          },
+          {
+            "name": "mapField",
+            "type": "Map"
+          },
+          {
+            "name": "myField",
+            "type": "bool"
+          },
+          {
+            "name": "mySecondField",
+            "type": "double"
+          },
+          {
+            "name": "numField",
+            "type": "num"
+          },
+          {
+            "name": "position",
+            "type": "int"
+          },
+          {
+            "name": "routeName",
+            "type": "String"
+          }
+        ],
+        "methods": [
+          {
+            "body": {
+              "name": "method_declaration",
+              "values": [
+                {
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "name": "block",
+                      "values": [
+                        {
+                          "name": "if",
+                          "values": [
+                            {
+                              "name": "block",
+                              "values": [
+                                {
+                                  "name": "return",
+                                  "values": [
+                                    {
+                                      "name": "conditional",
+                                      "values": [
+                                        {
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "name": "constructor",
+                                          "value": "Container"
+                                        },
+                                        {
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "name": "constructor",
+                                          "value": "Container"
+                                        },
+                                        {
+                                          "left": {
+                                            "name": "name",
+                                            "props": {
+                                              "0": "mySecondField"
+                                            }
+                                          },
+                                          "name": "binary",
+                                          "operation": "==",
+                                          "right": {
+                                            "name": "value",
+                                            "props": {
+                                              "0": {
+                                                "type": "int",
+                                                "value": "1"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "name",
+                              "props": {
+                                "0": "myField"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "return",
+                          "values": [
+                            {
+                              "arguments": {
+                                "child": {
+                                  "arguments": {
+                                    "child": {
+                                      "arguments": {},
+                                      "name": "constructor",
+                                      "value": "Builder"
+                                    }
+                                  },
+                                  "name": "constructor",
+                                  "value": "Center"
+                                },
+                                "color": null,
+                                "width": {
+                                  "name": "value",
+                                  "props": {
+                                    "0": {
+                                      "type": "int",
+                                      "value": "20"
+                                    }
+                                  }
+                                }
+                              },
+                              "name": "constructor",
+                              "value": "Container"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "declaration",
+                  "values": []
+                },
+                {
+                  "name": "type",
+                  "props": {
+                    "0": "Widget"
+                  }
+                }
+              ]
+            },
+            "name": "build",
+            "parameters": []
+          },
+          {
+            "body": {
+              "name": "method_declaration",
+              "values": [
+                {
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "name": "block",
+                      "values": [
+                        {
+                          "name": "return",
+                          "values": [
+                            {
+                              "name": "value",
+                              "props": {
+                                "0": {
+                                  "type": "Map",
+                                  "value": "{}"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "declaration",
+                  "values": []
+                },
+                {
+                  "name": "type",
+                  "props": {
+                    "0": "Map<String, dynamic>"
+                  }
+                }
+              ]
+            },
+            "name": "toJson",
+            "parameters": []
+          }
+        ],
+        "name": "MyScreen",
+        "tree": {
+          "body": {
+            "name": "block_body",
+            "values": [
+              {
+                "name": "block",
+                "values": [
+                  {
+                    "name": "if",
+                    "values": [
+                      {
+                        "name": "block",
+                        "values": [
+                          {
+                            "name": "return",
+                            "values": [
+                              {
+                                "name": "conditional",
+                                "values": [
+                                  {
+                                    "arguments": {
+                                      "color": null
+                                    },
+                                    "name": "constructor",
+                                    "value": "Container"
+                                  },
+                                  {
+                                    "arguments": {
+                                      "color": null
+                                    },
+                                    "name": "constructor",
+                                    "value": "Container"
+                                  },
+                                  {
+                                    "left": {
+                                      "name": "name",
+                                      "props": {
+                                        "0": "mySecondField"
+                                      }
+                                    },
+                                    "name": "binary",
+                                    "operation": "==",
+                                    "right": {
+                                      "name": "value",
+                                      "props": {
+                                        "0": {
+                                          "type": "int",
+                                          "value": "1"
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "name",
+                        "props": {
+                          "0": "myField"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "return",
+                    "values": [
+                      {
+                        "arguments": {
+                          "child": {
+                            "arguments": {
+                              "child": {
+                                "arguments": {},
+                                "name": "constructor",
+                                "value": "Builder"
+                              }
+                            },
+                            "name": "constructor",
+                            "value": "Center"
+                          },
+                          "color": null,
+                          "width": {
+                            "name": "value",
+                            "props": {
+                              "0": {
+                                "type": "int",
+                                "value": "20"
+                              }
+                            }
+                          }
+                        },
+                        "name": "constructor",
+                        "value": "Container"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "name": null,
+          "parameters": []
+        }
+      },
+      {
+        "comments": [],
+        "constructors": [],
+        "fields": [
+          {
+            "name": "value",
+            "type": "String"
+          }
+        ],
+        "methods": [],
+        "name": "Simple"
+      }
+    ],
+    "enums": [
+      {
+        "name": "MyEnum",
+        "values": [
+          "one",
+          "three",
+          "type"
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "name": "kGlobalField",
+        "type": "int"
+      }
+    ],
+    "imports": [
+      "package:flutter/material.dart"
+    ],
+    "methods": [
+      {
+        "body": {
+          "name": "function_declaration",
+          "values": [
+            {
+              "name": "declaration",
+              "values": []
+            },
+            {
+              "name": "function",
+              "values": [
+                {
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "name": "block",
+                      "values": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "type",
+              "props": {
+                "0": "void"
+              }
+            }
+          ]
+        },
+        "name": "myGlobalMethod",
+        "parameters": []
+      }
+    ],
+    "name": null
+  }
+}

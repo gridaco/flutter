@@ -196,9 +196,10 @@ packages:
   flutter_ast_core:
     dependency: "direct main"
     description:
-      path: "../flutter_ast_core"
-      relative: true
-    source: path
+      name: flutter_ast_core
+      sha256: "6273aa123e32c3bb81c0c170a9a99cfb9ce0c30c51aaa2b4f127128441a7dda9"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
   freezed_annotation:
     dependency: transitive

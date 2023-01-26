@@ -7,14 +7,14 @@ class GenParser {
 
   List<DartClass> get classes => _classes.values.toList(growable: false);
   final Map<String, DartClass> _classes = {};
-  DartClass getClass(String key) =>
+  DartClass? getClass(String key) =>
       _classes.containsKey(key) ? _classes[key] : null;
 
   List<DartEnum> get enums => _enums.toList(growable: false);
   final Set<DartEnum> _enums = {};
 
-  List<DartField> get fields => _fields.toList(growable: false);
-  final Set<DartField> _fields = {};
+  List<DartField?> get fields => _fields.toList(growable: false);
+  final Set<DartField?> _fields = {};
 
   List<DartMethod> get methods => _methods.toList(growable: false);
   final Set<DartMethod> _methods = {};

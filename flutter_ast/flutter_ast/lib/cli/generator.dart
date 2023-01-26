@@ -33,7 +33,7 @@ class Options {
   )
   bool help;
 
-  Options(this.path, this.output);
+  Options(this.path, this.output, {this.help = false});
 }
 
 const kBasePath =
@@ -147,13 +147,13 @@ void _processFile(
   }
 }
 
-Map<String, dynamic> _processClass(
+Map<String, dynamic>? _processClass(
   DartClass item,
   File input,
 ) {
   if (!item.name.startsWith('_') &&
       !input.path.contains('.g.dart') &&
-      !item.isAbstract) {
+      !(item.isAbstract ?? false)) {
     final _comments = item.comments?.map((e) => e.comment)?.toList() ?? [];
     final _root = <String, dynamic>{
       "imports": [
@@ -167,8 +167,8 @@ Map<String, dynamic> _processClass(
       'description': _comments.join('/n'),
     };
     for (final sub in item.constructors) {
-      final isDefault = item.name == sub.name;
-      final _name = isDefault ? '${item.name}' : '${item.name}.${sub.name}';
+      final isDefault = item.name == sub?.name;
+      final _name = isDefault ? '${item.name}' : '${item.name}.${sub?.name}';
       if (_name.startsWith('_') || _name.contains('._')) continue;
       _root['constructors'].add(buildConstructor(_name, sub));
     }
@@ -188,7 +188,7 @@ Map<String, dynamic> _processClass(
   return null;
 }
 
-Map<String, dynamic> buildConstructor(String name, DartConstructor item) {
+Map<String, dynamic> buildConstructor(String name, DartConstructor? item) {
   return {
     'name': name,
     'widget': '$name()',
@@ -204,7 +204,7 @@ class Cache {
   final _names = <String>{};
 
   void setCache(String path, DartResult result) => _files[path] = result;
-  DartResult getCache(String path) => _files[path];
+  DartResult? getCache(String path) => _files[path];
 
   bool addName(String name) => _names.add(name);
   List<String> get name => _names.toList();
@@ -219,7 +219,7 @@ extension on DartClass {
 
   bool get isValid {
     if (this.name.startsWith('_')) return false;
-    if (this.isAbstract) return false;
+    if (this.isAbstract ?? false) return false;
     if (extendedClasses.isEmpty) return false;
     if ([
       'StatelessWidget',

@@ -7,11 +7,11 @@ import 'index.dart';
 extension ClauseDeclarationImplUtils on ClassDeclarationImpl {
   DartClass toDartClass(DartFile parent) {
     DartClass base = DartClass(name: this.name.toString());
-    final List<DartField> fields = [];
+    final List<DartField?> fields = [];
     for (final item in this.childEntities.whereType<FieldDeclarationImpl>()) {
       fields.add(item.toDartField());
     }
-    final List<DartConstructor> constructors = [];
+    final List<DartConstructor?> constructors = [];
     for (final item
         in this.childEntities.whereType<ConstructorDeclarationImpl>()) {
       constructors.add(item.toDartConstructor(base));

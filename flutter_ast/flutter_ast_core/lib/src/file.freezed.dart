@@ -23,7 +23,7 @@ mixin _$DartFile {
   String? get path => throw _privateConstructorUsedError;
   List<DartClass> get classes => throw _privateConstructorUsedError;
   List<DartEnum> get enums => throw _privateConstructorUsedError;
-  List<DartField> get fields => throw _privateConstructorUsedError;
+  List<DartField?> get fields => throw _privateConstructorUsedError;
   List<String> get imports => throw _privateConstructorUsedError;
   List<DartMethod> get methods => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $DartFileCopyWith<$Res> {
       {String? path,
       List<DartClass> classes,
       List<DartEnum> enums,
-      List<DartField> fields,
+      List<DartField?> fields,
       List<String> imports,
       List<DartMethod> methods});
 }
@@ -83,7 +83,7 @@ class _$DartFileCopyWithImpl<$Res, $Val extends DartFile>
       fields: null == fields
           ? _value.fields
           : fields // ignore: cast_nullable_to_non_nullable
-              as List<DartField>,
+              as List<DartField?>,
       imports: null == imports
           ? _value.imports
           : imports // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ abstract class _$$_DartFileCopyWith<$Res> implements $DartFileCopyWith<$Res> {
       {String? path,
       List<DartClass> classes,
       List<DartEnum> enums,
-      List<DartField> fields,
+      List<DartField?> fields,
       List<String> imports,
       List<DartMethod> methods});
 }
@@ -146,7 +146,7 @@ class __$$_DartFileCopyWithImpl<$Res>
       fields: null == fields
           ? _value._fields
           : fields // ignore: cast_nullable_to_non_nullable
-              as List<DartField>,
+              as List<DartField?>,
       imports: null == imports
           ? _value._imports
           : imports // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$_DartFile implements _DartFile {
       {this.path,
       final List<DartClass> classes = const [],
       final List<DartEnum> enums = const [],
-      final List<DartField> fields = const [],
+      final List<DartField?> fields = const [],
       final List<String> imports = const [],
       final List<DartMethod> methods = const []})
       : _classes = classes,
@@ -198,10 +198,10 @@ class _$_DartFile implements _DartFile {
     return EqualUnmodifiableListView(_enums);
   }
 
-  final List<DartField> _fields;
+  final List<DartField?> _fields;
   @override
   @JsonKey()
-  List<DartField> get fields {
+  List<DartField?> get fields {
     if (_fields is EqualUnmodifiableListView) return _fields;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fields);
@@ -273,7 +273,7 @@ abstract class _DartFile implements DartFile {
       {final String? path,
       final List<DartClass> classes,
       final List<DartEnum> enums,
-      final List<DartField> fields,
+      final List<DartField?> fields,
       final List<String> imports,
       final List<DartMethod> methods}) = _$_DartFile;
 
@@ -286,7 +286,7 @@ abstract class _DartFile implements DartFile {
   @override
   List<DartEnum> get enums;
   @override
-  List<DartField> get fields;
+  List<DartField?> get fields;
   @override
   List<String> get imports;
   @override

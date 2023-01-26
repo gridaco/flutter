@@ -11,9 +11,9 @@ part 'class.g.dart';
 @freezed
 abstract class DartClass with _$DartClass {
   const factory DartClass({
-    @Default([]) List<DartConstructor> constructors,
+    @Default([]) List<DartConstructor?> constructors,
     @Default([]) List<DartComment> comments,
-    @Default([]) List<DartField> fields,
+    @Default([]) List<DartField?> fields,
     @Default([]) List<DartMethod> methods,
     required String name,
     bool? isAbstract,

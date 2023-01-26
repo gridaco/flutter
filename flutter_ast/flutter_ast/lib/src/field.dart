@@ -4,8 +4,8 @@ import 'analyzer.dart';
 import 'index.dart';
 
 extension FieldDeclarationImplUtils on FieldDeclarationImpl {
-  DartField toDartField() {
-    DartField _base;
+  DartField? toDartField() {
+    DartField? _base;
     for (final node in this.root.childEntities) {
       if (node is VariableDeclarationListImpl) {
         _base = _process(node);
@@ -17,8 +17,8 @@ extension FieldDeclarationImplUtils on FieldDeclarationImpl {
 
 extension TopLevelVariableDeclarationImplUtils
     on TopLevelVariableDeclarationImpl {
-  DartField toDartField() {
-    DartField _base;
+  DartField? toDartField() {
+    DartField? _base;
     for (final node in this.root.childEntities) {
       if (node is VariableDeclarationListImpl) {
         _base = _process(node);
@@ -29,18 +29,18 @@ extension TopLevelVariableDeclarationImplUtils
 }
 
 extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
-  DartProperty toDartProperty(List<DartField> fields) {
-    DartProperty base;
+  DartProperty? toDartProperty(List<DartField?> fields) {
+    DartProperty? base;
     bool _hasValue = false;
     for (final node in this.root.childEntities) {
       if (node is SimpleFormalParameterImpl) {
         base = _processProperty(node);
         for (final child in node.childEntities) {
           if (child is DeclaredSimpleIdentifier) {
-            base = base.copyWith(name: child.toString());
+            base = base!.copyWith(name: child.toString());
           }
           if (child is NamedTypeImpl) {
-            base = base.copyWith(type: child.toString());
+            base = base!.copyWith(type: child.toString());
           }
         }
       }
@@ -48,13 +48,13 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
         base = _processProperty(node);
         for (final child in node.childEntities) {
           if (child is SimpleIdentifierImpl) {
-            base = base.copyWith(name: child.toString());
+            base = base?.copyWith(name: child.toString());
           }
         }
         if (fields != null)
           for (final field in fields) {
-            if (field.name == base.name) {
-              base = base.copyWith(type: field.type);
+            if (field?.name == base?.name) {
+              base = base?.copyWith(type: field?.type);
             }
           }
       }
@@ -64,7 +64,7 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
         continue;
       }
       if (_hasValue && node is LiteralImpl) {
-        base = base.copyWith(value: node.toDartCore());
+        base = base?.copyWith(value: node.toDartCore());
       }
     }
     return base;
@@ -96,7 +96,7 @@ DartProperty _processProperty(FormalParameter node) {
 }
 
 DartField _process(VariableDeclarationListImpl node) {
-  String _type, _name;
+  late String _type, _name;
   for (final child in node.childEntities) {
     if (child is NamedTypeImpl) {
       final NamedTypeImpl _node = child;

@@ -20,9 +20,9 @@ DartClass _$DartClassFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartClass {
-  List<DartConstructor> get constructors => throw _privateConstructorUsedError;
+  List<DartConstructor?> get constructors => throw _privateConstructorUsedError;
   List<DartComment> get comments => throw _privateConstructorUsedError;
-  List<DartField> get fields => throw _privateConstructorUsedError;
+  List<DartField?> get fields => throw _privateConstructorUsedError;
   List<DartMethod> get methods => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   bool? get isAbstract => throw _privateConstructorUsedError;
@@ -42,9 +42,9 @@ abstract class $DartClassCopyWith<$Res> {
       _$DartClassCopyWithImpl<$Res, DartClass>;
   @useResult
   $Res call(
-      {List<DartConstructor> constructors,
+      {List<DartConstructor?> constructors,
       List<DartComment> comments,
-      List<DartField> fields,
+      List<DartField?> fields,
       List<DartMethod> methods,
       String name,
       bool? isAbstract,
@@ -80,7 +80,7 @@ class _$DartClassCopyWithImpl<$Res, $Val extends DartClass>
       constructors: null == constructors
           ? _value.constructors
           : constructors // ignore: cast_nullable_to_non_nullable
-              as List<DartConstructor>,
+              as List<DartConstructor?>,
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ class _$DartClassCopyWithImpl<$Res, $Val extends DartClass>
       fields: null == fields
           ? _value.fields
           : fields // ignore: cast_nullable_to_non_nullable
-              as List<DartField>,
+              as List<DartField?>,
       methods: null == methods
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
@@ -125,9 +125,9 @@ abstract class _$$_DartClassCopyWith<$Res> implements $DartClassCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {List<DartConstructor> constructors,
+      {List<DartConstructor?> constructors,
       List<DartComment> comments,
-      List<DartField> fields,
+      List<DartField?> fields,
       List<DartMethod> methods,
       String name,
       bool? isAbstract,
@@ -161,7 +161,7 @@ class __$$_DartClassCopyWithImpl<$Res>
       constructors: null == constructors
           ? _value._constructors
           : constructors // ignore: cast_nullable_to_non_nullable
-              as List<DartConstructor>,
+              as List<DartConstructor?>,
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class __$$_DartClassCopyWithImpl<$Res>
       fields: null == fields
           ? _value._fields
           : fields // ignore: cast_nullable_to_non_nullable
-              as List<DartField>,
+              as List<DartField?>,
       methods: null == methods
           ? _value._methods
           : methods // ignore: cast_nullable_to_non_nullable
@@ -202,9 +202,9 @@ class __$$_DartClassCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartClass implements _DartClass {
   const _$_DartClass(
-      {final List<DartConstructor> constructors = const [],
+      {final List<DartConstructor?> constructors = const [],
       final List<DartComment> comments = const [],
-      final List<DartField> fields = const [],
+      final List<DartField?> fields = const [],
       final List<DartMethod> methods = const [],
       required this.name,
       this.isAbstract,
@@ -219,10 +219,10 @@ class _$_DartClass implements _DartClass {
   factory _$_DartClass.fromJson(Map<String, dynamic> json) =>
       _$$_DartClassFromJson(json);
 
-  final List<DartConstructor> _constructors;
+  final List<DartConstructor?> _constructors;
   @override
   @JsonKey()
-  List<DartConstructor> get constructors {
+  List<DartConstructor?> get constructors {
     if (_constructors is EqualUnmodifiableListView) return _constructors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_constructors);
@@ -237,10 +237,10 @@ class _$_DartClass implements _DartClass {
     return EqualUnmodifiableListView(_comments);
   }
 
-  final List<DartField> _fields;
+  final List<DartField?> _fields;
   @override
   @JsonKey()
-  List<DartField> get fields {
+  List<DartField?> get fields {
     if (_fields is EqualUnmodifiableListView) return _fields;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fields);
@@ -322,9 +322,9 @@ class _$_DartClass implements _DartClass {
 
 abstract class _DartClass implements DartClass {
   const factory _DartClass(
-      {final List<DartConstructor> constructors,
+      {final List<DartConstructor?> constructors,
       final List<DartComment> comments,
-      final List<DartField> fields,
+      final List<DartField?> fields,
       final List<DartMethod> methods,
       required final String name,
       final bool? isAbstract,
@@ -336,11 +336,11 @@ abstract class _DartClass implements DartClass {
       _$_DartClass.fromJson;
 
   @override
-  List<DartConstructor> get constructors;
+  List<DartConstructor?> get constructors;
   @override
   List<DartComment> get comments;
   @override
-  List<DartField> get fields;
+  List<DartField?> get fields;
   @override
   List<DartMethod> get methods;
   @override

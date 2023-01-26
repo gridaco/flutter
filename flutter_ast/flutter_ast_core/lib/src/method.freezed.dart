@@ -20,9 +20,9 @@ DartMethod _$DartMethodFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartMethod {
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   List<DartProperty> get parameters => throw _privateConstructorUsedError;
-  MethodNode get body => throw _privateConstructorUsedError;
+  MethodNode? get body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +36,9 @@ abstract class $DartMethodCopyWith<$Res> {
           DartMethod value, $Res Function(DartMethod) then) =
       _$DartMethodCopyWithImpl<$Res, DartMethod>;
   @useResult
-  $Res call({String name, List<DartProperty> parameters, MethodNode body});
+  $Res call({String? name, List<DartProperty> parameters, MethodNode? body});
 
-  $MethodNodeCopyWith<$Res> get body;
+  $MethodNodeCopyWith<$Res>? get body;
 }
 
 /// @nodoc
@@ -54,30 +54,34 @@ class _$DartMethodCopyWithImpl<$Res, $Val extends DartMethod>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? parameters = null,
-    Object? body = null,
+    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       parameters: null == parameters
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
               as List<DartProperty>,
-      body: null == body
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as MethodNode,
+              as MethodNode?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MethodNodeCopyWith<$Res> get body {
-    return $MethodNodeCopyWith<$Res>(_value.body, (value) {
+  $MethodNodeCopyWith<$Res>? get body {
+    if (_value.body == null) {
+      return null;
+    }
+
+    return $MethodNodeCopyWith<$Res>(_value.body!, (value) {
       return _then(_value.copyWith(body: value) as $Val);
     });
   }
@@ -91,10 +95,10 @@ abstract class _$$_DartMethodCopyWith<$Res>
       __$$_DartMethodCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<DartProperty> parameters, MethodNode body});
+  $Res call({String? name, List<DartProperty> parameters, MethodNode? body});
 
   @override
-  $MethodNodeCopyWith<$Res> get body;
+  $MethodNodeCopyWith<$Res>? get body;
 }
 
 /// @nodoc
@@ -108,23 +112,23 @@ class __$$_DartMethodCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? parameters = null,
-    Object? body = null,
+    Object? body = freezed,
   }) {
     return _then(_$_DartMethod(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       parameters: null == parameters
           ? _value._parameters
           : parameters // ignore: cast_nullable_to_non_nullable
               as List<DartProperty>,
-      body: null == body
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as MethodNode,
+              as MethodNode?,
     ));
   }
 }
@@ -142,7 +146,7 @@ class _$_DartMethod implements _DartMethod {
       _$$_DartMethodFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   final List<DartProperty> _parameters;
   @override
   @JsonKey()
@@ -153,7 +157,7 @@ class _$_DartMethod implements _DartMethod {
   }
 
   @override
-  final MethodNode body;
+  final MethodNode? body;
 
   @override
   String toString() {
@@ -192,19 +196,19 @@ class _$_DartMethod implements _DartMethod {
 
 abstract class _DartMethod implements DartMethod {
   const factory _DartMethod(
-      {required final String name,
+      {required final String? name,
       final List<DartProperty> parameters,
-      required final MethodNode body}) = _$_DartMethod;
+      required final MethodNode? body}) = _$_DartMethod;
 
   factory _DartMethod.fromJson(Map<String, dynamic> json) =
       _$_DartMethod.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
   List<DartProperty> get parameters;
   @override
-  MethodNode get body;
+  MethodNode? get body;
   @override
   @JsonKey(ignore: true)
   _$$_DartMethodCopyWith<_$_DartMethod> get copyWith =>
@@ -238,10 +242,10 @@ mixin _$MethodNode {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) =>
@@ -251,10 +255,10 @@ mixin _$MethodNode {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) =>
@@ -264,10 +268,10 @@ mixin _$MethodNode {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),
@@ -417,10 +421,10 @@ class _$MethodBase implements MethodBase {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) {
@@ -433,10 +437,10 @@ class _$MethodBase implements MethodBase {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) {
@@ -449,10 +453,10 @@ class _$MethodBase implements MethodBase {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),
@@ -620,10 +624,10 @@ class _$MethodValues implements MethodValues {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) {
@@ -636,10 +640,10 @@ class _$MethodValues implements MethodValues {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) {
@@ -652,10 +656,10 @@ class _$MethodValues implements MethodValues {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),
@@ -739,10 +743,11 @@ abstract class _$$MethodBinaryCopyWith<$Res>
       __$$MethodBinaryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, MethodNode left, MethodNode right, String operation});
+  $Res call(
+      {String name, MethodNode? left, MethodNode? right, String operation});
 
-  $MethodNodeCopyWith<$Res> get left;
-  $MethodNodeCopyWith<$Res> get right;
+  $MethodNodeCopyWith<$Res>? get left;
+  $MethodNodeCopyWith<$Res>? get right;
 }
 
 /// @nodoc
@@ -757,8 +762,8 @@ class __$$MethodBinaryCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? left = null,
-    Object? right = null,
+    Object? left = freezed,
+    Object? right = freezed,
     Object? operation = null,
   }) {
     return _then(_$MethodBinary(
@@ -766,14 +771,14 @@ class __$$MethodBinaryCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      left: null == left
+      left: freezed == left
           ? _value.left
           : left // ignore: cast_nullable_to_non_nullable
-              as MethodNode,
-      right: null == right
+              as MethodNode?,
+      right: freezed == right
           ? _value.right
           : right // ignore: cast_nullable_to_non_nullable
-              as MethodNode,
+              as MethodNode?,
       operation: null == operation
           ? _value.operation
           : operation // ignore: cast_nullable_to_non_nullable
@@ -783,16 +788,24 @@ class __$$MethodBinaryCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $MethodNodeCopyWith<$Res> get left {
-    return $MethodNodeCopyWith<$Res>(_value.left, (value) {
+  $MethodNodeCopyWith<$Res>? get left {
+    if (_value.left == null) {
+      return null;
+    }
+
+    return $MethodNodeCopyWith<$Res>(_value.left!, (value) {
       return _then(_value.copyWith(left: value));
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MethodNodeCopyWith<$Res> get right {
-    return $MethodNodeCopyWith<$Res>(_value.right, (value) {
+  $MethodNodeCopyWith<$Res>? get right {
+    if (_value.right == null) {
+      return null;
+    }
+
+    return $MethodNodeCopyWith<$Res>(_value.right!, (value) {
       return _then(_value.copyWith(right: value));
     });
   }
@@ -815,9 +828,9 @@ class _$MethodBinary implements MethodBinary {
   @override
   final String name;
   @override
-  final MethodNode left;
+  final MethodNode? left;
   @override
-  final MethodNode right;
+  final MethodNode? right;
   @override
   final String operation;
 
@@ -857,10 +870,10 @@ class _$MethodBinary implements MethodBinary {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) {
@@ -873,10 +886,10 @@ class _$MethodBinary implements MethodBinary {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) {
@@ -889,10 +902,10 @@ class _$MethodBinary implements MethodBinary {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),
@@ -954,8 +967,8 @@ class _$MethodBinary implements MethodBinary {
 abstract class MethodBinary implements MethodNode {
   const factory MethodBinary(
       {required final String name,
-      required final MethodNode left,
-      required final MethodNode right,
+      required final MethodNode? left,
+      required final MethodNode? right,
       required final String operation}) = _$MethodBinary;
 
   factory MethodBinary.fromJson(Map<String, dynamic> json) =
@@ -963,8 +976,8 @@ abstract class MethodBinary implements MethodNode {
 
   @override
   String get name;
-  MethodNode get left;
-  MethodNode get right;
+  MethodNode? get left;
+  MethodNode? get right;
   String get operation;
   @override
   @JsonKey(ignore: true)
@@ -980,7 +993,7 @@ abstract class _$$MethodConstructorCopyWith<$Res>
       __$$MethodConstructorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String value, Map<String, MethodNode> arguments});
+  $Res call({String name, String value, Map<String, MethodNode?> arguments});
 }
 
 /// @nodoc
@@ -1010,7 +1023,7 @@ class __$$MethodConstructorCopyWithImpl<$Res>
       arguments: null == arguments
           ? _value._arguments
           : arguments // ignore: cast_nullable_to_non_nullable
-              as Map<String, MethodNode>,
+              as Map<String, MethodNode?>,
     ));
   }
 }
@@ -1021,7 +1034,7 @@ class _$MethodConstructor implements MethodConstructor {
   const _$MethodConstructor(
       {required this.name,
       required this.value,
-      final Map<String, MethodNode> arguments = const {},
+      final Map<String, MethodNode?> arguments = const {},
       final String? $type})
       : _arguments = arguments,
         $type = $type ?? 'constructor';
@@ -1033,10 +1046,10 @@ class _$MethodConstructor implements MethodConstructor {
   final String name;
   @override
   final String value;
-  final Map<String, MethodNode> _arguments;
+  final Map<String, MethodNode?> _arguments;
   @override
   @JsonKey()
-  Map<String, MethodNode> get arguments {
+  Map<String, MethodNode?> get arguments {
     if (_arguments is EqualUnmodifiableMapView) return _arguments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_arguments);
@@ -1078,10 +1091,10 @@ class _$MethodConstructor implements MethodConstructor {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) {
@@ -1094,10 +1107,10 @@ class _$MethodConstructor implements MethodConstructor {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) {
@@ -1110,10 +1123,10 @@ class _$MethodConstructor implements MethodConstructor {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),
@@ -1176,7 +1189,7 @@ abstract class MethodConstructor implements MethodNode {
   const factory MethodConstructor(
       {required final String name,
       required final String value,
-      final Map<String, MethodNode> arguments}) = _$MethodConstructor;
+      final Map<String, MethodNode?> arguments}) = _$MethodConstructor;
 
   factory MethodConstructor.fromJson(Map<String, dynamic> json) =
       _$MethodConstructor.fromJson;
@@ -1184,7 +1197,7 @@ abstract class MethodConstructor implements MethodNode {
   @override
   String get name;
   String get value;
-  Map<String, MethodNode> get arguments;
+  Map<String, MethodNode?> get arguments;
   @override
   @JsonKey(ignore: true)
   _$$MethodConstructorCopyWith<_$MethodConstructor> get copyWith =>
@@ -1278,10 +1291,10 @@ class _$MethodSimple implements MethodSimple {
     TResult Function(String name) $default, {
     required TResult Function(String name, List<MethodNode>? values) values,
     required TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)
+            String name, MethodNode? left, MethodNode? right, String operation)
         binary,
     required TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)
+            String name, String value, Map<String, MethodNode?> arguments)
         constructor,
     required TResult Function(String name, dynamic value) simple,
   }) {
@@ -1294,10 +1307,10 @@ class _$MethodSimple implements MethodSimple {
     TResult? Function(String name)? $default, {
     TResult? Function(String name, List<MethodNode>? values)? values,
     TResult? Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult? Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult? Function(String name, dynamic value)? simple,
   }) {
@@ -1310,10 +1323,10 @@ class _$MethodSimple implements MethodSimple {
     TResult Function(String name)? $default, {
     TResult Function(String name, List<MethodNode>? values)? values,
     TResult Function(
-            String name, MethodNode left, MethodNode right, String operation)?
+            String name, MethodNode? left, MethodNode? right, String operation)?
         binary,
     TResult Function(
-            String name, String value, Map<String, MethodNode> arguments)?
+            String name, String value, Map<String, MethodNode?> arguments)?
         constructor,
     TResult Function(String name, dynamic value)? simple,
     required TResult orElse(),

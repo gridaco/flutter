@@ -35,7 +35,7 @@ class MyScreen extends StatelessWidget {
   final double mySecondField;
   final num numField;
   final Map mapField;
-  final DateTime dateField;
+  final DateTime? dateField;
   final List listField;
 
   final int position;
@@ -68,5 +68,5 @@ void myGlobalMethod() {}
 
 // Ignore this simple comment
 class Simple {
-  String value;
+  String? value;
 }

@@ -30,7 +30,7 @@ extension FunctionDeclarationImplUtils on FunctionDeclarationImpl {
   }
 }
 
-MethodNode _check(SyntacticEntity node) {
+MethodNode? _check(SyntacticEntity node) {
   if (node is FunctionDeclarationImpl) {
     return _processFunctionDeclaration(node);
   }
@@ -142,7 +142,7 @@ MethodNode _processDeclaration(DeclaredSimpleIdentifier node) {
 }
 
 MethodNode _processMethod(MethodInvocationImpl node) {
-  final Map<String, MethodNode> arguments = {};
+  final Map<String, MethodNode?> arguments = {};
   final args = node.argumentList;
   for (var i = 0; i < args.arguments.length; i++) {
     final arg = args.arguments[i];

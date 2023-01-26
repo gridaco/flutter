@@ -17,7 +17,9 @@ _$_DartFile _$$_DartFileFromJson(Map<String, dynamic> json) => _$_DartFile(
               .toList() ??
           const [],
       fields: (json['fields'] as List<dynamic>?)
-              ?.map((e) => DartField.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => e == null
+                  ? null
+                  : DartField.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       imports: (json['imports'] as List<dynamic>?)

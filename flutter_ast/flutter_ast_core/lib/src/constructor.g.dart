@@ -10,7 +10,9 @@ _$_DartConstructor _$$_DartConstructorFromJson(Map<String, dynamic> json) =>
     _$_DartConstructor(
       name: json['name'] as String,
       properties: (json['properties'] as List<dynamic>?)
-              ?.map((e) => DartProperty.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => e == null
+                  ? null
+                  : DartProperty.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );

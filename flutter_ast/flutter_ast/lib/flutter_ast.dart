@@ -5,7 +5,7 @@ import 'package:flutter_ast_core/flutter_ast_core.dart';
 import 'src/index.dart';
 export 'src/index.dart';
 
-DartResult parseSource(String source, [String path]) {
+DartResult parseSource(String source, [String? path]) {
   assert(source != null && source.isNotEmpty);
   final result = parseString(
     content: source,

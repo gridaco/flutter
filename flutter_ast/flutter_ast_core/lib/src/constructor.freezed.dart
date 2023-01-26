@@ -21,7 +21,7 @@ DartConstructor _$DartConstructorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DartConstructor {
   String get name => throw _privateConstructorUsedError;
-  List<DartProperty> get properties => throw _privateConstructorUsedError;
+  List<DartProperty?> get properties => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $DartConstructorCopyWith<$Res> {
           DartConstructor value, $Res Function(DartConstructor) then) =
       _$DartConstructorCopyWithImpl<$Res, DartConstructor>;
   @useResult
-  $Res call({String name, List<DartProperty> properties});
+  $Res call({String name, List<DartProperty?> properties});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$DartConstructorCopyWithImpl<$Res, $Val extends DartConstructor>
       properties: null == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as List<DartProperty>,
+              as List<DartProperty?>,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_DartConstructorCopyWith<$Res>
       __$$_DartConstructorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<DartProperty> properties});
+  $Res call({String name, List<DartProperty?> properties});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$_DartConstructorCopyWithImpl<$Res>
       properties: null == properties
           ? _value._properties
           : properties // ignore: cast_nullable_to_non_nullable
-              as List<DartProperty>,
+              as List<DartProperty?>,
     ));
   }
 }
@@ -109,7 +109,7 @@ class __$$_DartConstructorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartConstructor implements _DartConstructor {
   const _$_DartConstructor(
-      {required this.name, final List<DartProperty> properties = const []})
+      {required this.name, final List<DartProperty?> properties = const []})
       : _properties = properties;
 
   factory _$_DartConstructor.fromJson(Map<String, dynamic> json) =>
@@ -117,10 +117,10 @@ class _$_DartConstructor implements _DartConstructor {
 
   @override
   final String name;
-  final List<DartProperty> _properties;
+  final List<DartProperty?> _properties;
   @override
   @JsonKey()
-  List<DartProperty> get properties {
+  List<DartProperty?> get properties {
     if (_properties is EqualUnmodifiableListView) return _properties;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_properties);
@@ -163,7 +163,7 @@ class _$_DartConstructor implements _DartConstructor {
 abstract class _DartConstructor implements DartConstructor {
   const factory _DartConstructor(
       {required final String name,
-      final List<DartProperty> properties}) = _$_DartConstructor;
+      final List<DartProperty?> properties}) = _$_DartConstructor;
 
   factory _DartConstructor.fromJson(Map<String, dynamic> json) =
       _$_DartConstructor.fromJson;
@@ -171,7 +171,7 @@ abstract class _DartConstructor implements DartConstructor {
   @override
   String get name;
   @override
-  List<DartProperty> get properties;
+  List<DartProperty?> get properties;
   @override
   @JsonKey(ignore: true)
   _$$_DartConstructorCopyWith<_$_DartConstructor> get copyWith =>

@@ -8,7 +8,9 @@ part of 'class.dart';
 
 _$_DartClass _$$_DartClassFromJson(Map<String, dynamic> json) => _$_DartClass(
       constructors: (json['constructors'] as List<dynamic>?)
-              ?.map((e) => DartConstructor.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => e == null
+                  ? null
+                  : DartConstructor.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       comments: (json['comments'] as List<dynamic>?)
@@ -16,7 +18,9 @@ _$_DartClass _$$_DartClassFromJson(Map<String, dynamic> json) => _$_DartClass(
               .toList() ??
           const [],
       fields: (json['fields'] as List<dynamic>?)
-              ?.map((e) => DartField.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => e == null
+                  ? null
+                  : DartField.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       methods: (json['methods'] as List<dynamic>?)

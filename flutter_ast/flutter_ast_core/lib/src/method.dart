@@ -8,9 +8,9 @@ part 'method.g.dart';
 @freezed
 abstract class DartMethod with _$DartMethod {
   const factory DartMethod({
-    required String name,
+    required String? name,
     @Default([]) List<DartProperty> parameters,
-    required MethodNode body,
+    required MethodNode? body,
   }) = _DartMethod;
 
   factory DartMethod.fromJson(Map<String, dynamic> json) =>
@@ -30,15 +30,15 @@ abstract class MethodNode with _$MethodNode {
 
   const factory MethodNode.binary({
     required String name,
-    required MethodNode left,
-    required MethodNode right,
+    required MethodNode? left,
+    required MethodNode? right,
     required String operation,
   }) = MethodBinary;
 
   const factory MethodNode.constructor({
     required String name,
     required String value,
-    @Default({}) Map<String, MethodNode> arguments,
+    @Default({}) Map<String, MethodNode?> arguments,
   }) = MethodConstructor;
 
   const factory MethodNode.simple({

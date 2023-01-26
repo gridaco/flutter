@@ -7,7 +7,7 @@ part of 'core.dart';
 // **************************************************************************
 
 _$_DartCore _$$_DartCoreFromJson(Map<String, dynamic> json) => _$_DartCore(
-      type: json['type'] as String,
+      type: json['type'] as String?,
       value: json['value'] as String,
       $type: json['runtimeType'] as String?,
     );
@@ -21,9 +21,9 @@ Map<String, dynamic> _$$_DartCoreToJson(_$_DartCore instance) =>
 
 _$DartProperty _$$DartPropertyFromJson(Map<String, dynamic> json) =>
     _$DartProperty(
-      name: json['name'] as String,
+      name: json['name'] as String?,
       key: json['key'] as String?,
-      type: json['type'] as String,
+      type: json['type'] as String?,
       value: json['value'] == null
           ? null
           : DartCore.fromJson(json['value'] as Map<String, dynamic>),
@@ -58,8 +58,8 @@ Map<String, dynamic> _$$DartPropertyToJson(_$DartProperty instance) =>
     };
 
 _$DartField _$$DartFieldFromJson(Map<String, dynamic> json) => _$DartField(
-      name: json['name'] as String,
-      type: json['type'] as String,
+      name: json['name'] as String?,
+      type: json['type'] as String?,
       value: json['value'] == null
           ? null
           : DartCore.fromJson(json['value'] as Map<String, dynamic>),

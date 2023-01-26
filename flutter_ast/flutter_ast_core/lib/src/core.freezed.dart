@@ -31,15 +31,15 @@ DartCore _$DartCoreFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartCore {
-  String get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   Object? get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String type, String value) $default, {
+    TResult Function(String? type, String value) $default, {
     required TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -51,18 +51,18 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String name, String type, DartCore? value,
+    required TResult Function(String? name, String? type, DartCore? value,
             bool isFinal, bool isConst, bool isStatic)
         field,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String type, String value)? $default, {
+    TResult? Function(String? type, String value)? $default, {
     TResult? Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -74,18 +74,18 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String name, String type, DartCore? value, bool isFinal,
+    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String type, String value)? $default, {
+    TResult Function(String? type, String value)? $default, {
     TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -97,7 +97,7 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String name, String type, DartCore? value, bool isFinal,
+    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
@@ -136,7 +136,7 @@ abstract class $DartCoreCopyWith<$Res> {
   factory $DartCoreCopyWith(DartCore value, $Res Function(DartCore) then) =
       _$DartCoreCopyWithImpl<$Res, DartCore>;
   @useResult
-  $Res call({String type});
+  $Res call({String? type});
 }
 
 /// @nodoc
@@ -152,13 +152,13 @@ class _$DartCoreCopyWithImpl<$Res, $Val extends DartCore>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -170,7 +170,7 @@ abstract class _$$_DartCoreCopyWith<$Res> implements $DartCoreCopyWith<$Res> {
       __$$_DartCoreCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type, String value});
+  $Res call({String? type, String value});
 }
 
 /// @nodoc
@@ -184,14 +184,14 @@ class __$$_DartCoreCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? type = freezed,
     Object? value = null,
   }) {
     return _then(_$_DartCore(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$_DartCore implements _DartCore {
       _$$_DartCoreFromJson(json);
 
   @override
-  final String type;
+  final String? type;
   @override
   final String value;
 
@@ -245,11 +245,11 @@ class _$_DartCore implements _DartCore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String type, String value) $default, {
+    TResult Function(String? type, String value) $default, {
     required TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -261,7 +261,7 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String name, String type, DartCore? value,
+    required TResult Function(String? name, String? type, DartCore? value,
             bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
@@ -271,11 +271,11 @@ class _$_DartCore implements _DartCore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String type, String value)? $default, {
+    TResult? Function(String? type, String value)? $default, {
     TResult? Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -287,7 +287,7 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String name, String type, DartCore? value, bool isFinal,
+    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
   }) {
@@ -297,11 +297,11 @@ class _$_DartCore implements _DartCore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String type, String value)? $default, {
+    TResult Function(String? type, String value)? $default, {
     TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -313,7 +313,7 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String name, String type, DartCore? value, bool isFinal,
+    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
@@ -368,12 +368,12 @@ class _$_DartCore implements _DartCore {
 
 abstract class _DartCore implements DartCore {
   const factory _DartCore(
-      {required final String type, required final String value}) = _$_DartCore;
+      {required final String? type, required final String value}) = _$_DartCore;
 
   factory _DartCore.fromJson(Map<String, dynamic> json) = _$_DartCore.fromJson;
 
   @override
-  String get type;
+  String? get type;
   @override
   String get value;
   @override
@@ -391,9 +391,9 @@ abstract class _$$DartPropertyCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {String? name,
       String? key,
-      String type,
+      String? type,
       DartCore? value,
       bool isOptional,
       bool isNamed,
@@ -419,9 +419,9 @@ class __$$DartPropertyCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? key = freezed,
-    Object? type = null,
+    Object? type = freezed,
     Object? value = freezed,
     Object? isOptional = null,
     Object? isNamed = null,
@@ -434,18 +434,18 @@ class __$$DartPropertyCopyWithImpl<$Res>
     Object? position = freezed,
   }) {
     return _then(_$DartProperty(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String?,
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -526,11 +526,11 @@ class _$DartProperty implements DartProperty {
       _$$DartPropertyFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
   final String? key;
   @override
-  final String type;
+  final String? type;
   @override
   final DartCore? value;
   @override
@@ -623,11 +623,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String type, String value) $default, {
+    TResult Function(String? type, String value) $default, {
     required TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -639,7 +639,7 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String name, String type, DartCore? value,
+    required TResult Function(String? name, String? type, DartCore? value,
             bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
@@ -662,11 +662,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String type, String value)? $default, {
+    TResult? Function(String? type, String value)? $default, {
     TResult? Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -678,7 +678,7 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String name, String type, DartCore? value, bool isFinal,
+    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
   }) {
@@ -701,11 +701,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String type, String value)? $default, {
+    TResult Function(String? type, String value)? $default, {
     TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -717,7 +717,7 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String name, String type, DartCore? value, bool isFinal,
+    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
@@ -785,9 +785,9 @@ class _$DartProperty implements DartProperty {
 
 abstract class DartProperty implements DartCore {
   const factory DartProperty(
-      {required final String name,
+      {required final String? name,
       final String? key,
-      required final String type,
+      required final String? type,
       final DartCore? value,
       final bool isOptional,
       final bool isNamed,
@@ -802,10 +802,10 @@ abstract class DartProperty implements DartCore {
   factory DartProperty.fromJson(Map<String, dynamic> json) =
       _$DartProperty.fromJson;
 
-  String get name;
+  String? get name;
   String? get key;
   @override
-  String get type;
+  String? get type;
   @override
   DartCore? get value;
   bool get isOptional;
@@ -831,8 +831,8 @@ abstract class _$$DartFieldCopyWith<$Res> implements $DartCoreCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String type,
+      {String? name,
+      String? type,
       DartCore? value,
       bool isFinal,
       bool isConst,
@@ -852,22 +852,22 @@ class __$$DartFieldCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? type = null,
+    Object? name = freezed,
+    Object? type = freezed,
     Object? value = freezed,
     Object? isFinal = null,
     Object? isConst = null,
     Object? isStatic = null,
   }) {
     return _then(_$DartField(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -917,9 +917,9 @@ class _$DartField implements DartField {
       _$$DartFieldFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final String type;
+  final String? type;
   @override
   final DartCore? value;
   @override
@@ -968,11 +968,11 @@ class _$DartField implements DartField {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String type, String value) $default, {
+    TResult Function(String? type, String value) $default, {
     required TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -984,7 +984,7 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String name, String type, DartCore? value,
+    required TResult Function(String? name, String? type, DartCore? value,
             bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
@@ -994,11 +994,11 @@ class _$DartField implements DartField {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String type, String value)? $default, {
+    TResult? Function(String? type, String value)? $default, {
     TResult? Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -1010,7 +1010,7 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String name, String type, DartCore? value, bool isFinal,
+    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
   }) {
@@ -1020,11 +1020,11 @@ class _$DartField implements DartField {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String type, String value)? $default, {
+    TResult Function(String? type, String value)? $default, {
     TResult Function(
-            String name,
+            String? name,
             String? key,
-            String type,
+            String? type,
             DartCore? value,
             bool isOptional,
             bool isNamed,
@@ -1036,7 +1036,7 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String name, String type, DartCore? value, bool isFinal,
+    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
             bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
@@ -1091,8 +1091,8 @@ class _$DartField implements DartField {
 
 abstract class DartField implements DartCore {
   const factory DartField(
-      {required final String name,
-      required final String type,
+      {required final String? name,
+      required final String? type,
       final DartCore? value,
       final bool isFinal,
       final bool isConst,
@@ -1100,9 +1100,9 @@ abstract class DartField implements DartCore {
 
   factory DartField.fromJson(Map<String, dynamic> json) = _$DartField.fromJson;
 
-  String get name;
+  String? get name;
   @override
-  String get type;
+  String? get type;
   @override
   DartCore? get value;
   bool get isFinal;

@@ -9,7 +9,7 @@ part 'constructor.g.dart';
 abstract class DartConstructor with _$DartConstructor {
   const factory DartConstructor({
     required String name,
-    @Default([]) List<DartProperty> properties,
+    @Default([]) List<DartProperty?> properties,
   }) = _DartConstructor;
 
   factory DartConstructor.fromJson(Map<String, dynamic> json) =>

@@ -14,7 +14,7 @@ abstract class DartFile with _$DartFile {
     String? path,
     @Default([]) List<DartClass> classes,
     @Default([]) List<DartEnum> enums,
-    @Default([]) List<DartField> fields,
+    @Default([]) List<DartField?> fields,
     @Default([]) List<String> imports,
     @Default([]) List<DartMethod> methods,
   }) = _DartFile;

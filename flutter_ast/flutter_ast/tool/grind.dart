@@ -9,7 +9,7 @@ void main(List<String> args) => grind(args);
 
 @DefaultTask()
 @Task('Publish to npm')
-void npm() {
+void node() {
   var out = 'dist';
   var pubspec = yaml.loadYaml(getFile('pubspec.yaml').readAsStringSync());
   var homepage = pubspec['homepage'];
@@ -29,13 +29,15 @@ $dart2jsOutput''');
     'version': pubspec['version'],
     'description': pubspec['description'],
     'main': indexName,
-    'typings': 'dart-style.d.ts',
+    'typings': 'index.d.ts',
     'scripts': {'test': 'echo "Error: no test specified" && exit 1'},
-    'repository': {'type': 'git', 'url': 'git+$homepage'},
-    'author': pubspec['author'],
-    'license': 'BSD',
-    'bugs': {'url': '$homepage/issues'},
-    'homepage': homepage
+    'repository': 'https://github.com/gridaco/flutter-support',
+    'author': 'Grida Inc',
+    'license': 'MIT',
+    'bugs': {'url': 'https://github.com/gridaco/flutter-support/issues'},
+    'homepage': 'https://github.com/gridaco/flutter-support',
+    'publishConfig': {'access': 'public'},
+    'files': ['index.js', 'index.d.ts', fileName, 'README.md', "LICENSE"]
   }));
   // run('npm', arguments: ['publish', out]);
 }

@@ -39,7 +39,7 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
           if (child is DeclaredSimpleIdentifier) {
             base = base.copyWith(name: child.toString());
           }
-          if (child is TypeNameImpl) {
+          if (child is NamedTypeImpl) {
             base = base.copyWith(type: child.toString());
           }
         }
@@ -98,8 +98,8 @@ DartProperty _processProperty(FormalParameter node) {
 DartField _process(VariableDeclarationListImpl node) {
   String _type, _name;
   for (final child in node.childEntities) {
-    if (child is TypeNameImpl) {
-      final TypeNameImpl _node = child;
+    if (child is NamedTypeImpl) {
+      final NamedTypeImpl _node = child;
       _type = _node.toString();
     }
     if (child is VariableDeclarationImpl) {

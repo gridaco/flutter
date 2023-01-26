@@ -76,7 +76,7 @@ MethodNode _check(SyntacticEntity node) {
       value: node.toDartCore(),
     );
   }
-  if (node is TypeNameImpl) {
+  if (node is NamedTypeImpl) {
     return MethodNode.simple(
       name: 'type',
       value: node.toString(),

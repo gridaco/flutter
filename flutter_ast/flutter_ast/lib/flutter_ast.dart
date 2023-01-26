@@ -50,19 +50,20 @@ extension AnalysisErrorUtils on AnalysisError {
 void printMembers(CompilationUnit unit) {
   for (CompilationUnitMember unitMember in unit.declarations) {
     if (unitMember is ClassDeclaration) {
-      print(unitMember.name.name);
+      print(unitMember.name.toString());
       for (ClassMember classMember in unitMember.members) {
         if (classMember is MethodDeclaration) {
           print('  ${classMember.name}');
         } else if (classMember is FieldDeclaration) {
           for (VariableDeclaration field in classMember.fields.variables) {
-            print('  ${field.name.name}');
+            print('  ${field.name.toString()}');
           }
         } else if (classMember is ConstructorDeclaration) {
           if (classMember.name == null) {
-            print('  ${unitMember.name.name}');
+            print('  ${unitMember.name.toString()}');
           } else {
-            print('  ${unitMember.name.name}.${classMember.name.name}');
+            print(
+                '  ${unitMember.name.toString()}.${classMember.name.toString()}');
           }
         }
       }

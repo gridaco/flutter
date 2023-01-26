@@ -177,7 +177,7 @@ Map<String, dynamic> _processClass(
         _root['fields'].add({
           'key': field?.name ?? '',
           'type': field?.type ?? 'dynamic',
-          'value': field?.value?.value ?? 'null',
+          'value': field?.value.toString() ?? 'null',
         });
       }
     }

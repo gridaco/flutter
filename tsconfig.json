@@ -10,5 +10,11 @@
     "experimentalDecorators": true,
     "noUnusedLocals": false
   },
-  "exclude": ["node_modules", "dist", "example", "__tests__", "scripts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "example",
+    "**/__tests__/*",
+    "**/scripts/*.ts"
+  ]
 }

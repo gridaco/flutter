@@ -149,7 +149,7 @@ export default class Server {
   }
 
   protected async importProject(path: string) {
-    const p = FlutterProject.from(path);
+    const p = FlutterProject.at(path);
 
     console.info("import flutter project at: ", path);
 
@@ -229,3 +229,4 @@ export default class Server {
 
 export * from "./lib/api";
 export * from "./lib/types";
+export * from "./lib/flutter-project";

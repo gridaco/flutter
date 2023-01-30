@@ -23,7 +23,7 @@ export class FlutterProject {
    * Use the local filesystem to link to an existing flutter project
    * @param path path to existing flutter project on local filesystem
    */
-  static from(path: string): FlutterProject {
+  static at(path: string): FlutterProject {
     const validation = validateFlutterProject(path);
     if (!validation) {
       throw new Error(validation.error.join(", "));

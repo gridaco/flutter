@@ -4,7 +4,7 @@ import tmp from "tmp";
 import path from "path";
 import mustache from "mustache";
 import ast from "flutter-ast";
-import { FlutterProject } from "@flutter-daemon/server";
+import { FlutterProject, IFlutterRunnerClient } from "@flutter-daemon/server";
 
 interface IFlutterPreviewWidgetClass {
   /**
@@ -16,6 +16,8 @@ interface IFlutterPreviewWidgetClass {
    * the widget class name, e.g. 'Demo'
    */
   readonly identifier: string;
+
+  text: string;
 
   /**
    * the imported source files, e.g. ['package:flutter/material.dart']
@@ -34,32 +36,46 @@ interface IFlutterPreviewWidgetClass {
 }
 
 class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
-  path: string;
-  identifier: string;
-  get imports(): string[] {
-    // TODO:
-    return [""];
-  }
-  get offset() {
-    // TODO:
-    return 0;
-  }
-  get end() {
-    // TODO:
-    return 0;
+  // private _cached: IFlutterPreviewWidgetClass;
+
+  get text() {
+    const _text = fs.readFileSync(this.path, "utf-8");
+    return _text;
   }
 
-  constructor({ path, identifier }: { path: string; identifier: string }) {
+  path: string;
+  identifier: string;
+
+  get imports(): string[] {
+    // TODO: add caching
+    return ast.parse(this.text).file.imports;
+  }
+
+  get offset() {
+    // TODO: add caching
+    return ast
+      .parse(this.text)
+      .file.classes.find((c) => c.name === this.identifier).offset;
+  }
+
+  get end() {
+    // TODO: add caching
+    return ast
+      .parse(this.text)
+      .file.classes.find((c) => c.name === this.identifier).end;
+  }
+
+  constructor({ path, identifier }: ITargetIdentifier) {
     this.path = path;
     this.identifier = identifier;
   }
 
-  static from(p: { path: string; identifier: string }) {
+  static from(p: ITargetIdentifier) {
     return new FlutterPreviewWidgetClass(p);
   }
 }
 
-export class FlutterPreviewProject {
+export class FlutterPreviewProject implements IFlutterRunnerClient {
   /**
    * the origin path of the project, where the pubspec.yaml file is located
    */
@@ -70,7 +86,7 @@ export class FlutterPreviewProject {
    */
   readonly root: string;
 
-  private target: FlutterPreviewWidgetClass;
+  private m_target: FlutterPreviewWidgetClass;
 
   client: FlutterProject;
 
@@ -79,10 +95,7 @@ export class FlutterPreviewProject {
     target,
   }: {
     origin: string;
-    target: {
-      path: string;
-      identifier: string;
-    };
+    target: ITargetIdentifier;
   }) {
     this.origin = origin;
 
@@ -91,16 +104,11 @@ export class FlutterPreviewProject {
       unsafeCleanup: true,
     }).name;
 
-    this.target = FlutterPreviewWidgetClass.from({
-      // if the path is absolute, then use make it relative to the origin
-      path: path.isAbsolute(target.path)
-        ? path.relative(origin, target.path)
-        : target.path,
-      identifier: target.identifier,
-    });
-
+    // initially clone the files to new virtual project
     this.__initial_clone();
-    this.__initial_main_override();
+
+    // target the widget (modifies the lib/main.dart)
+    this.target(target);
 
     this.client = FlutterProject.at(this.root);
 
@@ -112,7 +120,7 @@ export class FlutterPreviewProject {
       origin: this.origin,
       root: this.root,
       main: this.main,
-      target: this.target,
+      target: this.m_target,
     });
   }
 
@@ -125,7 +133,7 @@ export class FlutterPreviewProject {
     });
   }
 
-  private __initial_main_override() {
+  private main_override() {
     // read & analyze the main entry file
     const src = fs.readFileSync(this.main, "utf-8");
     const { imports } = ast.parse(src).file;
@@ -141,7 +149,7 @@ export class FlutterPreviewProject {
     _seed_imports.add(
       path.relative(
         path.join(this.root, "./lib"),
-        path.join(this.root, this.target.path)
+        path.join(this.root, this.m_target.path)
       )
     );
 
@@ -153,8 +161,8 @@ export class FlutterPreviewProject {
     // render the template
     const main_dart_src = mustache.render(main_dart_mustache.toString(), {
       imports: Array.from(_seed_imports),
-      title: "Preview - " + this.target.identifier,
-      widget: this.target.identifier,
+      title: "Preview - " + this.m_target.identifier,
+      widget: this.m_target.identifier,
     });
 
     // write the file
@@ -200,5 +208,48 @@ export class FlutterPreviewProject {
     // fs.symlinkSync(this.origin, this.root, "dir");
   }
 
-  restart() {}
+  target(_: ITargetIdentifier) {
+    this.m_target = FlutterPreviewWidgetClass.from({
+      // if the path is absolute, then use make it relative to the origin
+      path: path.isAbsolute(_.path) ? path.relative(origin, _.path) : _.path,
+      identifier: _.identifier,
+    });
+
+    this.main_override();
+  }
+
+  // #region IFlutterRunnerClient
+  run(): Promise<unknown> {
+    return this.client.run();
+  }
+  appId(): Promise<string> {
+    return this.client.appId();
+  }
+  webLaunchUrl(): Promise<string> {
+    return this.client.webLaunchUrl();
+  }
+  save(): Promise<unknown> {
+    return this.client.save();
+  }
+  stop(): void {
+    return this.client.stop();
+  }
+  on(type: any, cb: any): void {
+    return this.client.on(type, cb);
+  }
+  onEvent(cb: (type: any, event: any) => void): void {
+    return this.client.onEvent(cb);
+  }
+  kill(): void {
+    return this.client.kill();
+  }
+  restart() {
+    return this.client.restart();
+  }
+  // #endregion IFlutterRunnerClient
+}
+
+interface ITargetIdentifier {
+  path: string;
+  identifier: string;
 }

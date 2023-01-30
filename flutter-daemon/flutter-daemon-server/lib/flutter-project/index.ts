@@ -4,7 +4,30 @@ import fs from "fs";
 import { FlutterRun } from "../flutter-run";
 import { validateFlutterProject } from "../utils/validate-flutter-project-dir";
 
-export class FlutterProject {
+export interface IFlutterRunnerClient {
+  run(): Promise<unknown>;
+
+  appId(): Promise<string>;
+
+  webLaunchUrl(): Promise<string>;
+
+  /**
+   * this does not actually save the file, it only triggers hot reloading to linked flutter run command. (saving is already done by writeFile)
+   */
+  save(): Promise<unknown>;
+
+  restart(): Promise<unknown>;
+
+  stop(): void;
+
+  on(type, cb): void;
+
+  onEvent(cb: (type, event) => void): void;
+
+  kill(): void;
+}
+
+export class FlutterProject implements IFlutterRunnerClient {
   private runner: FlutterRun;
   constructor(
     readonly root: string,

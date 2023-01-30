@@ -1,3 +1,4 @@
+export default `
 {{#imports}}
 import '{{{.}}}';
 {{/imports}}
@@ -18,3 +19,4 @@ class FlutterPreview extends StatelessWidget {
     );
   }
 }
+`;

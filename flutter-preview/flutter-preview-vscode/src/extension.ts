@@ -6,7 +6,7 @@ import path from "path";
 
 const langs = ["dart"] as const;
 
-const APP_HOST = "http://localhost:6630";
+const APP_HOST = "http://localhost:6632";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -99,7 +99,7 @@ async function cmd_dart_preview_handler(
 
   const webLaunchUrl = await daemon.webLaunchUrl();
   console.log("webLaunchUrl ready", webLaunchUrl);
-  const host = `${APP_HOST}/preview/flutter?webLaunchUrl=${webLaunchUrl}`;
+  const host = `${APP_HOST}/flutter?webLaunchUrl=${webLaunchUrl}`;
 
   panel.webview.html = getWebviewContent({
     name: panel_title,

@@ -89,7 +89,7 @@ async function cmd_dart_preview_handler(
 
   // if save, trigger immediate save
   // if edit, use debounce
-  const subscription_on_save = vscode.workspace.onDidSaveTextDocument(
+  const subscription__on_save = vscode.workspace.onDidSaveTextDocument(
     async (e) => {
       // const text = await document?.getText();
       await daemon.restart();
@@ -112,7 +112,7 @@ async function cmd_dart_preview_handler(
 
   // listen to panel close
   panel.onDidDispose(() => {
-    subscription_on_save.dispose();
+    subscription__on_save.dispose();
   });
 }
 
@@ -135,6 +135,21 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
     </script>
 	</head>
 	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">
+    <p
+      style=
+      "
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ccc;
+      "
+    >
+      Loading App...
+    </p>
     <iframe
       id="app"
       sandbox="allow-scripts allow-same-origin allow-popups allow-forms"

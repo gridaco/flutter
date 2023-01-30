@@ -2,6 +2,7 @@ import fs from "fs-extra";
 import glob from "glob";
 import tmp from "tmp";
 import path from "path";
+import mustache from "mustache";
 import ast from "flutter-ast";
 import { FlutterProject } from "@flutter-daemon/server";
 
@@ -78,7 +79,7 @@ export class FlutterPreviewProject {
     target,
   }: {
     origin: string;
-    target?: {
+    target: {
       path: string;
       identifier: string;
     };
@@ -90,7 +91,13 @@ export class FlutterPreviewProject {
       unsafeCleanup: true,
     }).name;
 
-    this.target = FlutterPreviewWidgetClass.from(target);
+    this.target = FlutterPreviewWidgetClass.from({
+      // if the path is absolute, then use make it relative to the origin
+      path: path.isAbsolute(target.path)
+        ? path.relative(origin, target.path)
+        : target.path,
+      identifier: target.identifier,
+    });
 
     this.__initial_clone();
     this.__initial_main_override();
@@ -123,15 +130,35 @@ export class FlutterPreviewProject {
     const src = fs.readFileSync(this.main, "utf-8");
     const { imports } = ast.parse(src).file;
 
-    const _seed_imports = [
+    const _seed_imports = new Set([
+      // default imports
+      "package:flutter/material.dart",
       ...imports,
-      // the target node
-    ];
+    ]);
+
+    // add the target node as import
+    // make it relative to lib/main.dart -> e.g. './src/demo.dart'
+    _seed_imports.add(
+      path.relative(
+        path.join(this.root, "./lib"),
+        path.join(this.root, this.target.path)
+      )
+    );
 
     // get the template file content
     const main_dart_mustache = fs.readFileSync(
-      path.join(__dirname, "template/main.dart.mustache")
+      path.join(__dirname, "templates/main.dart.mustache")
     );
+
+    // render the template
+    const main_dart_src = mustache.render(main_dart_mustache.toString(), {
+      imports: Array.from(_seed_imports),
+      title: "Preview - " + this.target.identifier,
+      widget: this.target.identifier,
+    });
+
+    // write the file
+    fs.writeFileSync(this.main, main_dart_src);
   }
 
   /**

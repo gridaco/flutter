@@ -9,6 +9,9 @@
 
 Flutter Preview is a Instant flutter widget previewer for VSCode (and other IDEs) that allows you to preview flutter widgets by interest, without running the whole app.
 
+![Grida VSCode Extension Flutter Widget Preview Demo](./docs/flutter-vscode-widget-preview-demo.gif)
+
+- [install extension](https://grida.co/vscode)
 - [source](./flutter-preview/)
 
 ## Flutter AST

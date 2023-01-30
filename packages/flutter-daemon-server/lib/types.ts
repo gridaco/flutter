@@ -89,7 +89,7 @@ export interface AppDetatchRequest {
   /**
    * the id of a previously started app; this is required.
    */
-  appId;
+  appId: string;
 }
 
 /**
@@ -99,16 +99,16 @@ export interface AppStopRequest {
   /**
    * the id of a previously started app; this is required.
    */
-  appId;
+  appId: string;
 }
 
 /**
  * This is sent when an app is starting. The params field will be a map with the fields appId, directory, and deviceId.
  */
 export interface AppStartEvent {
-  appId;
-  directory;
-  deviceId;
+  appId: string;
+  directory: string;
+  deviceId: string;
 }
 
 /**

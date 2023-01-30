@@ -7,6 +7,8 @@ part of 'class.dart';
 // **************************************************************************
 
 _$_DartClass _$$_DartClassFromJson(Map<String, dynamic> json) => _$_DartClass(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       constructors: (json['constructors'] as List<dynamic>?)
               ?.map((e) => e == null
                   ? null
@@ -36,6 +38,8 @@ _$_DartClass _$$_DartClassFromJson(Map<String, dynamic> json) => _$_DartClass(
 
 Map<String, dynamic> _$$_DartClassToJson(_$_DartClass instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'constructors': instance.constructors,
       'comments': instance.comments,
       'fields': instance.fields,

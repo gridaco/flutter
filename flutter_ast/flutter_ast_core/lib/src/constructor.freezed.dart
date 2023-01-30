@@ -20,6 +20,8 @@ DartConstructor _$DartConstructorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartConstructor {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<DartProperty?> get properties => throw _privateConstructorUsedError;
 
@@ -35,7 +37,7 @@ abstract class $DartConstructorCopyWith<$Res> {
           DartConstructor value, $Res Function(DartConstructor) then) =
       _$DartConstructorCopyWithImpl<$Res, DartConstructor>;
   @useResult
-  $Res call({String name, List<DartProperty?> properties});
+  $Res call({int offset, int end, String name, List<DartProperty?> properties});
 }
 
 /// @nodoc
@@ -51,10 +53,20 @@ class _$DartConstructorCopyWithImpl<$Res, $Val extends DartConstructor>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? properties = null,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -75,7 +87,7 @@ abstract class _$$_DartConstructorCopyWith<$Res>
       __$$_DartConstructorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<DartProperty?> properties});
+  $Res call({int offset, int end, String name, List<DartProperty?> properties});
 }
 
 /// @nodoc
@@ -89,10 +101,20 @@ class __$$_DartConstructorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? properties = null,
   }) {
     return _then(_$_DartConstructor(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -109,12 +131,19 @@ class __$$_DartConstructorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartConstructor implements _DartConstructor {
   const _$_DartConstructor(
-      {required this.name, final List<DartProperty?> properties = const []})
+      {required this.offset,
+      required this.end,
+      required this.name,
+      final List<DartProperty?> properties = const []})
       : _properties = properties;
 
   factory _$_DartConstructor.fromJson(Map<String, dynamic> json) =>
       _$$_DartConstructorFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   final List<DartProperty?> _properties;
@@ -128,7 +157,7 @@ class _$_DartConstructor implements _DartConstructor {
 
   @override
   String toString() {
-    return 'DartConstructor(name: $name, properties: $properties)';
+    return 'DartConstructor(offset: $offset, end: $end, name: $name, properties: $properties)';
   }
 
   @override
@@ -136,6 +165,8 @@ class _$_DartConstructor implements _DartConstructor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartConstructor &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
                 .equals(other._properties, _properties));
@@ -143,8 +174,8 @@ class _$_DartConstructor implements _DartConstructor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, const DeepCollectionEquality().hash(_properties));
+  int get hashCode => Object.hash(runtimeType, offset, end, name,
+      const DeepCollectionEquality().hash(_properties));
 
   @JsonKey(ignore: true)
   @override
@@ -162,12 +193,18 @@ class _$_DartConstructor implements _DartConstructor {
 
 abstract class _DartConstructor implements DartConstructor {
   const factory _DartConstructor(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       final List<DartProperty?> properties}) = _$_DartConstructor;
 
   factory _DartConstructor.fromJson(Map<String, dynamic> json) =
       _$_DartConstructor.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   @override

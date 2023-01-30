@@ -7,6 +7,8 @@ part of 'core.dart';
 // **************************************************************************
 
 _$_DartCore _$$_DartCoreFromJson(Map<String, dynamic> json) => _$_DartCore(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       type: json['type'] as String?,
       value: json['value'] as String,
       $type: json['runtimeType'] as String?,
@@ -14,6 +16,8 @@ _$_DartCore _$$_DartCoreFromJson(Map<String, dynamic> json) => _$_DartCore(
 
 Map<String, dynamic> _$$_DartCoreToJson(_$_DartCore instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'type': instance.type,
       'value': instance.value,
       'runtimeType': instance.$type,
@@ -21,6 +25,8 @@ Map<String, dynamic> _$$_DartCoreToJson(_$_DartCore instance) =>
 
 _$DartProperty _$$DartPropertyFromJson(Map<String, dynamic> json) =>
     _$DartProperty(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String?,
       key: json['key'] as String?,
       type: json['type'] as String?,
@@ -41,6 +47,8 @@ _$DartProperty _$$DartPropertyFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$DartPropertyToJson(_$DartProperty instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'key': instance.key,
       'type': instance.type,
@@ -58,6 +66,8 @@ Map<String, dynamic> _$$DartPropertyToJson(_$DartProperty instance) =>
     };
 
 _$DartField _$$DartFieldFromJson(Map<String, dynamic> json) => _$DartField(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String?,
       type: json['type'] as String?,
       value: json['value'] == null
@@ -71,6 +81,8 @@ _$DartField _$$DartFieldFromJson(Map<String, dynamic> json) => _$DartField(
 
 Map<String, dynamic> _$$DartFieldToJson(_$DartField instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'type': instance.type,
       'value': instance.value,

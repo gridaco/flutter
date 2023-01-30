@@ -20,6 +20,8 @@ DartMethod _$DartMethodFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartMethod {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   List<DartProperty> get parameters => throw _privateConstructorUsedError;
   MethodNode? get body => throw _privateConstructorUsedError;
@@ -36,7 +38,12 @@ abstract class $DartMethodCopyWith<$Res> {
           DartMethod value, $Res Function(DartMethod) then) =
       _$DartMethodCopyWithImpl<$Res, DartMethod>;
   @useResult
-  $Res call({String? name, List<DartProperty> parameters, MethodNode? body});
+  $Res call(
+      {int offset,
+      int end,
+      String? name,
+      List<DartProperty> parameters,
+      MethodNode? body});
 
   $MethodNodeCopyWith<$Res>? get body;
 }
@@ -54,11 +61,21 @@ class _$DartMethodCopyWithImpl<$Res, $Val extends DartMethod>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = freezed,
     Object? parameters = null,
     Object? body = freezed,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -95,7 +112,12 @@ abstract class _$$_DartMethodCopyWith<$Res>
       __$$_DartMethodCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, List<DartProperty> parameters, MethodNode? body});
+  $Res call(
+      {int offset,
+      int end,
+      String? name,
+      List<DartProperty> parameters,
+      MethodNode? body});
 
   @override
   $MethodNodeCopyWith<$Res>? get body;
@@ -112,11 +134,21 @@ class __$$_DartMethodCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = freezed,
     Object? parameters = null,
     Object? body = freezed,
   }) {
     return _then(_$_DartMethod(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -137,7 +169,9 @@ class __$$_DartMethodCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartMethod implements _DartMethod {
   const _$_DartMethod(
-      {required this.name,
+      {required this.offset,
+      required this.end,
+      required this.name,
       final List<DartProperty> parameters = const [],
       required this.body})
       : _parameters = parameters;
@@ -145,6 +179,10 @@ class _$_DartMethod implements _DartMethod {
   factory _$_DartMethod.fromJson(Map<String, dynamic> json) =>
       _$$_DartMethodFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String? name;
   final List<DartProperty> _parameters;
@@ -161,7 +199,7 @@ class _$_DartMethod implements _DartMethod {
 
   @override
   String toString() {
-    return 'DartMethod(name: $name, parameters: $parameters, body: $body)';
+    return 'DartMethod(offset: $offset, end: $end, name: $name, parameters: $parameters, body: $body)';
   }
 
   @override
@@ -169,6 +207,8 @@ class _$_DartMethod implements _DartMethod {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartMethod &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
                 .equals(other._parameters, _parameters) &&
@@ -177,7 +217,7 @@ class _$_DartMethod implements _DartMethod {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name,
+  int get hashCode => Object.hash(runtimeType, offset, end, name,
       const DeepCollectionEquality().hash(_parameters), body);
 
   @JsonKey(ignore: true)
@@ -196,13 +236,19 @@ class _$_DartMethod implements _DartMethod {
 
 abstract class _DartMethod implements DartMethod {
   const factory _DartMethod(
-      {required final String? name,
+      {required final int offset,
+      required final int end,
+      required final String? name,
       final List<DartProperty> parameters,
       required final MethodNode? body}) = _$_DartMethod;
 
   factory _DartMethod.fromJson(Map<String, dynamic> json) =
       _$_DartMethod.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String? get name;
   @override
@@ -236,44 +282,53 @@ MethodNode _$MethodNodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MethodNode {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -317,7 +372,7 @@ abstract class $MethodNodeCopyWith<$Res> {
           MethodNode value, $Res Function(MethodNode) then) =
       _$MethodNodeCopyWithImpl<$Res, MethodNode>;
   @useResult
-  $Res call({String name});
+  $Res call({int offset, int end, String name});
 }
 
 /// @nodoc
@@ -333,9 +388,19 @@ class _$MethodNodeCopyWithImpl<$Res, $Val extends MethodNode>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -352,7 +417,7 @@ abstract class _$$MethodBaseCopyWith<$Res>
       __$$MethodBaseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name});
+  $Res call({int offset, int end, String name});
 }
 
 /// @nodoc
@@ -366,9 +431,19 @@ class __$$MethodBaseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
   }) {
     return _then(_$MethodBase(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -380,12 +455,20 @@ class __$$MethodBaseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MethodBase implements MethodBase {
-  const _$MethodBase({required this.name, final String? $type})
+  const _$MethodBase(
+      {required this.offset,
+      required this.end,
+      required this.name,
+      final String? $type})
       : $type = $type ?? 'default';
 
   factory _$MethodBase.fromJson(Map<String, dynamic> json) =>
       _$$MethodBaseFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
 
@@ -394,7 +477,7 @@ class _$MethodBase implements MethodBase {
 
   @override
   String toString() {
-    return 'MethodNode(name: $name)';
+    return 'MethodNode(offset: $offset, end: $end, name: $name)';
   }
 
   @override
@@ -402,12 +485,14 @@ class _$MethodBase implements MethodBase {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodBase &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode => Object.hash(runtimeType, offset, end, name);
 
   @JsonKey(ignore: true)
   @override
@@ -418,51 +503,58 @@ class _$MethodBase implements MethodBase {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) {
-    return $default(name);
+    return $default(offset, end, name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) {
-    return $default?.call(name);
+    return $default?.call(offset, end, name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(name);
+      return $default(offset, end, name);
     }
     return orElse();
   }
@@ -516,11 +608,18 @@ class _$MethodBase implements MethodBase {
 }
 
 abstract class MethodBase implements MethodNode {
-  const factory MethodBase({required final String name}) = _$MethodBase;
+  const factory MethodBase(
+      {required final int offset,
+      required final int end,
+      required final String name}) = _$MethodBase;
 
   factory MethodBase.fromJson(Map<String, dynamic> json) =
       _$MethodBase.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   @override
@@ -537,7 +636,7 @@ abstract class _$$MethodValuesCopyWith<$Res>
       __$$MethodValuesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<MethodNode>? values});
+  $Res call({int offset, int end, String name, List<MethodNode>? values});
 }
 
 /// @nodoc
@@ -551,10 +650,20 @@ class __$$MethodValuesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? values = freezed,
   }) {
     return _then(_$MethodValues(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -571,13 +680,21 @@ class __$$MethodValuesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MethodValues implements MethodValues {
   const _$MethodValues(
-      {required this.name, final List<MethodNode>? values, final String? $type})
+      {required this.offset,
+      required this.end,
+      required this.name,
+      final List<MethodNode>? values,
+      final String? $type})
       : _values = values,
         $type = $type ?? 'values';
 
   factory _$MethodValues.fromJson(Map<String, dynamic> json) =>
       _$$MethodValuesFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   final List<MethodNode>? _values;
@@ -595,7 +712,7 @@ class _$MethodValues implements MethodValues {
 
   @override
   String toString() {
-    return 'MethodNode.values(name: $name, values: $values)';
+    return 'MethodNode.values(offset: $offset, end: $end, name: $name, values: $values)';
   }
 
   @override
@@ -603,14 +720,16 @@ class _$MethodValues implements MethodValues {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodValues &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._values, _values));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, const DeepCollectionEquality().hash(_values));
+  int get hashCode => Object.hash(runtimeType, offset, end, name,
+      const DeepCollectionEquality().hash(_values));
 
   @JsonKey(ignore: true)
   @override
@@ -621,51 +740,58 @@ class _$MethodValues implements MethodValues {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) {
-    return values(name, this.values);
+    return values(offset, end, name, this.values);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) {
-    return values?.call(name, this.values);
+    return values?.call(offset, end, name, this.values);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) {
     if (values != null) {
-      return values(name, this.values);
+      return values(offset, end, name, this.values);
     }
     return orElse();
   }
@@ -720,12 +846,18 @@ class _$MethodValues implements MethodValues {
 
 abstract class MethodValues implements MethodNode {
   const factory MethodValues(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       final List<MethodNode>? values}) = _$MethodValues;
 
   factory MethodValues.fromJson(Map<String, dynamic> json) =
       _$MethodValues.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   List<MethodNode>? get values;
@@ -744,7 +876,12 @@ abstract class _$$MethodBinaryCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name, MethodNode? left, MethodNode? right, String operation});
+      {int offset,
+      int end,
+      String name,
+      MethodNode? left,
+      MethodNode? right,
+      String operation});
 
   $MethodNodeCopyWith<$Res>? get left;
   $MethodNodeCopyWith<$Res>? get right;
@@ -761,12 +898,22 @@ class __$$MethodBinaryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? left = freezed,
     Object? right = freezed,
     Object? operation = null,
   }) {
     return _then(_$MethodBinary(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -815,7 +962,9 @@ class __$$MethodBinaryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MethodBinary implements MethodBinary {
   const _$MethodBinary(
-      {required this.name,
+      {required this.offset,
+      required this.end,
+      required this.name,
       required this.left,
       required this.right,
       required this.operation,
@@ -825,6 +974,10 @@ class _$MethodBinary implements MethodBinary {
   factory _$MethodBinary.fromJson(Map<String, dynamic> json) =>
       _$$MethodBinaryFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   @override
@@ -839,7 +992,7 @@ class _$MethodBinary implements MethodBinary {
 
   @override
   String toString() {
-    return 'MethodNode.binary(name: $name, left: $left, right: $right, operation: $operation)';
+    return 'MethodNode.binary(offset: $offset, end: $end, name: $name, left: $left, right: $right, operation: $operation)';
   }
 
   @override
@@ -847,6 +1000,8 @@ class _$MethodBinary implements MethodBinary {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodBinary &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.left, left) || other.left == left) &&
             (identical(other.right, right) || other.right == right) &&
@@ -856,7 +1011,8 @@ class _$MethodBinary implements MethodBinary {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, left, right, operation);
+  int get hashCode =>
+      Object.hash(runtimeType, offset, end, name, left, right, operation);
 
   @JsonKey(ignore: true)
   @override
@@ -867,51 +1023,58 @@ class _$MethodBinary implements MethodBinary {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) {
-    return binary(name, left, right, operation);
+    return binary(offset, end, name, left, right, operation);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) {
-    return binary?.call(name, left, right, operation);
+    return binary?.call(offset, end, name, left, right, operation);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) {
     if (binary != null) {
-      return binary(name, left, right, operation);
+      return binary(offset, end, name, left, right, operation);
     }
     return orElse();
   }
@@ -966,7 +1129,9 @@ class _$MethodBinary implements MethodBinary {
 
 abstract class MethodBinary implements MethodNode {
   const factory MethodBinary(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       required final MethodNode? left,
       required final MethodNode? right,
       required final String operation}) = _$MethodBinary;
@@ -974,6 +1139,10 @@ abstract class MethodBinary implements MethodNode {
   factory MethodBinary.fromJson(Map<String, dynamic> json) =
       _$MethodBinary.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   MethodNode? get left;
@@ -993,7 +1162,12 @@ abstract class _$$MethodConstructorCopyWith<$Res>
       __$$MethodConstructorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String value, Map<String, MethodNode?> arguments});
+  $Res call(
+      {int offset,
+      int end,
+      String name,
+      String value,
+      Map<String, MethodNode?> arguments});
 }
 
 /// @nodoc
@@ -1007,11 +1181,21 @@ class __$$MethodConstructorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? value = null,
     Object? arguments = null,
   }) {
     return _then(_$MethodConstructor(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1032,7 +1216,9 @@ class __$$MethodConstructorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MethodConstructor implements MethodConstructor {
   const _$MethodConstructor(
-      {required this.name,
+      {required this.offset,
+      required this.end,
+      required this.name,
       required this.value,
       final Map<String, MethodNode?> arguments = const {},
       final String? $type})
@@ -1042,6 +1228,10 @@ class _$MethodConstructor implements MethodConstructor {
   factory _$MethodConstructor.fromJson(Map<String, dynamic> json) =>
       _$$MethodConstructorFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   @override
@@ -1060,7 +1250,7 @@ class _$MethodConstructor implements MethodConstructor {
 
   @override
   String toString() {
-    return 'MethodNode.constructor(name: $name, value: $value, arguments: $arguments)';
+    return 'MethodNode.constructor(offset: $offset, end: $end, name: $name, value: $value, arguments: $arguments)';
   }
 
   @override
@@ -1068,6 +1258,8 @@ class _$MethodConstructor implements MethodConstructor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodConstructor &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.value, value) || other.value == value) &&
             const DeepCollectionEquality()
@@ -1076,7 +1268,7 @@ class _$MethodConstructor implements MethodConstructor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, value,
+  int get hashCode => Object.hash(runtimeType, offset, end, name, value,
       const DeepCollectionEquality().hash(_arguments));
 
   @JsonKey(ignore: true)
@@ -1088,51 +1280,58 @@ class _$MethodConstructor implements MethodConstructor {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) {
-    return constructor(name, value, arguments);
+    return constructor(offset, end, name, value, arguments);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) {
-    return constructor?.call(name, value, arguments);
+    return constructor?.call(offset, end, name, value, arguments);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) {
     if (constructor != null) {
-      return constructor(name, value, arguments);
+      return constructor(offset, end, name, value, arguments);
     }
     return orElse();
   }
@@ -1187,13 +1386,19 @@ class _$MethodConstructor implements MethodConstructor {
 
 abstract class MethodConstructor implements MethodNode {
   const factory MethodConstructor(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       required final String value,
       final Map<String, MethodNode?> arguments}) = _$MethodConstructor;
 
   factory MethodConstructor.fromJson(Map<String, dynamic> json) =
       _$MethodConstructor.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   String get value;
@@ -1212,7 +1417,7 @@ abstract class _$$MethodSimpleCopyWith<$Res>
       __$$MethodSimpleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, dynamic value});
+  $Res call({int offset, int end, String name, dynamic value});
 }
 
 /// @nodoc
@@ -1226,10 +1431,20 @@ class __$$MethodSimpleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? value = freezed,
   }) {
     return _then(_$MethodSimple(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1246,12 +1461,20 @@ class __$$MethodSimpleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MethodSimple implements MethodSimple {
   const _$MethodSimple(
-      {required this.name, required this.value, final String? $type})
+      {required this.offset,
+      required this.end,
+      required this.name,
+      required this.value,
+      final String? $type})
       : $type = $type ?? 'simple';
 
   factory _$MethodSimple.fromJson(Map<String, dynamic> json) =>
       _$$MethodSimpleFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   @override
@@ -1262,7 +1485,7 @@ class _$MethodSimple implements MethodSimple {
 
   @override
   String toString() {
-    return 'MethodNode.simple(name: $name, value: $value)';
+    return 'MethodNode.simple(offset: $offset, end: $end, name: $name, value: $value)';
   }
 
   @override
@@ -1270,14 +1493,16 @@ class _$MethodSimple implements MethodSimple {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodSimple &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, offset, end, name,
+      const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1288,51 +1513,58 @@ class _$MethodSimple implements MethodSimple {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String name) $default, {
-    required TResult Function(String name, List<MethodNode>? values) values,
+    TResult Function(int offset, int end, String name) $default, {
     required TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)
+            int offset, int end, String name, List<MethodNode>? values)
+        values,
+    required TResult Function(int offset, int end, String name,
+            MethodNode? left, MethodNode? right, String operation)
         binary,
-    required TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)
+    required TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)
         constructor,
-    required TResult Function(String name, dynamic value) simple,
+    required TResult Function(int offset, int end, String name, dynamic value)
+        simple,
   }) {
-    return simple(name, value);
+    return simple(offset, end, name, value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String name)? $default, {
-    TResult? Function(String name, List<MethodNode>? values)? values,
+    TResult? Function(int offset, int end, String name)? $default, {
     TResult? Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult? Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult? Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult? Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult? Function(String name, dynamic value)? simple,
+    TResult? Function(int offset, int end, String name, dynamic value)? simple,
   }) {
-    return simple?.call(name, value);
+    return simple?.call(offset, end, name, value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String name)? $default, {
-    TResult Function(String name, List<MethodNode>? values)? values,
+    TResult Function(int offset, int end, String name)? $default, {
     TResult Function(
-            String name, MethodNode? left, MethodNode? right, String operation)?
+            int offset, int end, String name, List<MethodNode>? values)?
+        values,
+    TResult Function(int offset, int end, String name, MethodNode? left,
+            MethodNode? right, String operation)?
         binary,
-    TResult Function(
-            String name, String value, Map<String, MethodNode?> arguments)?
+    TResult Function(int offset, int end, String name, String value,
+            Map<String, MethodNode?> arguments)?
         constructor,
-    TResult Function(String name, dynamic value)? simple,
+    TResult Function(int offset, int end, String name, dynamic value)? simple,
     required TResult orElse(),
   }) {
     if (simple != null) {
-      return simple(name, value);
+      return simple(offset, end, name, value);
     }
     return orElse();
   }
@@ -1387,12 +1619,18 @@ class _$MethodSimple implements MethodSimple {
 
 abstract class MethodSimple implements MethodNode {
   const factory MethodSimple(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       required final dynamic value}) = _$MethodSimple;
 
   factory MethodSimple.fromJson(Map<String, dynamic> json) =
       _$MethodSimple.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   dynamic get value;

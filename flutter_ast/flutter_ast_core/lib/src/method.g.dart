@@ -8,6 +8,8 @@ part of 'method.dart';
 
 _$_DartMethod _$$_DartMethodFromJson(Map<String, dynamic> json) =>
     _$_DartMethod(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String?,
       parameters: (json['parameters'] as List<dynamic>?)
               ?.map((e) => DartProperty.fromJson(e as Map<String, dynamic>))
@@ -20,24 +22,32 @@ _$_DartMethod _$$_DartMethodFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_DartMethodToJson(_$_DartMethod instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'parameters': instance.parameters,
       'body': instance.body,
     };
 
 _$MethodBase _$$MethodBaseFromJson(Map<String, dynamic> json) => _$MethodBase(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$MethodBaseToJson(_$MethodBase instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'runtimeType': instance.$type,
     };
 
 _$MethodValues _$$MethodValuesFromJson(Map<String, dynamic> json) =>
     _$MethodValues(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       values: (json['values'] as List<dynamic>?)
           ?.map((e) => MethodNode.fromJson(e as Map<String, dynamic>))
@@ -47,6 +57,8 @@ _$MethodValues _$$MethodValuesFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MethodValuesToJson(_$MethodValues instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'values': instance.values,
       'runtimeType': instance.$type,
@@ -54,6 +66,8 @@ Map<String, dynamic> _$$MethodValuesToJson(_$MethodValues instance) =>
 
 _$MethodBinary _$$MethodBinaryFromJson(Map<String, dynamic> json) =>
     _$MethodBinary(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       left: json['left'] == null
           ? null
@@ -67,6 +81,8 @@ _$MethodBinary _$$MethodBinaryFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MethodBinaryToJson(_$MethodBinary instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'left': instance.left,
       'right': instance.right,
@@ -76,6 +92,8 @@ Map<String, dynamic> _$$MethodBinaryToJson(_$MethodBinary instance) =>
 
 _$MethodConstructor _$$MethodConstructorFromJson(Map<String, dynamic> json) =>
     _$MethodConstructor(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       value: json['value'] as String,
       arguments: (json['arguments'] as Map<String, dynamic>?)?.map(
@@ -91,6 +109,8 @@ _$MethodConstructor _$$MethodConstructorFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MethodConstructorToJson(_$MethodConstructor instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'value': instance.value,
       'arguments': instance.arguments,
@@ -99,6 +119,8 @@ Map<String, dynamic> _$$MethodConstructorToJson(_$MethodConstructor instance) =>
 
 _$MethodSimple _$$MethodSimpleFromJson(Map<String, dynamic> json) =>
     _$MethodSimple(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       value: json['value'],
       $type: json['runtimeType'] as String?,
@@ -106,6 +128,8 @@ _$MethodSimple _$$MethodSimpleFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MethodSimpleToJson(_$MethodSimple instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'value': instance.value,
       'runtimeType': instance.$type,

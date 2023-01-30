@@ -20,6 +20,8 @@ DartEnum _$DartEnumFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartEnum {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get values => throw _privateConstructorUsedError;
 
@@ -34,7 +36,7 @@ abstract class $DartEnumCopyWith<$Res> {
   factory $DartEnumCopyWith(DartEnum value, $Res Function(DartEnum) then) =
       _$DartEnumCopyWithImpl<$Res, DartEnum>;
   @useResult
-  $Res call({String name, List<String> values});
+  $Res call({int offset, int end, String name, List<String> values});
 }
 
 /// @nodoc
@@ -50,10 +52,20 @@ class _$DartEnumCopyWithImpl<$Res, $Val extends DartEnum>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? values = null,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -73,7 +85,7 @@ abstract class _$$_DartEnumCopyWith<$Res> implements $DartEnumCopyWith<$Res> {
       __$$_DartEnumCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<String> values});
+  $Res call({int offset, int end, String name, List<String> values});
 }
 
 /// @nodoc
@@ -87,10 +99,20 @@ class __$$_DartEnumCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = null,
     Object? values = null,
   }) {
     return _then(_$_DartEnum(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -106,12 +128,20 @@ class __$$_DartEnumCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DartEnum implements _DartEnum {
-  const _$_DartEnum({required this.name, required final List<String> values})
+  const _$_DartEnum(
+      {required this.offset,
+      required this.end,
+      required this.name,
+      required final List<String> values})
       : _values = values;
 
   factory _$_DartEnum.fromJson(Map<String, dynamic> json) =>
       _$$_DartEnumFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String name;
   final List<String> _values;
@@ -124,7 +154,7 @@ class _$_DartEnum implements _DartEnum {
 
   @override
   String toString() {
-    return 'DartEnum(name: $name, values: $values)';
+    return 'DartEnum(offset: $offset, end: $end, name: $name, values: $values)';
   }
 
   @override
@@ -132,14 +162,16 @@ class _$_DartEnum implements _DartEnum {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartEnum &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._values, _values));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, const DeepCollectionEquality().hash(_values));
+  int get hashCode => Object.hash(runtimeType, offset, end, name,
+      const DeepCollectionEquality().hash(_values));
 
   @JsonKey(ignore: true)
   @override
@@ -157,11 +189,17 @@ class _$_DartEnum implements _DartEnum {
 
 abstract class _DartEnum implements DartEnum {
   const factory _DartEnum(
-      {required final String name,
+      {required final int offset,
+      required final int end,
+      required final String name,
       required final List<String> values}) = _$_DartEnum;
 
   factory _DartEnum.fromJson(Map<String, dynamic> json) = _$_DartEnum.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String get name;
   @override

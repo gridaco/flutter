@@ -1,11 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'ast_node.dart';
 part 'comment.freezed.dart';
 part 'comment.g.dart';
 
 @freezed
-abstract class DartComment with _$DartComment {
+abstract class DartComment extends AstNode with _$DartComment {
   const factory DartComment({
+    required int offset,
+    required int end,
     @Default([]) List<String> lines,
   }) = _DartComment;
 

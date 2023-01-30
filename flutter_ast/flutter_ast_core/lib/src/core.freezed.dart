@@ -31,12 +31,17 @@ DartCore _$DartCoreFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartCore {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   Object? get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String value) $default, {
+    TResult Function(int offset, int end, String? type, String value)
+        $default, {
     required TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -51,15 +56,18 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String? name, String? type, DartCore? value,
-            bool isFinal, bool isConst, bool isStatic)
+    required TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)
         field,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? type, String value)? $default, {
+    TResult? Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult? Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -74,15 +82,18 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult? Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String value)? $default, {
+    TResult Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -97,8 +108,8 @@ mixin _$DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
   }) =>
@@ -136,7 +147,7 @@ abstract class $DartCoreCopyWith<$Res> {
   factory $DartCoreCopyWith(DartCore value, $Res Function(DartCore) then) =
       _$DartCoreCopyWithImpl<$Res, DartCore>;
   @useResult
-  $Res call({String? type});
+  $Res call({int offset, int end, String? type});
 }
 
 /// @nodoc
@@ -152,9 +163,19 @@ class _$DartCoreCopyWithImpl<$Res, $Val extends DartCore>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? type = freezed,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -170,7 +191,7 @@ abstract class _$$_DartCoreCopyWith<$Res> implements $DartCoreCopyWith<$Res> {
       __$$_DartCoreCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? type, String value});
+  $Res call({int offset, int end, String? type, String value});
 }
 
 /// @nodoc
@@ -184,10 +205,20 @@ class __$$_DartCoreCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? type = freezed,
     Object? value = null,
   }) {
     return _then(_$_DartCore(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -204,12 +235,20 @@ class __$$_DartCoreCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartCore implements _DartCore {
   const _$_DartCore(
-      {required this.type, required this.value, final String? $type})
+      {required this.offset,
+      required this.end,
+      required this.type,
+      required this.value,
+      final String? $type})
       : $type = $type ?? 'default';
 
   factory _$_DartCore.fromJson(Map<String, dynamic> json) =>
       _$$_DartCoreFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String? type;
   @override
@@ -220,7 +259,7 @@ class _$_DartCore implements _DartCore {
 
   @override
   String toString() {
-    return 'DartCore(type: $type, value: $value)';
+    return 'DartCore(offset: $offset, end: $end, type: $type, value: $value)';
   }
 
   @override
@@ -228,13 +267,15 @@ class _$_DartCore implements _DartCore {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartCore &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, value);
+  int get hashCode => Object.hash(runtimeType, offset, end, type, value);
 
   @JsonKey(ignore: true)
   @override
@@ -245,8 +286,11 @@ class _$_DartCore implements _DartCore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String value) $default, {
+    TResult Function(int offset, int end, String? type, String value)
+        $default, {
     required TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -261,18 +305,21 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String? name, String? type, DartCore? value,
-            bool isFinal, bool isConst, bool isStatic)
+    required TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
-    return $default(type, value);
+    return $default(offset, end, type, value);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? type, String value)? $default, {
+    TResult? Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult? Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -287,18 +334,21 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult? Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
   }) {
-    return $default?.call(type, value);
+    return $default?.call(offset, end, type, value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String value)? $default, {
+    TResult Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -313,13 +363,13 @@ class _$_DartCore implements _DartCore {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(type, value);
+      return $default(offset, end, type, value);
     }
     return orElse();
   }
@@ -368,10 +418,17 @@ class _$_DartCore implements _DartCore {
 
 abstract class _DartCore implements DartCore {
   const factory _DartCore(
-      {required final String? type, required final String value}) = _$_DartCore;
+      {required final int offset,
+      required final int end,
+      required final String? type,
+      required final String value}) = _$_DartCore;
 
   factory _DartCore.fromJson(Map<String, dynamic> json) = _$_DartCore.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   String? get type;
   @override
@@ -391,7 +448,9 @@ abstract class _$$DartPropertyCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name,
+      {int offset,
+      int end,
+      String? name,
       String? key,
       String? type,
       DartCore? value,
@@ -419,6 +478,8 @@ class __$$DartPropertyCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = freezed,
     Object? key = freezed,
     Object? type = freezed,
@@ -434,6 +495,14 @@ class __$$DartPropertyCopyWithImpl<$Res>
     Object? position = freezed,
   }) {
     return _then(_$DartProperty(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -506,7 +575,9 @@ class __$$DartPropertyCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DartProperty implements DartProperty {
   const _$DartProperty(
-      {required this.name,
+      {required this.offset,
+      required this.end,
+      required this.name,
       this.key,
       required this.type,
       this.value,
@@ -525,6 +596,10 @@ class _$DartProperty implements DartProperty {
   factory _$DartProperty.fromJson(Map<String, dynamic> json) =>
       _$$DartPropertyFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String? name;
   @override
@@ -565,7 +640,7 @@ class _$DartProperty implements DartProperty {
 
   @override
   String toString() {
-    return 'DartCore.property(name: $name, key: $key, type: $type, value: $value, isOptional: $isOptional, isNamed: $isNamed, isPositional: $isPositional, isRequired: $isRequired, isRequiredPositional: $isRequiredPositional, isSynthetic: $isSynthetic, isRequiredNamed: $isRequiredNamed, isOptionalNamed: $isOptionalNamed, position: $position)';
+    return 'DartCore.property(offset: $offset, end: $end, name: $name, key: $key, type: $type, value: $value, isOptional: $isOptional, isNamed: $isNamed, isPositional: $isPositional, isRequired: $isRequired, isRequiredPositional: $isRequiredPositional, isSynthetic: $isSynthetic, isRequiredNamed: $isRequiredNamed, isOptionalNamed: $isOptionalNamed, position: $position)';
   }
 
   @override
@@ -573,6 +648,8 @@ class _$DartProperty implements DartProperty {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DartProperty &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.type, type) || other.type == type) &&
@@ -600,6 +677,8 @@ class _$DartProperty implements DartProperty {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      offset,
+      end,
       name,
       key,
       type,
@@ -623,8 +702,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String value) $default, {
+    TResult Function(int offset, int end, String? type, String value)
+        $default, {
     required TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -639,11 +721,13 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String? name, String? type, DartCore? value,
-            bool isFinal, bool isConst, bool isStatic)
+    required TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
     return property(
+        offset,
+        end,
         name,
         key,
         type,
@@ -662,8 +746,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? type, String value)? $default, {
+    TResult? Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult? Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -678,11 +765,13 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult? Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
   }) {
     return property?.call(
+        offset,
+        end,
         name,
         key,
         type,
@@ -701,8 +790,11 @@ class _$DartProperty implements DartProperty {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String value)? $default, {
+    TResult Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -717,13 +809,15 @@ class _$DartProperty implements DartProperty {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
   }) {
     if (property != null) {
       return property(
+          offset,
+          end,
           name,
           key,
           type,
@@ -785,7 +879,9 @@ class _$DartProperty implements DartProperty {
 
 abstract class DartProperty implements DartCore {
   const factory DartProperty(
-      {required final String? name,
+      {required final int offset,
+      required final int end,
+      required final String? name,
       final String? key,
       required final String? type,
       final DartCore? value,
@@ -802,6 +898,10 @@ abstract class DartProperty implements DartCore {
   factory DartProperty.fromJson(Map<String, dynamic> json) =
       _$DartProperty.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   String? get name;
   String? get key;
   @override
@@ -831,7 +931,9 @@ abstract class _$$DartFieldCopyWith<$Res> implements $DartCoreCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? name,
+      {int offset,
+      int end,
+      String? name,
       String? type,
       DartCore? value,
       bool isFinal,
@@ -852,6 +954,8 @@ class __$$DartFieldCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? name = freezed,
     Object? type = freezed,
     Object? value = freezed,
@@ -860,6 +964,14 @@ class __$$DartFieldCopyWithImpl<$Res>
     Object? isStatic = null,
   }) {
     return _then(_$DartField(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -904,7 +1016,9 @@ class __$$DartFieldCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DartField implements DartField {
   const _$DartField(
-      {required this.name,
+      {required this.offset,
+      required this.end,
+      required this.name,
       required this.type,
       this.value,
       this.isFinal = false,
@@ -916,6 +1030,10 @@ class _$DartField implements DartField {
   factory _$DartField.fromJson(Map<String, dynamic> json) =>
       _$$DartFieldFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   @override
   final String? name;
   @override
@@ -937,7 +1055,7 @@ class _$DartField implements DartField {
 
   @override
   String toString() {
-    return 'DartCore.field(name: $name, type: $type, value: $value, isFinal: $isFinal, isConst: $isConst, isStatic: $isStatic)';
+    return 'DartCore.field(offset: $offset, end: $end, name: $name, type: $type, value: $value, isFinal: $isFinal, isConst: $isConst, isStatic: $isStatic)';
   }
 
   @override
@@ -945,6 +1063,8 @@ class _$DartField implements DartField {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DartField &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value) &&
@@ -956,8 +1076,8 @@ class _$DartField implements DartField {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, type, value, isFinal, isConst, isStatic);
+  int get hashCode => Object.hash(
+      runtimeType, offset, end, name, type, value, isFinal, isConst, isStatic);
 
   @JsonKey(ignore: true)
   @override
@@ -968,8 +1088,11 @@ class _$DartField implements DartField {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? type, String value) $default, {
+    TResult Function(int offset, int end, String? type, String value)
+        $default, {
     required TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -984,18 +1107,21 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)
         property,
-    required TResult Function(String? name, String? type, DartCore? value,
-            bool isFinal, bool isConst, bool isStatic)
+    required TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)
         field,
   }) {
-    return field(name, type, value, isFinal, isConst, isStatic);
+    return field(offset, end, name, type, value, isFinal, isConst, isStatic);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? type, String value)? $default, {
+    TResult? Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult? Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -1010,18 +1136,22 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult? Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult? Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
   }) {
-    return field?.call(name, type, value, isFinal, isConst, isStatic);
+    return field?.call(
+        offset, end, name, type, value, isFinal, isConst, isStatic);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? type, String value)? $default, {
+    TResult Function(int offset, int end, String? type, String value)?
+        $default, {
     TResult Function(
+            int offset,
+            int end,
             String? name,
             String? key,
             String? type,
@@ -1036,13 +1166,13 @@ class _$DartField implements DartField {
             bool isOptionalNamed,
             int? position)?
         property,
-    TResult Function(String? name, String? type, DartCore? value, bool isFinal,
-            bool isConst, bool isStatic)?
+    TResult Function(int offset, int end, String? name, String? type,
+            DartCore? value, bool isFinal, bool isConst, bool isStatic)?
         field,
     required TResult orElse(),
   }) {
     if (field != null) {
-      return field(name, type, value, isFinal, isConst, isStatic);
+      return field(offset, end, name, type, value, isFinal, isConst, isStatic);
     }
     return orElse();
   }
@@ -1091,7 +1221,9 @@ class _$DartField implements DartField {
 
 abstract class DartField implements DartCore {
   const factory DartField(
-      {required final String? name,
+      {required final int offset,
+      required final int end,
+      required final String? name,
       required final String? type,
       final DartCore? value,
       final bool isFinal,
@@ -1100,6 +1232,10 @@ abstract class DartField implements DartCore {
 
   factory DartField.fromJson(Map<String, dynamic> json) = _$DartField.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   String? get name;
   @override
   String? get type;

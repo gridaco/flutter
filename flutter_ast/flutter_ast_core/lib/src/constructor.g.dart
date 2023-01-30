@@ -8,6 +8,8 @@ part of 'constructor.dart';
 
 _$_DartConstructor _$$_DartConstructorFromJson(Map<String, dynamic> json) =>
     _$_DartConstructor(
+      offset: json['offset'] as int,
+      end: json['end'] as int,
       name: json['name'] as String,
       properties: (json['properties'] as List<dynamic>?)
               ?.map((e) => e == null
@@ -19,6 +21,8 @@ _$_DartConstructor _$$_DartConstructorFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_DartConstructorToJson(_$_DartConstructor instance) =>
     <String, dynamic>{
+      'offset': instance.offset,
+      'end': instance.end,
       'name': instance.name,
       'properties': instance.properties,
     };

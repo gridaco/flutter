@@ -1,16 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'ast_node.dart';
 part 'core.freezed.dart';
 part 'core.g.dart';
 
 @freezed
-abstract class DartCore with _$DartCore {
+abstract class DartCore extends AstNode with _$DartCore {
   const factory DartCore({
+    required int offset,
+    required int end,
     required String? type,
     required String value,
   }) = _DartCore;
 
   const factory DartCore.property({
+    required int offset,
+    required int end,
     required String? name,
     String? key,
     required String? type,
@@ -27,6 +31,8 @@ abstract class DartCore with _$DartCore {
   }) = DartProperty;
 
   const factory DartCore.field({
+    required int offset,
+    required int end,
     required String? name,
     required String? type,
     DartCore? value,

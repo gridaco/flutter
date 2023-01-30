@@ -20,6 +20,8 @@ DartComment _$DartCommentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartComment {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   List<String> get lines => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,7 @@ abstract class $DartCommentCopyWith<$Res> {
           DartComment value, $Res Function(DartComment) then) =
       _$DartCommentCopyWithImpl<$Res, DartComment>;
   @useResult
-  $Res call({List<String> lines});
+  $Res call({int offset, int end, List<String> lines});
 }
 
 /// @nodoc
@@ -50,9 +52,19 @@ class _$DartCommentCopyWithImpl<$Res, $Val extends DartComment>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? lines = null,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       lines: null == lines
           ? _value.lines
           : lines // ignore: cast_nullable_to_non_nullable
@@ -69,7 +81,7 @@ abstract class _$$_DartCommentCopyWith<$Res>
       __$$_DartCommentCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> lines});
+  $Res call({int offset, int end, List<String> lines});
 }
 
 /// @nodoc
@@ -83,9 +95,19 @@ class __$$_DartCommentCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? lines = null,
   }) {
     return _then(_$_DartComment(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       lines: null == lines
           ? _value._lines
           : lines // ignore: cast_nullable_to_non_nullable
@@ -97,11 +119,19 @@ class __$$_DartCommentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DartComment implements _DartComment {
-  const _$_DartComment({final List<String> lines = const []}) : _lines = lines;
+  const _$_DartComment(
+      {required this.offset,
+      required this.end,
+      final List<String> lines = const []})
+      : _lines = lines;
 
   factory _$_DartComment.fromJson(Map<String, dynamic> json) =>
       _$$_DartCommentFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   final List<String> _lines;
   @override
   @JsonKey()
@@ -113,7 +143,7 @@ class _$_DartComment implements _DartComment {
 
   @override
   String toString() {
-    return 'DartComment(lines: $lines)';
+    return 'DartComment(offset: $offset, end: $end, lines: $lines)';
   }
 
   @override
@@ -121,13 +151,15 @@ class _$_DartComment implements _DartComment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartComment &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             const DeepCollectionEquality().equals(other._lines, _lines));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_lines));
+  int get hashCode => Object.hash(
+      runtimeType, offset, end, const DeepCollectionEquality().hash(_lines));
 
   @JsonKey(ignore: true)
   @override
@@ -144,11 +176,18 @@ class _$_DartComment implements _DartComment {
 }
 
 abstract class _DartComment implements DartComment {
-  const factory _DartComment({final List<String> lines}) = _$_DartComment;
+  const factory _DartComment(
+      {required final int offset,
+      required final int end,
+      final List<String> lines}) = _$_DartComment;
 
   factory _DartComment.fromJson(Map<String, dynamic> json) =
       _$_DartComment.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   List<String> get lines;
   @override

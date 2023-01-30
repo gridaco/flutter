@@ -4,13 +4,16 @@ import 'comment.dart';
 import 'constructor.dart';
 import 'core.dart';
 import 'method.dart';
+import 'ast_node.dart';
 
 part 'class.freezed.dart';
 part 'class.g.dart';
 
 @freezed
-abstract class DartClass with _$DartClass {
+abstract class DartClass extends AstNode with _$DartClass {
   const factory DartClass({
+    required int offset,
+    required int end,
     @Default([]) List<DartConstructor?> constructors,
     @Default([]) List<DartComment> comments,
     @Default([]) List<DartField?> fields,

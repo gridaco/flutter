@@ -20,6 +20,8 @@ DartClass _$DartClassFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DartClass {
+  int get offset => throw _privateConstructorUsedError;
+  int get end => throw _privateConstructorUsedError;
   List<DartConstructor?> get constructors => throw _privateConstructorUsedError;
   List<DartComment> get comments => throw _privateConstructorUsedError;
   List<DartField?> get fields => throw _privateConstructorUsedError;
@@ -42,7 +44,9 @@ abstract class $DartClassCopyWith<$Res> {
       _$DartClassCopyWithImpl<$Res, DartClass>;
   @useResult
   $Res call(
-      {List<DartConstructor?> constructors,
+      {int offset,
+      int end,
+      List<DartConstructor?> constructors,
       List<DartComment> comments,
       List<DartField?> fields,
       List<DartMethod> methods,
@@ -66,6 +70,8 @@ class _$DartClassCopyWithImpl<$Res, $Val extends DartClass>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? constructors = null,
     Object? comments = null,
     Object? fields = null,
@@ -77,6 +83,14 @@ class _$DartClassCopyWithImpl<$Res, $Val extends DartClass>
     Object? withClause = freezed,
   }) {
     return _then(_value.copyWith(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       constructors: null == constructors
           ? _value.constructors
           : constructors // ignore: cast_nullable_to_non_nullable
@@ -125,7 +139,9 @@ abstract class _$$_DartClassCopyWith<$Res> implements $DartClassCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {List<DartConstructor?> constructors,
+      {int offset,
+      int end,
+      List<DartConstructor?> constructors,
       List<DartComment> comments,
       List<DartField?> fields,
       List<DartMethod> methods,
@@ -147,6 +163,8 @@ class __$$_DartClassCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? offset = null,
+    Object? end = null,
     Object? constructors = null,
     Object? comments = null,
     Object? fields = null,
@@ -158,6 +176,14 @@ class __$$_DartClassCopyWithImpl<$Res>
     Object? withClause = freezed,
   }) {
     return _then(_$_DartClass(
+      offset: null == offset
+          ? _value.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _value.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
       constructors: null == constructors
           ? _value._constructors
           : constructors // ignore: cast_nullable_to_non_nullable
@@ -202,7 +228,9 @@ class __$$_DartClassCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DartClass implements _DartClass {
   const _$_DartClass(
-      {final List<DartConstructor?> constructors = const [],
+      {required this.offset,
+      required this.end,
+      final List<DartConstructor?> constructors = const [],
       final List<DartComment> comments = const [],
       final List<DartField?> fields = const [],
       final List<DartMethod> methods = const [],
@@ -219,6 +247,10 @@ class _$_DartClass implements _DartClass {
   factory _$_DartClass.fromJson(Map<String, dynamic> json) =>
       _$$_DartClassFromJson(json);
 
+  @override
+  final int offset;
+  @override
+  final int end;
   final List<DartConstructor?> _constructors;
   @override
   @JsonKey()
@@ -268,7 +300,7 @@ class _$_DartClass implements _DartClass {
 
   @override
   String toString() {
-    return 'DartClass(constructors: $constructors, comments: $comments, fields: $fields, methods: $methods, name: $name, isAbstract: $isAbstract, extendsClause: $extendsClause, implementsClause: $implementsClause, withClause: $withClause)';
+    return 'DartClass(offset: $offset, end: $end, constructors: $constructors, comments: $comments, fields: $fields, methods: $methods, name: $name, isAbstract: $isAbstract, extendsClause: $extendsClause, implementsClause: $implementsClause, withClause: $withClause)';
   }
 
   @override
@@ -276,6 +308,8 @@ class _$_DartClass implements _DartClass {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DartClass &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.end, end) || other.end == end) &&
             const DeepCollectionEquality()
                 .equals(other._constructors, _constructors) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
@@ -296,6 +330,8 @@ class _$_DartClass implements _DartClass {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      offset,
+      end,
       const DeepCollectionEquality().hash(_constructors),
       const DeepCollectionEquality().hash(_comments),
       const DeepCollectionEquality().hash(_fields),
@@ -322,7 +358,9 @@ class _$_DartClass implements _DartClass {
 
 abstract class _DartClass implements DartClass {
   const factory _DartClass(
-      {final List<DartConstructor?> constructors,
+      {required final int offset,
+      required final int end,
+      final List<DartConstructor?> constructors,
       final List<DartComment> comments,
       final List<DartField?> fields,
       final List<DartMethod> methods,
@@ -335,6 +373,10 @@ abstract class _DartClass implements DartClass {
   factory _DartClass.fromJson(Map<String, dynamic> json) =
       _$_DartClass.fromJson;
 
+  @override
+  int get offset;
+  @override
+  int get end;
   @override
   List<DartConstructor?> get constructors;
   @override

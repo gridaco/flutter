@@ -1,13 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'ast_node.dart';
 import 'core.dart';
 
 part 'method.freezed.dart';
 part 'method.g.dart';
 
 @freezed
-abstract class DartMethod with _$DartMethod {
+abstract class DartMethod extends AstNode with _$DartMethod {
   const factory DartMethod({
+    required int offset,
+    required int end,
     required String? name,
     @Default([]) List<DartProperty> parameters,
     required MethodNode? body,
@@ -18,17 +20,23 @@ abstract class DartMethod with _$DartMethod {
 }
 
 @freezed
-abstract class MethodNode with _$MethodNode {
+abstract class MethodNode extends AstNode with _$MethodNode {
   const factory MethodNode({
+    required int offset,
+    required int end,
     required String name,
   }) = MethodBase;
 
   const factory MethodNode.values({
+    required int offset,
+    required int end,
     required String name,
     List<MethodNode>? values,
   }) = MethodValues;
 
   const factory MethodNode.binary({
+    required int offset,
+    required int end,
     required String name,
     required MethodNode? left,
     required MethodNode? right,
@@ -36,12 +44,16 @@ abstract class MethodNode with _$MethodNode {
   }) = MethodBinary;
 
   const factory MethodNode.constructor({
+    required int offset,
+    required int end,
     required String name,
     required String value,
     @Default({}) Map<String, MethodNode?> arguments,
   }) = MethodConstructor;
 
   const factory MethodNode.simple({
+    required int offset,
+    required int end,
     required String name,
     required dynamic value,
   }) = MethodSimple;

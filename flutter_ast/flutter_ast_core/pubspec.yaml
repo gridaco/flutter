@@ -1,6 +1,6 @@
 name: flutter_ast_core
 description: Flutter AST Parser Core models for flutter_ast
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/gridaco/flutter-support/tree/main/flutter_ast/flutter_ast_core
 license: MIT
 

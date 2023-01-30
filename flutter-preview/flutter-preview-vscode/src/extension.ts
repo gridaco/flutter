@@ -1,12 +1,12 @@
 import * as vscode from "vscode";
 import { Analyzer } from "./analyzer";
-import { is_daemon_running, FlutterDaemon } from "./daemon";
-import { locatePubspec } from "./pub";
+import { FlutterDaemon } from "./daemon";
+import { locatePubspec } from "pub";
 import path from "path";
 
 const langs = ["dart"] as const;
 
-const APP_HOST = "http://localhost:6632";
+const APP_HOST = "https://flutter-preview.webview.vscode.grida.co"; // "http://localhost:6632";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -38,18 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 async function cmd_dart_preview_handler(
   document: vscode.TextDocument,
-  componentId?: string
+  componentId: string
 ) {
   const panel_title = `Preview: ${componentId}`;
-
-  const service_ready = await is_daemon_running("ws://localhost:43070");
-
-  if (service_ready) {
-    vscode.window.showInformationMessage("Flutter daemon connected");
-  } else {
-    vscode.window.showErrorMessage("Flutter daemon is not running");
-    return;
-  }
 
   const panel = vscode.window.createWebviewPanel(
     "flutter-preview", // Identifies the type of the webview. Used internally
@@ -61,8 +52,6 @@ async function cmd_dart_preview_handler(
     }
   );
 
-  const text = await document.getText();
-
   // run flutter daemon
   const daemon = FlutterDaemon.instance;
 
@@ -71,10 +60,14 @@ async function cmd_dart_preview_handler(
   const pubspec = locatePubspec(filedir);
   if (pubspec) {
     const { base_dir } = pubspec;
-    const project = await daemon.import(base_dir);
-    console.log("daemon project imported", project);
 
-    project.on("app.log", (e) => {
+    const project = daemon.init(base_dir, {
+      path: document.fileName,
+      identifier: componentId,
+    });
+
+    await project.run();
+    project.on("app.log", (e: any) => {
       console.log("app.log", e);
     });
   } else {
@@ -92,6 +85,7 @@ async function cmd_dart_preview_handler(
   const subscription__on_save = vscode.workspace.onDidSaveTextDocument(
     async (e) => {
       // const text = await document?.getText();
+      // TODO: sync the content
       await daemon.restart();
       restart();
     }

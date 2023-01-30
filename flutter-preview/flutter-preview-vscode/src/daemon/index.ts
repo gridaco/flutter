@@ -1,22 +1,4 @@
-import Client, { FlutterProject } from "@flutter-daemon/client";
-import { WebSocket } from "ws";
-
-export function is_daemon_running(url: string): Promise<boolean> {
-  return new Promise((resolve) => {
-    var ws = new WebSocket(url);
-    ws.addEventListener("error", (e) => {
-      if (e.target.readyState === 3) {
-        resolve(false);
-      }
-    });
-    ws.addEventListener("open", () => {
-      resolve(true);
-      ws.close();
-    });
-  });
-}
-
-const local_flutter_daemon_server_url = "ws://localhost:43070";
+import { FlutterPreviewProject, ITargetIdentifier } from "flutter-preview";
 
 export class FlutterDaemon {
   private static _instance: FlutterDaemon;
@@ -26,19 +8,29 @@ export class FlutterDaemon {
     }
     return FlutterDaemon._instance;
   }
-  static client: Client;
-  static project: FlutterProject;
-  constructor() {
-    if (!FlutterDaemon.client) {
-      FlutterDaemon.client = new Client(local_flutter_daemon_server_url);
+  static project: FlutterPreviewProject;
+
+  constructor() {}
+
+  init(path: string, target: ITargetIdentifier) {
+    if (!FlutterDaemon.project) {
+      FlutterDaemon.project = new FlutterPreviewProject({
+        origin: path,
+        target,
+      });
+    } else {
+      if (FlutterDaemon.project.origin !== path) {
+        throw new Error("Cannot change project path");
+      }
+      this.target(target);
     }
+
+    return FlutterDaemon.project;
   }
 
-  async import(path: string) {
-    if (!FlutterDaemon.project) {
-      FlutterDaemon.project = await FlutterDaemon.client.import(path);
-    }
-    return FlutterDaemon.project;
+  async target(_: ITargetIdentifier) {
+    FlutterDaemon.project.target(_);
+    this.restart();
   }
 
   async restart() {

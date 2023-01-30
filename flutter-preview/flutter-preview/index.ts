@@ -5,6 +5,7 @@ import path from "path";
 import mustache from "mustache";
 import ast from "flutter-ast";
 import { FlutterProject, IFlutterRunnerClient } from "@flutter-daemon/server";
+import * as templates from "./templates";
 
 interface IFlutterPreviewWidgetClass {
   /**
@@ -133,33 +134,70 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     });
   }
 
-  private main_override() {
-    // read & analyze the main entry file
-    const src = fs.readFileSync(this.main, "utf-8");
-    const { imports } = ast.parse(src).file;
+  private abspath(p: string) {
+    if (path.isAbsolute(p)) {
+      return p;
+    }
+    return path.join(this.root, p);
+  }
 
+  /**
+   * override the main.dart file since we cannot customize the entry file for the daemon proc
+   */
+  private override_main_dart() {
+    // if - the target is inside the main.dart file, we need to copy the main.dart content to X, remove the `void main() {}`, re-import the X from the newly seeded main.dart file.
+    // else - the target is elsewhere from the main.dart file (normal case)
+
+    const src = fs.readFileSync(
+      path.join(this.origin, "lib/main.dart"),
+      "utf-8"
+    );
+    const { imports } = ast.parse(src).file;
     const _seed_imports = new Set([
       // default imports
       "package:flutter/material.dart",
       ...imports,
     ]);
 
-    // add the target node as import
-    // make it relative to lib/main.dart -> e.g. './src/demo.dart'
-    _seed_imports.add(
-      path.relative(
-        path.join(this.root, "./lib"),
-        path.join(this.root, this.m_target.path)
-      )
-    );
+    if (this.abspath(this.m_target.path) === this.main) {
+      // create new random file (valid dart file) on the same directory as the main.dart
+      const _tmp =
+        tmp.tmpNameSync({
+          dir: path.dirname(this.main),
+        }) + ".dart";
 
-    // get the template file content
-    const main_dart_mustache = fs.readFileSync(
-      path.join(__dirname, "templates/main.dart.mustache")
-    );
+      // write the content of the main.dart to the tmp file
+      // while copying the content, remove the `void main() {}` part
+      const main_method = ast
+        .parse(src)
+        .file.methods.find((m) => m.name === "main");
+
+      const { offset, end } = main_method;
+
+      const newsrc = src.slice(0, offset) + src.slice(end);
+
+      fs.writeFileSync(_tmp, newsrc);
+
+      // add the copied main file as import
+      // make it relative to lib/main.dart -> e.g. 'xxx_tmp_xxx.dart'
+      _seed_imports.add(
+        path.relative(path.join(this.root, "./lib"), path.join(_tmp))
+      );
+    } else {
+      // read & analyze the main entry file
+
+      // add the target node as import
+      // make it relative to lib/main.dart -> e.g. './src/demo.dart'
+      _seed_imports.add(
+        path.relative(
+          path.join(this.root, "./lib"),
+          path.join(this.root, this.m_target.path)
+        )
+      );
+    }
 
     // render the template
-    const main_dart_src = mustache.render(main_dart_mustache.toString(), {
+    const main_dart_src = mustache.render(templates.main_dart_mustache, {
       imports: Array.from(_seed_imports),
       title: "Preview - " + this.m_target.identifier,
       widget: this.m_target.identifier,
@@ -170,9 +208,9 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   }
 
   /**
-   * the main entry file, e.g. './lib/main.dart'
+   * the main entry file, e.g. '~/root/lib/main.dart'
    *
-   * @default './lib/main.dart'
+   * @default path.join(this.root, './lib/main.dart')
    */
   get main(): string {
     return path.join(this.root, "./lib/main.dart");
@@ -211,11 +249,13 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   target(_: ITargetIdentifier) {
     this.m_target = FlutterPreviewWidgetClass.from({
       // if the path is absolute, then use make it relative to the origin
-      path: path.isAbsolute(_.path) ? path.relative(origin, _.path) : _.path,
+      path: path.isAbsolute(_.path)
+        ? path.relative(this.origin, _.path)
+        : _.path,
       identifier: _.identifier,
     });
 
-    this.main_override();
+    this.override_main_dart();
   }
 
   // #region IFlutterRunnerClient
@@ -249,7 +289,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   // #endregion IFlutterRunnerClient
 }
 
-interface ITargetIdentifier {
+export interface ITargetIdentifier {
   path: string;
   identifier: string;
 }

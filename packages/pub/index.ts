@@ -3,7 +3,7 @@
 //
 
 import path from "path";
-import { find_in_cwd, find_in_parent } from "../_utils/path";
+import { find_in_cwd, find_in_parent } from "./path";
 import YAML from "yaml";
 import fs from "fs";
 

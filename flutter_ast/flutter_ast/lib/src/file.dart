@@ -10,8 +10,6 @@ extension AstNodeUtils on AstNode {
     final List<String> imports = [];
     for (final node in root.childEntities.whereType<ImportDirectiveImpl>()) {
       final ImportDirectiveImpl _node = node;
-      print("node: ${node.offset} - ${node.end}");
-
       final _url = _node.uri.stringValue!;
       imports.add(_url);
     }

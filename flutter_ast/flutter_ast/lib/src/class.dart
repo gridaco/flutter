@@ -6,7 +6,8 @@ import 'index.dart';
 
 extension ClauseDeclarationImplUtils on ClassDeclarationImpl {
   DartClass toDartClass(DartFile parent) {
-    DartClass base = DartClass(name: this.name.toString());
+    DartClass base = DartClass(
+        name: this.name.toString(), offset: this.offset, end: this.end);
     final List<DartField?> fields = [];
     for (final item in this.childEntities.whereType<FieldDeclarationImpl>()) {
       fields.add(item.toDartField());

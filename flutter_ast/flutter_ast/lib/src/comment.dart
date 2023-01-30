@@ -13,6 +13,6 @@ extension DartCommentUtils on CommentImpl {
         _lines.add(line);
       }
     }
-    return DartComment(lines: _lines);
+    return DartComment(lines: _lines, offset: this.offset, end: this.end);
   }
 }

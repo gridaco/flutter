@@ -197,10 +197,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_ast_core
-      sha256: "6273aa123e32c3bb81c0c170a9a99cfb9ce0c30c51aaa2b4f127128441a7dda9"
+      sha256: "2e42409444c7b28cddcba7f0528be9af24142afa76af085bd7530e76024c87c9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.3"
   freezed_annotation:
     dependency: transitive
     description:

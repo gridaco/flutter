@@ -10,6 +10,8 @@ extension EnumDeclarationImplUtils on EnumDeclarationImpl {
     return DartEnum(
       name: _name,
       values: _values,
+      offset: this.offset,
+      end: this.end,
     );
   }
 }

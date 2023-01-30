@@ -6,6 +6,8 @@ import 'core.dart';
 extension MethodDeclarationImplUtils on MethodDeclarationImpl {
   DartMethod toDartMethod(DartClass parent) {
     return DartMethod(
+      offset: this.offset,
+      end: this.end,
       name: this.name.toString(),
       body: _check(this),
     );
@@ -15,6 +17,8 @@ extension MethodDeclarationImplUtils on MethodDeclarationImpl {
 extension FunctionBodyImplUtils on FunctionBodyImpl {
   DartMethod toDartMethod(DartClass parent) {
     return DartMethod(
+      offset: this.offset,
+      end: this.end,
       name: null,
       body: _check(this),
     );
@@ -24,6 +28,8 @@ extension FunctionBodyImplUtils on FunctionBodyImpl {
 extension FunctionDeclarationImplUtils on FunctionDeclarationImpl {
   DartMethod toDartMethod() {
     return DartMethod(
+      offset: this.offset,
+      end: this.end,
       name: this.name.toString(),
       body: _check(this),
     );
@@ -66,18 +72,24 @@ MethodNode? _check(SyntacticEntity node) {
   }
   if (node is SimpleIdentifierImpl) {
     return MethodNode.simple(
+      offset: node.offset,
+      end: node.end,
       name: 'name',
       value: node.name,
     );
   }
   if (node is LiteralImpl) {
     return MethodNode.simple(
+      offset: node.offset,
+      end: node.end,
       name: 'value',
       value: node.toDartCore(),
     );
   }
   if (node is NamedTypeImpl) {
     return MethodNode.simple(
+      offset: node.offset,
+      end: node.end,
       name: 'type',
       value: node.toString(),
     );
@@ -91,6 +103,8 @@ MethodNode _processFunctionDeclaration(FunctionDeclarationImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'function_declaration',
     values: values,
   );
@@ -102,6 +116,8 @@ MethodNode _processMethodDeclarationImpl(MethodDeclarationImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'method_declaration',
     values: values,
   );
@@ -113,6 +129,8 @@ MethodNode _processIfStatement(IfStatementImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'if',
     values: values,
   );
@@ -124,6 +142,8 @@ MethodNode _processFunction(FunctionExpressionImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'function',
     values: values,
   );
@@ -136,6 +156,8 @@ MethodNode _processDeclaration(DeclaredSimpleIdentifier node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'declaration',
     values: values,
   );
@@ -148,6 +170,8 @@ MethodNode _processMethod(MethodInvocationImpl node) {
     final arg = args.arguments[i];
     if (arg is LiteralImpl) {
       arguments['$i'] = MethodNode.simple(
+        offset: node.offset,
+        end: node.end,
         name: 'value',
         value: arg.toDartCore(),
       );
@@ -157,6 +181,8 @@ MethodNode _processMethod(MethodInvocationImpl node) {
     }
   }
   return MethodNode.constructor(
+    offset: node.offset,
+    end: node.end,
     name: 'constructor',
     value: node.methodName.name,
     arguments: arguments,
@@ -166,6 +192,8 @@ MethodNode _processMethod(MethodInvocationImpl node) {
 MethodNode _processBinary(BinaryExpressionImpl node) {
   final _children = node.childEntities.toList();
   return MethodNode.binary(
+    offset: node.offset,
+    end: node.end,
     name: 'binary',
     left: _check(_children[0]),
     right: _check(_children[2]),
@@ -179,6 +207,8 @@ MethodNode _processConditional(ConditionalExpressionImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'conditional',
     values: values,
   );
@@ -190,6 +220,8 @@ MethodNode _processReturn(ReturnStatementImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'return',
     values: values,
   );
@@ -201,6 +233,8 @@ MethodNode _processBlock(BlockImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'block',
     values: values,
   );
@@ -212,6 +246,8 @@ MethodNode _processBlockBody(BlockFunctionBodyImpl node) {
     _checkAndAdd(child, values);
   }
   return MethodNode.values(
+    offset: node.offset,
+    end: node.end,
     name: 'block_body',
     values: values,
   );

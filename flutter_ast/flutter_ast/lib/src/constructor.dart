@@ -14,7 +14,7 @@ extension ConstructorDeclarationImplUtils on ConstructorDeclarationImpl {
       if (node is DeclaredSimpleIdentifier) {
         _name = node.name;
       }
-      base = DartConstructor(name: _name);
+      base = DartConstructor(name: _name, offset: this.offset, end: this.end);
       if (node is FormalParameterListImpl) {
         for (final child in node.childEntities) {
           if (child is DefaultFormalParameterImpl) {

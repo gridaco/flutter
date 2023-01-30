@@ -73,6 +73,8 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
 
 DartField _processField(FormalParameter node) {
   return DartField(
+    offset: node.offset,
+    end: node.end,
     name: null,
     type: null,
     isConst: node.isConst,
@@ -82,6 +84,8 @@ DartField _processField(FormalParameter node) {
 
 DartProperty _processProperty(FormalParameter node) {
   return DartProperty(
+    offset: node.offset,
+    end: node.end,
     name: null,
     type: null,
     isNamed: node.isNamed,
@@ -107,6 +111,8 @@ DartField _process(VariableDeclarationListImpl node) {
     }
   }
   return DartField(
+    offset: node.offset,
+    end: node.end,
     type: _type,
     name: _name,
   );

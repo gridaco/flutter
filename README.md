@@ -1,3 +1,5 @@
+![Grida Flutter Pack](./docs/main-cover.png)
+
 # Grida Flutter Pack
 
 ## Flutter Preview
@@ -14,7 +16,7 @@ Both available as a dart package and a nodejs package (ported).
 
 - [pub package](https://pub.dev/packages/flutter_ast)
 - [npm package](https://www.npmjs.com/flutter-ast)
-- [source](./flutter-preview/)
+- [source](./flutter-ast/)
 
 ## Flutter Daemon
 

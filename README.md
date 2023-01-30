@@ -1,4 +1,7 @@
-![Grida Flutter Pack](./docs/main-cover.png)
+<!-- center image -->
+<p style="align:center">
+  <img src="./docs/main-cover.png" alt="Grida Flutter Pack" />
+</p>
 
 # Grida Flutter Pack
 

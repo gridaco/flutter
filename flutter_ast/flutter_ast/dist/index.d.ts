@@ -1,5 +1,10 @@
 // Type definitions for dart-style
 
+interface AstNode {
+  offset: number;
+  end: number;
+}
+
 interface DartResult {
   file?: DartFile;
   errors?: Array<object>;
@@ -14,7 +19,7 @@ interface DartFile {
   methods: Array<DartMethod>;
 }
 
-interface DartClass {
+interface DartClass extends AstNode {
   constructors: Array<DartConstructor>;
   comments: Array<DartComment>;
   fields: Array<DartField>;
@@ -26,7 +31,7 @@ interface DartClass {
   withClause?: string;
 }
 
-interface DartConstructor {
+interface DartConstructor extends AstNode {
   name: string;
   properties: Array<DartProperty>;
 }
@@ -35,16 +40,16 @@ interface DartProperty extends DartCore {}
 
 interface DartField extends DartCore {}
 
-interface DartComment {
+interface DartComment extends AstNode {
   lines: Array<string>;
 }
 
-interface DartEnum {
+interface DartEnum extends AstNode {
   name: string;
   values: Array<string>;
 }
 
-interface DartCore {
+interface DartCore extends AstNode {
   name?: string;
   key?: string;
   type?: string;
@@ -88,7 +93,7 @@ interface DartCore {
   position?: number;
 }
 
-interface DartMethod {
+interface DartMethod extends AstNode {
   name?: string;
   parameters?: Array<object>;
   body;

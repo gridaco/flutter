@@ -1,5 +1,5 @@
 <!-- center image -->
-<p style="align:center">
+<p align="center">
   <img src="./docs/main-cover.png" alt="Grida Flutter Pack" />
 </p>
 

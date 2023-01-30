@@ -1,0 +1,27 @@
+{
+  "name": "flutter-ast",
+  "version": "0.0.3-2",
+  "description": "A Pure Dart File to Ast Serializer/Deserializer.",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/gridaco/flutter-support",
+  "author": "Grida Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gridaco/flutter-support/issues"
+  },
+  "homepage": "https://github.com/gridaco/flutter-support",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "ast.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

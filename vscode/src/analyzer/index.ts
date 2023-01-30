@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { parse } from "flutter-ast";
 
 export class Analyzer {
   constructor(readonly document: vscode.TextDocument) {}
@@ -6,23 +7,27 @@ export class Analyzer {
   async widgets(): Promise<WidgetAnalysis[]> {
     const text = await this.document.getText();
     // StatefulWidget or StatelessWidget
-    const re = /class\s+(\w+)\s+extends\s+(StatelessWidget|StatefulWidget)/;
-    const matches = text.match(re);
 
-    if (!matches) {
+    const res = parse(text);
+    if (res.errors?.length || !res.file) {
       return [];
     }
 
-    const name = matches[1];
-    const start = matches.index ?? 0;
+    const { classes } = res.file;
 
-    return [
-      {
-        start,
-        id: "1",
-        name,
-      },
-    ];
+    const widget_classes = classes.filter(
+      (c) =>
+        c.extendsClause === "extends StatelessWidget" ||
+        c.extendsClause === "extends StatefulWidget"
+    );
+
+    return widget_classes.map((c) => {
+      return {
+        start: c.offset,
+        id: c.name,
+        name: c.name,
+      };
+    });
   }
 }
 

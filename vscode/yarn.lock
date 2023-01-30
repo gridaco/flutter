@@ -969,6 +969,11 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
+flutter-ast@^0.0.3-1:
+  version "0.0.3-1"
+  resolved "https://registry.yarnpkg.com/flutter-ast/-/flutter-ast-0.0.3-1.tgz#818a36094824593ed4aece10f95cb33ec647faba"
+  integrity sha512-DXEfdVfnxuJuAQmRHYq1zdiaRC4rHSaZTcVjNoQtqBA2o9uDPSc6IBpDcu7zqUtRTgpL6co1UQste5ecRtKJtQ==
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"

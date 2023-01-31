@@ -3,7 +3,7 @@ import ast from "flutter-ast";
 export class Analyzer {
   constructor(readonly text: string) {}
 
-  async widgets(): Promise<WidgetAnalysis[]> {
+  widgets(): WidgetAnalysis[] {
     // StatefulWidget or StatelessWidget
     const res = ast.parse(this.text);
     if (res.errors?.length || !res.file) {
@@ -23,6 +23,7 @@ export class Analyzer {
         start: c.offset,
         id: c.name,
         name: c.name,
+        constructors: c.constructors,
       };
     });
   }
@@ -32,4 +33,5 @@ interface WidgetAnalysis {
   start: number;
   id: string;
   name: string;
+  constructors: any[];
 }

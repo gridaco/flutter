@@ -64,10 +64,10 @@ function SplashView() {
   return (
     <SplashViewLayout>
       <Image
-        src={"/logo-white/64.svg"}
+        src={"/logo-white/32.svg"}
         alt={"Grida Logo White"}
-        width={64}
-        height={64}
+        width={32}
+        height={32}
       />
     </SplashViewLayout>
   );

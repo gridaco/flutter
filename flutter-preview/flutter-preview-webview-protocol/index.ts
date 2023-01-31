@@ -11,8 +11,8 @@ export interface WebLaunchUrlAction {
 }
 
 export function appurl(
-  initial?: { webLaunchUrl?: string },
-  baseurl = "https://flutter-preview.webview.vscode.grida.co"
+  initial?: { webLaunchUrl?: string } | null,
+  baseurl = "https://flutter-preview.webview.vscode.grida.co/app"
 ) {
   const url = new URL(baseurl);
 

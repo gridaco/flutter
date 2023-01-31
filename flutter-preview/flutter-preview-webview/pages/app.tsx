@@ -4,6 +4,7 @@ import { NextPageContext } from "next";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { Action, WebLaunchUrlAction } from "@flutter-preview/webview";
+import Image from "next/image";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -13,13 +14,13 @@ export default function FlutterWidgetPreview({
   };
 }) {
   const [webLaunchUrl, setWebLaunchUrl] = useState(
-    initial.webLaunchUrl ?? null
+    initial?.webLaunchUrl ?? null
   );
   const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
     const handler = (e: MessageEvent<Action>) => {
-      console.log("message event from vscode: ", e);
+      console.log("message event from vscode: ", e.data ?? e);
       const message = e.data;
       switch (message.type) {
         case "hot-restart": {
@@ -49,13 +50,37 @@ export default function FlutterWidgetPreview({
         <title>Flutter Widget Preview for VSCode</title>
       </Head>
       <Body>
-        {webLaunchUrl && (
+        {webLaunchUrl ? (
           <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+        ) : (
+          <SplashView />
         )}
       </Body>
     </>
   );
 }
+
+function SplashView() {
+  return (
+    <SplashViewLayout>
+      <Image
+        src={"/logo-white/64.svg"}
+        alt={"Grida Logo White"}
+        width={64}
+        height={64}
+      />
+    </SplashViewLayout>
+  );
+}
+
+const SplashViewLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
 
 /**
  * Since flutter daemon for web does not support hot-reload, but only hot-restart,
@@ -140,7 +165,9 @@ export async function getServerSideProps(context: NextPageContext) {
   const { webLaunchUrl } = context.query;
   return {
     props: {
-      webLaunchUrl: webLaunchUrl ?? null,
+      initial: {
+        webLaunchUrl: webLaunchUrl ?? null,
+      },
     },
   };
 }

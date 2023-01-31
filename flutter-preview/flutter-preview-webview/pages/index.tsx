@@ -1,7 +1,5 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,7 +11,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div></div>
+        <div
+          style={{
+            margin: 40,
+          }}
+        >
+          <h1>Flutter Preview</h1>
+          <br />
+          <p>
+            This is a preview of the Flutter Preview extension for VSCode. It
+            allows you to preview Flutter widgets in the browser. To use it,
+            visit <Link href="/app">/app</Link> and open the
+            <code>Flutter Preview</code> panel in VSCode.
+          </p>
+        </div>
       </main>
     </>
   );

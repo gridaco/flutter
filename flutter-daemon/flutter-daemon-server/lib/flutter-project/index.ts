@@ -116,6 +116,10 @@ export class FlutterProject implements IFlutterRunnerClient {
   }
 
   async run() {
+    if (this.runner) {
+      return await this.runner.resolve();
+    }
+
     this.runner = new FlutterRun({
       projectDir: this.root,
       webServer: true,

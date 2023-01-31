@@ -156,6 +156,7 @@ const StageContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
+  user-select: none;
 `;
 
 const Handle = styled.div`

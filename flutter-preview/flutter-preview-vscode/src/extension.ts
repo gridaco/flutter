@@ -5,6 +5,7 @@ import { FlutterDaemon } from "./daemon";
 import {
   appurl,
   HotRestartAction,
+  DaemonStartupLog,
   WebLaunchUrlAction,
 } from "@flutter-preview/webview";
 import { locatePubspec } from "pub";
@@ -76,6 +77,12 @@ async function cmd_dart_preview_handler(
         url: url,
       } as WebLaunchUrlAction);
     },
+    startupLog: (message: string) => {
+      panel.webview.postMessage({
+        type: "daemon-startup-log",
+        message,
+      } as DaemonStartupLog);
+    },
   };
 
   // run flutter daemon
@@ -94,7 +101,23 @@ async function cmd_dart_preview_handler(
 
     console.log("daemon project initiallized", { id: project.client.id });
 
-    await project.run();
+    project.run();
+
+    project.on("message", (payload) => {
+      // if payload is not a json rpc message, it's a daemon log
+      // use regex to check
+      const trimmed = payload.trim();
+      const lines = trimmed.split("\n");
+      lines.forEach((line) => {
+        if (line.startsWith("[") || line.endsWith("]")) {
+          // this is a json rpc message. ignore.
+        } else {
+          console.log("daemon log", line);
+          webviewctrl.startupLog(line);
+        }
+      });
+    });
+
     project.on("app.log", (e: any) => {
       console.log("app.log", e);
     });
@@ -128,7 +151,9 @@ async function cmd_dart_preview_handler(
         {
           webLaunchUrl: url,
         },
-        "http://localhost:6632/app"
+        process.env.NODE_ENV === "production"
+          ? undefined // use default
+          : "http://localhost:6632/app"
       ),
     });
   });
@@ -152,23 +177,23 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
     <link rel="preconnect" href="https://flutter-preview.webview.vscode.grida.co/app" />
 		<title>${name}</title>
     <script>
-      // get app
-      const app = document.getElementById('app');
-
+    
       // Proxy the message event to the inner iframe
       window.addEventListener('message', event => {
         const message = event.data; // The JSON data our extension sent  
+        // get app
+        const app = document.getElementById('app');
         // send message to app
         app.contentWindow.postMessage(message, '*');
       });
 
       // TOOD: this is not working
       // Proxy the message event from the inner iframe to the parent window
-      app.contentWindow.addEventListener('message', event => {
-        const message = event.data; // The JSON data our extension sent
-        // send message to parent
-        window.parent.postMessage(message, '*');
-      });
+      // app.contentWindow.addEventListener('message', event => {
+      //   const message = event.data; // The JSON data our extension sent
+      //   // send message to parent
+      //   window.parent.postMessage(message, '*');
+      // });
     </script>
 	</head>
 	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">

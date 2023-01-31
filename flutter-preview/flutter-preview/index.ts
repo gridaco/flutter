@@ -4,7 +4,11 @@ import tmp from "tmp";
 import path from "path";
 import mustache from "mustache";
 import ast from "flutter-ast";
-import { FlutterProject, IFlutterRunnerClient } from "@flutter-daemon/server";
+import {
+  AppEventMap,
+  FlutterProject,
+  IFlutterRunnerClient,
+} from "@flutter-daemon/server";
 import * as templates from "./templates";
 
 interface IFlutterPreviewWidgetClass {
@@ -89,7 +93,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
   private m_target: FlutterPreviewWidgetClass;
 
-  client: FlutterProject;
+  readonly client: FlutterProject;
 
   constructor({
     origin,
@@ -275,8 +279,11 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   stop(): void {
     return this.client.stop();
   }
-  on(type: any, cb: any): void {
-    return this.client.on(type, cb);
+  on<K extends keyof AppEventMap>(
+    type: K,
+    callback: (e: AppEventMap[K]) => void
+  ) {
+    return this.client.on(type, callback);
   }
   onEvent(cb: (type: any, event: any) => void): void {
     return this.client.onEvent(cb);

@@ -38,8 +38,8 @@ export function LoadingView({
         <div className="text-layout">
           <span className="title">Loading...</span>
           <span className="description">
-            {/* show last 3 logs */}
-            {messages.slice(-3).join("\n")}
+            {/* show last 2 logs */}
+            {messages.slice(-2).join("\n")}
           </span>
         </div>
       </LoadingContent>

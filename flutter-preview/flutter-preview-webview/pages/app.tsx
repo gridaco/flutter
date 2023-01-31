@@ -26,6 +26,18 @@ export default function FlutterWidgetPreview({
   }, [setRefresh]);
 
   useEffect(() => {
+    // send message to vscode to notify that the webview is ready
+    // initially, once.
+
+    window.parent.postMessage(
+      {
+        type: "webview-ready",
+      },
+      "*"
+    );
+  }, []);
+
+  useEffect(() => {
     const handler = (e: MessageEvent<Action>) => {
       console.log("message event from vscode: ", e.data ?? e);
       const message = e.data;
@@ -76,16 +88,67 @@ export default function FlutterWidgetPreview({
 function LoadingView() {
   return (
     <SplashViewLayout>
-      <Image
-        src={"/logo-white/32.svg"}
-        alt={"Grida Logo White"}
-        width={32}
-        height={32}
-      />
-      <p className="message">Flutter Daemon is compiling the preview...</p>
+      <LoadingContent>
+        <Image
+          src={"/flutter-logo/flutter-logo-shape-only-black.svg"}
+          alt="Flutter Black Logo (svg)"
+          height={36}
+          width={36}
+        />
+        <div className="text-layout">
+          <span className="title">Loading...</span>
+          <span className="description">
+            Initial bootup takes about 5 to 30 seconds...
+          </span>
+        </div>
+      </LoadingContent>
     </SplashViewLayout>
   );
 }
+
+const LoadingContent = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  gap: 20px;
+  box-sizing: border-box;
+
+  .text-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    max-width: 160px;
+
+    .title {
+      color: black;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      text-align: center;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .description {
+      color: rgba(0, 0, 0, 0.5);
+      text-overflow: ellipsis;
+      font-size: 10px;
+      font-family: "Source Code Pro", monospace;
+      font-weight: 400;
+      text-align: center;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+  }
+`;
 
 const SplashViewLayout = styled.div`
   display: flex;
@@ -95,7 +158,6 @@ const SplashViewLayout = styled.div`
   gap: 16px;
   width: 100%;
   height: 100%;
-  background-color: black;
   padding: 40px;
 
   .message {

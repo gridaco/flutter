@@ -1,14 +1,11 @@
-import * as vscode from "vscode";
-import { parse } from "flutter-ast";
+import ast from "flutter-ast";
 
 export class Analyzer {
-  constructor(readonly document: vscode.TextDocument) {}
+  constructor(readonly text: string) {}
 
   async widgets(): Promise<WidgetAnalysis[]> {
-    const text = await this.document.getText();
     // StatefulWidget or StatelessWidget
-
-    const res = parse(text);
+    const res = ast.parse(this.text);
     if (res.errors?.length || !res.file) {
       return [];
     }

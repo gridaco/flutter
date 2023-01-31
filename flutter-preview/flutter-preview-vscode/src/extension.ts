@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import path from "path";
-import { Analyzer } from "./analyzer";
+import { Analyzer } from "@flutter-preview/analyzer";
 import { FlutterDaemon } from "./daemon";
 import {
   appurl,
@@ -23,7 +23,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   vscode.languages.registerCodeLensProvider(langs, {
     provideCodeLenses: async (document: vscode.TextDocument) => {
-      const analyzer = new Analyzer(document);
+      const text = document.getText();
+      const analyzer = new Analyzer(text);
 
       const components = await analyzer.widgets();
       return components.map((c) => {
@@ -57,6 +58,24 @@ async function cmd_dart_preview_handler(
     }
   );
 
+  panel.webview.html = getWebviewContent({
+    name: panel_title,
+    iframe: appurl(null, "http://localhost:6632/app"),
+  });
+
+  const webviewctrl = {
+    restart: async () => {
+      // force reload
+      panel.webview.postMessage({ type: "hot-restart" } as HotRestartAction);
+    },
+    webLaunchUrl: async (url: string) => {
+      panel.webview.postMessage({
+        type: "web-launch-url",
+        url: url,
+      } as WebLaunchUrlAction);
+    },
+  };
+
   // run flutter daemon
   const daemon = FlutterDaemon.instance;
 
@@ -75,23 +94,14 @@ async function cmd_dart_preview_handler(
     project.on("app.log", (e: any) => {
       console.log("app.log", e);
     });
+
+    project.on("app.stop", (e: any) => {
+      vscode.window.showErrorMessage("App stopped");
+    });
   } else {
     vscode.window.showErrorMessage("Cannot find pubspec.yaml");
     return;
   }
-
-  const webviewctrl = {
-    restart: async () => {
-      // force reload
-      panel.webview.postMessage({ type: "hot-restart" } as HotRestartAction);
-    },
-    webLaunchUrl: async (url: string) => {
-      panel.webview.postMessage({
-        type: "web-launch-url",
-        url: url,
-      } as WebLaunchUrlAction);
-    },
-  };
 
   // if save, trigger immediate save
   // if edit, use debounce
@@ -106,12 +116,8 @@ async function cmd_dart_preview_handler(
 
   daemon.webLaunchUrl().then((url) => {
     // update webview when daemon url is ready
+    console.info("webLaunchUrl ready", url);
     webviewctrl.webLaunchUrl(url);
-  });
-
-  panel.webview.html = getWebviewContent({
-    name: panel_title,
-    iframe: appurl(),
   });
 
   panel.webview.onDidReceiveMessage((e) => {
@@ -143,21 +149,6 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
     </script>
 	</head>
 	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">
-    <p
-      style=
-      "
-        z-index: -1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #ccc;
-      "
-    >
-      Loading App...
-    </p>
     <iframe
       id="app"
       sandbox="allow-scripts allow-same-origin allow-popups allow-forms"

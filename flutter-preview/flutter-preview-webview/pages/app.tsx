@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Action, WebLaunchUrlAction } from "@flutter-preview/webview";
 import Image from "next/image";
 import { Appbar } from "components/appbar";
+import { Stage } from "components/stage";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -52,11 +53,13 @@ export default function FlutterWidgetPreview({
       </Head>
       <Body>
         <Appbar />
-        {webLaunchUrl ? (
-          <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
-        ) : (
-          <SplashView />
-        )}
+        <Stage fullsize>
+          {webLaunchUrl ? (
+            <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+          ) : (
+            <SplashView />
+          )}
+        </Stage>
       </Body>
     </>
   );
@@ -82,6 +85,7 @@ const SplashViewLayout = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: black;
 `;
 
 /**

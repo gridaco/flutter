@@ -12,17 +12,15 @@ export function Stage({
   fullsize = false,
   handleMargin = 16,
   minSize = { width: 200, height: 200 },
+  paddingTop = 32,
   children,
 }: React.PropsWithChildren<{
   fullsize?: boolean;
   handleMargin?: number;
   minSize?: { width: number; height: number };
+  paddingTop?: React.CSSProperties["paddingTop"];
 }>) {
   const [ref, bounds] = useMeasure();
-  const [size, setSize] = React.useState<{ width: number; height: number }>({
-    width: initial_minmax,
-    height: initial_minmax,
-  });
 
   const [maxSize, setMaxSize] = React.useState<{
     width: number;
@@ -39,23 +37,6 @@ export function Stage({
     });
   }, [bounds.width, bounds.height, handleMargin]);
 
-  const onResize = React.useCallback(
-    // ResizeCallback
-    (
-      e: MouseEvent | TouchEvent,
-      direction: ResizeDirection,
-      ref: HTMLElement,
-      d: { width: number; height: number }
-    ) => {
-      setSize((prev) => ({
-        // calculate new size with min & max
-        width: clamp(prev.width + d.width, minSize.width, maxSize.width),
-        height: clamp(prev.height + d.height, minSize.height, maxSize.height),
-      }));
-    },
-    [setSize, maxSize, minSize]
-  );
-
   const handle_shared_style = {
     display: "flex",
     alignItems: "center",
@@ -70,7 +51,12 @@ export function Stage({
   );
 
   return (
-    <StageContainer ref={ref}>
+    <StageContainer
+      ref={ref}
+      style={{
+        paddingTop: fullsize ? 0 : paddingTop,
+      }}
+    >
       {fullsize ? (
         <Body />
       ) : (
@@ -90,6 +76,10 @@ export function Stage({
           minWidth={minSize.width}
           maxHeight={maxSize.height}
           maxWidth={maxSize.width}
+          defaultSize={{
+            width: initial_minmax,
+            height: initial_minmax,
+          }}
           handleStyles={{
             left: {
               left: -handleMargin,
@@ -108,12 +98,6 @@ export function Stage({
             left: <Handle data-position="left" />,
             right: <Handle data-position="right" />,
             bottom: <Handle data-position="bottom" />,
-          }}
-          size={size}
-          onResize={onResize}
-          style={{
-            width: fullsize ? "100%" : size.width,
-            height: fullsize ? "100%" : size.height,
           }}
         >
           <Body />
@@ -153,7 +137,7 @@ const StageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
   background-color: white;

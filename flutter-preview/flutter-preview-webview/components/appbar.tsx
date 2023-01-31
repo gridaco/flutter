@@ -39,11 +39,14 @@ export function Appbar({
 }
 
 const AppbarLayout = styled.div`
+  z-index: 9;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   padding: 16px 24px;
 
@@ -104,7 +107,7 @@ function SizeInfo() {
   return (
     <SizeInfoContainer>
       <span>{sizeinfo.width}</span>
-      <Cross2Icon />
+      <Cross2Icon className="x" />
       <span>{sizeinfo.height}</span>
     </SizeInfoContainer>
   );
@@ -115,4 +118,14 @@ const SizeInfoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  .x {
+    width: 12px;
+    opacity: 0.8;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
 `;

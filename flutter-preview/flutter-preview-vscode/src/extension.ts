@@ -1,8 +1,13 @@
 import * as vscode from "vscode";
+import path from "path";
 import { Analyzer } from "./analyzer";
 import { FlutterDaemon } from "./daemon";
+import {
+  appurl,
+  HotRestartAction,
+  WebLaunchUrlAction,
+} from "@flutter-preview/webview";
 import { locatePubspec } from "pub";
-import path from "path";
 
 const langs = ["dart"] as const;
 
@@ -75,9 +80,17 @@ async function cmd_dart_preview_handler(
     return;
   }
 
-  const restart = async () => {
-    // force reload
-    panel.webview.postMessage({ type: "hot-restart" });
+  const webviewctrl = {
+    restart: async () => {
+      // force reload
+      panel.webview.postMessage({ type: "hot-restart" } as HotRestartAction);
+    },
+    webLaunchUrl: async (url: string) => {
+      panel.webview.postMessage({
+        type: "web-launch-url",
+        url: url,
+      } as WebLaunchUrlAction);
+    },
   };
 
   // if save, trigger immediate save
@@ -87,17 +100,18 @@ async function cmd_dart_preview_handler(
       // const text = await document?.getText();
       // TODO: sync the content
       await daemon.restart();
-      restart();
+      webviewctrl.restart();
     }
   );
 
-  const webLaunchUrl = await daemon.webLaunchUrl();
-  console.log("webLaunchUrl ready", webLaunchUrl);
-  const host = `${APP_HOST}/flutter?webLaunchUrl=${webLaunchUrl}`;
+  daemon.webLaunchUrl().then((url) => {
+    // update webview when daemon url is ready
+    webviewctrl.webLaunchUrl(url);
+  });
 
   panel.webview.html = getWebviewContent({
     name: panel_title,
-    iframe: host,
+    iframe: appurl(),
   });
 
   panel.webview.onDidReceiveMessage((e) => {

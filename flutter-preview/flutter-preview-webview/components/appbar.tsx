@@ -8,11 +8,17 @@ import {
   Cross2Icon,
 } from "@radix-ui/react-icons";
 
-export function Appbar() {
+export function Appbar({
+  onToggleReload,
+  onToggleFullsize,
+}: {
+  onToggleReload?: () => void;
+  onToggleFullsize?: () => void;
+}) {
   return (
     <AppbarLayout>
       <div className="leading">
-        <IconButton>
+        <IconButton onClick={onToggleReload}>
           <ReloadIcon />
         </IconButton>
         <IconButton>
@@ -24,7 +30,7 @@ export function Appbar() {
         <SizeInfo />
       </div>
       <div className="trailling">
-        <IconButton>
+        <IconButton onClick={onToggleFullsize}>
           <SizeIcon />
         </IconButton>
       </div>

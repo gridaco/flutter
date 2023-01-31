@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { Resizable, ResizeDirection } from "re-resizable";
 import useMeasure from "react-use-measure";
+
+const initial_minmax = 400;
 
 /**
  * Resizable stage for widget preview - children will be iframe
@@ -9,7 +11,7 @@ import useMeasure from "react-use-measure";
 export function Stage({
   fullsize = false,
   handleMargin = 16,
-  minSize = { width: 100, height: 100 },
+  minSize = { width: 200, height: 200 },
   children,
 }: React.PropsWithChildren<{
   fullsize?: boolean;
@@ -18,9 +20,24 @@ export function Stage({
 }>) {
   const [ref, bounds] = useMeasure();
   const [size, setSize] = React.useState<{ width: number; height: number }>({
-    width: 400,
-    height: 400,
+    width: initial_minmax,
+    height: initial_minmax,
   });
+
+  const [maxSize, setMaxSize] = React.useState<{
+    width: number;
+    height: number;
+  }>({
+    width: initial_minmax,
+    height: initial_minmax,
+  });
+
+  useEffect(() => {
+    setMaxSize({
+      width: bounds.width - (handleMargin + 24),
+      height: bounds.height - (handleMargin + 24),
+    });
+  }, [bounds.width, bounds.height, handleMargin]);
 
   const onResize = React.useCallback(
     // ResizeCallback
@@ -32,19 +49,11 @@ export function Stage({
     ) => {
       setSize((prev) => ({
         // calculate new size with min & max
-        // min = minSize
-        // max = bounds
-        width: Math.max(
-          Math.min(prev.width + d.width, bounds.width),
-          minSize.width
-        ),
-        height: Math.max(
-          Math.min(prev.height + d.height, bounds.height),
-          minSize.height
-        ),
+        width: clamp(prev.width + d.width, minSize.width, maxSize.width),
+        height: clamp(prev.height + d.height, minSize.height, maxSize.height),
       }));
     },
-    [setSize, bounds.width, bounds.height, minSize]
+    [setSize, maxSize, minSize]
   );
 
   const handle_shared_style = {
@@ -79,6 +88,8 @@ export function Stage({
           }}
           minHeight={minSize.height}
           minWidth={minSize.width}
+          maxHeight={maxSize.height}
+          maxWidth={maxSize.width}
           handleStyles={{
             left: {
               left: -handleMargin,
@@ -175,3 +186,7 @@ const Handle = styled.div`
 
   /* other directions not supported */
 `;
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}

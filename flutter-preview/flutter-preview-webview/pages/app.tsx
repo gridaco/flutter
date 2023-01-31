@@ -15,10 +15,15 @@ export default function FlutterWidgetPreview({
     webLaunchUrl?: string;
   };
 }) {
+  const [fullsize, setFullsize] = useState(false);
   const [webLaunchUrl, setWebLaunchUrl] = useState(
     initial?.webLaunchUrl ?? null
   );
   const [refresh, setRefresh] = useState(0);
+
+  const onToggleReload = React.useCallback(() => {
+    setRefresh((prev) => prev + 1);
+  }, [setRefresh]);
 
   useEffect(() => {
     const handler = (e: MessageEvent<Action>) => {
@@ -26,7 +31,7 @@ export default function FlutterWidgetPreview({
       const message = e.data;
       switch (message.type) {
         case "hot-restart": {
-          setRefresh((prev) => prev + 1);
+          onToggleReload();
           break;
         }
         case "web-launch-url": {
@@ -52,12 +57,15 @@ export default function FlutterWidgetPreview({
         <title>Flutter Widget Preview for VSCode</title>
       </Head>
       <Body>
-        <Appbar />
-        <Stage fullsize>
+        <Appbar
+          onToggleReload={onToggleReload}
+          onToggleFullsize={() => setFullsize((prev) => !prev)}
+        />
+        <Stage fullsize={fullsize}>
           {webLaunchUrl ? (
             <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
           ) : (
-            <SplashView />
+            <LoadingView />
           )}
         </Stage>
       </Body>
@@ -65,7 +73,7 @@ export default function FlutterWidgetPreview({
   );
 }
 
-function SplashView() {
+function LoadingView() {
   return (
     <SplashViewLayout>
       <Image
@@ -74,6 +82,7 @@ function SplashView() {
         width={32}
         height={32}
       />
+      <p className="message">Flutter Daemon is compiling the preview...</p>
     </SplashViewLayout>
   );
 }
@@ -83,9 +92,21 @@ const SplashViewLayout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
   width: 100%;
   height: 100%;
   background-color: black;
+  padding: 40px;
+
+  .message {
+    opacity: 0.5;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
 `;
 
 /**

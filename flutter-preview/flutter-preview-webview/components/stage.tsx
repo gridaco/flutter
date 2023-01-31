@@ -43,13 +43,6 @@ export function Stage({
     justifyContent: "center",
   };
 
-  const Body = () => (
-    <Frame data-state={fullsize ? "fullsize" : "staged"}>
-      {/* A wrapper for overflow: hidden */}
-      {children}
-    </Frame>
-  );
-
   return (
     <StageContainer
       ref={ref}
@@ -57,52 +50,74 @@ export function Stage({
         paddingTop: fullsize ? 0 : paddingTop,
       }}
     >
-      {fullsize ? (
-        <Body />
-      ) : (
-        <ResizableCanvas
-          // allow only left, right, bottom
-          enable={{
-            top: false,
-            right: true,
-            bottom: true,
-            left: true,
-            topRight: false,
-            bottomRight: false,
-            bottomLeft: false,
-            topLeft: false,
-          }}
-          minHeight={minSize.height}
-          minWidth={minSize.width}
-          maxHeight={maxSize.height}
-          maxWidth={maxSize.width}
-          defaultSize={{
-            width: initial_minmax,
-            height: initial_minmax,
-          }}
-          handleStyles={{
-            left: {
-              left: -handleMargin,
-              ...handle_shared_style,
-            },
-            right: {
-              right: -handleMargin,
-              ...handle_shared_style,
-            },
-            bottom: {
-              bottom: -handleMargin,
-              ...handle_shared_style,
-            },
-          }}
-          handleComponent={{
-            left: <Handle data-position="left" />,
-            right: <Handle data-position="right" />,
-            bottom: <Handle data-position="bottom" />,
-          }}
-        >
-          <Body />
-        </ResizableCanvas>
-      )}
+      <ResizableCanvas
+        // allow only left, right, bottom
+        enable={
+          fullsize
+            ? {
+                // X
+                top: false,
+                right: false,
+                bottom: false,
+                left: false,
+                topRight: false,
+                bottomRight: false,
+                bottomLeft: false,
+                topLeft: false,
+              }
+            : {
+                top: false, // X
+                right: true, // O
+                bottom: true, // O
+                left: true, // O
+                topRight: false, // X
+                bottomRight: false, // X
+                bottomLeft: false, // X
+                topLeft: false, // X
+              }
+        }
+        minHeight={fullsize ? undefined : minSize.height}
+        minWidth={fullsize ? undefined : minSize.width}
+        maxHeight={fullsize ? undefined : maxSize.height}
+        maxWidth={fullsize ? undefined : maxSize.width}
+        defaultSize={
+          fullsize
+            ? { width: "100%", height: "100%" }
+            : {
+                width: initial_minmax,
+                height: initial_minmax,
+              }
+        }
+        size={fullsize ? { width: "100%", height: "100%" } : undefined}
+        handleStyles={
+          fullsize
+            ? {}
+            : {
+                left: {
+                  left: -handleMargin,
+                  ...handle_shared_style,
+                },
+                right: {
+                  right: -handleMargin,
+                  ...handle_shared_style,
+                },
+                bottom: {
+                  bottom: -handleMargin,
+                  ...handle_shared_style,
+                },
+              }
+        }
+        handleComponent={{
+          left: <Handle data-position="left" />,
+          right: <Handle data-position="right" />,
+          bottom: <Handle data-position="bottom" />,
+        }}
+      >
+        <Frame data-state={fullsize ? "fullsize" : "staged"}>
+          {/* A wrapper for overflow: hidden */}
+          {children}
+        </Frame>
+      </ResizableCanvas>
     </StageContainer>
   );
 }

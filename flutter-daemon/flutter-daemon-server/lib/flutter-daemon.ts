@@ -33,8 +33,11 @@ export abstract class FlutterDaemon {
   constructor(cwd: string, { bin, args }: { bin?: string; args: string[] }) {
     console.log("Starting Flutter Daemon...");
     this.proc = safeSpawn(cwd, bin || "flutter", args, {});
-    this.proc.stdout.on("data", (payload) => {
-      const events = parse_events(payload.toString());
+    this.proc.stdout.on("data", (payload: Buffer) => {
+      const data = payload.toString();
+      console.info("daemon:", data);
+
+      const events = parse_events(data);
       events.forEach((event) => {
         switch (event.event) {
           case "app.progress":
@@ -46,13 +49,16 @@ export abstract class FlutterDaemon {
           case "app.start":
             this.onStart(event.params as AppStartEvent);
             break;
+          case "app.stop": {
+            this.onStop(event.params as AppStopEvent);
+            break;
+          }
           case "app.started":
             this.onStarted(event.params as AppStartedEvent);
             break;
           case "daemon.connected":
           // this.onConnected(event.params as DaemonConnectedEvent);
         }
-        console.info("o:", event);
       });
     });
   }

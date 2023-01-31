@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import { FlutterRun } from "../flutter-run";
 import { validateFlutterProject } from "../utils/validate-flutter-project-dir";
+import type { AppEventMap } from "../types";
 
 export interface IFlutterRunnerClient {
   run(): Promise<unknown>;
@@ -157,8 +158,11 @@ export class FlutterProject implements IFlutterRunnerClient {
     return this.runner.stop();
   }
 
-  on(type, cb) {
-    this.runner.on(type, cb);
+  on<K extends keyof AppEventMap>(
+    type: K,
+    callback: (e: AppEventMap[K]) => void
+  ) {
+    this.runner.on(type, callback);
   }
 
   onEvent(cb: (type, event) => void) {

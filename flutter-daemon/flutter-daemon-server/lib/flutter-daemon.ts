@@ -119,7 +119,12 @@ export abstract class FlutterDaemon {
     event: K,
     callback: (e: AppEventMap[K]) => void
   ) {
-    this.proc.stdout.on("data", (payload) => {
+    this.proc.stdout.on("data", (payload: Buffer) => {
+      if (event === "message") {
+        callback(payload.toString() as AppEventMap[K]);
+        return;
+      }
+
       const events = parse_events(payload.toString());
       events.forEach((e) => {
         if (e.event === event) {

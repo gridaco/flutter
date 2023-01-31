@@ -12,6 +12,7 @@ export type AppEvent =
   | AppWebLaunchUrlEvent;
 
 export type AppEventMap = {
+  message: string;
   "app.log": AppLogEvent;
   "app.stop": AppStopEvent;
   "app.start": AppStartEvent;

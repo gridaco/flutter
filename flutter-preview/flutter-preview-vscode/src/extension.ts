@@ -55,6 +55,8 @@ async function cmd_dart_preview_handler(
     {
       // allow scripts
       enableScripts: true,
+      // retain context when hidden
+      retainContextWhenHidden: true,
     }
   );
 
@@ -90,6 +92,8 @@ async function cmd_dart_preview_handler(
       identifier: componentId,
     });
 
+    console.log("daemon project initiallized", { id: project.client.id });
+
     await project.run();
     project.on("app.log", (e: any) => {
       console.log("app.log", e);
@@ -117,11 +121,20 @@ async function cmd_dart_preview_handler(
   daemon.webLaunchUrl().then((url) => {
     // update webview when daemon url is ready
     console.info("webLaunchUrl ready", url);
-    webviewctrl.webLaunchUrl(url);
+    // webviewctrl.webLaunchUrl(url); // TODO: use this method
+    panel.webview.html = getWebviewContent({
+      name: panel_title,
+      iframe: appurl(
+        {
+          webLaunchUrl: url,
+        },
+        "http://localhost:6632/app"
+      ),
+    });
   });
 
   panel.webview.onDidReceiveMessage((e) => {
-    //
+    console.log("vscode recieved message from app", e);
   });
 
   // listen to panel close
@@ -136,15 +149,25 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://flutter-preview.webview.vscode.grida.co/app" />
 		<title>${name}</title>
     <script>
+      // get app
+      const app = document.getElementById('app');
+
       // Proxy the message event to the inner iframe
       window.addEventListener('message', event => {
-        const message = event.data; // The JSON data our extension sent
-        // get app
-        const app = document.getElementById('app');
+        const message = event.data; // The JSON data our extension sent  
         // send message to app
         app.contentWindow.postMessage(message, '*');
+      });
+
+      // TOOD: this is not working
+      // Proxy the message event from the inner iframe to the parent window
+      app.contentWindow.addEventListener('message', event => {
+        const message = event.data; // The JSON data our extension sent
+        // send message to parent
+        window.parent.postMessage(message, '*');
       });
     </script>
 	</head>

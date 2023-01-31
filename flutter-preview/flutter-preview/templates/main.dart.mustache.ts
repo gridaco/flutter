@@ -16,7 +16,10 @@ class FlutterPreview extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "{{title}}",
       theme: ThemeData(),
-      home: {{widget}}(),
+      home: Scaffold(
+          body: Center(
+        child: {{widget}}(),
+      )),
     );
   }
 }

@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { Action, WebLaunchUrlAction } from "@flutter-preview/webview";
 import Image from "next/image";
+import { Appbar } from "components/appbar";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -50,6 +51,7 @@ export default function FlutterWidgetPreview({
         <title>Flutter Widget Preview for VSCode</title>
       </Head>
       <Body>
+        <Appbar />
         {webLaunchUrl ? (
           <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
         ) : (

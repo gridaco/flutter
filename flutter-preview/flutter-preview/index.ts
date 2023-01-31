@@ -156,7 +156,8 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     const _seed_imports = new Set([
       // default imports
       "package:flutter/material.dart",
-      ...imports,
+      // TODO: add main imports later... (disabling it to test the speed of initial compilation)
+      // ...imports,
     ]);
 
     if (this.abspath(this.m_target.path) === this.main) {

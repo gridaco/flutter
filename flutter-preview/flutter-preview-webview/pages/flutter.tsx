@@ -3,16 +3,22 @@ import Head from "next/head";
 import { NextPageContext } from "next";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import { Action, WebLaunchUrlAction } from "@flutter-preview/webview";
 
 export default function FlutterWidgetPreview({
-  webLaunchUrl,
+  initial,
 }: {
-  webLaunchUrl: string;
+  initial: {
+    webLaunchUrl?: string;
+  };
 }) {
+  const [webLaunchUrl, setWebLaunchUrl] = useState(
+    initial.webLaunchUrl ?? null
+  );
   const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
-    const handler = (e: MessageEvent) => {
+    const handler = (e: MessageEvent<Action>) => {
       console.log("message event from vscode: ", e);
       const message = e.data;
       switch (message.type) {
@@ -20,8 +26,13 @@ export default function FlutterWidgetPreview({
           setRefresh((prev) => prev + 1);
           break;
         }
+        case "web-launch-url": {
+          const { url } = message as WebLaunchUrlAction;
+          setWebLaunchUrl(url);
+          break;
+        }
         default: {
-          console.log("unhandled message type: ", message.type);
+          console.log("unhandled message type: ", message["type"]);
           break;
         }
       }
@@ -38,7 +49,9 @@ export default function FlutterWidgetPreview({
         <title>Flutter Widget Preview for VSCode</title>
       </Head>
       <Body>
-        <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+        {webLaunchUrl && (
+          <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+        )}
       </Body>
     </>
   );

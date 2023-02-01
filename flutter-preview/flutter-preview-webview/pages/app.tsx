@@ -3,10 +3,15 @@ import Head from "next/head";
 import { NextPageContext } from "next";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { Action, WebLaunchUrlAction } from "@flutter-preview/webview";
+import {
+  Action,
+  WebLaunchUrlAction,
+  AppStopAction,
+} from "@flutter-preview/webview";
 import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
 import { LoadingView } from "components/loading";
+import { ErrorView } from "components/error";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -20,6 +25,7 @@ export default function FlutterWidgetPreview({
     initial?.webLaunchUrl ?? null
   );
   const [refresh, setRefresh] = useState(0);
+  const [error, setError] = useState<Error | null>(null);
 
   const onToggleReload = React.useCallback(() => {
     setRefresh((prev) => prev + 1);
@@ -51,6 +57,12 @@ export default function FlutterWidgetPreview({
           setWebLaunchUrl(url);
           break;
         }
+        case "app.stop": {
+          const { error } = message as AppStopAction;
+          if (error) {
+            setError(new Error(error));
+          }
+        }
         default: {
           console.log("unhandled message type: ", message["type"]);
           break;
@@ -76,6 +88,8 @@ export default function FlutterWidgetPreview({
         <Stage fullsize={fullsize}>
           {webLaunchUrl ? (
             <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+          ) : error ? (
+            <ErrorView messages={[error.message]} />
           ) : (
             <LoadingView />
           )}

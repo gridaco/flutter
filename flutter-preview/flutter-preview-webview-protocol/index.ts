@@ -1,4 +1,9 @@
-export type Action = HotRestartAction | WebLaunchUrlAction | DaemonStartupLog;
+export type Action =
+  | HotRestartAction
+  | WebLaunchUrlAction
+  | DaemonStartupLog
+  | AppStopAction;
+
 export type ActionType = Action["type"];
 
 export interface HotRestartAction {
@@ -13,6 +18,11 @@ export interface WebLaunchUrlAction {
 export interface DaemonStartupLog {
   type: "daemon-startup-log";
   message: string;
+}
+
+export interface AppStopAction {
+  type: "app.stop";
+  error?: string;
 }
 
 export function appurl(

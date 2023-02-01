@@ -7,6 +7,7 @@ import {
   HotRestartAction,
   DaemonStartupLog,
   WebLaunchUrlAction,
+  AppStopAction,
 } from "@flutter-preview/webview";
 import { locatePubspec } from "pub";
 
@@ -83,6 +84,12 @@ async function cmd_dart_preview_handler(
         message,
       } as DaemonStartupLog);
     },
+    appStop: (error?: string) => {
+      panel.webview.postMessage({
+        type: "app.stop",
+        error,
+      } as AppStopAction);
+    },
   };
 
   // run flutter daemon
@@ -122,8 +129,11 @@ async function cmd_dart_preview_handler(
       console.log("app.log", e);
     });
 
-    project.on("app.stop", (e: any) => {
-      vscode.window.showErrorMessage("App stopped");
+    project.on("app.stop", (e) => {
+      vscode.window.showErrorMessage("Compile failed");
+      webviewctrl.appStop(
+        `Process with id ${e.appId} has stopped due to internal error (Dart Compiled failed)`
+      );
     });
   } else {
     vscode.window.showErrorMessage("Cannot find pubspec.yaml");

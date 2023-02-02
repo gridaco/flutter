@@ -1,6 +1,6 @@
 name: flutter_ast
 description: A Pure Dart File to Ast Serializer/Deserializer.
-version: 0.0.4
+version: 0.0.4+1
 homepage: https://github.com/gridaco/flutter-support/tree/main/flutter_ast/
 license: MIT
 
@@ -15,7 +15,7 @@ dependencies:
   mustache_template: ^2.0.0
   _fe_analyzer_shared: ^52.0.0
   recase: ^4.1.0
-  flutter_ast_core: ^0.0.4
+  flutter_ast_core: ^0.0.4+1
   # flutter_ast_core:
   #   path: ../flutter_ast_core
 

@@ -15,8 +15,50 @@ interface DartFile {
   classes: Array<DartClass>;
   enums: Array<DartEnum>;
   fields: Array<DartField>;
-  imports: Array<string>;
+  imports: Array<DartImport>;
   methods: Array<DartMethod>;
+}
+
+interface DartImport extends AstNode {
+  /**
+   * @example
+   * `import 'package:foo/foo.dart';`
+   *
+   * => `package:foo/foo.dart`
+   */
+  uri?: string;
+
+  /**
+   * @example
+   * `import 'package:foo/foo.dart' as foo;`
+   *
+   * => `foo`
+   */
+  prefix?: string;
+
+  /**
+   * @example
+   * `import 'package:foo/foo.dart' show Foo, Bar;`
+   * => `['Foo', 'Bar']`
+   *
+   * If the show is falsy, it means that all the symbols are imported.
+   * If the show is an empty array, it also means that all the symbols are imported.
+   *
+   * => `show?.length > 0`
+   */
+  show?: Array<string>;
+
+  /**
+   * @example
+   * `import 'package:foo/foo.dart' hide Foo, Bar;`
+   * => `['Foo', 'Bar']`
+   *
+   * If the hide is falsy, it means that no symbols are hidden.
+   * If the hide is an empty array, it also means that no symbols are hidden.
+   *
+   * => `hide?.length > 0`
+   */
+  hide?: Array<string>;
 }
 
 interface DartClass extends AstNode {

@@ -35,8 +35,6 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
     // e.g.
     // [<FieldFormalParameterImpl: this.listField>, <SimpleToken: =>, <ListLiteralImpl: const []>]
     for (final node in this.childEntities) {
-      print('${node.runtimeType}: ${node.toString()}');
-
       // e.g.
       // constructor({Key key})
       if (node is SimpleFormalParameterImpl) {

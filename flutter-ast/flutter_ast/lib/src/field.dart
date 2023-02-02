@@ -74,6 +74,15 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
         }
       }
 
+      // Requires dart 2.17.0 or higher
+      // e.g.
+      // constructor({super.field})
+      // type cannot be resolved (this is something should be done in the analyzer)
+      if (node is SuperFormalParameterImpl) {
+        base = _processProperty(node);
+        base = base.copyWith(name: node.name.lexeme);
+      }
+
       // value initializaation token
       if (node is SimpleToken && node.toString() == '=') {
         _hasValue = true;

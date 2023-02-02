@@ -5,9 +5,11 @@ import "package:path/path.dart" show dirname, join;
 
 // read file from ./samples/sample.dart
 
-final String source = File(join(
-        dirname(Platform.script.path), "../test_samples/nested_types.dart"))
-    .readAsStringSync();
+final sample = 'constructor_super_formal_parameter';
+
+final String source =
+    File(join(dirname(Platform.script.path), "../test_samples/${sample}.dart"))
+        .readAsStringSync();
 
 // main
 void main(params) {

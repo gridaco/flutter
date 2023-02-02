@@ -3,7 +3,7 @@ import glob from "glob";
 import tmp from "tmp";
 import path from "path";
 import mustache from "mustache";
-import ast from "flutter-ast";
+import ast, { DartImport } from "flutter-ast";
 import {
   AppEventMap,
   FlutterProject,
@@ -27,7 +27,7 @@ interface IFlutterPreviewWidgetClass {
   /**
    * the imported source files, e.g. ['package:flutter/material.dart']
    */
-  imports: string[];
+  imports: DartImport[];
 
   /**
    * the widget class start offset in the file
@@ -51,7 +51,7 @@ class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
   path: string;
   identifier: string;
 
-  get imports(): string[] {
+  get imports(): DartImport[] {
     // TODO: add caching
     return ast.parse(this.text).file.imports;
   }

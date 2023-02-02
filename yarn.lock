@@ -5423,10 +5423,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-flutter-ast@^0.0.3-2:
-  version "0.0.3-2"
-  resolved "https://registry.yarnpkg.com/flutter-ast/-/flutter-ast-0.0.3-2.tgz#9a5ad97302fccdeb333d10078ce5b3bd159c9053"
-  integrity sha512-NIW5TEBUNUC+ll3dQGYLQ/p9saaoUnDe5xv5dnlOkinpcj3+UrQshKE6j5S0wl5m4IwyT+zW37YD4ANb3GhMUw==
+flutter-ast@^0.0.4-1:
+  version "0.0.4-1"
+  resolved "https://registry.yarnpkg.com/flutter-ast/-/flutter-ast-0.0.4-1.tgz#189759c72ccb10bea42d1eacc8864b6fcf4cc832"
+  integrity sha512-Butnl8vkcB9FDQVEsvgWJqPR0g+dQTUATcWErcDyydiochv7KyImWnHV9pr2QX0wu+I1qro/2gpYSlzVZH7blw==
 
 follow-redirects@^1.14.0, follow-redirects@^1.15.0:
   version "1.15.2"

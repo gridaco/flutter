@@ -1,9 +1,12 @@
+import assert from "assert";
 import ast from "flutter-ast";
 
 export class Analyzer {
   constructor(readonly text: string) {}
 
   widgets(): WidgetAnalysis[] {
+    assert(this.text, "Analyzer: text is empty");
+
     // StatefulWidget or StatelessWidget
     const res = ast.parse(this.text);
     if (res.errors?.length || !res.file) {

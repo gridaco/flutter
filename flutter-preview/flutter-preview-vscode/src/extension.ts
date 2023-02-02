@@ -13,7 +13,7 @@ import { locatePubspec } from "pub";
 
 const langs = ["dart"] as const;
 
-const APP_HOST = "https://flutter-preview.webview.vscode.grida.co"; // "http://localhost:6632";
+const APP_HOST = "https://flutter-preview.webview.vscode.grida.co/app"; // "http://localhost:6632";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -64,7 +64,7 @@ async function cmd_dart_preview_handler(
 
   panel.webview.html = getWebviewContent({
     name: panel_title,
-    iframe: appurl(null, "http://localhost:6632/app"),
+    iframe: appurl(null, APP_HOST),
   });
 
   const webviewctrl = {
@@ -161,9 +161,7 @@ async function cmd_dart_preview_handler(
         {
           webLaunchUrl: url,
         },
-        process.env.NODE_ENV === "production"
-          ? undefined // use default
-          : "http://localhost:6632/app"
+        APP_HOST
       ),
     });
   });

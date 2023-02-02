@@ -145,6 +145,22 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     return path.join(this.root, p);
   }
 
+  private resolve_assets() {
+    // if the pubspec.yaml file has assets, copy them to the root (in this case, we can use symlinks)
+    // Learn more about the spec - https://docs.flutter.dev/development/tools/pubspec
+    //
+    // e.g.
+    //
+    // flutter:
+    //    assets:
+    //      - assets/<file>
+    //    fonts:
+    //      - family: NotoSans
+    //        fonts:
+    //          - asset: assets/fonts/NotoSans-Regular.ttf
+    //  ....
+  }
+
   /**
    * override the main.dart file since we cannot customize the entry file for the daemon proc
    */

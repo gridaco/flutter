@@ -16,7 +16,7 @@
     "@types/fs-extra": "^11.0.1",
     "@types/mustache": "^4.2.2",
     "jest": "^26.5.2",
-    "ts-jest": "^26.4.1",
+    "ts-jest": "^29.0.5",
     "typescript": "^4.7.4"
   }
 }

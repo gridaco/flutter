@@ -1,38 +1,33 @@
 {
   "file": {
+    "path": null,
     "classes": [
       {
-        "comments": [],
-        "constructors": [],
-        "extendsClause": null,
-        "fields": [
-          null
+        "offset": 240,
+        "end": 1487,
+        "constructors": [
+          {
+            "offset": 309,
+            "end": 540,
+            "name": "MyScreen",
+            "properties": []
+          },
+          {
+            "offset": 544,
+            "end": 797,
+            "name": "MyScreen",
+            "properties": []
+          }
         ],
-        "implementsClause": null,
-        "isAbstract": false,
-        "methods": [],
-        "name": "Simple",
-        "withClause": null
-      },
-      {
         "comments": [
           {
+            "offset": 240,
+            "end": 265,
             "lines": [
               "This is a doc comment"
             ]
           }
         ],
-        "constructors": [
-          {
-            "name": "MyScreen",
-            "properties": []
-          },
-          {
-            "name": "MyScreen",
-            "properties": []
-          }
-        ],
-        "extendsClause": "extends StatelessWidget",
         "fields": [
           null,
           null,
@@ -43,190 +38,268 @@
           null,
           null
         ],
-        "implementsClause": null,
-        "isAbstract": false,
         "methods": [
           {
+            "offset": 1052,
+            "end": 1102,
+            "name": "toJson",
+            "parameters": [],
             "body": {
+              "offset": 1052,
+              "end": 1102,
               "name": "method_declaration",
-              "runtimeType": "values",
               "values": [
                 {
-                  "name": "block_body",
-                  "runtimeType": "values",
-                  "values": [
-                    {
-                      "name": "block",
-                      "runtimeType": "values",
-                      "values": [
-                        {
-                          "name": "if",
-                          "runtimeType": "values",
-                          "values": [
-                            {
-                              "name": "block",
-                              "runtimeType": "values",
-                              "values": [
-                                {
-                                  "name": "return",
-                                  "runtimeType": "values",
-                                  "values": [
-                                    {
-                                      "name": "conditional",
-                                      "runtimeType": "values",
-                                      "values": [
-                                        {
-                                          "arguments": {
-                                            "color": null
-                                          },
-                                          "name": "constructor",
-                                          "runtimeType": "constructor",
-                                          "value": "Container"
-                                        },
-                                        {
-                                          "arguments": {
-                                            "color": null
-                                          },
-                                          "name": "constructor",
-                                          "runtimeType": "constructor",
-                                          "value": "Container"
-                                        },
-                                        {
-                                          "left": {
-                                            "name": "name",
-                                            "runtimeType": "simple",
-                                            "value": "mySecondField"
-                                          },
-                                          "name": "binary",
-                                          "operation": "==",
-                                          "right": {
-                                            "name": "value",
-                                            "runtimeType": "simple",
-                                            "value": {
-                                              "runtimeType": "default",
-                                              "type": "int",
-                                              "value": "1"
-                                            }
-                                          },
-                                          "runtimeType": "binary"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "name",
-                              "runtimeType": "simple",
-                              "value": "myField"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "return",
-                          "runtimeType": "values",
-                          "values": [
-                            {
-                              "arguments": {
-                                "child": {
-                                  "arguments": {
-                                    "child": {
-                                      "arguments": {},
-                                      "name": "constructor",
-                                      "runtimeType": "constructor",
-                                      "value": "Builder"
-                                    }
-                                  },
-                                  "name": "constructor",
-                                  "runtimeType": "constructor",
-                                  "value": "Center"
-                                },
-                                "color": null,
-                                "width": {
-                                  "name": "value",
-                                  "runtimeType": "simple",
-                                  "value": {
-                                    "runtimeType": "default",
-                                    "type": "int",
-                                    "value": "20"
-                                  }
-                                }
-                              },
-                              "name": "constructor",
-                              "runtimeType": "constructor",
-                              "value": "Container"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
+                  "offset": 1052,
+                  "end": 1072,
+                  "name": "type",
+                  "value": "Map<String, dynamic>",
+                  "runtimeType": "simple"
                 },
                 {
-                  "name": "type",
-                  "runtimeType": "simple",
-                  "value": "Widget"
+                  "offset": 1082,
+                  "end": 1102,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1082,
+                      "end": 1102,
+                      "name": "block",
+                      "values": [
+                        {
+                          "offset": 1088,
+                          "end": 1098,
+                          "name": "return",
+                          "values": [
+                            {
+                              "offset": 1095,
+                              "end": 1097,
+                              "name": "value",
+                              "value": {
+                                "offset": 1095,
+                                "end": 1097,
+                                "type": "Map",
+                                "value": "{}",
+                                "runtimeType": "default"
+                              },
+                              "runtimeType": "simple"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        }
+                      ],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
                 }
-              ]
-            },
-            "name": "build",
-            "parameters": []
+              ],
+              "runtimeType": "values"
+            }
           },
           {
+            "offset": 1106,
+            "end": 1485,
+            "name": "build",
+            "parameters": [],
             "body": {
+              "offset": 1106,
+              "end": 1485,
               "name": "method_declaration",
-              "runtimeType": "values",
               "values": [
                 {
-                  "name": "block_body",
-                  "runtimeType": "values",
-                  "values": [
-                    {
-                      "name": "block",
-                      "runtimeType": "values",
-                      "values": [
-                        {
-                          "name": "return",
-                          "runtimeType": "values",
-                          "values": [
-                            {
-                              "name": "value",
-                              "runtimeType": "simple",
-                              "value": {
-                                "runtimeType": "default",
-                                "type": "Map",
-                                "value": "{}"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
+                  "offset": 1118,
+                  "end": 1124,
+                  "name": "type",
+                  "value": "Widget",
+                  "runtimeType": "simple"
                 },
                 {
-                  "name": "type",
-                  "runtimeType": "simple",
-                  "value": "Map<String, dynamic>"
+                  "offset": 1153,
+                  "end": 1485,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1153,
+                      "end": 1485,
+                      "name": "block",
+                      "values": [
+                        {
+                          "offset": 1159,
+                          "end": 1295,
+                          "name": "if",
+                          "values": [
+                            {
+                              "offset": 1163,
+                              "end": 1170,
+                              "name": "name",
+                              "value": "myField",
+                              "runtimeType": "simple"
+                            },
+                            {
+                              "offset": 1172,
+                              "end": 1295,
+                              "name": "block",
+                              "values": [
+                                {
+                                  "offset": 1180,
+                                  "end": 1289,
+                                  "name": "return",
+                                  "values": [
+                                    {
+                                      "offset": 1187,
+                                      "end": 1288,
+                                      "name": "conditional",
+                                      "values": [
+                                        {
+                                          "offset": 1187,
+                                          "end": 1205,
+                                          "name": "binary",
+                                          "left": {
+                                            "offset": 1187,
+                                            "end": 1200,
+                                            "name": "name",
+                                            "value": "mySecondField",
+                                            "runtimeType": "simple"
+                                          },
+                                          "right": {
+                                            "offset": 1204,
+                                            "end": 1205,
+                                            "name": "value",
+                                            "value": {
+                                              "offset": 1204,
+                                              "end": 1205,
+                                              "type": "int",
+                                              "value": "1",
+                                              "runtimeType": "default"
+                                            },
+                                            "runtimeType": "simple"
+                                          },
+                                          "operation": "==",
+                                          "runtimeType": "binary"
+                                        },
+                                        {
+                                          "offset": 1218,
+                                          "end": 1246,
+                                          "name": "constructor",
+                                          "value": "Container",
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "runtimeType": "constructor"
+                                        },
+                                        {
+                                          "offset": 1259,
+                                          "end": 1288,
+                                          "name": "constructor",
+                                          "value": "Container",
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "runtimeType": "constructor"
+                                        }
+                                      ],
+                                      "runtimeType": "values"
+                                    }
+                                  ],
+                                  "runtimeType": "values"
+                                }
+                              ],
+                              "runtimeType": "values"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        },
+                        {
+                          "offset": 1300,
+                          "end": 1481,
+                          "name": "return",
+                          "values": [
+                            {
+                              "offset": 1307,
+                              "end": 1480,
+                              "name": "constructor",
+                              "value": "Container",
+                              "arguments": {
+                                "color": null,
+                                "width": {
+                                  "offset": 1356,
+                                  "end": 1358,
+                                  "name": "value",
+                                  "value": {
+                                    "offset": 1356,
+                                    "end": 1358,
+                                    "type": "int",
+                                    "value": "20",
+                                    "runtimeType": "default"
+                                  },
+                                  "runtimeType": "simple"
+                                },
+                                "child": {
+                                  "offset": 1373,
+                                  "end": 1473,
+                                  "name": "constructor",
+                                  "value": "Center",
+                                  "arguments": {
+                                    "child": {
+                                      "offset": 1396,
+                                      "end": 1464,
+                                      "name": "constructor",
+                                      "value": "Builder",
+                                      "arguments": {},
+                                      "runtimeType": "constructor"
+                                    }
+                                  },
+                                  "runtimeType": "constructor"
+                                }
+                              },
+                              "runtimeType": "constructor"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        }
+                      ],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
                 }
-              ]
-            },
-            "name": "toJson",
-            "parameters": []
+              ],
+              "runtimeType": "values"
+            }
           }
         ],
         "name": "MyScreen",
+        "isAbstract": false,
+        "extendsClause": "extends StatelessWidget",
+        "implementsClause": null,
+        "withClause": null
+      },
+      {
+        "offset": 1545,
+        "end": 1578,
+        "constructors": [],
+        "comments": [],
+        "fields": [
+          null
+        ],
+        "methods": [],
+        "name": "Simple",
+        "isAbstract": false,
+        "extendsClause": null,
+        "implementsClause": null,
         "withClause": null
       }
     ],
     "enums": [
       {
+        "offset": 177,
+        "end": 209,
         "name": "MyEnum",
         "values": [
           "one",
-          "three",
-          "type"
+          "type",
+          "three"
         ]
       }
     ],
@@ -238,38 +311,50 @@
     ],
     "methods": [
       {
+        "offset": 1489,
+        "end": 1513,
+        "name": "myGlobalMethod",
+        "parameters": [],
         "body": {
+          "offset": 1489,
+          "end": 1513,
           "name": "function_declaration",
-          "runtimeType": "values",
           "values": [
             {
-              "name": "function",
-              "runtimeType": "values",
-              "values": [
-                {
-                  "name": "block_body",
-                  "runtimeType": "values",
-                  "values": [
-                    {
-                      "name": "block",
-                      "runtimeType": "values",
-                      "values": []
-                    }
-                  ]
-                }
-              ]
+              "offset": 1489,
+              "end": 1493,
+              "name": "type",
+              "value": "void",
+              "runtimeType": "simple"
             },
             {
-              "name": "type",
-              "runtimeType": "simple",
-              "value": "void"
+              "offset": 1508,
+              "end": 1513,
+              "name": "function",
+              "values": [
+                {
+                  "offset": 1511,
+                  "end": 1513,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1511,
+                      "end": 1513,
+                      "name": "block",
+                      "values": [],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
+                }
+              ],
+              "runtimeType": "values"
             }
-          ]
-        },
-        "name": "myGlobalMethod",
-        "parameters": []
+          ],
+          "runtimeType": "values"
+        }
       }
-    ],
-    "path": null
-  }
+    ]
+  },
+  "errors": []
 }

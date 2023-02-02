@@ -7,4 +7,5 @@ export 'enum.dart';
 export 'extensions.dart';
 export 'field.dart';
 export 'file.dart';
+export 'import.dart';
 export 'method.dart';

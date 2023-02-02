@@ -19,8 +19,8 @@ class GenParser {
   List<DartMethod> get methods => _methods.toList(growable: false);
   final Set<DartMethod> _methods = {};
 
-  List<String> get imports => _imports.toList(growable: false);
-  final Set<String> _imports = {};
+  List<DartImport> get imports => _imports.toList(growable: false);
+  final Set<DartImport> _imports = {};
 
   factory GenParser.fromString(String source) {
     final base = GenParser();

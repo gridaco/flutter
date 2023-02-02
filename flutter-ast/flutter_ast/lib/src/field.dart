@@ -27,6 +27,24 @@ extension TopLevelVariableDeclarationImplUtils
   }
 }
 
+extension FieldFormalParameterImplUtils on FieldFormalParameterImpl {
+  DartProperty toDartProperty(List<DartField?> fields) {
+    return DartProperty(
+      //
+      offset: this.offset,
+      end: this.end,
+      name: this.name.lexeme,
+      type: this.type == null
+          ?
+          // find in fields
+          fields
+              .firstWhere((element) => element?.name == this.name.lexeme)
+              ?.type
+          : this.type.toString(),
+    );
+  }
+}
+
 extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
   DartProperty? toDartProperty(List<DartField?> fields) {
     DartProperty? base;

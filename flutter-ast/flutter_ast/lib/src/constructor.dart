@@ -14,8 +14,31 @@ extension ConstructorDeclarationImplUtils on ConstructorDeclarationImpl {
         _name = node.name;
       }
 
+      ///
+      /// ```
+      /// const ExampleClass(
+      ///     // this is `FormalParameterListImpl` including this.position and {...}
+      ///     // 👇 this is `FieldFormalParameterImpl` which does not have a default value
+      ///     this.position,
+      ///     // 👇  the items inside `{}` are `DefaultFormalParameterImpl`
+      ///     {
+      ///       this.myField = false,
+      ///       this.mySecondField = 1,
+      ///       this.numField = 3,
+      ///       this.mapField = const {},
+      ///       this.dateField,
+      ///       this.listField = const [],
+      ///     });
+      /// ```
       if (node is FormalParameterListImpl) {
         for (final child in node.childEntities) {
+          // e.g. this.field
+          if (child is FieldFormalParameterImpl) {
+            final _ = child.toDartProperty(parent.fields);
+            _properties.add(_);
+          }
+
+          // e.g. {this.field}
           if (child is DefaultFormalParameterImpl) {
             final _props = List<DartProperty?>.from(_properties);
             _props.add(child.toDartProperty(parent.fields));

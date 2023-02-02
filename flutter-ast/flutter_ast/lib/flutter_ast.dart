@@ -1,4 +1,3 @@
-import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/error/error.dart';
 import 'package:flutter_ast_core/flutter_ast_core.dart';
 

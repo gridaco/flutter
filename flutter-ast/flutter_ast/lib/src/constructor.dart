@@ -1,6 +1,4 @@
 import 'package:flutter_ast_core/flutter_ast_core.dart';
-
-import 'analyzer.dart';
 import 'index.dart';
 
 extension ConstructorDeclarationImplUtils on ConstructorDeclarationImpl {

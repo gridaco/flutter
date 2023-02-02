@@ -1,12 +1,10 @@
 import 'package:flutter_ast_core/flutter_ast_core.dart';
-
-import 'analyzer.dart';
 import 'index.dart';
 
 extension FieldDeclarationImplUtils on FieldDeclarationImpl {
   DartField? toDartField() {
     DartField? _base;
-    for (final node in this.root.childEntities) {
+    for (final node in this.childEntities) {
       if (node is VariableDeclarationListImpl) {
         _base = _process(node);
       }

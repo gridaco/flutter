@@ -1,3 +1,4 @@
+import 'package:flutter_ast_core/src/import.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'class.dart';
@@ -15,7 +16,7 @@ abstract class DartFile with _$DartFile {
     @Default([]) List<DartClass> classes,
     @Default([]) List<DartEnum> enums,
     @Default([]) List<DartField?> fields,
-    @Default([]) List<String> imports,
+    @Default([]) List<DartImport> imports,
     @Default([]) List<DartMethod> methods,
   }) = _DartFile;
 

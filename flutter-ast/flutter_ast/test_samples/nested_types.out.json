@@ -1,0 +1,245 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 177,
+        "end": 212,
+        "constructors": [],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 195,
+            "end": 209,
+            "name": "index",
+            "type": "int",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [],
+        "name": "SubData",
+        "isAbstract": false,
+        "extendsClause": null,
+        "implementsClause": null,
+        "withClause": null
+      },
+      {
+        "offset": 214,
+        "end": 298,
+        "constructors": [
+          {
+            "offset": 265,
+            "end": 296,
+            "name": "Model",
+            "properties": []
+          }
+        ],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 230,
+            "end": 241,
+            "name": "name",
+            "type": "String",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 245,
+            "end": 260,
+            "name": "subData",
+            "type": "SubData",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [],
+        "name": "Model",
+        "isAbstract": false,
+        "extendsClause": null,
+        "implementsClause": null,
+        "withClause": null
+      },
+      {
+        "offset": 300,
+        "end": 711,
+        "constructors": [
+          {
+            "offset": 369,
+            "end": 446,
+            "name": "MyScreen",
+            "properties": [
+              {
+                "offset": 390,
+                "end": 397,
+                "name": "key",
+                "key": null,
+                "type": "Key",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 403,
+                "end": 421,
+                "name": "data",
+                "key": null,
+                "type": "Model",
+                "value": null,
+                "isOptional": false,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": true,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": true,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [
+          {
+            "offset": 300,
+            "end": 325,
+            "lines": [
+              "This is a doc comment"
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "offset": 450,
+            "end": 466,
+            "name": "data",
+            "type": "Model",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [
+          {
+            "offset": 471,
+            "end": 709,
+            "name": "build",
+            "parameters": [],
+            "body": {
+              "offset": 471,
+              "end": 709,
+              "name": "method_declaration",
+              "values": [
+                {
+                  "offset": 483,
+                  "end": 489,
+                  "name": "type",
+                  "value": "Widget",
+                  "runtimeType": "simple"
+                },
+                {
+                  "offset": 518,
+                  "end": 709,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 518,
+                      "end": 709,
+                      "name": "block",
+                      "values": [
+                        {
+                          "offset": 524,
+                          "end": 705,
+                          "name": "return",
+                          "values": [
+                            {
+                              "offset": 531,
+                              "end": 704,
+                              "name": "constructor",
+                              "value": "Container",
+                              "arguments": {
+                                "color": null,
+                                "width": {
+                                  "offset": 580,
+                                  "end": 582,
+                                  "name": "value",
+                                  "value": {
+                                    "offset": 580,
+                                    "end": 582,
+                                    "type": "int",
+                                    "value": "20",
+                                    "runtimeType": "default"
+                                  },
+                                  "runtimeType": "simple"
+                                },
+                                "child": {
+                                  "offset": 597,
+                                  "end": 697,
+                                  "name": "constructor",
+                                  "value": "Center",
+                                  "arguments": {
+                                    "child": {
+                                      "offset": 620,
+                                      "end": 688,
+                                      "name": "constructor",
+                                      "value": "Builder",
+                                      "arguments": {},
+                                      "runtimeType": "constructor"
+                                    }
+                                  },
+                                  "runtimeType": "constructor"
+                                }
+                              },
+                              "runtimeType": "constructor"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        }
+                      ],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          }
+        ],
+        "name": "MyScreen",
+        "isAbstract": false,
+        "extendsClause": "extends StatelessWidget",
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [],
+    "fields": [],
+    "imports": [
+      "package:flutter/material.dart"
+    ],
+    "methods": []
+  },
+  "errors": []
+}

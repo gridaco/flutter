@@ -34,7 +34,7 @@
                 "end": 375,
                 "name": "myField",
                 "key": null,
-                "type": null,
+                "type": "bool",
                 "value": {
                   "offset": 378,
                   "end": 383,
@@ -58,7 +58,7 @@
                 "end": 407,
                 "name": "mySecondField",
                 "key": null,
-                "type": null,
+                "type": "double",
                 "value": {
                   "offset": 410,
                   "end": 411,
@@ -82,7 +82,7 @@
                 "end": 430,
                 "name": "numField",
                 "key": null,
-                "type": null,
+                "type": "num",
                 "value": {
                   "offset": 433,
                   "end": 434,
@@ -106,7 +106,7 @@
                 "end": 453,
                 "name": "mapField",
                 "key": null,
-                "type": null,
+                "type": "Map",
                 "value": {
                   "offset": 456,
                   "end": 464,
@@ -130,7 +130,7 @@
                 "end": 484,
                 "name": "dateField",
                 "key": null,
-                "type": null,
+                "type": "DateTime?",
                 "value": null,
                 "isOptional": true,
                 "isNamed": true,
@@ -148,7 +148,7 @@
                 "end": 504,
                 "name": "listField",
                 "key": null,
-                "type": null,
+                "type": "List",
                 "value": {
                   "offset": 507,
                   "end": 515,
@@ -197,7 +197,7 @@
                 "end": 620,
                 "name": "mySecondField",
                 "key": null,
-                "type": null,
+                "type": "double",
                 "value": null,
                 "isOptional": true,
                 "isNamed": true,
@@ -215,7 +215,7 @@
                 "end": 657,
                 "name": "numField",
                 "key": null,
-                "type": null,
+                "type": "num",
                 "value": {
                   "offset": 660,
                   "end": 661,
@@ -239,7 +239,7 @@
                 "end": 680,
                 "name": "mapField",
                 "key": null,
-                "type": null,
+                "type": "Map",
                 "value": {
                   "offset": 683,
                   "end": 691,
@@ -263,7 +263,7 @@
                 "end": 711,
                 "name": "listField",
                 "key": null,
-                "type": null,
+                "type": "List",
                 "value": {
                   "offset": 714,
                   "end": 722,
@@ -287,7 +287,7 @@
                 "end": 742,
                 "name": "dateField",
                 "key": null,
-                "type": null,
+                "type": "DateTime?",
                 "value": null,
                 "isOptional": true,
                 "isNamed": true,

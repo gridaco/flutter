@@ -1,0 +1,161 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 184,
+        "end": 490,
+        "constructors": [
+          {
+            "offset": 231,
+            "end": 327,
+            "name": "ElevationCard",
+            "properties": [
+              {
+                "offset": 259,
+                "end": 268,
+                "name": "key",
+                "key": null,
+                "type": null,
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 270,
+                "end": 288,
+                "name": "info",
+                "key": null,
+                "type": "ElevationInfo",
+                "value": null,
+                "isOptional": false,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": true,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": true,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 290,
+                "end": 306,
+                "name": "shadowColor",
+                "key": null,
+                "type": "Color?",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 308,
+                "end": 324,
+                "name": "surfaceTint",
+                "key": null,
+                "type": "Color?",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 331,
+            "end": 355,
+            "name": "info",
+            "type": "ElevationInfo",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 359,
+            "end": 383,
+            "name": "shadowColor",
+            "type": "Color?",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 387,
+            "end": 411,
+            "name": "surfaceTint",
+            "type": "Color?",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [
+          {
+            "offset": 416,
+            "end": 488,
+            "name": "createState",
+            "parameters": [],
+            "body": {
+              "offset": 416,
+              "end": 488,
+              "name": "method_declaration",
+              "values": [
+                {
+                  "offset": 428,
+                  "end": 448,
+                  "name": "type",
+                  "value": "State<ElevationCard>",
+                  "runtimeType": "simple"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          }
+        ],
+        "name": "ElevationCard",
+        "isAbstract": false,
+        "extendsClause": "extends StatefulWidget",
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [],
+    "fields": [],
+    "imports": [],
+    "methods": []
+  },
+  "errors": []
+}

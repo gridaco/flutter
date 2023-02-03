@@ -5,7 +5,7 @@ import "package:path/path.dart" show dirname, join;
 
 // read file from ./samples/sample.dart
 
-final sample = 'constructor';
+final sample = 'constructor_2';
 
 final String source =
     File(join(dirname(Platform.script.path), "../test_samples/${sample}.dart"))

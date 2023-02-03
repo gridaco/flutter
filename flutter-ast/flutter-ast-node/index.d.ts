@@ -78,25 +78,7 @@ interface DartConstructor extends AstNode {
   properties: Array<DartProperty>;
 }
 
-interface DartProperty extends DartCore {}
-
-interface DartField extends DartCore {}
-
-interface DartComment extends AstNode {
-  lines: Array<string>;
-}
-
-interface DartEnum extends AstNode {
-  name: string;
-  values: Array<string>;
-}
-
-interface DartCore extends AstNode {
-  name?: string;
-  key?: string;
-  type?: string;
-  value?: DartCore;
-
+interface DartProperty extends DartCore {
   /**
    * @default true
    */
@@ -106,6 +88,8 @@ interface DartCore extends AstNode {
    * @default false
    */
   isNamed: boolean;
+
+  isRequired: boolean;
 
   /**
    * @default false
@@ -133,6 +117,28 @@ interface DartCore extends AstNode {
   isOptionalNamed: boolean;
 
   position?: number;
+}
+
+interface DartField extends DartCore {}
+
+interface DartComment extends AstNode {
+  lines: Array<string>;
+}
+
+interface DartEnum extends AstNode {
+  name: string;
+  values: Array<string>;
+}
+
+interface DartCore extends AstNode {
+  name?: string;
+  key?: string;
+  type?: string;
+  value?: DartCore;
+
+  isFinal: boolean;
+  isConst: boolean;
+  isStatic: boolean;
 }
 
 interface DartMethod extends AstNode {

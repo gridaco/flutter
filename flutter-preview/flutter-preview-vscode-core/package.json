@@ -1,0 +1,7 @@
+{
+  "name": "@vscode.grida.co/flutter-preview",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc"
+  }
+}

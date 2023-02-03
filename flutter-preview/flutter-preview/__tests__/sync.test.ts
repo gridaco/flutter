@@ -39,4 +39,9 @@ describe("initial project clone", () => {
       fs.existsSync(path.join(porject.root, "fonts/TrajanPro_Bold.ttf"))
     ).toEqual(true);
   });
+
+  // once test is complte, remove the project
+  afterAll(() => {
+    porject.rimraf();
+  });
 });

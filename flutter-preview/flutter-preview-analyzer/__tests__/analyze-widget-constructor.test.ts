@@ -12,6 +12,11 @@ const sample_elevation_card = fs.readFileSync(
   "utf-8"
 );
 
+const sample_elevation_screen = fs.readFileSync(
+  path.join(__dirname, "./samples/elevation_screen.dart"),
+  "utf-8"
+);
+
 test("analyze primary widget classes", () => {
   const analyzer = new Analyzer(sample_color_paleettes_screen);
 
@@ -28,4 +33,11 @@ test("analyze constructor with required properties", () => {
 
   const widgets = analyzer.widgets();
   expect(widgets[0].constructors[0].analysis.requires_arguments).toBe(true);
+});
+
+test("analyze constructor with optional properties", () => {
+  const analyzer = new Analyzer(sample_elevation_screen);
+
+  const widgets = analyzer.widgets();
+  expect(widgets[0].constructors[0].analysis.requires_arguments).toBe(false);
 });

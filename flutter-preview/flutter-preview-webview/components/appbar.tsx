@@ -11,9 +11,11 @@ import {
 export function Appbar({
   onToggleReload,
   onToggleFullsize,
+  onToggleOpenInNewWindow,
   frameSize,
 }: {
   onToggleReload?: () => void;
+  onToggleOpenInNewWindow?: () => void;
   onToggleFullsize?: () => void;
   frameSize: { width: number; height: number };
 }) {
@@ -23,11 +25,12 @@ export function Appbar({
         <IconButton onClick={onToggleReload}>
           <ReloadIcon />
         </IconButton>
-        <IconButton>
+        {/* Not ready */}
+        {/* <IconButton>
           <Component1Icon />
-        </IconButton>
+        </IconButton> */}
         <IconButton>
-          <OpenInNewWindowIcon />
+          <OpenInNewWindowIcon onClick={onToggleOpenInNewWindow} />
         </IconButton>
         <SizeInfo size={frameSize} />
       </div>

@@ -89,6 +89,9 @@ export default function FlutterWidgetPreview({
         <Appbar
           frameSize={size}
           onToggleReload={onToggleReload}
+          onToggleOpenInNewWindow={() => {
+            if (webLaunchUrl) window.open(webLaunchUrl, "_blank");
+          }}
           onToggleFullsize={() => setFullsize((prev) => !prev)}
         />
         <Stage onResize={(size) => setSize(size)} fullsize={fullsize}>

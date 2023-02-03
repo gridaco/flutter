@@ -2,6 +2,7 @@
   "name": "grida-flutter",
   "displayName": "grida-flutter",
   "description": "Grida Flutter Support",
+  "private": true,
   "version": "0.0.1",
   "author": {
     "name": "Grida Inc",

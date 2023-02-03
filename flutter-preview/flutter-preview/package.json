@@ -1,8 +1,11 @@
 {
   "name": "flutter-preview",
   "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsup index.ts"
   },
   "dependencies": {
     "chokidar": "^3.5.3",

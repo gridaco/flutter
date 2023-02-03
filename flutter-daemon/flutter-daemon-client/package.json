@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "clean": "rimraf dist",
-    "build": "tsc",
+    "build": "tsup index.ts",
     "prepack": "yarn clean && yarn build"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "ws": "^8.8.1"
   },
   "files": [
-    "README.md",
+    "readme.md",
     "LICENSE",
     "dist"
   ],

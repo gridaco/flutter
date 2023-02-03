@@ -10,7 +10,7 @@
   "scripts": {
     "copy:README": "cp ../../README.md README.md",
     "clean": "rimraf dist",
-    "build": "tsc",
+    "build": "tsup index.ts",
     "prepack": "yarn clean && yarn build && yarn copy:README",
     "test": "jest"
   },

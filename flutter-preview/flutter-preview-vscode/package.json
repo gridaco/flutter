@@ -9,7 +9,6 @@
     "build": "tsup index.ts --external vscode"
   },
   "dependencies": {
-    "flutter-ast": "^0.0.4-1",
     "ws": "^8.12.0"
   },
   "devDependencies": {

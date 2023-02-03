@@ -26,14 +26,14 @@ export class Analyzer {
         start: c.offset,
         id: c.name,
         name: c.name,
-        constructors: c.constructors.map((c) => {
+        constructors: c.constructors.map((constr) => {
           return {
-            start: c.offset,
-            name: c.name,
-            parameters: c.properties,
+            start: constr.offset,
+            name: constr.name,
+            parameters: constr.properties,
             analysis: {
               requires_arguments:
-                c.properties.filter((p) => {
+                constr.properties.filter((p) => {
                   const {
                     name,
                     isOptional,

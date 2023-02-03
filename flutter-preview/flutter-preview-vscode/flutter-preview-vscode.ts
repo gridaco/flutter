@@ -39,15 +39,54 @@ export class FlutterPreviewVSCode {
         const analyzer = new Analyzer(text);
 
         const components = await analyzer.widgets();
-        return components.map((c) => {
-          const start = document.positionAt(c.start + 2);
-          const lens = new vscode.CodeLens(new vscode.Range(start, start), {
-            command: this.commandId,
-            arguments: [document, c.id],
-            title: `⚡️ Preview ${c.name}`,
-          });
-          return lens;
-        });
+        const lenses = components
+          .map((_class) => {
+            return _class.constructors.map((_constructor) => {
+              const args = [document, _class.id, _constructor.name];
+
+              // TODO: support widgets with required arguments
+              // at this moment, we don't support widgets with required arguments
+              if (_constructor.analysis.requires_arguments) {
+                return;
+              }
+
+              // factory constructors
+              if (_constructor.name !== _class.name) {
+                return;
+
+                // TODO: disabling. the start positioning is inaccurate
+                const start = document.positionAt(_constructor.start + 2);
+                const lens = new vscode.CodeLens(
+                  new vscode.Range(start, start),
+                  {
+                    command: this.commandId,
+                    arguments: args,
+                    title: `⚡️ Preview ${_class.name}.${_constructor.name}`,
+                  }
+                );
+                return lens;
+              }
+
+              // default widget constructor
+              if (_constructor.name === _class.name) {
+                // for default widget constructor, provide lense at top of the class declaration, not the constructor.
+                const start = document.positionAt(_class.start + 2);
+                const lens = new vscode.CodeLens(
+                  new vscode.Range(start, start),
+                  {
+                    command: this.commandId,
+                    arguments: args,
+                    title: `⚡️ Preview ${_class.name}`,
+                  }
+                );
+                return lens;
+              }
+            });
+          })
+          .flat()
+          .filter(Boolean);
+
+        return lenses;
       },
     });
 
@@ -59,9 +98,10 @@ export class FlutterPreviewVSCode {
 
 async function cmd_dart_preview_handler(
   document: vscode.TextDocument,
-  componentId: string
+  widgetId: string,
+  constructorId: string
 ) {
-  const panel_title = `Preview: ${componentId}`;
+  const panel_title = `Preview: ${widgetId}`;
 
   const panel = vscode.window.createWebviewPanel(
     "flutter-preview", // Identifies the type of the webview. Used internally
@@ -116,7 +156,8 @@ async function cmd_dart_preview_handler(
 
     const project = daemon.init(base_dir, {
       path: document.fileName,
-      identifier: componentId,
+      identifier: widgetId,
+      constructor: constructorId,
     });
 
     console.log("daemon project initiallized", { id: project.client.id });

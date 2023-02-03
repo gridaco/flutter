@@ -50,6 +50,7 @@ class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
 
   path: string;
   identifier: string;
+  constructorName: string;
 
   get imports(): DartImport[] {
     // TODO: add caching
@@ -70,9 +71,17 @@ class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
       .file.classes.find((c) => c.name === this.identifier).end;
   }
 
-  constructor({ path, identifier }: ITargetIdentifier) {
+  get initializationName() {
+    return initializationNameOf({
+      class: this.identifier,
+      constructor: this.constructorName,
+    });
+  }
+
+  constructor({ path, identifier, constructor }: ITargetIdentifier) {
     this.path = path;
     this.identifier = identifier;
+    this.constructorName = constructor;
   }
 
   static from(p: ITargetIdentifier) {
@@ -221,7 +230,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     const main_dart_src = mustache.render(templates.main_dart_mustache, {
       imports: Array.from(_seed_imports),
       title: "Preview - " + this.m_target.identifier,
-      widget: this.m_target.identifier,
+      widget: this.m_target.initializationName,
     });
 
     // write the file
@@ -273,7 +282,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       path: path.isAbsolute(_.path)
         ? path.relative(this.origin, _.path)
         : _.path,
-      identifier: _.identifier,
+      ..._,
     });
 
     this.override_main_dart();
@@ -313,7 +322,22 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   // #endregion IFlutterRunnerClient
 }
 
+function initializationNameOf({
+  class: _class,
+  constructor: _constructor,
+}: {
+  class: string;
+  constructor: string;
+}) {
+  if (_class === _constructor) {
+    return _constructor;
+  } else {
+    return `${_class}.${_constructor}`;
+  }
+}
+
 export interface ITargetIdentifier {
   path: string;
   identifier: string;
+  constructor: string;
 }

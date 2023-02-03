@@ -7,6 +7,7 @@ import {
   Action,
   WebLaunchUrlAction,
   AppStopAction,
+  VSCodeOpenExternalCommand,
 } from "@flutter-preview/webview";
 import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
@@ -80,6 +81,19 @@ export default function FlutterWidgetPreview({
     };
   }, [onToggleReload]);
 
+  const openInNewWindow = () => {
+    if (!webLaunchUrl) return;
+    if (inIframe()) {
+      const cmd: VSCodeOpenExternalCommand = {
+        command: "vscode.env.openExternal",
+        target: webLaunchUrl,
+      };
+      window.parent.postMessage(cmd, "*");
+    } else {
+      window.open(webLaunchUrl, "_blank");
+    }
+  };
+
   return (
     <>
       <Head>
@@ -89,9 +103,7 @@ export default function FlutterWidgetPreview({
         <Appbar
           frameSize={size}
           onToggleReload={onToggleReload}
-          onToggleOpenInNewWindow={() => {
-            if (webLaunchUrl) window.open(webLaunchUrl, "_blank");
-          }}
+          onToggleOpenInNewWindow={openInNewWindow}
           onToggleFullsize={() => setFullsize((prev) => !prev)}
         />
         <Stage onResize={(size) => setSize(size)} fullsize={fullsize}>
@@ -188,6 +200,16 @@ const ContentFrameWrapper = styled(motion.div)`
   width: 100%;
   height: 100%;
 `;
+
+function inIframe() {
+  // ssr
+  if (typeof window === "undefined") return false;
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    return true;
+  }
+}
 
 export async function getServerSideProps(context: NextPageContext) {
   const { webLaunchUrl } = context.query;

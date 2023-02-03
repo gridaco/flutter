@@ -1,3 +1,10 @@
+export type VSCodeCommand = VSCodeOpenExternalCommand;
+
+export interface VSCodeOpenExternalCommand {
+  command: "vscode.env.openExternal";
+  target: string;
+}
+
 export type Action =
   | HotRestartAction
   | WebLaunchUrlAction

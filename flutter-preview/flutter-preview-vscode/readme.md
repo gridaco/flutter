@@ -23,3 +23,52 @@ FlutterPreviewExtension.inject({
   context,
 });
 ```
+
+**Inside your VSCode Extension `package.json`...**
+
+```json
+{
+  ...
+  // optional
+  "keywords": [
+    ...
+    "flutter",
+    "design",
+    "preview",
+    "components"
+  ],
+  // required*
+  "activationEvents": [
+    ...
+    "onLanguage:dart",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      ...
+      // required*
+      {
+        "command": "<ns>.showPreview",
+        "title": "Preview"
+      }
+    ],
+    "menus": {
+      ...
+      "editor/title": [
+        ...
+        // required*
+        {
+          "when": "<ns>.componentsDetected",
+          "command": "<ns>.showPreview",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  ...
+  "dependencies": {
+    ...
+    "@vscode.grida.co/flutter-preview": "0.0.0"
+  }
+}
+```

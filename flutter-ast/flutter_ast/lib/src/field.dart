@@ -1,12 +1,11 @@
+import 'package:_fe_analyzer_shared/src/scanner/token.dart' show SimpleToken;
 import 'package:flutter_ast_core/flutter_ast_core.dart';
-
-import 'analyzer.dart';
 import 'index.dart';
 
 extension FieldDeclarationImplUtils on FieldDeclarationImpl {
   DartField? toDartField() {
     DartField? _base;
-    for (final node in this.root.childEntities) {
+    for (final node in this.childEntities) {
       if (node is VariableDeclarationListImpl) {
         _base = _process(node);
       }
@@ -28,15 +27,38 @@ extension TopLevelVariableDeclarationImplUtils
   }
 }
 
+extension FieldFormalParameterImplUtils on FieldFormalParameterImpl {
+  DartProperty toDartProperty(List<DartField?> fields) {
+    return DartProperty(
+      //
+      offset: this.offset,
+      end: this.end,
+      name: this.name.lexeme,
+      type: this.type == null
+          ?
+          // find in fields
+          fields
+              .firstWhere((element) => element?.name == this.name.lexeme)
+              ?.type
+          : this.type.toString(),
+    );
+  }
+}
+
 extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
   DartProperty? toDartProperty(List<DartField?> fields) {
     DartProperty? base;
     bool _hasValue = false;
-    for (final node in this.root.childEntities) {
+
+    // e.g.
+    // [<FieldFormalParameterImpl: this.listField>, <SimpleToken: =>, <ListLiteralImpl: const []>]
+    for (final node in this.childEntities) {
+      // e.g.
+      // constructor({Key key})
       if (node is SimpleFormalParameterImpl) {
         base = _processProperty(node);
         for (final child in node.childEntities) {
-          if (child is DeclaredSimpleIdentifier) {
+          if (child is StringTokenImpl || child is DeclaredSimpleIdentifier) {
             base = base!.copyWith(name: child.toString());
           }
           if (child is NamedTypeImpl) {
@@ -44,25 +66,47 @@ extension DefaultFormalParameterImplUtils on DefaultFormalParameterImpl {
           }
         }
       }
+
+      // e.g.
+      // constructor({this.field})
+      // this   : KeywordToken
+      // .      : SimpleToken
+      // field  : SimpleIdentifierImpl
       if (node is FieldFormalParameterImpl) {
         base = _processProperty(node);
+
+        // get the name
         for (final child in node.childEntities) {
-          if (child is SimpleIdentifierImpl) {
+          // e.g.
+          // in `this.field` -> "field" is StringTokenImpl
+          if (child is StringTokenImpl || child is SimpleIdentifierImpl) {
             base = base?.copyWith(name: child.toString());
           }
         }
-        if (fields != null)
-          for (final field in fields) {
-            if (field?.name == base?.name) {
-              base = base?.copyWith(type: field?.type);
-            }
+
+        // get the type - the fields are in the parent class
+        for (final field in fields) {
+          if (field?.name == base?.name) {
+            base = base?.copyWith(type: field?.type);
           }
+        }
       }
-      if (node.runtimeType.toString() == 'SimpleToken' &&
-          node.toString() == '=') {
+
+      // Requires dart 2.17.0 or higher
+      // e.g.
+      // constructor({super.field})
+      // type cannot be resolved (this is something should be done in the analyzer)
+      if (node is SuperFormalParameterImpl) {
+        base = _processProperty(node);
+        base = base.copyWith(name: node.name.lexeme);
+      }
+
+      // value initializaation token
+      if (node is SimpleToken && node.toString() == '=') {
         _hasValue = true;
         continue;
       }
+
       if (_hasValue && node is LiteralImpl) {
         base = base?.copyWith(value: node.toDartCore());
       }

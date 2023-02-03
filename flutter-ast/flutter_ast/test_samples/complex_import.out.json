@@ -1,0 +1,24 @@
+{
+  "file": {
+    "path": null,
+    "classes": [],
+    "enums": [],
+    "fields": [],
+    "imports": [
+      {
+        "offset": 0,
+        "end": 79,
+        "uri": "package:meta/meta.dart",
+        "prefix": "meta",
+        "show": [
+          "required"
+        ],
+        "hide": [
+          "deprecated"
+        ]
+      }
+    ],
+    "methods": []
+  },
+  "errors": []
+}

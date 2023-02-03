@@ -24,7 +24,7 @@ mixin _$DartFile {
   List<DartClass> get classes => throw _privateConstructorUsedError;
   List<DartEnum> get enums => throw _privateConstructorUsedError;
   List<DartField?> get fields => throw _privateConstructorUsedError;
-  List<String> get imports => throw _privateConstructorUsedError;
+  List<DartImport> get imports => throw _privateConstructorUsedError;
   List<DartMethod> get methods => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $DartFileCopyWith<$Res> {
       List<DartClass> classes,
       List<DartEnum> enums,
       List<DartField?> fields,
-      List<String> imports,
+      List<DartImport> imports,
       List<DartMethod> methods});
 }
 
@@ -87,7 +87,7 @@ class _$DartFileCopyWithImpl<$Res, $Val extends DartFile>
       imports: null == imports
           ? _value.imports
           : imports // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<DartImport>,
       methods: null == methods
           ? _value.methods
           : methods // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$_DartFileCopyWith<$Res> implements $DartFileCopyWith<$Res> {
       List<DartClass> classes,
       List<DartEnum> enums,
       List<DartField?> fields,
-      List<String> imports,
+      List<DartImport> imports,
       List<DartMethod> methods});
 }
 
@@ -150,7 +150,7 @@ class __$$_DartFileCopyWithImpl<$Res>
       imports: null == imports
           ? _value._imports
           : imports // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<DartImport>,
       methods: null == methods
           ? _value._methods
           : methods // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class _$_DartFile implements _DartFile {
       final List<DartClass> classes = const [],
       final List<DartEnum> enums = const [],
       final List<DartField?> fields = const [],
-      final List<String> imports = const [],
+      final List<DartImport> imports = const [],
       final List<DartMethod> methods = const []})
       : _classes = classes,
         _enums = enums,
@@ -207,10 +207,10 @@ class _$_DartFile implements _DartFile {
     return EqualUnmodifiableListView(_fields);
   }
 
-  final List<String> _imports;
+  final List<DartImport> _imports;
   @override
   @JsonKey()
-  List<String> get imports {
+  List<DartImport> get imports {
     if (_imports is EqualUnmodifiableListView) return _imports;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_imports);
@@ -274,7 +274,7 @@ abstract class _DartFile implements DartFile {
       final List<DartClass> classes,
       final List<DartEnum> enums,
       final List<DartField?> fields,
-      final List<String> imports,
+      final List<DartImport> imports,
       final List<DartMethod> methods}) = _$_DartFile;
 
   factory _DartFile.fromJson(Map<String, dynamic> json) = _$_DartFile.fromJson;
@@ -288,7 +288,7 @@ abstract class _DartFile implements DartFile {
   @override
   List<DartField?> get fields;
   @override
-  List<String> get imports;
+  List<DartImport> get imports;
   @override
   List<DartMethod> get methods;
   @override

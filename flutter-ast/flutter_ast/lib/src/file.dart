@@ -7,11 +7,9 @@ extension AstNodeUtils on AstNode {
   DartFile toDartFile([String? path]) {
     DartFile base = DartFile(path: path);
 
-    final List<String> imports = [];
+    final List<DartImport> imports = [];
     for (final node in root.childEntities.whereType<ImportDirectiveImpl>()) {
-      final ImportDirectiveImpl _node = node;
-      final _url = _node.uri.stringValue!;
-      imports.add(_url);
+      imports.add(node.toDartImport());
     }
     base = base.copyWith(imports: imports);
 

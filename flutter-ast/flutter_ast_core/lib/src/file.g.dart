@@ -23,7 +23,7 @@ _$_DartFile _$$_DartFileFromJson(Map<String, dynamic> json) => _$_DartFile(
               .toList() ??
           const [],
       imports: (json['imports'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((e) => DartImport.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       methods: (json['methods'] as List<dynamic>?)

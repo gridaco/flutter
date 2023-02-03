@@ -1,0 +1,60 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 177,
+        "end": 262,
+        "constructors": [
+          {
+            "offset": 226,
+            "end": 260,
+            "name": "PreviewTarget1",
+            "properties": [
+              {
+                "offset": 248,
+                "end": 257,
+                "name": "key",
+                "key": null,
+                "type": null,
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [],
+        "fields": [],
+        "methods": [],
+        "name": "PreviewTarget1",
+        "isAbstract": false,
+        "extendsClause": "extends StatelessWidget",
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [],
+    "fields": [],
+    "imports": [
+      {
+        "offset": 136,
+        "end": 175,
+        "uri": "package:flutter/material.dart",
+        "prefix": null,
+        "show": [],
+        "hide": []
+      }
+    ],
+    "methods": []
+  },
+  "errors": []
+}

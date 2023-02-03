@@ -1,6 +1,6 @@
 name: flutter_ast_core
 description: Flutter AST Parser Core models for flutter_ast
-version: 0.0.3
+version: 0.0.4+1
 homepage: https://github.com/gridaco/flutter-support/tree/main/flutter_ast/flutter_ast_core
 license: MIT
 
@@ -17,5 +17,5 @@ dev_dependencies:
   json_serializable: ^6.6.0
 
 scripts:
-  build: flutter pub run build_runner build --delete-conflicting-outputs
-  watch: flutter pub run build_runner watch --delete-conflicting-outputs
+  build: dart pub run build_runner build --delete-conflicting-outputs
+  watch: dart pub run build_runner watch --delete-conflicting-outputs

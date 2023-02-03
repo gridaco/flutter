@@ -1,0 +1,734 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 240,
+        "end": 1487,
+        "constructors": [
+          {
+            "offset": 309,
+            "end": 540,
+            "name": "MyScreen",
+            "properties": [
+              {
+                "offset": 350,
+                "end": 357,
+                "name": "key",
+                "key": null,
+                "type": "Key",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 363,
+                "end": 375,
+                "name": "myField",
+                "key": null,
+                "type": "bool",
+                "value": {
+                  "offset": 378,
+                  "end": 383,
+                  "type": "bool",
+                  "value": "false",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 389,
+                "end": 407,
+                "name": "mySecondField",
+                "key": null,
+                "type": "double",
+                "value": {
+                  "offset": 410,
+                  "end": 411,
+                  "type": "int",
+                  "value": "1",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 417,
+                "end": 430,
+                "name": "numField",
+                "key": null,
+                "type": "num",
+                "value": {
+                  "offset": 433,
+                  "end": 434,
+                  "type": "int",
+                  "value": "3",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 440,
+                "end": 453,
+                "name": "mapField",
+                "key": null,
+                "type": "Map",
+                "value": {
+                  "offset": 456,
+                  "end": 464,
+                  "type": "Map",
+                  "value": "const {}",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 470,
+                "end": 484,
+                "name": "dateField",
+                "key": null,
+                "type": "DateTime?",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 490,
+                "end": 504,
+                "name": "listField",
+                "key": null,
+                "type": "List",
+                "value": {
+                  "offset": 507,
+                  "end": 515,
+                  "type": "List",
+                  "value": "const []",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          },
+          {
+            "offset": 544,
+            "end": 797,
+            "name": "MyScreen",
+            "properties": [
+              {
+                "offset": 589,
+                "end": 596,
+                "name": "key",
+                "key": null,
+                "type": "Key",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 602,
+                "end": 620,
+                "name": "mySecondField",
+                "key": null,
+                "type": "double",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 644,
+                "end": 657,
+                "name": "numField",
+                "key": null,
+                "type": "num",
+                "value": {
+                  "offset": 660,
+                  "end": 661,
+                  "type": "int",
+                  "value": "3",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 667,
+                "end": 680,
+                "name": "mapField",
+                "key": null,
+                "type": "Map",
+                "value": {
+                  "offset": 683,
+                  "end": 691,
+                  "type": "Map",
+                  "value": "const {}",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 697,
+                "end": 711,
+                "name": "listField",
+                "key": null,
+                "type": "List",
+                "value": {
+                  "offset": 714,
+                  "end": 722,
+                  "type": "List",
+                  "value": "const []",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 728,
+                "end": 742,
+                "name": "dateField",
+                "key": null,
+                "type": "DateTime?",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [
+          {
+            "offset": 240,
+            "end": 265,
+            "lines": [
+              "This is a doc comment"
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "offset": 808,
+            "end": 844,
+            "name": "routeName",
+            "type": "String",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 849,
+            "end": 867,
+            "name": "myField",
+            "type": "bool",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 871,
+            "end": 897,
+            "name": "mySecondField",
+            "type": "double",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 901,
+            "end": 919,
+            "name": "numField",
+            "type": "num",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 923,
+            "end": 941,
+            "name": "mapField",
+            "type": "Map",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 945,
+            "end": 970,
+            "name": "dateField",
+            "type": "DateTime?",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 974,
+            "end": 994,
+            "name": "listField",
+            "type": "List",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 999,
+            "end": 1017,
+            "name": "position",
+            "type": "int",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [
+          {
+            "offset": 1052,
+            "end": 1102,
+            "name": "toJson",
+            "parameters": [],
+            "body": {
+              "offset": 1052,
+              "end": 1102,
+              "name": "method_declaration",
+              "values": [
+                {
+                  "offset": 1052,
+                  "end": 1072,
+                  "name": "type",
+                  "value": "Map<String, dynamic>",
+                  "runtimeType": "simple"
+                },
+                {
+                  "offset": 1082,
+                  "end": 1102,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1082,
+                      "end": 1102,
+                      "name": "block",
+                      "values": [
+                        {
+                          "offset": 1088,
+                          "end": 1098,
+                          "name": "return",
+                          "values": [
+                            {
+                              "offset": 1095,
+                              "end": 1097,
+                              "name": "value",
+                              "value": {
+                                "offset": 1095,
+                                "end": 1097,
+                                "type": "Map",
+                                "value": "{}",
+                                "runtimeType": "default"
+                              },
+                              "runtimeType": "simple"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        }
+                      ],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          },
+          {
+            "offset": 1106,
+            "end": 1485,
+            "name": "build",
+            "parameters": [],
+            "body": {
+              "offset": 1106,
+              "end": 1485,
+              "name": "method_declaration",
+              "values": [
+                {
+                  "offset": 1118,
+                  "end": 1124,
+                  "name": "type",
+                  "value": "Widget",
+                  "runtimeType": "simple"
+                },
+                {
+                  "offset": 1153,
+                  "end": 1485,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1153,
+                      "end": 1485,
+                      "name": "block",
+                      "values": [
+                        {
+                          "offset": 1159,
+                          "end": 1295,
+                          "name": "if",
+                          "values": [
+                            {
+                              "offset": 1163,
+                              "end": 1170,
+                              "name": "name",
+                              "value": "myField",
+                              "runtimeType": "simple"
+                            },
+                            {
+                              "offset": 1172,
+                              "end": 1295,
+                              "name": "block",
+                              "values": [
+                                {
+                                  "offset": 1180,
+                                  "end": 1289,
+                                  "name": "return",
+                                  "values": [
+                                    {
+                                      "offset": 1187,
+                                      "end": 1288,
+                                      "name": "conditional",
+                                      "values": [
+                                        {
+                                          "offset": 1187,
+                                          "end": 1205,
+                                          "name": "binary",
+                                          "left": {
+                                            "offset": 1187,
+                                            "end": 1200,
+                                            "name": "name",
+                                            "value": "mySecondField",
+                                            "runtimeType": "simple"
+                                          },
+                                          "right": {
+                                            "offset": 1204,
+                                            "end": 1205,
+                                            "name": "value",
+                                            "value": {
+                                              "offset": 1204,
+                                              "end": 1205,
+                                              "type": "int",
+                                              "value": "1",
+                                              "runtimeType": "default"
+                                            },
+                                            "runtimeType": "simple"
+                                          },
+                                          "operation": "==",
+                                          "runtimeType": "binary"
+                                        },
+                                        {
+                                          "offset": 1218,
+                                          "end": 1246,
+                                          "name": "constructor",
+                                          "value": "Container",
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "runtimeType": "constructor"
+                                        },
+                                        {
+                                          "offset": 1259,
+                                          "end": 1288,
+                                          "name": "constructor",
+                                          "value": "Container",
+                                          "arguments": {
+                                            "color": null
+                                          },
+                                          "runtimeType": "constructor"
+                                        }
+                                      ],
+                                      "runtimeType": "values"
+                                    }
+                                  ],
+                                  "runtimeType": "values"
+                                }
+                              ],
+                              "runtimeType": "values"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        },
+                        {
+                          "offset": 1300,
+                          "end": 1481,
+                          "name": "return",
+                          "values": [
+                            {
+                              "offset": 1307,
+                              "end": 1480,
+                              "name": "constructor",
+                              "value": "Container",
+                              "arguments": {
+                                "color": null,
+                                "width": {
+                                  "offset": 1356,
+                                  "end": 1358,
+                                  "name": "value",
+                                  "value": {
+                                    "offset": 1356,
+                                    "end": 1358,
+                                    "type": "int",
+                                    "value": "20",
+                                    "runtimeType": "default"
+                                  },
+                                  "runtimeType": "simple"
+                                },
+                                "child": {
+                                  "offset": 1373,
+                                  "end": 1473,
+                                  "name": "constructor",
+                                  "value": "Center",
+                                  "arguments": {
+                                    "child": {
+                                      "offset": 1396,
+                                      "end": 1464,
+                                      "name": "constructor",
+                                      "value": "Builder",
+                                      "arguments": {},
+                                      "runtimeType": "constructor"
+                                    }
+                                  },
+                                  "runtimeType": "constructor"
+                                }
+                              },
+                              "runtimeType": "constructor"
+                            }
+                          ],
+                          "runtimeType": "values"
+                        }
+                      ],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          }
+        ],
+        "name": "MyScreen",
+        "isAbstract": false,
+        "extendsClause": "extends StatelessWidget",
+        "implementsClause": null,
+        "withClause": null
+      },
+      {
+        "offset": 1545,
+        "end": 1578,
+        "constructors": [],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 1562,
+            "end": 1575,
+            "name": "value",
+            "type": "String?",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [],
+        "name": "Simple",
+        "isAbstract": false,
+        "extendsClause": null,
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [
+      {
+        "offset": 177,
+        "end": 209,
+        "name": "MyEnum",
+        "values": [
+          "one",
+          "type",
+          "three"
+        ]
+      }
+    ],
+    "fields": [
+      null
+    ],
+    "imports": [
+      "package:flutter/material.dart"
+    ],
+    "methods": [
+      {
+        "offset": 1489,
+        "end": 1513,
+        "name": "myGlobalMethod",
+        "parameters": [],
+        "body": {
+          "offset": 1489,
+          "end": 1513,
+          "name": "function_declaration",
+          "values": [
+            {
+              "offset": 1489,
+              "end": 1493,
+              "name": "type",
+              "value": "void",
+              "runtimeType": "simple"
+            },
+            {
+              "offset": 1508,
+              "end": 1513,
+              "name": "function",
+              "values": [
+                {
+                  "offset": 1511,
+                  "end": 1513,
+                  "name": "block_body",
+                  "values": [
+                    {
+                      "offset": 1511,
+                      "end": 1513,
+                      "name": "block",
+                      "values": [],
+                      "runtimeType": "values"
+                    }
+                  ],
+                  "runtimeType": "values"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          ],
+          "runtimeType": "values"
+        }
+      }
+    ]
+  },
+  "errors": []
+}

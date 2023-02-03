@@ -19,7 +19,6 @@
     "@types/jest": "^28.1.6",
     "@types/node": "latest",
     "jest": "^26.5.2",
-    "ts-jest": "^26.4.1",
     "typescript": "^4.7.4"
   }
 }

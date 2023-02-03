@@ -1,7 +1,7 @@
 tool
 examples
-samples
-dist
+test
+test_samples
 .vscode
 .devcontainer
 .dart_tool

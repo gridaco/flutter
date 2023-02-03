@@ -4,7 +4,10 @@
     "build": {
       "outputs": [
         "dist/**",
-        ".next"
+        ".next/**"
+      ],
+      "dependsOn": [
+        "^build"
       ]
     },
     "lint": {},

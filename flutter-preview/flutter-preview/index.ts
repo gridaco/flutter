@@ -2,6 +2,7 @@ import fs from "fs-extra";
 import glob from "glob";
 import tmp from "tmp";
 import path from "path";
+import rimraf from "rimraf";
 import mustache from "mustache";
 import ast, { DartImport } from "flutter-ast";
 import * as pubspec from "pubspec";
@@ -236,12 +237,24 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
       // add the target node as import
       // make it relative to lib/main.dart -> e.g. './src/demo.dart'
-      _seed_imports.add(
-        path.relative(
-          path.join(this.root, "./lib"),
-          path.join(this.root, this.m_target.path)
-        )
-      );
+
+      let relative: string;
+      const target = this.m_target.path;
+
+      // if the target is a absolute path under origin project
+      if (target.startsWith(this.origin)) {
+        relative = path.relative(path.join(this.origin, "./lib"), target);
+      }
+      // if the target is a absolute path under this project
+      else if (target.startsWith(this.root)) {
+        relative = path.relative(this.abspath("./lib"), this.abspath(target));
+      }
+      // if the target is a relative path
+      else {
+        relative = path.relative(this.abspath("./lib"), this.abspath(target));
+      }
+
+      _seed_imports.add(relative);
     }
 
     // render the template
@@ -359,6 +372,11 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     return this.client.restart();
   }
   // #endregion IFlutterRunnerClient
+
+  rimraf() {
+    // remove the root directory (recursively)
+    rimraf.sync(this.root);
+  }
 }
 
 function initializationNameOf({

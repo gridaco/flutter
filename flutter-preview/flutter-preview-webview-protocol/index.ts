@@ -1,8 +1,13 @@
 export type VSCodeCommand = VSCodeOpenExternalCommand;
+export type VSCodeNotification = NotifyVSCodeThatAppIsReady;
 
 export interface VSCodeOpenExternalCommand {
   command: "vscode.env.openExternal";
   target: string;
+}
+
+export interface NotifyVSCodeThatAppIsReady {
+  event: "webview-ready";
 }
 
 export type Action =

@@ -8,6 +8,7 @@ import {
   WebLaunchUrlAction,
   AppStopAction,
   VSCodeOpenExternalCommand,
+  NotifyVSCodeThatAppIsReady,
 } from "@flutter-preview/webview";
 import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
@@ -40,13 +41,10 @@ export default function FlutterWidgetPreview({
   useEffect(() => {
     // send message to vscode to notify that the webview is ready
     // initially, once.
-
-    window.parent.postMessage(
-      {
-        type: "webview-ready",
-      },
-      "*"
-    );
+    const msg: NotifyVSCodeThatAppIsReady = {
+      type: "webview-ready",
+    };
+    window.parent.postMessage(msg, "*");
   }, []);
 
   useEffect(() => {

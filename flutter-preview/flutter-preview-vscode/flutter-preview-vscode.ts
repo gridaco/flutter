@@ -8,6 +8,7 @@ import {
   DaemonStartupLog,
   WebLaunchUrlAction,
   AppStopAction,
+  VSCodeCommand,
 } from "@flutter-preview/webview";
 import { locatePubspec } from "pub";
 
@@ -178,8 +179,16 @@ async function cmd_dart_preview_handler(
     });
   });
 
-  panel.webview.onDidReceiveMessage((e) => {
+  panel.webview.onDidReceiveMessage((e: VSCodeCommand) => {
     console.log("vscode recieved message from app", e);
+
+    switch (e.command) {
+      case "vscode.env.openExternal": {
+        const { target } = e;
+        vscode.env.openExternal(vscode.Uri.parse(target));
+        break;
+      }
+    }
   });
 
   // listen to panel close
@@ -207,13 +216,20 @@ function getWebviewContent({ name, iframe }: { iframe: string; name: string }) {
         app.contentWindow.postMessage(message, '*');
       });
 
-      // TOOD: this is not working
       // Proxy the message event from the inner iframe to the parent window
-      // app.contentWindow.addEventListener('message', event => {
-      //   const message = event.data; // The JSON data our extension sent
-      //   // send message to parent
-      //   window.parent.postMessage(message, '*');
-      // });
+      const app = document.getElementById('app');
+      app.contentWindow.addEventListener('message', event => {
+        const message = event.data; // The JSON data our extension sent
+        // send message to parent
+        // 1. if vscode command
+        if (message.command){
+          window.parent.postMessage(message, '*');
+        }
+        // 2. if load complete
+        if (message.event === 'webview-ready'){
+          window.parent.postMessage(message, '*');
+        }
+      });
     </script>
 	</head>
 	<body style="margin: 0; padding: 0; width: 100%; height: 100vh; overflow: hidden;">

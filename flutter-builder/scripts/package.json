@@ -2,7 +2,7 @@
     "name": "dart-doc-parser",
     "version": "0.0.1",
     "repository": "https://github.com/bridgedxyz/flutter-builder",
-    "author": "bridged.xyz <softmarshamllow>",
+    "author": "Grida, Inc.",
     "license": "MIT",
     "private": false,
     "main": "dist/index.js",
@@ -20,5 +20,8 @@
         "dist",
         "README.md",
         "LICENSE"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }

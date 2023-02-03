@@ -4,6 +4,7 @@ import tmp from "tmp";
 import path from "path";
 import mustache from "mustache";
 import ast, { DartImport } from "flutter-ast";
+import * as pubspec from "pubspec";
 import {
   AppEventMap,
   FlutterProject,
@@ -119,7 +120,8 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     }).name;
 
     // initially clone the files to new virtual project
-    this.__initial_clone();
+    this.__initial_clone(); // uses copy -> this may change to symlink in the future
+    this.resolve_assets(); // uses symlink
 
     // target the widget (modifies the lib/main.dart)
     this.target(target);
@@ -168,6 +170,22 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     //        fonts:
     //          - asset: assets/fonts/NotoSans-Regular.ttf
     //  ....
+
+    const files = [...this.assets, ...this.fontFiles];
+
+    files.forEach((asset) => {
+      const origin = path.join(this.origin, asset);
+      const target = path.join(this.root, asset);
+
+      // handle ENOENT: no such file or directory
+      // the above error can happen if the target file is nested inside a folder
+      if (!fs.existsSync(path.dirname(target))) {
+        fs.mkdirSync(path.dirname(target), { recursive: true });
+      }
+
+      // create a symlink
+      fs.symlinkSync(origin, target);
+    });
   }
 
   /**
@@ -246,6 +264,14 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     return path.join(this.root, "./lib/main.dart");
   }
 
+  get pubspecFile(): string {
+    return path.join(this.root, "./pubspec.yaml");
+  }
+
+  get pubspec(): pubspec.Pubspec {
+    return pubspec.parse(fs.readFileSync(this.pubspecFile, "utf-8"));
+  }
+
   get initialCloneTargets() {
     return [
       ...this.watchTargets,
@@ -265,6 +291,19 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       // lib files
       ...glob.sync("lib/**/*", { cwd: this.origin }),
     ];
+  }
+
+  get assets(): string[] {
+    return this.pubspec.flutter?.assets ?? [];
+  }
+
+  get fontFiles() {
+    return (
+      this.pubspec.flutter?.fonts
+        ?.map((font) => font.fonts)
+        ?.flat()
+        ?.map((font) => font.asset) ?? []
+    );
   }
 
   /**

@@ -10,6 +10,9 @@
     "test": "jest",
     "build": "tsup index.ts"
   },
+  "dependencies": {
+    "flutter-ast": "^0.0.4-3"
+  },
   "files": [
     "dist",
     "README",

@@ -12,7 +12,10 @@
     },
     "lint": {},
     "test": {
-      "outputs": []
+      "outputs": [],
+      "dependsOn": [
+        "build"
+      ]
     },
     "flutter-preview-webview#dev": {
       "dependsOn": [

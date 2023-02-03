@@ -42,7 +42,7 @@ export default function FlutterWidgetPreview({
     // send message to vscode to notify that the webview is ready
     // initially, once.
     const msg: NotifyVSCodeThatAppIsReady = {
-      type: "webview-ready",
+      event: "webview-ready",
     };
     window.parent.postMessage(msg, "*");
   }, []);

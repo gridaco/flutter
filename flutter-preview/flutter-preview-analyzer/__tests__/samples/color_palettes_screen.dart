@@ -1,3 +1,4 @@
+// ignore_for_file: uri_does_not_exist,undefined_class,extends_non_class,undefined_named_parameter,undefined_method,undefined_identifier,undefined_function,const_initialized_with_non_constant_value,creation_with_non_type,super_formal_parameter_without_associated_named,non_constant_case_expression,non_type_as_type_argument,override_on_non_overriding_member
 // Copyright 2021 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.

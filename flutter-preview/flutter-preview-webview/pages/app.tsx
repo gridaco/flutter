@@ -21,6 +21,11 @@ export default function FlutterWidgetPreview({
   };
 }) {
   const [fullsize, setFullsize] = useState(false);
+  const [size, setSize] = useState<{ width: number; height: number }>({
+    width: 400,
+    height: 400,
+  });
+
   const [webLaunchUrl, setWebLaunchUrl] = useState(
     initial?.webLaunchUrl ?? null
   );
@@ -82,10 +87,11 @@ export default function FlutterWidgetPreview({
       </Head>
       <Body>
         <Appbar
+          frameSize={size}
           onToggleReload={onToggleReload}
           onToggleFullsize={() => setFullsize((prev) => !prev)}
         />
-        <Stage fullsize={fullsize}>
+        <Stage onResize={(size) => setSize(size)} fullsize={fullsize}>
           {webLaunchUrl ? (
             <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
           ) : error ? (

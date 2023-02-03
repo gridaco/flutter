@@ -12,6 +12,7 @@ export function Stage({
   fullsize = false,
   handleMargin = 16,
   minSize = { width: 200, height: 200 },
+  onResize,
   paddingTop = 32,
   children,
 }: React.PropsWithChildren<{
@@ -19,6 +20,7 @@ export function Stage({
   handleMargin?: number;
   minSize?: { width: number; height: number };
   paddingTop?: React.CSSProperties["paddingTop"];
+  onResize?: ({ width, height }: { width: number; height: number }) => void;
 }>) {
   const [ref, bounds] = useMeasure();
 
@@ -89,6 +91,13 @@ export function Stage({
               }
         }
         size={fullsize ? { width: "100%", height: "100%" } : undefined}
+        onResize={(e, direction, ref, d) => {
+          if (fullsize) return;
+          onResize?.({
+            width: clamp(ref.offsetWidth, minSize.width, maxSize.width),
+            height: clamp(ref.offsetHeight, minSize.height, maxSize.height),
+          });
+        }}
         handleStyles={
           fullsize
             ? {}

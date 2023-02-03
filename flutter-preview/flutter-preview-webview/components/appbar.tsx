@@ -11,9 +11,11 @@ import {
 export function Appbar({
   onToggleReload,
   onToggleFullsize,
+  frameSize,
 }: {
   onToggleReload?: () => void;
   onToggleFullsize?: () => void;
+  frameSize: { width: number; height: number };
 }) {
   return (
     <AppbarLayout>
@@ -27,7 +29,7 @@ export function Appbar({
         <IconButton>
           <OpenInNewWindowIcon />
         </IconButton>
-        <SizeInfo />
+        <SizeInfo size={frameSize} />
       </div>
       <div className="trailling">
         <IconButton onClick={onToggleFullsize}>
@@ -98,17 +100,12 @@ const IconButton = styled.button`
   }
 `;
 
-function SizeInfo() {
-  const sizeinfo = {
-    width: 0,
-    height: 0,
-  };
-
+function SizeInfo({ size }: { size: { width: number; height: number } }) {
   return (
     <SizeInfoContainer>
-      <span>{sizeinfo.width}</span>
+      <span>{size.width}</span>
       <Cross2Icon className="x" />
-      <span>{sizeinfo.height}</span>
+      <span>{size.height}</span>
     </SizeInfoContainer>
   );
 }

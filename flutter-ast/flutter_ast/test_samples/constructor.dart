@@ -5,11 +5,13 @@ class ExampleClass {
   final Map mapField;
   final DateTime? dateField;
   final List listField;
+  final String id;
 
   final int position;
 
   const ExampleClass(
     this.position, {
+    required this.id,
     this.myField = false,
     this.mySecondField = 1,
     this.numField = 3,
@@ -20,6 +22,7 @@ class ExampleClass {
 
   const ExampleClass.alt(
     this.position, {
+    required this.id,
     this.mySecondField = double.infinity,
     this.numField = 3,
     this.mapField = const {},

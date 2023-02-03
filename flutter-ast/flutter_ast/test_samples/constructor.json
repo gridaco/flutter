@@ -4,16 +4,16 @@
     "classes": [
       {
         "offset": 0,
-        "end": 624,
+        "end": 687,
         "constructors": [
           {
-            "offset": 196,
-            "end": 400,
+            "offset": 215,
+            "end": 441,
             "name": "ExampleClass",
             "properties": [
               {
-                "offset": 220,
-                "end": 233,
+                "offset": 239,
+                "end": 252,
                 "name": "position",
                 "key": null,
                 "type": "int",
@@ -30,14 +30,32 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 241,
-                "end": 253,
+                "offset": 260,
+                "end": 276,
+                "name": "id",
+                "key": null,
+                "type": "String",
+                "value": null,
+                "isOptional": false,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": true,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": true,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 282,
+                "end": 294,
                 "name": "myField",
                 "key": null,
                 "type": "bool",
                 "value": {
-                  "offset": 256,
-                  "end": 261,
+                  "offset": 297,
+                  "end": 302,
                   "type": "bool",
                   "value": "false",
                   "runtimeType": "default"
@@ -54,14 +72,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 267,
-                "end": 285,
+                "offset": 308,
+                "end": 326,
                 "name": "mySecondField",
                 "key": null,
                 "type": "double",
                 "value": {
-                  "offset": 288,
-                  "end": 289,
+                  "offset": 329,
+                  "end": 330,
                   "type": "int",
                   "value": "1",
                   "runtimeType": "default"
@@ -78,14 +96,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 295,
-                "end": 308,
+                "offset": 336,
+                "end": 349,
                 "name": "numField",
                 "key": null,
                 "type": "num",
                 "value": {
-                  "offset": 311,
-                  "end": 312,
+                  "offset": 352,
+                  "end": 353,
                   "type": "int",
                   "value": "3",
                   "runtimeType": "default"
@@ -102,14 +120,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 318,
-                "end": 331,
+                "offset": 359,
+                "end": 372,
                 "name": "mapField",
                 "key": null,
                 "type": "Map",
                 "value": {
-                  "offset": 334,
-                  "end": 342,
+                  "offset": 375,
+                  "end": 383,
                   "type": "Map",
                   "value": "const {}",
                   "runtimeType": "default"
@@ -126,8 +144,8 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 348,
-                "end": 362,
+                "offset": 389,
+                "end": 403,
                 "name": "dateField",
                 "key": null,
                 "type": "DateTime?",
@@ -144,14 +162,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 368,
-                "end": 382,
+                "offset": 409,
+                "end": 423,
                 "name": "listField",
                 "key": null,
                 "type": "List",
                 "value": {
-                  "offset": 385,
-                  "end": 393,
+                  "offset": 426,
+                  "end": 434,
                   "type": "List",
                   "value": "const []",
                   "runtimeType": "default"
@@ -170,13 +188,13 @@
             ]
           },
           {
-            "offset": 404,
-            "end": 622,
+            "offset": 445,
+            "end": 685,
             "name": "ExampleClass",
             "properties": [
               {
-                "offset": 432,
-                "end": 445,
+                "offset": 473,
+                "end": 486,
                 "name": "position",
                 "key": null,
                 "type": "int",
@@ -193,8 +211,26 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 453,
-                "end": 471,
+                "offset": 494,
+                "end": 510,
+                "name": "id",
+                "key": null,
+                "type": "String",
+                "value": null,
+                "isOptional": false,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": true,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": true,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 516,
+                "end": 534,
                 "name": "mySecondField",
                 "key": null,
                 "type": "double",
@@ -211,14 +247,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 495,
-                "end": 508,
+                "offset": 558,
+                "end": 571,
                 "name": "numField",
                 "key": null,
                 "type": "num",
                 "value": {
-                  "offset": 511,
-                  "end": 512,
+                  "offset": 574,
+                  "end": 575,
                   "type": "int",
                   "value": "3",
                   "runtimeType": "default"
@@ -235,14 +271,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 518,
-                "end": 531,
+                "offset": 581,
+                "end": 594,
                 "name": "mapField",
                 "key": null,
                 "type": "Map",
                 "value": {
-                  "offset": 534,
-                  "end": 542,
+                  "offset": 597,
+                  "end": 605,
                   "type": "Map",
                   "value": "const {}",
                   "runtimeType": "default"
@@ -259,14 +295,14 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 548,
-                "end": 562,
+                "offset": 611,
+                "end": 625,
                 "name": "listField",
                 "key": null,
                 "type": "List",
                 "value": {
-                  "offset": 565,
-                  "end": 573,
+                  "offset": 628,
+                  "end": 636,
                   "type": "List",
                   "value": "const []",
                   "runtimeType": "default"
@@ -283,8 +319,8 @@
                 "runtimeType": "property"
               },
               {
-                "offset": 579,
-                "end": 593,
+                "offset": 642,
+                "end": 656,
                 "name": "dateField",
                 "key": null,
                 "type": "DateTime?",
@@ -372,8 +408,19 @@
             "runtimeType": "field"
           },
           {
-            "offset": 173,
-            "end": 191,
+            "offset": 172,
+            "end": 187,
+            "name": "id",
+            "type": "String",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 192,
+            "end": 210,
             "name": "position",
             "type": "int",
             "value": null,

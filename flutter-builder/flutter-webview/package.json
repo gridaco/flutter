@@ -1,5 +1,9 @@
 {
   "name": "@flutter-builder/flutter-webview",
   "version": "3.0.4",
-  "main": "dist/index.js"
+  "main": "dist/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -11,7 +11,10 @@
   "scripts": {
     "test": "yarn turbo run test --filter=!@examples/*",
     "build": "yarn turbo run build --filter=!@examples/*",
-    "publish:all": "turbo run build lint test && changeset version && changeset publish"
+    "publish:all": "turbo run build lint test --filter=!@examples/* && changeset version && changeset publish",
+    "publish:flutter-builder": "turbo run build lint test --filter=@flutter-builder/* && changeset version && changeset publish",
+    "publish:flutter-daemon": "turbo run build lint test --filter=@flutter-daemon/* && changeset version && changeset publish",
+    "publish:flutter-preview": "turbo run build lint test --filter=!@examples/* --filter=!@flutter-builder/* && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",

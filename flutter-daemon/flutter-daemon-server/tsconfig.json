@@ -4,5 +4,12 @@
     "outDir": "dist",
     "baseUrl": "."
   },
-  "exclude": ["node_modules", "dist", "__tests__", "**/*.spec.ts", "bin.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "__tests__",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "bin.ts"
+  ]
 }

@@ -1,4 +1,7 @@
-import { FlutterPreviewProject, ITargetIdentifier } from "flutter-preview";
+import {
+  FlutterPreviewProject,
+  ITargetIdentifier,
+} from "@flutter-preview/core";
 
 export class FlutterDaemon {
   private static _instance: FlutterDaemon;

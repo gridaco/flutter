@@ -6,19 +6,14 @@ import path from "path";
 import YAML from "yaml";
 import fs from "fs";
 import { find_in_cwd, find_in_parent } from "./path";
+import type { Pubspec } from "./pubspec";
 
 const _PUBSPEC_YAML = "pubspec.y{,a}ml";
-
-interface IPubSpecManifest {
-  name: string;
-  description?: string;
-  dependencies?: { [key: string]: string };
-}
 
 interface PubspecSearchResult {
   base_dir: string;
   pubspec_yaml: string;
-  manifest: IPubSpecManifest;
+  manifest: Pubspec;
 }
 
 export function locatePubspec(cwd = process.cwd()): PubspecSearchResult | null {
@@ -46,17 +41,6 @@ export function locatePubspec(cwd = process.cwd()): PubspecSearchResult | null {
   return null;
 }
 
-export function read(pubspec: string): IPubSpecManifest {
+function read(pubspec: string): Pubspec {
   return YAML.parse(fs.readFileSync(pubspec, "utf8"));
-}
-
-export function analyzeFramework(pubspec: IPubSpecManifest): {
-  framework: "flutter";
-} | null {
-  const isflutter = "flutter" in pubspec || pubspec.dependencies?.flutter;
-  if (isflutter) {
-    return { framework: "flutter" };
-  }
-
-  return null;
 }

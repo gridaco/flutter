@@ -10,7 +10,7 @@ import {
   AppStopAction,
   VSCodeCommand,
 } from "@flutter-preview/webview";
-import { locatePubspec } from "pub";
+import { locatePubspec } from "pubspec";
 
 const langs = ["dart"] as const;
 

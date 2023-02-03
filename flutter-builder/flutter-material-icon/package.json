@@ -4,7 +4,9 @@
     "main": "index.js",
     "types": "index.d.ts",
     "private": false,
-    "scripts": {},
+    "scripts": {
+        "test": "jest --passWithNoTests"
+    },
     "files": [
         "index.d.ts",
         "README",

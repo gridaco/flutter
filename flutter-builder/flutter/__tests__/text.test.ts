@@ -29,9 +29,9 @@ test("text", () => {
 });
 
 test("text rich", () => {
-  expect(formatCode(textRich.build().finalize()).code).toBe(`TextSpan(
+  expect(formatCode(textRich.build().finalize()).code).toBe(`Text.rich(
     text: "hello",
-    style: Theme.of(context).textTheme.headline5);
+    style: Theme.of(context).textTheme.headline5),
     `);
 });
 

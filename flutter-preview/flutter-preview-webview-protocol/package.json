@@ -1,6 +1,6 @@
 {
   "name": "@flutter-preview/webview",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Flutter Preview webview and vscode host messaging protocol & types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

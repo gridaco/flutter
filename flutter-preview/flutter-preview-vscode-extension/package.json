@@ -3,7 +3,7 @@
   "displayName": "grida-flutter",
   "description": "Grida Flutter Support",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Grida Inc",
     "email": "hello@grida.co"
@@ -77,6 +77,6 @@
     "webpack-cli": "^5.0.0"
   },
   "dependencies": {
-    "@vscode.grida.co/flutter-preview": "0.0.0"
+    "@vscode.grida.co/flutter-preview": "0.0.1"
   }
 }

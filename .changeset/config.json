@@ -2,9 +2,21 @@
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
-  "linked": [],
-  "access": "restricted",
+  "fixed": [
+    [
+      "@flutter-preview/analyzer",
+      "@flutter-preview/core",
+      "@vscode.grida.co/flutter-preview",
+      "@flutter-preview/webview"
+    ]
+  ],
+  "linked": [
+    [
+      "@flutter-builder/flutter",
+      "@flutter-builder/flutter-material-icons"
+    ]
+  ],
+  "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [

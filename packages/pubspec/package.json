@@ -1,8 +1,20 @@
 {
   "name": "pubspec",
   "version": "0.0.0",
+  "description": "Parse pubspec.yaml files",
+  "license": "MIT",
+  "author": "Grida, Inc.",
+  "repository": "https://github.com/gridaco/flutter/tree/master/packages/pubspec",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "pubspec",
+    "pub.dev",
+    "flutter",
+    "dart",
+    "yaml",
+    "pubspec.yaml"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "jest --passWithNoTests"

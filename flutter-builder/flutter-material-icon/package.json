@@ -17,9 +17,9 @@
         "access": "public"
     },
     "peerDependencies": {
-        "@flutter-builder/flutter": "3.0.5"
+        "@flutter-builder/flutter": "*"
     },
     "devDependencies": {
-        "@flutter-builder/flutter": "3.0.5"
+        "@flutter-builder/flutter": "3.0.5-rc.4"
     }
 }

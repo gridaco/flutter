@@ -155,7 +155,7 @@ async function cmd_dart_preview_handler(
     const { base_dir } = pubspec;
 
     const project = daemon.init(base_dir, {
-      path: document.fileName,
+      path: path.relative(base_dir, document.fileName),
       identifier: widgetId,
       constructor: constructorId,
     });

@@ -208,7 +208,12 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       // ...imports,
     ]);
 
-    if (this.abspath(this.m_target.path) === this.main) {
+    const target = this.m_target.path;
+
+    if (
+      // if the target is inside the main.dart file
+      target == "main.dart"
+    ) {
       // create new random file (valid dart file) on the same directory as the main.dart
       const _tmp =
         tmp.tmpNameSync({
@@ -237,22 +242,10 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
       // add the target node as import
       // make it relative to lib/main.dart -> e.g. './src/demo.dart'
-
-      let relative: string;
-      const target = this.m_target.path;
-
-      // if the target is a absolute path under origin project
-      if (target.startsWith(this.origin)) {
-        relative = path.relative(path.join(this.origin, "./lib"), target);
-      }
-      // if the target is a absolute path under this project
-      else if (target.startsWith(this.root)) {
-        relative = path.relative(this.abspath("./lib"), this.abspath(target));
-      }
-      // if the target is a relative path
-      else {
-        relative = path.relative(this.abspath("./lib"), this.abspath(target));
-      }
+      const relative = path.relative(
+        path.join(this.root, "./lib"),
+        this.abspath(target)
+      );
 
       _seed_imports.add(relative);
     }
@@ -274,7 +267,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
    * @default path.join(this.root, './lib/main.dart')
    */
   get main(): string {
-    return path.join(this.root, "./lib/main.dart");
+    return mainDartFileOf(this.root);
   }
 
   get pubspecFile(): string {
@@ -328,13 +321,36 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     // fs.symlinkSync(this.origin, this.root, "dir");
   }
 
-  target(_: ITargetIdentifier) {
+  target({ path: _path, ...others }: ITargetIdentifier) {
+    let relative: string;
+    // if target is main.dart
+    if (
+      path.isAbsolute(_path)
+        ? // if absolute path, check if the target is main.dart under the <origin>/lib/main.dart
+          mainDartFileOf(this.origin) === _path
+        : // if relative path, check if the target is "main.dart" or "./main.dart"
+          _path === "main.dart" || _path === "./main.dart"
+    ) {
+      relative = "main.dart";
+    } else {
+      // if the target is a absolute path under origin project
+      if (_path.startsWith(this.origin)) {
+        relative = path.relative(path.join(this.origin, "./lib"), _path);
+      }
+      // if the target is a absolute path under this project
+      else if (_path.startsWith(this.root)) {
+        relative = path.relative(this.abspath("./lib"), this.abspath(_path));
+      }
+      // if the target is a relative path
+      else {
+        relative = path.relative(this.abspath("./lib"), this.abspath(_path));
+      }
+    }
+
     this.m_target = FlutterPreviewWidgetClass.from({
       // if the path is absolute, then use make it relative to the origin
-      path: path.isAbsolute(_.path)
-        ? path.relative(this.origin, _.path)
-        : _.path,
-      ..._,
+      path: path.isAbsolute(_path) ? path.relative(this.origin, _path) : _path,
+      ...others,
     });
 
     this.override_main_dart();
@@ -391,6 +407,10 @@ function initializationNameOf({
   } else {
     return `${_class}.${_constructor}`;
   }
+}
+
+function mainDartFileOf(project: string) {
+  return path.join(project, "./lib/main.dart");
 }
 
 export interface ITargetIdentifier {

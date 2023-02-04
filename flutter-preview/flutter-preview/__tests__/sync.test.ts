@@ -13,11 +13,10 @@ describe("initial project clone", () => {
     },
   });
 
-  test("watch targets", () => {
-    expect(porject.watchTargets).toEqual([
+  test("src files", () => {
+    expect(porject.srcfiles).toEqual([
       "pubspec.yaml",
       "lib/main.dart",
-      "lib/src",
       "lib/src/dummy.dart",
       "lib/src/preview_target_1.dart",
     ]);

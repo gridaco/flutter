@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "yaml": "^2.1.1"

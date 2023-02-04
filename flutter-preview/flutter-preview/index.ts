@@ -2,6 +2,7 @@ import fs from "fs-extra";
 import glob from "glob";
 import tmp from "tmp";
 import path from "path";
+import { mkdirp } from "mkdirp";
 import rimraf from "rimraf";
 import mustache from "mustache";
 import ast, { DartImport } from "flutter-ast";
@@ -104,6 +105,11 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
   private m_target: FlutterPreviewWidgetClass;
 
+  /**
+   * A path to a tmp file used to proxy a origin main.dart file.
+   */
+  private readonly originMainProxy: string;
+
   readonly client: FlutterProject;
 
   constructor({
@@ -119,6 +125,12 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       keep: false,
       unsafeCleanup: true,
     }).name;
+
+    this.originMainProxy =
+      // create new random file (valid dart file) on the same directory as the main.dart
+      tmp.tmpNameSync({
+        dir: path.dirname(this.main),
+      }) + ".dart";
 
     // initially clone the files to new virtual project
     this.__initial_clone(); // uses copy -> this may change to symlink in the future
@@ -144,9 +156,16 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   private __initial_clone() {
     // copy the files to the root (write files)
     this.initialCloneTargets.forEach((file) => {
-      const origin = path.join(this.origin, file);
-      const target = path.join(this.root, file);
-      fs.copySync(origin, target);
+      const originfile = path.join(this.origin, file);
+
+      // if file is main.dart connect to a special file.
+      if (this.abspath(file) === this.main) {
+        // symlink the main.dart to the originMainProxy file
+        safeSymlink(originfile, this.originMainProxy);
+      } else {
+        const target = path.join(this.root, file);
+        safeSymlink(originfile, target);
+      }
     });
   }
 
@@ -155,6 +174,59 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       return p;
     }
     return path.join(this.root, p);
+  }
+
+  /**
+   * override the main.dart file since we cannot customize the entry file for the daemon proc
+   */
+  private override_main_dart() {
+    // if - the target is inside the main.dart file, we need to copy the main.dart content to X, remove the `void main() {}`, re-import the X from the newly seeded main.dart file.
+    // else - the target is elsewhere from the main.dart file (normal case)
+
+    // const mainsrc = fs.readFileSync(this.originMainProxy, "utf-8");
+    // const { imports } = ast.parse(mainsrc).file;
+
+    const _seed_imports = new Set([
+      // default imports
+      "package:flutter/material.dart",
+      // TODO: add main imports later... (disabling it to test the speed of initial compilation)
+      // ...imports,
+    ]);
+
+    const target = this.m_target.path;
+
+    if (
+      // if the target is the main.dart file
+      target == "main.dart" ||
+      target == "lib/main.dart"
+    ) {
+      // add the copied main file as import
+      // make it relative to lib/main.dart -> e.g. 'xxx_tmp_xxx.dart'
+      _seed_imports.add(
+        path.relative(
+          path.join(this.root, "./lib"),
+          path.join(this.originMainProxy)
+        )
+      );
+    } else {
+      // read & analyze the main entry file
+
+      // add the target node as import
+      // make it relative to lib/main.dart -> e.g. './src/demo.dart'
+      _seed_imports.add(
+        path.relative(path.join(this.root, "./lib"), this.abspath(target))
+      );
+    }
+
+    // render the template
+    const main_dart_src = mustache.render(templates.main_dart_mustache, {
+      imports: Array.from(_seed_imports),
+      title: "Preview - " + this.m_target.identifier,
+      widget: this.m_target.initializationName,
+    });
+
+    // write the file
+    fs.writeFileSync(this.main, main_dart_src);
   }
 
   private resolve_assets() {
@@ -178,87 +250,9 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       const origin = path.join(this.origin, asset);
       const target = path.join(this.root, asset);
 
-      // handle ENOENT: no such file or directory
-      // the above error can happen if the target file is nested inside a folder
-      if (!fs.existsSync(path.dirname(target))) {
-        fs.mkdirSync(path.dirname(target), { recursive: true });
-      }
-
       // create a symlink
-      fs.symlinkSync(origin, target);
+      safeSymlink(origin, target);
     });
-  }
-
-  /**
-   * override the main.dart file since we cannot customize the entry file for the daemon proc
-   */
-  private override_main_dart() {
-    // if - the target is inside the main.dart file, we need to copy the main.dart content to X, remove the `void main() {}`, re-import the X from the newly seeded main.dart file.
-    // else - the target is elsewhere from the main.dart file (normal case)
-
-    const src = fs.readFileSync(
-      path.join(this.origin, "lib/main.dart"),
-      "utf-8"
-    );
-    const { imports } = ast.parse(src).file;
-    const _seed_imports = new Set([
-      // default imports
-      "package:flutter/material.dart",
-      // TODO: add main imports later... (disabling it to test the speed of initial compilation)
-      // ...imports,
-    ]);
-
-    const target = this.m_target.path;
-
-    if (
-      // if the target is inside the main.dart file
-      target == "main.dart"
-    ) {
-      // create new random file (valid dart file) on the same directory as the main.dart
-      const _tmp =
-        tmp.tmpNameSync({
-          dir: path.dirname(this.main),
-        }) + ".dart";
-
-      // write the content of the main.dart to the tmp file
-      // while copying the content, remove the `void main() {}` part
-      const main_method = ast
-        .parse(src)
-        .file.methods.find((m) => m.name === "main");
-
-      const { offset, end } = main_method;
-
-      const newsrc = src.slice(0, offset) + src.slice(end);
-
-      fs.writeFileSync(_tmp, newsrc);
-
-      // add the copied main file as import
-      // make it relative to lib/main.dart -> e.g. 'xxx_tmp_xxx.dart'
-      _seed_imports.add(
-        path.relative(path.join(this.root, "./lib"), path.join(_tmp))
-      );
-    } else {
-      // read & analyze the main entry file
-
-      // add the target node as import
-      // make it relative to lib/main.dart -> e.g. './src/demo.dart'
-      const relative = path.relative(
-        path.join(this.root, "./lib"),
-        this.abspath(target)
-      );
-
-      _seed_imports.add(relative);
-    }
-
-    // render the template
-    const main_dart_src = mustache.render(templates.main_dart_mustache, {
-      imports: Array.from(_seed_imports),
-      title: "Preview - " + this.m_target.identifier,
-      widget: this.m_target.initializationName,
-    });
-
-    // write the file
-    fs.writeFileSync(this.main, main_dart_src);
   }
 
   /**
@@ -280,22 +274,22 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
   get initialCloneTargets() {
     return [
-      ...this.watchTargets,
+      ...this.srcfiles,
       // web
-      ...glob.sync("web/**/*", { cwd: this.origin }),
+      ...glob.sync("web/**/*", { cwd: this.origin, nodir: true }),
       // artifacts - .dart_tool
-      ...glob.sync(".dart_tool/**/*", { cwd: this.origin }),
+      ...glob.sync(".dart_tool/**/*", { cwd: this.origin, nodir: true }),
       // artifacts - build/web
-      ...glob.sync("build/web/**/*", { cwd: this.origin }),
+      ...glob.sync("build/web/**/*", { cwd: this.origin, nodir: true }),
     ];
   }
 
-  get watchTargets() {
+  get srcfiles() {
     return [
       // pubspec.yaml
       ...glob.sync("pubspec.yaml", { cwd: this.origin }),
       // lib files
-      ...glob.sync("lib/**/*", { cwd: this.origin }),
+      ...glob.sync("lib/**/*", { cwd: this.origin, nodir: true }),
     ];
   }
 
@@ -316,7 +310,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
    * sync the project to the target widget using symlink
    */
   sync() {
-    console.log(this.watchTargets);
+    console.log(this.srcfiles);
 
     // fs.symlinkSync(this.origin, this.root, "dir");
   }
@@ -411,6 +405,28 @@ function initializationNameOf({
 
 function mainDartFileOf(project: string) {
   return path.join(project, "./lib/main.dart");
+}
+
+function safeSymlink(target: string, at: string) {
+  // handle ENOENT: no such file or directory
+  // handle ENOENT: no such file or directory, mkdir
+  // the above error can happen if the target file is nested inside a folder
+  mkdirp.sync(path.dirname(at));
+
+  fs.symlinkSync(target, at);
+}
+
+function removeMainMethod(src: string) {
+  // while copying the content, remove the `void main() {}` part
+  const main_method = ast
+    .parse(src)
+    .file.methods.find((m) => m.name === "main");
+
+  const { offset, end } = main_method;
+
+  const newsrc = src.slice(0, offset) + src.slice(end);
+
+  return newsrc;
 }
 
 export interface ITargetIdentifier {

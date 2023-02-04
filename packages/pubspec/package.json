@@ -1,6 +1,6 @@
 {
   "name": "pubspec",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse pubspec.yaml files",
   "license": "MIT",
   "author": "Grida, Inc.",

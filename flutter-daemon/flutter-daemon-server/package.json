@@ -1,7 +1,7 @@
 {
   "name": "@flutter-daemon/server",
   "description": "flutter daemon server for nodejs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",

@@ -1,5 +1,13 @@
 # @vscode.grida.co/flutter-preview
 
+## 0.0.2
+
+### Patch Changes
+
+- Add sync hot restart support with symlink
+- Updated dependencies
+  - pubspec@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

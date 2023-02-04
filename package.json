@@ -9,7 +9,7 @@
     "flutter-preview/*"
   ],
   "scripts": {
-    "version": "changeset version",
+    "version": "changeset",
     "test": "yarn turbo run test --filter=!@examples/*",
     "build": "yarn turbo run build --filter=!@examples/*",
     "publish:all": "turbo run build lint test --filter=!@examples/* && changeset version && changeset publish",

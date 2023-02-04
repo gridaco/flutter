@@ -1,6 +1,7 @@
 {
   "name": "@vscode.grida.co/flutter-preview",
   "version": "0.0.0",
+  "description": "Injectable Flutter Preview VSCode Extension plugin for Grida VSCode",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",

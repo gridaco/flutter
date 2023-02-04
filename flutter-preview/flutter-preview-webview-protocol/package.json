@@ -1,8 +1,11 @@
 {
   "name": "@flutter-preview/webview",
   "version": "0.0.0",
+  "description": "Flutter Preview webview and vscode host messaging protocol & types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Grida, Inc.",
   "private": false,
   "scripts": {
     "build": "tsup index.ts"

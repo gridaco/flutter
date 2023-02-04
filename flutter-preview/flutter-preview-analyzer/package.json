@@ -1,6 +1,7 @@
 {
   "name": "@flutter-preview/analyzer",
   "version": "0.0.0",
+  "description": "Flutter Analyzer with flutter-ast for understanding flutter files, used by flutter preview",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",

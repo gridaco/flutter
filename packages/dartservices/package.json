@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "homepage": "https://github.com/gridaco/flutter/tree/main/packages/dartservices",
   "repository": {
-    "url": "https://github.com/gridaco/base/flutter/main/packages/dartservices"
+    "url": "https://github.com/gridaco/flutter/tree/main/packages/dartservices"
   },
   "scripts": {
     "clean": "rimraf dist",

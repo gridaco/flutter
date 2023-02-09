@@ -3,11 +3,11 @@
   "version": "0.2.5",
   "private": false,
   "license": "MIT",
-  "author": "Grida",
+  "author": "Grida Inc.",
   "main": "dist/index.js",
-  "homepage": "https://github.com/gridaco/base/tree/main/packages/dartservices",
+  "homepage": "https://github.com/gridaco/flutter/tree/main/packages/dartservices",
   "repository": {
-    "url": "https://github.com/gridaco/base/tree/main/packages/dartservices"
+    "url": "https://github.com/gridaco/base/flutter/main/packages/dartservices"
   },
   "scripts": {
     "clean": "rimraf dist",

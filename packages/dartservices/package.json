@@ -1,0 +1,32 @@
+{
+  "name": "dart-services",
+  "version": "0.2.7",
+  "private": false,
+  "license": "MIT",
+  "author": "Grida Inc.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/gridaco/flutter/tree/main/packages/dartservices",
+  "repository": {
+    "url": "https://github.com/gridaco/flutter/tree/main/packages/dartservices"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsup",
+    "prepack": "yarn clean && yarn build"
+  },
+  "peerDependencies": {
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.5",
+    "axios": "^0.27.2",
+    "typescript": "^4.1.2"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "LICENSE"
+  ]
+}

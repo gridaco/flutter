@@ -32,7 +32,7 @@
     "onLanguage:dart",
     "onStartupFinished"
   ],
-  "main": "./dist/extension.js",
+  "main": "./out/main.js",
   "contributes": {
     "commands": [
       {
@@ -51,15 +51,11 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run package",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "dev": "yarn watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts"
+    "vscode:prepublish": "yarn run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "yarn run esbuild-base -- --sourcemap",
+    "watch": "yarn run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
@@ -69,13 +65,12 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "@vscode/test-electron": "^2.2.0",
+    "esbuild": "^0.17.7",
     "eslint": "^8.28.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
     "ts-loader": "^9.4.1",
-    "typescript": "^4.9.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0"
+    "typescript": "^4.9.3"
   },
   "dependencies": {
     "@vscode.grida.co/flutter-preview": "0.0.2"

@@ -16,7 +16,8 @@
     "publish:flutter-builder": "turbo run build lint test --filter=@flutter-builder/* && changeset version && changeset publish",
     "publish:flutter-daemon": "turbo run build lint test --filter=@flutter-daemon/* && changeset version && changeset publish",
     "publish:flutter-preview": "turbo run build lint test --filter=!@examples/* --filter=!@flutter-builder/* && changeset version && changeset publish",
-    "dev:flutter-preview-webview": "turbo run flutter-preview-webview#dev"
+    "dev:flutter-preview-webview": "turbo run flutter-preview-webview#dev",
+    "dev:flutter-preview-vscode": "turbo run dev --filter={flutter-preview/*}..."
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",

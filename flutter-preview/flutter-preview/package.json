@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "test": "jest",
-    "build": "tsup index.ts"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "chokidar": "^3.5.3",

@@ -8,7 +8,8 @@
   "author": "Grida, Inc.",
   "private": false,
   "scripts": {
-    "build": "tsup index.ts"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "files": [
     "dist"

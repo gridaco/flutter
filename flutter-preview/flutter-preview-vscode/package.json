@@ -7,7 +7,8 @@
   "license": "MIT",
   "author": "Grida Inc.",
   "scripts": {
-    "build": "tsup index.ts --external vscode"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "ws": "^8.12.0",

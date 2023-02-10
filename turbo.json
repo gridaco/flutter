@@ -17,6 +17,15 @@
         "build"
       ]
     },
+    "dev": {
+      "outputs": [
+        ".next",
+        "dist"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "flutter-preview-webview#dev": {
       "dependsOn": [
         "^build"

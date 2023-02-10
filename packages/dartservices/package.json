@@ -12,7 +12,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsup lib/index.ts",
+    "build": "tsup",
     "prepack": "yarn clean && yarn build"
   },
   "peerDependencies": {

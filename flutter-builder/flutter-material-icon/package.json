@@ -20,6 +20,6 @@
         "@flutter-builder/flutter": "*"
     },
     "devDependencies": {
-        "@flutter-builder/flutter": "3.0.6"
+        "@flutter-builder/flutter": "3.0.5"
     }
 }

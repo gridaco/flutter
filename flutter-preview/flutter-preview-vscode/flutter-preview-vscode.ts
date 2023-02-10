@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import path from "path";
 import { Analyzer } from "@flutter-preview/analyzer";
-import { FlutterDaemon } from "@vscode.grida.co/flutter-preview/daemon";
+import { FlutterDaemon } from "./daemon";
 import {
   appurl,
   HotRestartAction,

@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch --sourcemap"
   },
   "dependencies": {
     "flutter-ast": "^0.0.4-3"

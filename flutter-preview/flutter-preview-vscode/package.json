@@ -8,11 +8,13 @@
   "author": "Grida Inc.",
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch --sourcemap"
   },
   "dependencies": {
     "ws": "^8.12.0",
-    "pubspec": "^0.0.2"
+    "pubspec": "^0.0.2",
+    "@flutter-preview/analyzer": "0.0.2",
+    "@flutter-preview/core": "0.0.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

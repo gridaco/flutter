@@ -1,0 +1,17 @@
+{
+  "name": "dart-analysis-server-types",
+  "description": "Dart analysis server typings for TypeScript",
+  "version": "0.0.0",
+  "types": "index.d.ts",
+  "repository": "https://github.com/gridaco/flutter/tree/main/flutter-analysis/dart-analysis-server-types",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "README.md",
+    "LICENSE",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

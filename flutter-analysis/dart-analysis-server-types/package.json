@@ -1,5 +1,5 @@
 {
-  "name": "dart-analysis-server-types",
+  "name": "@dartlang/analysis-server-types",
   "description": "Dart analysis server typings for TypeScript",
   "version": "0.0.0",
   "types": "index.d.ts",

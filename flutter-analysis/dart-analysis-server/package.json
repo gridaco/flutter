@@ -1,0 +1,8 @@
+{
+  "name": "@dartlang/analysis-server",
+  "version": "0.0.0",
+  "private": false,
+  "devDependencies": {
+    "@dartlang/analysis-server-types": "^0.0.0"
+  }
+}

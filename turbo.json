@@ -2,37 +2,21 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ],
-      "dependsOn": [
-        "^build"
-      ]
+      "outputs": ["dist/**", ".next/**"],
+      "dependsOn": ["^build"]
     },
     "lint": {},
     "test": {
       "outputs": [],
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["build"]
     },
     "dev": {
-      "outputs": [
-        ".next",
-        "dist"
-      ],
-      "dependsOn": [
-        "^build"
-      ]
+      "outputs": [".next", "dist"],
+      "dependsOn": ["^build"]
     },
     "flutter-preview-webview#dev": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next"
-      ]
+      "outputs": [], // no-cache
+      "dependsOn": ["^build"]
     }
   }
 }

@@ -14,6 +14,7 @@ import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
 import { LoadingView } from "components/loading";
 import { ErrorView } from "components/error";
+import { Dock } from "components/dock";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -113,6 +114,7 @@ export default function FlutterWidgetPreview({
             <LoadingView />
           )}
         </Stage>
+        <Dock />
       </Body>
     </>
   );

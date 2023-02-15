@@ -1,5 +1,6 @@
 export type VSCodeCommand = VSCodeOpenExternalCommand;
 export type VSCodeNotification = NotifyVSCodeThatAppIsReady;
+export type EventToInApp = NotifyPropertyChange;
 
 export interface VSCodeOpenExternalCommand {
   command: "vscode.env.openExternal";
@@ -8,6 +9,12 @@ export interface VSCodeOpenExternalCommand {
 
 export interface NotifyVSCodeThatAppIsReady {
   event: "webview-ready";
+}
+
+export interface NotifyPropertyChange {
+  event: "@inapp/property-change";
+  key: string;
+  value: any;
 }
 
 export type Action =

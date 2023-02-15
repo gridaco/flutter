@@ -9,6 +9,7 @@ import {
   AppStopAction,
   VSCodeOpenExternalCommand,
   NotifyVSCodeThatAppIsReady,
+  NotifyPropertyChange,
 } from "@flutter-preview/webview";
 import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
@@ -38,6 +39,8 @@ export default function FlutterWidgetPreview({
   const onToggleReload = React.useCallback(() => {
     setRefresh((prev) => prev + 1);
   }, [setRefresh]);
+
+  const appWindowRef = React.useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     // send message to vscode to notify that the webview is ready
@@ -93,6 +96,24 @@ export default function FlutterWidgetPreview({
     }
   };
 
+  const properties = [
+    {
+      key: "name",
+      value: "Value",
+      type: "text",
+    },
+    {
+      key: "radius",
+      value: "12",
+      type: "number",
+    },
+    {
+      key: "description",
+      value: "Value",
+      type: "text",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -107,14 +128,28 @@ export default function FlutterWidgetPreview({
         />
         <Stage onResize={(size) => setSize(size)} fullsize={fullsize}>
           {webLaunchUrl ? (
-            <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+            <WebLaunchPreview
+              ref={appWindowRef}
+              src={webLaunchUrl}
+              refreshKey={refresh}
+            />
           ) : error ? (
             <ErrorView messages={[error.message]} />
           ) : (
             <LoadingView />
           )}
         </Stage>
-        <Dock />
+        <Dock
+          properties={properties}
+          onPropertyChange={(key, value) => {
+            const msg: NotifyPropertyChange = {
+              event: "@inapp/property-change",
+              key,
+              value,
+            };
+            appWindowRef?.current?.contentWindow?.postMessage(msg, "*");
+          }}
+        />
       </Body>
     </>
   );
@@ -128,27 +163,33 @@ export default function FlutterWidgetPreview({
  *
  * @returns
  */
-function WebLaunchPreview({
-  src,
-  refreshKey,
-}: {
-  src: string;
-  refreshKey: number;
-}) {
+const WebLaunchPreview = React.forwardRef(function WebLaunchPreview(
+  {
+    src,
+    refreshKey,
+  }: {
+    src: string;
+    refreshKey: number;
+  },
+  ref?: React.Ref<HTMLIFrameElement>
+) {
   return (
     <FramesContainer>
-      <ContentFrame refreshKey={refreshKey} src={src} />
+      <ContentFrame ref={ref} refreshKey={refreshKey} src={src} />
     </FramesContainer>
   );
-}
+});
 
-function ContentFrame({
-  refreshKey,
-  src,
-}: {
-  refreshKey: number;
-  src: string;
-}) {
+const ContentFrame = React.forwardRef(function ContentFrame(
+  {
+    refreshKey,
+    src,
+  }: {
+    refreshKey: number;
+    src: string;
+  },
+  ref?: React.Ref<HTMLIFrameElement>
+) {
   return (
     <ContentFrameWrapper
       transition={{
@@ -167,6 +208,7 @@ function ContentFrame({
       }}
     >
       <iframe
+        ref={ref}
         key={refreshKey}
         sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
         src={src}
@@ -178,7 +220,7 @@ function ContentFrame({
       />
     </ContentFrameWrapper>
   );
-}
+});
 
 const Body = styled.div`
   display: flex;

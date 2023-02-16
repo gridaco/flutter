@@ -104,13 +104,29 @@ export default function FlutterWidgetPreview({
     },
     {
       key: "radius",
-      value: "12",
+      value: 12,
       type: "number",
     },
     {
       key: "description",
       value: "Value",
       type: "text",
+    },
+    {
+      key: "color",
+      value: "#000000",
+      type: "color",
+    },
+    {
+      key: "enabled",
+      value: true,
+      type: "boolean",
+    },
+    {
+      key: "alignment",
+      value: "left",
+      type: "enum",
+      options: ["Alignment.left", "Alignment.right", "Alignment.center"],
     },
   ];
 

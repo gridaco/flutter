@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_preview_template/samples/sample_1.dart';
 import 'dart:html' as html;
+import 'samples/sample_1.dart';
 
 void main() {
   runApp(const FlutterPreview());
@@ -17,13 +20,15 @@ class FlutterPreview extends StatelessWidget {
         title: "{{title}}",
         theme: ThemeData(),
         home: Scaffold(
-            body: Center(
-          child: PropertiesStateManager(
-            initialProperties: {
-              "name": "Flutter Preview",
-            },
-            child: PropertiesMapper(),
-          ),
+            body: PropertiesStateManager(
+          initialProperties: {
+            "name": "Flutter Preview",
+            "radius": 10,
+            "description":
+                "Flutter Preview is a tool that allows you to preview your Flutter app in the browser.",
+            "enabled": true,
+          },
+          child: PropertiesMapper(),
         )));
   }
 }
@@ -51,18 +56,59 @@ class PropertiesStateContainer extends InheritedWidget {
   }
 }
 
-// Example widget that reads a single property from the parent state container
-class ExampleWidget extends StatelessWidget {
-  final String name;
+T value<T>(
+  BuildContext context,
+  String key,
+) {
+  final value = PropertiesStateContainer.of(context)!.properties[key];
 
-  const ExampleWidget({required this.name, Key? key}) : super(key: key);
+  // number
+  if (T == int) {
+    if (value == null) {
+      return 0 as T;
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    // Get the property value from the parent state container
-
-    return Text(name);
+    if (value is String) {
+      return int.parse(value) as T;
+    } else {
+      return value as T;
+    }
   }
+
+  // boolean
+  if (T == bool) {
+    if (value == null) {
+      return false as T;
+    }
+
+    if (value is bool) {
+      return value as T;
+    } else {
+      // parse string to boolean
+      if (value is String) {
+        return value.parseBool() as T;
+      }
+      return value as T;
+    }
+  }
+
+  // string
+  if (T == String) {
+    if (value == null) {
+      return "" as T;
+    }
+    return value.toString() as T;
+  }
+
+  // color
+  if (T == Color) {
+    if (value is String) {
+      return value.parseColor() as T;
+    }
+    return value as T;
+  }
+
+  return value;
 }
 
 class PropertiesMapper extends StatelessWidget {
@@ -71,10 +117,29 @@ class PropertiesMapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // read the value of the "name" property from the parent state container
-    final name = PropertiesStateContainer.of(context)!.properties["name"];
+    final name = value<String>(context, "name");
+    final radius = value<int>(context, "radius");
+    final description =
+        PropertiesStateContainer.of(context)!.properties["description"];
+    final enabled = value<bool>(context, "enabled");
+
     return Column(
       children: [
-        ExampleWidget(name: name),
+        Sample1Widget(
+          name,
+          radius: radius,
+          description: description,
+          enabled: enabled,
+          onTap: () => {
+            // Send a event to the parent webapp when the widget is tapped
+            // post message
+            html.window.parent?.postMessage({
+              "event": "@inapp/function-invocation-event",
+              "name": 'onTap', // TODO:
+              "args": []
+            }, "*")
+          },
+        ),
       ],
     );
   }
@@ -129,5 +194,16 @@ class _PropertiesStateManagerState extends State<PropertiesStateManager> {
         setProperty(key, value);
       }
     });
+  }
+}
+
+// EXTENSIONS
+extension StringConversions on String {
+  bool parseBool() {
+    return this.toLowerCase() == 'true';
+  }
+
+  Color parseColor() {
+    return Color(int.parse(this.substring(1, 7), radix: 16) + 0xFF000000);
   }
 }

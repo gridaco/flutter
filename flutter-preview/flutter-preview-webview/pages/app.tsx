@@ -15,7 +15,8 @@ import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
 import { LoadingView } from "components/loading";
 import { ErrorView } from "components/error";
-import { Dock } from "components/dock";
+import { Dock, Property } from "components/dock";
+import { mapTypes } from "core/type-mapper";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -96,53 +97,45 @@ export default function FlutterWidgetPreview({
     }
   };
 
-  useEffect(() => {
-    const handler = (e: MessageEvent<Action>) => {
-      //
-    };
-    let appWindow: Window | null = null;
-    if (appWindowRef.current) {
-      appWindow = appWindowRef.current.contentWindow;
-      appWindow?.addEventListener("message", handler);
-    }
-    return () => {
-      appWindow?.removeEventListener("message", handler);
-    };
-  }, [appWindowRef]);
-
-  const properties = [
+  const properties_meta = [
     {
       key: "name",
-      value: "Value",
-      type: "text",
+      default: "Flutter Preview",
+      type: "String",
     },
     {
       key: "radius",
-      value: 12,
-      type: "number",
+      default: 12,
+      type: "int",
     },
     {
       key: "description",
-      value: "Value",
-      type: "text",
+      default:
+        "Flutter Preview is a tool that allows you to preview your Flutter app in the browser",
+      type: "String",
     },
     {
       key: "color",
-      value: "#000000",
-      type: "color",
+      default: "#000000",
+      type: "Color",
     },
     {
       key: "enabled",
-      value: true,
-      type: "boolean",
+      default: true,
+      type: "bool",
     },
     {
       key: "alignment",
-      value: "left",
-      type: "enum",
-      options: ["Alignment.left", "Alignment.right", "Alignment.center"],
+      default: "start",
+      type: "rendering/CrossAxisAlignment",
     },
-  ];
+  ] as const;
+
+  const properties = properties_meta.map((p) => ({
+    key: p.key,
+    value: p.default,
+    ...mapTypes(p.type),
+  })) as Array<Property>;
 
   return (
     <>

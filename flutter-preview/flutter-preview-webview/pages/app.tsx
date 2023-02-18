@@ -96,6 +96,20 @@ export default function FlutterWidgetPreview({
     }
   };
 
+  useEffect(() => {
+    const handler = (e: MessageEvent<Action>) => {
+      //
+    };
+    let appWindow: Window | null = null;
+    if (appWindowRef.current) {
+      appWindow = appWindowRef.current.contentWindow;
+      appWindow?.addEventListener("message", handler);
+    }
+    return () => {
+      appWindow?.removeEventListener("message", handler);
+    };
+  }, [appWindowRef]);
+
   const properties = [
     {
       key: "name",

@@ -7,6 +7,7 @@ class Sample1Widget extends StatelessWidget {
   final String? description;
   final Color? color;
   final bool enabled;
+  final CrossAxisAlignment alignment;
 
   const Sample1Widget(
     this.name, {
@@ -15,6 +16,7 @@ class Sample1Widget extends StatelessWidget {
     this.description,
     this.color,
     this.enabled = false,
+    this.alignment = CrossAxisAlignment.start,
     Key? key,
   }) : super(key: key);
 
@@ -28,8 +30,8 @@ class Sample1Widget extends StatelessWidget {
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(this.radius.toDouble()),
-                  color: Colors.black),
-              child: Column(children: [
+                  color: this.color ?? Colors.blue),
+              child: Column(crossAxisAlignment: this.alignment, children: [
                 Text(
                   this.name,
                   style: TextStyle(fontSize: 21, color: Colors.white),

@@ -27,6 +27,7 @@ class FlutterPreview extends StatelessWidget {
             "description":
                 "Flutter Preview is a tool that allows you to preview your Flutter app in the browser.",
             "enabled": true,
+            "color": new Color(0xFF000000)
           },
           child: PropertiesMapper(),
         )));
@@ -108,6 +109,9 @@ T value<T>(
     return value as T;
   }
 
+  // enum
+  if (T == Enum) {}
+
   return value;
 }
 
@@ -122,6 +126,17 @@ class PropertiesMapper extends StatelessWidget {
     final description =
         PropertiesStateContainer.of(context)!.properties["description"];
     final enabled = value<bool>(context, "enabled");
+    final color = value<Color>(context, "color");
+    final alignment = value<CrossAxisAlignment>(context, "alignment");
+
+    print("new property");
+    print({
+      "name": name,
+      "radius": radius,
+      "description": description,
+      "enabled": enabled,
+      "color": color,
+    });
 
     return Column(
       children: [
@@ -130,6 +145,7 @@ class PropertiesMapper extends StatelessWidget {
           radius: radius,
           description: description,
           enabled: enabled,
+          color: color,
           onTap: () => {
             // Send a event to the parent webapp when the widget is tapped
             // post message
@@ -204,6 +220,11 @@ extension StringConversions on String {
   }
 
   Color parseColor() {
-    return Color(int.parse(this.substring(1, 7), radix: 16) + 0xFF000000);
+    // if string starts with #, remove it
+    if (this.startsWith("#")) {
+      return Color(int.parse(this.substring(1, 7), radix: 16) + 0xFF000000);
+    } else {
+      return Color(int.parse(this, radix: 16) + 0xFF000000);
+    }
   }
 }

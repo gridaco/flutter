@@ -66,6 +66,7 @@ interface FlutterDocEnumDefinition {
   name: string;
   url: string;
   id: string;
+  values?: Array<string>;
 }
 
 async function readdoc(url: string) {
@@ -84,7 +85,7 @@ async function readdoc(url: string) {
   }
 }
 
-async function enums_from_doc(doc: Document) {
+async function enums_from_library_doc(doc: Document) {
   assert(doc !== null, "doc is null");
 
   const enum_names = xpath.select(
@@ -119,12 +120,12 @@ async function enums_from_doc(doc: Document) {
   return enums;
 }
 
-async function parseEnums(...urls: Array<string>) {
+async function parse_enums_from_docs(...urls: Array<string>) {
   const enums: Array<FlutterDocEnumDefinition> = [];
   for (const url of urls) {
     const doc = await readdoc(url);
     if (doc) {
-      enums.push(...(await enums_from_doc(doc)));
+      enums.push(...(await enums_from_library_doc(doc)));
     }
   }
 
@@ -138,25 +139,69 @@ async function parseEnums(...urls: Array<string>) {
   return unique_enums;
 }
 
+async function parse_enum_details_from_enum_doc({
+  id,
+  name,
+  url,
+}: FlutterDocEnumDefinition) {
+  const doc = await readdoc(url);
+  // values
+  // //section[@id="values"]/dl[@class="properties"]/dt/span[1]/text()
+
+  // description
+  // //section[@id="values"]/dl[@class="properties"]/dd/text()
+
+  const value_names = xpath
+    .select(
+      "//section[@id='values']/dl[@class='properties']/dt/span[1]/text()",
+      doc
+    )
+    .map((item) => item["data"]);
+
+  const values: string[] = [];
+
+  for (let i = 0; i < value_names.length; i++) {
+    const name = value_names[i];
+
+    values.push(name);
+  }
+
+  return {
+    id,
+    url,
+    name,
+    values,
+  };
+}
+
 async function main() {
-  const enums: Array<FlutterDocEnumDefinition> = [];
+  const defs: Array<FlutterDocEnumDefinition> = [];
   const spinner = ora("Parsing").start();
   for (const url of entry_urls) {
     spinner.text = `Parsing ${url}`;
-    const doc = await readdoc(url);
-    if (doc) {
-      enums.push(...(await enums_from_doc(doc)));
-    }
+    defs.push(...(await parse_enums_from_docs(url)));
   }
 
   spinner.succeed("Parsed");
+
+  const enums: Array<FlutterDocEnumDefinition> = [];
+
+  // parse details
+  spinner.start("Parsing details");
+  for (const enum_ of defs) {
+    spinner.text = `Parsing details of ${enum_.name}`;
+    const detail = await parse_enum_details_from_enum_doc(enum_);
+    enums.push(detail);
+  }
+
+  spinner.succeed("Parsed details");
 
   fs.writeFileSync(
     path.join(__dirname, "enums.json"),
     JSON.stringify(enums, null, 2)
   );
 
-  console.log('wrote "enums.json" to disk with ' + enums.length + " entries");
+  console.log('wrote "enums.json" to disk with ' + defs.length + " entries");
 }
 
 main();

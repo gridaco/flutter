@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+enum WidgetVariant { loading, loaded, error }
+
+class Data {
+  final String name;
+  final String description;
+
+  Data(this.name, this.description);
+}
+
 class Sample1Widget extends StatelessWidget {
   final String name;
   final Function() onTap;
@@ -8,6 +17,7 @@ class Sample1Widget extends StatelessWidget {
   final Color? color;
   final bool enabled;
   final CrossAxisAlignment alignment;
+  final WidgetVariant variant;
 
   const Sample1Widget(
     this.name, {
@@ -17,8 +27,20 @@ class Sample1Widget extends StatelessWidget {
     this.color,
     this.enabled = false,
     this.alignment = CrossAxisAlignment.start,
+    this.variant = WidgetVariant.loaded,
     Key? key,
   }) : super(key: key);
+
+  String variantText() {
+    switch (variant) {
+      case WidgetVariant.loading:
+        return "Loading...";
+      case WidgetVariant.loaded:
+        return "Loaded";
+      case WidgetVariant.error:
+        return "Error";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +61,10 @@ class Sample1Widget extends StatelessWidget {
                 SizedBox(height: 8),
                 Text(
                   this.description ?? '',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+                Text(
+                  this.variantText(),
                   style: TextStyle(fontSize: 14, color: Colors.white),
                 ),
               ]),

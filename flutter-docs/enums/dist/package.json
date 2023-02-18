@@ -1,0 +1,23 @@
+{
+  "name": "@flutter-builder/metadata-enums",
+  "description": "Metadata package for Flutter enums",
+  "keywords": [
+    "flutter",
+    "metadata",
+    "enums"
+  ],
+  "repository": "https://github.com/gridaco/flutter/tree/main/flutter-docs/enums/dist",
+  "types": "index.d.ts",
+  "main": "index.js",
+  "private": false,
+  "version": "0.0.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "flutter-enums.d.ts",
+    "index.d.ts",
+    "index.js"
+  ]
+}

@@ -5,6 +5,7 @@ import assert from "assert";
 import fs from "fs";
 import path from "path";
 import ora from "ora";
+import { dts } from "./dts";
 
 const dom = xmldom.DOMParser;
 
@@ -22,7 +23,7 @@ const entry = [
   "services",
   "widgets",
   "dart-ui",
-  "dart-wasm",
+  // "dart-wasm",
   "dart-async",
   "dart-collection",
   "dart-convert",
@@ -62,7 +63,7 @@ const client = Axios.create({
   baseURL: "https://api.flutter.dev/flutter/",
 });
 
-interface FlutterDocEnumDefinition {
+export interface FlutterDocEnumDefinition {
   name: string;
   url: string;
   id: string;
@@ -201,6 +202,11 @@ async function main() {
   );
 
   console.log('wrote "enums.json" to disk with ' + defs.length + " entries");
+
+  // write flutter-enums.d.ts
+  const dtstext = dts(enums);
+  fs.writeFileSync(path.join(__dirname, "../flutter-enums.d.ts"), dtstext);
+  console.log('wrote "flutter-enums.d.ts" to disk');
 }
 
 main();

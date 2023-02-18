@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_preview_template/samples/sample_1.dart';
 import 'dart:html' as html;
 import 'samples/sample_1.dart';
+import 'mappers/flutter_enums_ext.dart';
 
 void main() {
   runApp(const FlutterPreview());
@@ -27,7 +28,8 @@ class FlutterPreview extends StatelessWidget {
             "description":
                 "Flutter Preview is a tool that allows you to preview your Flutter app in the browser.",
             "enabled": true,
-            "color": new Color(0xFF000000)
+            "color": new Color(0xFF000000),
+            "alignment": 'start',
           },
           child: PropertiesMapper(),
         )));
@@ -63,14 +65,31 @@ T value<T>(
 ) {
   final value = PropertiesStateContainer.of(context)!.properties[key];
 
-  // number
-  if (T == int) {
+  // core types
+  // - Number - int, double, num
+  // - Boolean - bool
+  // - String - String
+  // - List - List
+  // - Map - Map
+
+  // number - https://dart.dev/guides/language/numbers
+  if (T == num || T == int || T == double) {
     if (value == null) {
       return 0 as T;
     }
 
     if (value is String) {
-      return int.parse(value) as T;
+      if (T is int) {
+        try {
+          return int.parse(value) as T;
+        } catch (e) {}
+      }
+      if (T is double) {
+        try {
+          return double.parse(value) as T;
+        } catch (e) {}
+      }
+      return num.parse(value) as T;
     } else {
       return value as T;
     }
@@ -101,7 +120,7 @@ T value<T>(
     return value.toString() as T;
   }
 
-  // color
+  // Color
   if (T == Color) {
     if (value is String) {
       return value.parseColor() as T;
@@ -109,8 +128,17 @@ T value<T>(
     return value as T;
   }
 
-  // enum
-  if (T == Enum) {}
+  // Icon
+  if (T == Icon) {
+    if (value is String) {
+      return value.parseIcon() as T;
+    }
+    return value as T;
+  }
+
+  if (isFlutterEmum(T)) {
+    return flutterEnumFromString<T>(value) as T;
+  }
 
   return value;
 }
@@ -123,8 +151,7 @@ class PropertiesMapper extends StatelessWidget {
     // read the value of the "name" property from the parent state container
     final name = value<String>(context, "name");
     final radius = value<int>(context, "radius");
-    final description =
-        PropertiesStateContainer.of(context)!.properties["description"];
+    final description = value<String>(context, "description");
     final enabled = value<bool>(context, "enabled");
     final color = value<Color>(context, "color");
     final alignment = value<CrossAxisAlignment>(context, "alignment");
@@ -136,6 +163,7 @@ class PropertiesMapper extends StatelessWidget {
       "description": description,
       "enabled": enabled,
       "color": color,
+      "alignment": alignment,
     });
 
     return Column(
@@ -146,6 +174,7 @@ class PropertiesMapper extends StatelessWidget {
           description: description,
           enabled: enabled,
           color: color,
+          alignment: alignment,
           onTap: () => {
             // Send a event to the parent webapp when the widget is tapped
             // post message
@@ -214,11 +243,13 @@ class _PropertiesStateManagerState extends State<PropertiesStateManager> {
 }
 
 // EXTENSIONS
-extension StringConversions on String {
+extension StringToBool on String {
   bool parseBool() {
     return this.toLowerCase() == 'true';
   }
+}
 
+extension StringToColor on String {
   Color parseColor() {
     // if string starts with #, remove it
     if (this.startsWith("#")) {
@@ -226,5 +257,12 @@ extension StringConversions on String {
     } else {
       return Color(int.parse(this, radix: 16) + 0xFF000000);
     }
+  }
+}
+
+extension StringToIcon on String {
+  Icon parseIcon() {
+    // TODO: parse icon
+    return Icon(Icons.add);
   }
 }

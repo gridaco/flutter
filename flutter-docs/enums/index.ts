@@ -130,13 +130,11 @@ async function parse_enums_from_docs(...urls: Array<string>) {
   }
 
   // filter duplicates with id
-  const ids = enums.map((item) => item.id);
-  const unique_ids = [...new Set(ids)];
-  const unique_enums = enums.filter((item) => {
-    return unique_ids.includes(item.id);
-  });
+  const uniques = enums.filter(
+    (value, index, self) => index === self.findIndex((t) => t.id === value.id)
+  );
 
-  return unique_enums;
+  return uniques;
 }
 
 async function parse_enum_details_from_enum_doc({
@@ -175,12 +173,13 @@ async function parse_enum_details_from_enum_doc({
 }
 
 async function main() {
-  const defs: Array<FlutterDocEnumDefinition> = [];
-  const spinner = ora("Parsing").start();
-  for (const url of entry_urls) {
-    spinner.text = `Parsing ${url}`;
-    defs.push(...(await parse_enums_from_docs(url)));
-  }
+  const targets = Array.from(new Set(entry_urls));
+  const spinner = ora(
+    "Parsing " + targets.length + " entries from flutter docs"
+  ).start();
+  const defs: Array<FlutterDocEnumDefinition> = await parse_enums_from_docs(
+    ...targets
+  );
 
   spinner.succeed("Parsed");
 

@@ -3,111 +3,55 @@
     "id": "animation/AnimationBehavior",
     "url": "https://api.flutter.dev/flutter/animation/AnimationBehavior.html",
     "name": "AnimationBehavior",
-    "values": [
-      "normal",
-      "preserve"
-    ]
+    "values": ["normal", "preserve"]
   },
   {
     "id": "animation/AnimationStatus",
     "url": "https://api.flutter.dev/flutter/animation/AnimationStatus.html",
     "name": "AnimationStatus",
-    "values": [
-      "dismissed",
-      "forward",
-      "reverse",
-      "completed"
-    ]
+    "values": ["dismissed", "forward", "reverse", "completed"]
   },
   {
     "id": "widgets/AndroidOverscrollIndicator",
     "url": "https://api.flutter.dev/flutter/widgets/AndroidOverscrollIndicator.html",
     "name": "AndroidOverscrollIndicator",
-    "values": [
-      "stretch",
-      "glow"
-    ]
-  },
-  {
-    "id": "animation/AnimationBehavior",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationBehavior.html",
-    "name": "AnimationBehavior",
-    "values": [
-      "normal",
-      "preserve"
-    ]
-  },
-  {
-    "id": "animation/AnimationStatus",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationStatus.html",
-    "name": "AnimationStatus",
-    "values": [
-      "dismissed",
-      "forward",
-      "reverse",
-      "completed"
-    ]
+    "values": ["stretch", "glow"]
   },
   {
     "id": "dart-ui/AppLifecycleState",
     "url": "https://api.flutter.dev/flutter/dart-ui/AppLifecycleState.html",
     "name": "AppLifecycleState",
-    "values": [
-      "resumed",
-      "inactive",
-      "paused",
-      "detached"
-    ]
+    "values": ["resumed", "inactive", "paused", "detached"]
   },
   {
     "id": "widgets/AutofillContextAction",
     "url": "https://api.flutter.dev/flutter/widgets/AutofillContextAction.html",
     "name": "AutofillContextAction",
-    "values": [
-      "commit",
-      "cancel"
-    ]
+    "values": ["commit", "cancel"]
   },
   {
     "id": "widgets/AutovalidateMode",
     "url": "https://api.flutter.dev/flutter/widgets/AutovalidateMode.html",
     "name": "AutovalidateMode",
-    "values": [
-      "disabled",
-      "always",
-      "onUserInteraction"
-    ]
+    "values": ["disabled", "always", "onUserInteraction"]
   },
   {
     "id": "painting/Axis",
     "url": "https://api.flutter.dev/flutter/painting/Axis.html",
     "name": "Axis",
-    "values": [
-      "horizontal",
-      "vertical"
-    ]
+    "values": ["horizontal", "vertical"]
   },
   {
     "id": "painting/AxisDirection",
     "url": "https://api.flutter.dev/flutter/painting/AxisDirection.html",
     "name": "AxisDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
+    "values": ["up", "right", "down", "left"]
   },
   {
     "id": "widgets/BannerLocation",
     "url": "https://api.flutter.dev/flutter/widgets/BannerLocation.html",
     "name": "BannerLocation",
-    "values": [
-      "topStart",
-      "topEnd",
-      "bottomStart",
-      "bottomEnd"
-    ]
+    "values": ["topStart", "topEnd", "bottomStart", "bottomEnd"]
   },
   {
     "id": "dart-ui/BlendMode",
@@ -149,21 +93,13 @@
     "id": "dart-ui/BlurStyle",
     "url": "https://api.flutter.dev/flutter/dart-ui/BlurStyle.html",
     "name": "BlurStyle",
-    "values": [
-      "normal",
-      "solid",
-      "outer",
-      "inner"
-    ]
+    "values": ["normal", "solid", "outer", "inner"]
   },
   {
     "id": "painting/BorderStyle",
     "url": "https://api.flutter.dev/flutter/painting/BorderStyle.html",
     "name": "BorderStyle",
-    "values": [
-      "none",
-      "solid"
-    ]
+    "values": ["none", "solid"]
   },
   {
     "id": "painting/BoxFit",
@@ -183,133 +119,79 @@
     "id": "painting/BoxShape",
     "url": "https://api.flutter.dev/flutter/painting/BoxShape.html",
     "name": "BoxShape",
-    "values": [
-      "rectangle",
-      "circle"
-    ]
+    "values": ["rectangle", "circle"]
   },
   {
     "id": "dart-ui/Brightness",
     "url": "https://api.flutter.dev/flutter/dart-ui/Brightness.html",
     "name": "Brightness",
-    "values": [
-      "dark",
-      "light"
-    ]
+    "values": ["dark", "light"]
   },
   {
     "id": "dart-ui/Clip",
     "url": "https://api.flutter.dev/flutter/dart-ui/Clip.html",
     "name": "Clip",
-    "values": [
-      "none",
-      "hardEdge",
-      "antiAlias",
-      "antiAliasWithSaveLayer"
-    ]
+    "values": ["none", "hardEdge", "antiAlias", "antiAliasWithSaveLayer"]
   },
   {
     "id": "widgets/ClipboardStatus",
     "url": "https://api.flutter.dev/flutter/widgets/ClipboardStatus.html",
     "name": "ClipboardStatus",
-    "values": [
-      "pasteable",
-      "unknown",
-      "notPasteable"
-    ]
+    "values": ["pasteable", "unknown", "notPasteable"]
   },
   {
     "id": "widgets/ConnectionState",
     "url": "https://api.flutter.dev/flutter/widgets/ConnectionState.html",
     "name": "ConnectionState",
-    "values": [
-      "none",
-      "waiting",
-      "active",
-      "done"
-    ]
+    "values": ["none", "waiting", "active", "done"]
   },
   {
     "id": "widgets/ContextMenuButtonType",
     "url": "https://api.flutter.dev/flutter/widgets/ContextMenuButtonType.html",
     "name": "ContextMenuButtonType",
-    "values": [
-      "cut",
-      "copy",
-      "paste",
-      "selectAll",
-      "custom"
-    ]
+    "values": ["cut", "copy", "paste", "selectAll", "custom"]
   },
   {
     "id": "rendering/CrossAxisAlignment",
     "url": "https://api.flutter.dev/flutter/rendering/CrossAxisAlignment.html",
     "name": "CrossAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "stretch",
-      "baseline"
-    ]
+    "values": ["start", "end", "center", "stretch", "baseline"]
   },
   {
     "id": "widgets/CrossFadeState",
     "url": "https://api.flutter.dev/flutter/widgets/CrossFadeState.html",
     "name": "CrossFadeState",
-    "values": [
-      "showFirst",
-      "showSecond"
-    ]
+    "values": ["showFirst", "showSecond"]
   },
   {
     "id": "cupertino/CupertinoDatePickerMode",
     "url": "https://api.flutter.dev/flutter/cupertino/CupertinoDatePickerMode.html",
     "name": "CupertinoDatePickerMode",
-    "values": [
-      "time",
-      "date",
-      "dateAndTime"
-    ]
+    "values": ["time", "date", "dateAndTime"]
   },
   {
     "id": "cupertino/CupertinoListSectionType",
     "url": "https://api.flutter.dev/flutter/cupertino/CupertinoListSectionType.html",
     "name": "CupertinoListSectionType",
-    "values": [
-      "base",
-      "insetGrouped"
-    ]
+    "values": ["base", "insetGrouped"]
   },
   {
     "id": "cupertino/CupertinoTimerPickerMode",
     "url": "https://api.flutter.dev/flutter/cupertino/CupertinoTimerPickerMode.html",
     "name": "CupertinoTimerPickerMode",
-    "values": [
-      "hm",
-      "ms",
-      "hms"
-    ]
+    "values": ["hm", "ms", "hms"]
   },
   {
     "id": "cupertino/CupertinoUserInterfaceLevelData",
     "url": "https://api.flutter.dev/flutter/cupertino/CupertinoUserInterfaceLevelData.html",
     "name": "CupertinoUserInterfaceLevelData",
-    "values": [
-      "base",
-      "elevated"
-    ]
+    "values": ["base", "elevated"]
   },
   {
     "id": "cupertino/DatePickerDateOrder",
     "url": "https://api.flutter.dev/flutter/cupertino/DatePickerDateOrder.html",
     "name": "DatePickerDateOrder",
-    "values": [
-      "dmy",
-      "mdy",
-      "ymd",
-      "ydm"
-    ]
+    "values": ["dmy", "mdy", "ymd", "ydm"]
   },
   {
     "id": "cupertino/DatePickerDateTimeOrder",
@@ -326,10 +208,7 @@
     "id": "rendering/DecorationPosition",
     "url": "https://api.flutter.dev/flutter/rendering/DecorationPosition.html",
     "name": "DecorationPosition",
-    "values": [
-      "background",
-      "foreground"
-    ]
+    "values": ["background", "foreground"]
   },
   {
     "id": "foundation/DiagnosticLevel",
@@ -365,108 +244,67 @@
     "id": "dart-ui/FilterQuality",
     "url": "https://api.flutter.dev/flutter/dart-ui/FilterQuality.html",
     "name": "FilterQuality",
-    "values": [
-      "none",
-      "low",
-      "medium",
-      "high"
-    ]
+    "values": ["none", "low", "medium", "high"]
   },
   {
     "id": "rendering/FlexFit",
     "url": "https://api.flutter.dev/flutter/rendering/FlexFit.html",
     "name": "FlexFit",
-    "values": [
-      "tight",
-      "loose"
-    ]
+    "values": ["tight", "loose"]
   },
   {
     "id": "painting/FlutterLogoStyle",
     "url": "https://api.flutter.dev/flutter/painting/FlutterLogoStyle.html",
     "name": "FlutterLogoStyle",
-    "values": [
-      "markOnly",
-      "horizontal",
-      "stacked"
-    ]
+    "values": ["markOnly", "horizontal", "stacked"]
   },
   {
     "id": "widgets/FocusHighlightMode",
     "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightMode.html",
     "name": "FocusHighlightMode",
-    "values": [
-      "touch",
-      "traditional"
-    ]
+    "values": ["touch", "traditional"]
   },
   {
     "id": "widgets/FocusHighlightStrategy",
     "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightStrategy.html",
     "name": "FocusHighlightStrategy",
-    "values": [
-      "automatic",
-      "alwaysTouch",
-      "alwaysTraditional"
-    ]
+    "values": ["automatic", "alwaysTouch", "alwaysTraditional"]
   },
   {
     "id": "dart-ui/FontStyle",
     "url": "https://api.flutter.dev/flutter/dart-ui/FontStyle.html",
     "name": "FontStyle",
-    "values": [
-      "normal",
-      "italic"
-    ]
+    "values": ["normal", "italic"]
   },
   {
     "id": "rendering/GrowthDirection",
     "url": "https://api.flutter.dev/flutter/rendering/GrowthDirection.html",
     "name": "GrowthDirection",
-    "values": [
-      "forward",
-      "reverse"
-    ]
+    "values": ["forward", "reverse"]
   },
   {
     "id": "widgets/HeroFlightDirection",
     "url": "https://api.flutter.dev/flutter/widgets/HeroFlightDirection.html",
     "name": "HeroFlightDirection",
-    "values": [
-      "push",
-      "pop"
-    ]
+    "values": ["push", "pop"]
   },
   {
     "id": "rendering/HitTestBehavior",
     "url": "https://api.flutter.dev/flutter/rendering/HitTestBehavior.html",
     "name": "HitTestBehavior",
-    "values": [
-      "deferToChild",
-      "opaque",
-      "translucent"
-    ]
+    "values": ["deferToChild", "opaque", "translucent"]
   },
   {
     "id": "painting/ImageRepeat",
     "url": "https://api.flutter.dev/flutter/painting/ImageRepeat.html",
     "name": "ImageRepeat",
-    "values": [
-      "repeat",
-      "repeatX",
-      "repeatY",
-      "noRepeat"
-    ]
+    "values": ["repeat", "repeatX", "repeatY", "noRepeat"]
   },
   {
     "id": "widgets/KeyEventResult",
     "url": "https://api.flutter.dev/flutter/widgets/KeyEventResult.html",
     "name": "KeyEventResult",
-    "values": [
-      "handled",
-      "ignored",
-      "skipRemainingHandlers"
-    ]
+    "values": ["handled", "ignored", "skipRemainingHandlers"]
   },
   {
     "id": "rendering/MainAxisAlignment",
@@ -485,90 +323,55 @@
     "id": "rendering/MainAxisSize",
     "url": "https://api.flutter.dev/flutter/rendering/MainAxisSize.html",
     "name": "MainAxisSize",
-    "values": [
-      "min",
-      "max"
-    ]
+    "values": ["min", "max"]
   },
   {
     "id": "widgets/NavigationMode",
     "url": "https://api.flutter.dev/flutter/widgets/NavigationMode.html",
     "name": "NavigationMode",
-    "values": [
-      "traditional",
-      "directional"
-    ]
+    "values": ["traditional", "directional"]
   },
   {
     "id": "widgets/Orientation",
     "url": "https://api.flutter.dev/flutter/widgets/Orientation.html",
     "name": "Orientation",
-    "values": [
-      "portrait",
-      "landscape"
-    ]
+    "values": ["portrait", "landscape"]
   },
   {
     "id": "widgets/OverflowBarAlignment",
     "url": "https://api.flutter.dev/flutter/widgets/OverflowBarAlignment.html",
     "name": "OverflowBarAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
+    "values": ["start", "end", "center"]
   },
   {
     "id": "cupertino/OverlayVisibilityMode",
     "url": "https://api.flutter.dev/flutter/cupertino/OverlayVisibilityMode.html",
     "name": "OverlayVisibilityMode",
-    "values": [
-      "never",
-      "editing",
-      "notEditing",
-      "always"
-    ]
+    "values": ["never", "editing", "notEditing", "always"]
   },
   {
     "id": "dart-ui/PaintingStyle",
     "url": "https://api.flutter.dev/flutter/dart-ui/PaintingStyle.html",
     "name": "PaintingStyle",
-    "values": [
-      "fill",
-      "stroke"
-    ]
+    "values": ["fill", "stroke"]
   },
   {
     "id": "widgets/PanAxis",
     "url": "https://api.flutter.dev/flutter/widgets/PanAxis.html",
     "name": "PanAxis",
-    "values": [
-      "horizontal",
-      "vertical",
-      "aligned",
-      "free"
-    ]
+    "values": ["horizontal", "vertical", "aligned", "free"]
   },
   {
     "id": "dart-ui/PathFillType",
     "url": "https://api.flutter.dev/flutter/dart-ui/PathFillType.html",
     "name": "PathFillType",
-    "values": [
-      "nonZero",
-      "evenOdd"
-    ]
+    "values": ["nonZero", "evenOdd"]
   },
   {
     "id": "dart-ui/PathOperation",
     "url": "https://api.flutter.dev/flutter/dart-ui/PathOperation.html",
     "name": "PathOperation",
-    "values": [
-      "difference",
-      "intersect",
-      "union",
-      "xor",
-      "reverseDifference"
-    ]
+    "values": ["difference", "intersect", "union", "xor", "reverseDifference"]
   },
   {
     "id": "dart-ui/PlaceholderAlignment",
@@ -606,92 +409,55 @@
     "id": "cupertino/RefreshIndicatorMode",
     "url": "https://api.flutter.dev/flutter/cupertino/RefreshIndicatorMode.html",
     "name": "RefreshIndicatorMode",
-    "values": [
-      "inactive",
-      "drag",
-      "armed",
-      "refresh",
-      "done"
-    ]
+    "values": ["inactive", "drag", "armed", "refresh", "done"]
   },
   {
     "id": "painting/RenderComparison",
     "url": "https://api.flutter.dev/flutter/painting/RenderComparison.html",
     "name": "RenderComparison",
-    "values": [
-      "identical",
-      "metadata",
-      "paint",
-      "layout"
-    ]
+    "values": ["identical", "metadata", "paint", "layout"]
   },
   {
     "id": "widgets/RouteInformationReportingType",
     "url": "https://api.flutter.dev/flutter/widgets/RouteInformationReportingType.html",
     "name": "RouteInformationReportingType",
-    "values": [
-      "none",
-      "neglect",
-      "navigate"
-    ]
+    "values": ["none", "neglect", "navigate"]
   },
   {
     "id": "widgets/RoutePopDisposition",
     "url": "https://api.flutter.dev/flutter/widgets/RoutePopDisposition.html",
     "name": "RoutePopDisposition",
-    "values": [
-      "pop",
-      "doNotPop",
-      "bubble"
-    ]
+    "values": ["pop", "doNotPop", "bubble"]
   },
   {
     "id": "widgets/ScrollbarOrientation",
     "url": "https://api.flutter.dev/flutter/widgets/ScrollbarOrientation.html",
     "name": "ScrollbarOrientation",
-    "values": [
-      "left",
-      "right",
-      "top",
-      "bottom"
-    ]
+    "values": ["left", "right", "top", "bottom"]
   },
   {
     "id": "widgets/ScrollDecelerationRate",
     "url": "https://api.flutter.dev/flutter/widgets/ScrollDecelerationRate.html",
     "name": "ScrollDecelerationRate",
-    "values": [
-      "normal",
-      "fast"
-    ]
+    "values": ["normal", "fast"]
   },
   {
     "id": "widgets/ScrollIncrementType",
     "url": "https://api.flutter.dev/flutter/widgets/ScrollIncrementType.html",
     "name": "ScrollIncrementType",
-    "values": [
-      "line",
-      "page"
-    ]
+    "values": ["line", "page"]
   },
   {
     "id": "widgets/ScrollPositionAlignmentPolicy",
     "url": "https://api.flutter.dev/flutter/widgets/ScrollPositionAlignmentPolicy.html",
     "name": "ScrollPositionAlignmentPolicy",
-    "values": [
-      "explicit",
-      "keepVisibleAtEnd",
-      "keepVisibleAtStart"
-    ]
+    "values": ["explicit", "keepVisibleAtEnd", "keepVisibleAtStart"]
   },
   {
     "id": "widgets/ScrollViewKeyboardDismissBehavior",
     "url": "https://api.flutter.dev/flutter/widgets/ScrollViewKeyboardDismissBehavior.html",
     "name": "ScrollViewKeyboardDismissBehavior",
-    "values": [
-      "manual",
-      "onDrag"
-    ]
+    "values": ["manual", "onDrag"]
   },
   {
     "id": "services/SelectionChangedCause",
@@ -712,147 +478,85 @@
     "id": "services/SmartDashesType",
     "url": "https://api.flutter.dev/flutter/services/SmartDashesType.html",
     "name": "SmartDashesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
+    "values": ["disabled", "enabled"]
   },
   {
     "id": "services/SmartQuotesType",
     "url": "https://api.flutter.dev/flutter/services/SmartQuotesType.html",
     "name": "SmartQuotesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
+    "values": ["disabled", "enabled"]
   },
   {
     "id": "widgets/SnapshotMode",
     "url": "https://api.flutter.dev/flutter/widgets/SnapshotMode.html",
     "name": "SnapshotMode",
-    "values": [
-      "permissive",
-      "normal",
-      "forced"
-    ]
+    "values": ["permissive", "normal", "forced"]
   },
   {
     "id": "rendering/StackFit",
     "url": "https://api.flutter.dev/flutter/rendering/StackFit.html",
     "name": "StackFit",
-    "values": [
-      "loose",
-      "expand",
-      "passthrough"
-    ]
+    "values": ["loose", "expand", "passthrough"]
   },
   {
     "id": "dart-ui/StrokeCap",
     "url": "https://api.flutter.dev/flutter/dart-ui/StrokeCap.html",
     "name": "StrokeCap",
-    "values": [
-      "butt",
-      "round",
-      "square"
-    ]
+    "values": ["butt", "round", "square"]
   },
   {
     "id": "dart-ui/StrokeJoin",
     "url": "https://api.flutter.dev/flutter/dart-ui/StrokeJoin.html",
     "name": "StrokeJoin",
-    "values": [
-      "miter",
-      "round",
-      "bevel"
-    ]
+    "values": ["miter", "round", "bevel"]
   },
   {
     "id": "rendering/TableCellVerticalAlignment",
     "url": "https://api.flutter.dev/flutter/rendering/TableCellVerticalAlignment.html",
     "name": "TableCellVerticalAlignment",
-    "values": [
-      "top",
-      "middle",
-      "bottom",
-      "baseline",
-      "fill"
-    ]
+    "values": ["top", "middle", "bottom", "baseline", "fill"]
   },
   {
     "id": "foundation/TargetPlatform",
     "url": "https://api.flutter.dev/flutter/foundation/TargetPlatform.html",
     "name": "TargetPlatform",
-    "values": [
-      "android",
-      "fuchsia",
-      "iOS",
-      "linux",
-      "macOS",
-      "windows"
-    ]
+    "values": ["android", "fuchsia", "iOS", "linux", "macOS", "windows"]
   },
   {
     "id": "dart-ui/TextAffinity",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
     "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
+    "values": ["upstream", "downstream"]
   },
   {
     "id": "dart-ui/TextAlign",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
     "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
+    "values": ["left", "right", "center", "justify", "start", "end"]
   },
   {
     "id": "dart-ui/TextBaseline",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextBaseline.html",
     "name": "TextBaseline",
-    "values": [
-      "alphabetic",
-      "ideographic"
-    ]
+    "values": ["alphabetic", "ideographic"]
   },
   {
     "id": "services/TextCapitalization",
     "url": "https://api.flutter.dev/flutter/services/TextCapitalization.html",
     "name": "TextCapitalization",
-    "values": [
-      "words",
-      "sentences",
-      "characters",
-      "none"
-    ]
+    "values": ["words", "sentences", "characters", "none"]
   },
   {
     "id": "dart-ui/TextDecorationStyle",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextDecorationStyle.html",
     "name": "TextDecorationStyle",
-    "values": [
-      "solid",
-      "double",
-      "dotted",
-      "dashed",
-      "wavy"
-    ]
+    "values": ["solid", "double", "dotted", "dashed", "wavy"]
   },
   {
     "id": "dart-ui/TextDirection",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
     "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
+    "values": ["rtl", "ltr"]
   },
   {
     "id": "services/TextInputAction",
@@ -878,90 +582,55 @@
     "id": "dart-ui/TextLeadingDistribution",
     "url": "https://api.flutter.dev/flutter/dart-ui/TextLeadingDistribution.html",
     "name": "TextLeadingDistribution",
-    "values": [
-      "proportional",
-      "even"
-    ]
+    "values": ["proportional", "even"]
   },
   {
     "id": "painting/TextOverflow",
     "url": "https://api.flutter.dev/flutter/painting/TextOverflow.html",
     "name": "TextOverflow",
-    "values": [
-      "clip",
-      "fade",
-      "ellipsis",
-      "visible"
-    ]
+    "values": ["clip", "fade", "ellipsis", "visible"]
   },
   {
     "id": "rendering/TextSelectionHandleType",
     "url": "https://api.flutter.dev/flutter/rendering/TextSelectionHandleType.html",
     "name": "TextSelectionHandleType",
-    "values": [
-      "left",
-      "right",
-      "collapsed"
-    ]
+    "values": ["left", "right", "collapsed"]
   },
   {
     "id": "painting/TextWidthBasis",
     "url": "https://api.flutter.dev/flutter/painting/TextWidthBasis.html",
     "name": "TextWidthBasis",
-    "values": [
-      "parent",
-      "longestLine"
-    ]
+    "values": ["parent", "longestLine"]
   },
   {
     "id": "dart-ui/TileMode",
     "url": "https://api.flutter.dev/flutter/dart-ui/TileMode.html",
     "name": "TileMode",
-    "values": [
-      "clamp",
-      "repeated",
-      "mirror",
-      "decal"
-    ]
+    "values": ["clamp", "repeated", "mirror", "decal"]
   },
   {
     "id": "widgets/TraversalDirection",
     "url": "https://api.flutter.dev/flutter/widgets/TraversalDirection.html",
     "name": "TraversalDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
+    "values": ["up", "right", "down", "left"]
   },
   {
     "id": "widgets/UnfocusDisposition",
     "url": "https://api.flutter.dev/flutter/widgets/UnfocusDisposition.html",
     "name": "UnfocusDisposition",
-    "values": [
-      "scope",
-      "previouslyFocusedChild"
-    ]
+    "values": ["scope", "previouslyFocusedChild"]
   },
   {
     "id": "dart-ui/VertexMode",
     "url": "https://api.flutter.dev/flutter/dart-ui/VertexMode.html",
     "name": "VertexMode",
-    "values": [
-      "triangles",
-      "triangleStrip",
-      "triangleFan"
-    ]
+    "values": ["triangles", "triangleStrip", "triangleFan"]
   },
   {
     "id": "painting/VerticalDirection",
     "url": "https://api.flutter.dev/flutter/painting/VerticalDirection.html",
     "name": "VerticalDirection",
-    "values": [
-      "up",
-      "down"
-    ]
+    "values": ["up", "down"]
   },
   {
     "id": "widgets/WidgetInspectorServiceExtensions",
@@ -1034,36 +703,7 @@
     "id": "rendering/WrapCrossAlignment",
     "url": "https://api.flutter.dev/flutter/rendering/WrapCrossAlignment.html",
     "name": "WrapCrossAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
-  },
-  {
-    "id": "dart-ui/Brightness",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Brightness.html",
-    "name": "Brightness",
-    "values": [
-      "dark",
-      "light"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
+    "values": ["start", "end", "center"]
   },
   {
     "id": "foundation/DiagnosticsTreeStyle",
@@ -1098,45 +738,22 @@
     ]
   },
   {
-    "id": "foundation/TargetPlatform",
-    "url": "https://api.flutter.dev/flutter/foundation/TargetPlatform.html",
-    "name": "TargetPlatform",
-    "values": [
-      "android",
-      "fuchsia",
-      "iOS",
-      "linux",
-      "macOS",
-      "windows"
-    ]
-  },
-  {
     "id": "gestures/DragStartBehavior",
     "url": "https://api.flutter.dev/flutter/gestures/DragStartBehavior.html",
     "name": "DragStartBehavior",
-    "values": [
-      "down",
-      "start"
-    ]
+    "values": ["down", "start"]
   },
   {
     "id": "gestures/GestureDisposition",
     "url": "https://api.flutter.dev/flutter/gestures/GestureDisposition.html",
     "name": "GestureDisposition",
-    "values": [
-      "accepted",
-      "rejected"
-    ]
+    "values": ["accepted", "rejected"]
   },
   {
     "id": "gestures/GestureRecognizerState",
     "url": "https://api.flutter.dev/flutter/gestures/GestureRecognizerState.html",
     "name": "GestureRecognizerState",
-    "values": [
-      "ready",
-      "possible",
-      "defunct"
-    ]
+    "values": ["ready", "possible", "defunct"]
   },
   {
     "id": "dart-ui/PointerDeviceKind",
@@ -1152,551 +769,88 @@
     ]
   },
   {
-    "id": "widgets/AndroidOverscrollIndicator",
-    "url": "https://api.flutter.dev/flutter/widgets/AndroidOverscrollIndicator.html",
-    "name": "AndroidOverscrollIndicator",
-    "values": [
-      "stretch",
-      "glow"
-    ]
-  },
-  {
-    "id": "animation/AnimationBehavior",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationBehavior.html",
-    "name": "AnimationBehavior",
-    "values": [
-      "normal",
-      "preserve"
-    ]
-  },
-  {
-    "id": "animation/AnimationStatus",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationStatus.html",
-    "name": "AnimationStatus",
-    "values": [
-      "dismissed",
-      "forward",
-      "reverse",
-      "completed"
-    ]
-  },
-  {
-    "id": "dart-ui/AppLifecycleState",
-    "url": "https://api.flutter.dev/flutter/dart-ui/AppLifecycleState.html",
-    "name": "AppLifecycleState",
-    "values": [
-      "resumed",
-      "inactive",
-      "paused",
-      "detached"
-    ]
-  },
-  {
-    "id": "widgets/AutofillContextAction",
-    "url": "https://api.flutter.dev/flutter/widgets/AutofillContextAction.html",
-    "name": "AutofillContextAction",
-    "values": [
-      "commit",
-      "cancel"
-    ]
-  },
-  {
-    "id": "widgets/AutovalidateMode",
-    "url": "https://api.flutter.dev/flutter/widgets/AutovalidateMode.html",
-    "name": "AutovalidateMode",
-    "values": [
-      "disabled",
-      "always",
-      "onUserInteraction"
-    ]
-  },
-  {
-    "id": "painting/Axis",
-    "url": "https://api.flutter.dev/flutter/painting/Axis.html",
-    "name": "Axis",
-    "values": [
-      "horizontal",
-      "vertical"
-    ]
-  },
-  {
-    "id": "painting/AxisDirection",
-    "url": "https://api.flutter.dev/flutter/painting/AxisDirection.html",
-    "name": "AxisDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
-  },
-  {
-    "id": "widgets/BannerLocation",
-    "url": "https://api.flutter.dev/flutter/widgets/BannerLocation.html",
-    "name": "BannerLocation",
-    "values": [
-      "topStart",
-      "topEnd",
-      "bottomStart",
-      "bottomEnd"
-    ]
-  },
-  {
-    "id": "dart-ui/BlendMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlendMode.html",
-    "name": "BlendMode",
-    "values": [
-      "clear",
-      "src",
-      "dst",
-      "srcOver",
-      "dstOver",
-      "srcIn",
-      "dstIn",
-      "srcOut",
-      "dstOut",
-      "srcATop",
-      "dstATop",
-      "xor",
-      "plus",
-      "modulate",
-      "screen",
-      "overlay",
-      "darken",
-      "lighten",
-      "colorDodge",
-      "colorBurn",
-      "hardLight",
-      "softLight",
-      "difference",
-      "exclusion",
-      "multiply",
-      "hue",
-      "saturation",
-      "color",
-      "luminosity"
-    ]
-  },
-  {
-    "id": "dart-ui/BlurStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlurStyle.html",
-    "name": "BlurStyle",
-    "values": [
-      "normal",
-      "solid",
-      "outer",
-      "inner"
-    ]
-  },
-  {
-    "id": "painting/BorderStyle",
-    "url": "https://api.flutter.dev/flutter/painting/BorderStyle.html",
-    "name": "BorderStyle",
-    "values": [
-      "none",
-      "solid"
-    ]
-  },
-  {
     "id": "material/BottomNavigationBarLandscapeLayout",
     "url": "https://api.flutter.dev/flutter/material/BottomNavigationBarLandscapeLayout.html",
     "name": "BottomNavigationBarLandscapeLayout",
-    "values": [
-      "spread",
-      "centered",
-      "linear"
-    ]
+    "values": ["spread", "centered", "linear"]
   },
   {
     "id": "material/BottomNavigationBarType",
     "url": "https://api.flutter.dev/flutter/material/BottomNavigationBarType.html",
     "name": "BottomNavigationBarType",
-    "values": [
-      "fixed",
-      "shifting"
-    ]
-  },
-  {
-    "id": "painting/BoxFit",
-    "url": "https://api.flutter.dev/flutter/painting/BoxFit.html",
-    "name": "BoxFit",
-    "values": [
-      "fill",
-      "contain",
-      "cover",
-      "fitWidth",
-      "fitHeight",
-      "none",
-      "scaleDown"
-    ]
-  },
-  {
-    "id": "painting/BoxShape",
-    "url": "https://api.flutter.dev/flutter/painting/BoxShape.html",
-    "name": "BoxShape",
-    "values": [
-      "rectangle",
-      "circle"
-    ]
-  },
-  {
-    "id": "dart-ui/Brightness",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Brightness.html",
-    "name": "Brightness",
-    "values": [
-      "dark",
-      "light"
-    ]
+    "values": ["fixed", "shifting"]
   },
   {
     "id": "material/ButtonBarLayoutBehavior",
     "url": "https://api.flutter.dev/flutter/material/ButtonBarLayoutBehavior.html",
     "name": "ButtonBarLayoutBehavior",
-    "values": [
-      "constrained",
-      "padded"
-    ]
+    "values": ["constrained", "padded"]
   },
   {
     "id": "material/ButtonTextTheme",
     "url": "https://api.flutter.dev/flutter/material/ButtonTextTheme.html",
     "name": "ButtonTextTheme",
-    "values": [
-      "normal",
-      "accent",
-      "primary"
-    ]
-  },
-  {
-    "id": "dart-ui/Clip",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Clip.html",
-    "name": "Clip",
-    "values": [
-      "none",
-      "hardEdge",
-      "antiAlias",
-      "antiAliasWithSaveLayer"
-    ]
-  },
-  {
-    "id": "widgets/ClipboardStatus",
-    "url": "https://api.flutter.dev/flutter/widgets/ClipboardStatus.html",
-    "name": "ClipboardStatus",
-    "values": [
-      "pasteable",
-      "unknown",
-      "notPasteable"
-    ]
+    "values": ["normal", "accent", "primary"]
   },
   {
     "id": "material/CollapseMode",
     "url": "https://api.flutter.dev/flutter/material/CollapseMode.html",
     "name": "CollapseMode",
-    "values": [
-      "parallax",
-      "pin",
-      "none"
-    ]
-  },
-  {
-    "id": "widgets/ConnectionState",
-    "url": "https://api.flutter.dev/flutter/widgets/ConnectionState.html",
-    "name": "ConnectionState",
-    "values": [
-      "none",
-      "waiting",
-      "active",
-      "done"
-    ]
-  },
-  {
-    "id": "widgets/ContextMenuButtonType",
-    "url": "https://api.flutter.dev/flutter/widgets/ContextMenuButtonType.html",
-    "name": "ContextMenuButtonType",
-    "values": [
-      "cut",
-      "copy",
-      "paste",
-      "selectAll",
-      "custom"
-    ]
-  },
-  {
-    "id": "rendering/CrossAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/CrossAxisAlignment.html",
-    "name": "CrossAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "stretch",
-      "baseline"
-    ]
-  },
-  {
-    "id": "widgets/CrossFadeState",
-    "url": "https://api.flutter.dev/flutter/widgets/CrossFadeState.html",
-    "name": "CrossFadeState",
-    "values": [
-      "showFirst",
-      "showSecond"
-    ]
+    "values": ["parallax", "pin", "none"]
   },
   {
     "id": "material/DatePickerEntryMode",
     "url": "https://api.flutter.dev/flutter/material/DatePickerEntryMode.html",
     "name": "DatePickerEntryMode",
-    "values": [
-      "calendar",
-      "input",
-      "calendarOnly",
-      "inputOnly"
-    ]
+    "values": ["calendar", "input", "calendarOnly", "inputOnly"]
   },
   {
     "id": "material/DatePickerMode",
     "url": "https://api.flutter.dev/flutter/material/DatePickerMode.html",
     "name": "DatePickerMode",
-    "values": [
-      "day",
-      "year"
-    ]
+    "values": ["day", "year"]
   },
   {
     "id": "material/DayPeriod",
     "url": "https://api.flutter.dev/flutter/material/DayPeriod.html",
     "name": "DayPeriod",
-    "values": [
-      "am",
-      "pm"
-    ]
-  },
-  {
-    "id": "rendering/DecorationPosition",
-    "url": "https://api.flutter.dev/flutter/rendering/DecorationPosition.html",
-    "name": "DecorationPosition",
-    "values": [
-      "background",
-      "foreground"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
-  },
-  {
-    "id": "widgets/DismissDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/DismissDirection.html",
-    "name": "DismissDirection",
-    "values": [
-      "vertical",
-      "horizontal",
-      "endToStart",
-      "startToEnd",
-      "up",
-      "down",
-      "none"
-    ]
+    "values": ["am", "pm"]
   },
   {
     "id": "material/DrawerAlignment",
     "url": "https://api.flutter.dev/flutter/material/DrawerAlignment.html",
     "name": "DrawerAlignment",
-    "values": [
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/FilterQuality",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FilterQuality.html",
-    "name": "FilterQuality",
-    "values": [
-      "none",
-      "low",
-      "medium",
-      "high"
-    ]
-  },
-  {
-    "id": "rendering/FlexFit",
-    "url": "https://api.flutter.dev/flutter/rendering/FlexFit.html",
-    "name": "FlexFit",
-    "values": [
-      "tight",
-      "loose"
-    ]
+    "values": ["start", "end"]
   },
   {
     "id": "material/FloatingLabelBehavior",
     "url": "https://api.flutter.dev/flutter/material/FloatingLabelBehavior.html",
     "name": "FloatingLabelBehavior",
-    "values": [
-      "never",
-      "auto",
-      "always"
-    ]
-  },
-  {
-    "id": "painting/FlutterLogoStyle",
-    "url": "https://api.flutter.dev/flutter/painting/FlutterLogoStyle.html",
-    "name": "FlutterLogoStyle",
-    "values": [
-      "markOnly",
-      "horizontal",
-      "stacked"
-    ]
-  },
-  {
-    "id": "widgets/FocusHighlightMode",
-    "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightMode.html",
-    "name": "FocusHighlightMode",
-    "values": [
-      "touch",
-      "traditional"
-    ]
-  },
-  {
-    "id": "widgets/FocusHighlightStrategy",
-    "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightStrategy.html",
-    "name": "FocusHighlightStrategy",
-    "values": [
-      "automatic",
-      "alwaysTouch",
-      "alwaysTraditional"
-    ]
-  },
-  {
-    "id": "dart-ui/FontStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FontStyle.html",
-    "name": "FontStyle",
-    "values": [
-      "normal",
-      "italic"
-    ]
-  },
-  {
-    "id": "rendering/GrowthDirection",
-    "url": "https://api.flutter.dev/flutter/rendering/GrowthDirection.html",
-    "name": "GrowthDirection",
-    "values": [
-      "forward",
-      "reverse"
-    ]
-  },
-  {
-    "id": "widgets/HeroFlightDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/HeroFlightDirection.html",
-    "name": "HeroFlightDirection",
-    "values": [
-      "push",
-      "pop"
-    ]
-  },
-  {
-    "id": "rendering/HitTestBehavior",
-    "url": "https://api.flutter.dev/flutter/rendering/HitTestBehavior.html",
-    "name": "HitTestBehavior",
-    "values": [
-      "deferToChild",
-      "opaque",
-      "translucent"
-    ]
+    "values": ["never", "auto", "always"]
   },
   {
     "id": "material/HourFormat",
     "url": "https://api.flutter.dev/flutter/material/HourFormat.html",
     "name": "HourFormat",
-    "values": [
-      "HH",
-      "H",
-      "h"
-    ]
-  },
-  {
-    "id": "painting/ImageRepeat",
-    "url": "https://api.flutter.dev/flutter/painting/ImageRepeat.html",
-    "name": "ImageRepeat",
-    "values": [
-      "repeat",
-      "repeatX",
-      "repeatY",
-      "noRepeat"
-    ]
-  },
-  {
-    "id": "widgets/KeyEventResult",
-    "url": "https://api.flutter.dev/flutter/widgets/KeyEventResult.html",
-    "name": "KeyEventResult",
-    "values": [
-      "handled",
-      "ignored",
-      "skipRemainingHandlers"
-    ]
+    "values": ["HH", "H", "h"]
   },
   {
     "id": "material/ListTileControlAffinity",
     "url": "https://api.flutter.dev/flutter/material/ListTileControlAffinity.html",
     "name": "ListTileControlAffinity",
-    "values": [
-      "leading",
-      "trailing",
-      "platform"
-    ]
+    "values": ["leading", "trailing", "platform"]
   },
   {
     "id": "material/ListTileStyle",
     "url": "https://api.flutter.dev/flutter/material/ListTileStyle.html",
     "name": "ListTileStyle",
-    "values": [
-      "list",
-      "drawer"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisAlignment.html",
-    "name": "MainAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisSize",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisSize.html",
-    "name": "MainAxisSize",
-    "values": [
-      "min",
-      "max"
-    ]
+    "values": ["list", "drawer"]
   },
   {
     "id": "material/MaterialBannerClosedReason",
     "url": "https://api.flutter.dev/flutter/material/MaterialBannerClosedReason.html",
     "name": "MaterialBannerClosedReason",
-    "values": [
-      "dismiss",
-      "swipe",
-      "hide",
-      "remove"
-    ]
+    "values": ["dismiss", "swipe", "hide", "remove"]
   },
   {
     "id": "material/MaterialState",
@@ -1717,573 +871,97 @@
     "id": "material/MaterialTapTargetSize",
     "url": "https://api.flutter.dev/flutter/material/MaterialTapTargetSize.html",
     "name": "MaterialTapTargetSize",
-    "values": [
-      "padded",
-      "shrinkWrap"
-    ]
+    "values": ["padded", "shrinkWrap"]
   },
   {
     "id": "material/MaterialType",
     "url": "https://api.flutter.dev/flutter/material/MaterialType.html",
     "name": "MaterialType",
-    "values": [
-      "canvas",
-      "card",
-      "circle",
-      "button",
-      "transparency"
-    ]
+    "values": ["canvas", "card", "circle", "button", "transparency"]
   },
   {
     "id": "material/NavigationDestinationLabelBehavior",
     "url": "https://api.flutter.dev/flutter/material/NavigationDestinationLabelBehavior.html",
     "name": "NavigationDestinationLabelBehavior",
-    "values": [
-      "alwaysShow",
-      "alwaysHide",
-      "onlyShowSelected"
-    ]
-  },
-  {
-    "id": "widgets/NavigationMode",
-    "url": "https://api.flutter.dev/flutter/widgets/NavigationMode.html",
-    "name": "NavigationMode",
-    "values": [
-      "traditional",
-      "directional"
-    ]
+    "values": ["alwaysShow", "alwaysHide", "onlyShowSelected"]
   },
   {
     "id": "material/NavigationRailLabelType",
     "url": "https://api.flutter.dev/flutter/material/NavigationRailLabelType.html",
     "name": "NavigationRailLabelType",
-    "values": [
-      "none",
-      "selected",
-      "all"
-    ]
-  },
-  {
-    "id": "widgets/Orientation",
-    "url": "https://api.flutter.dev/flutter/widgets/Orientation.html",
-    "name": "Orientation",
-    "values": [
-      "portrait",
-      "landscape"
-    ]
-  },
-  {
-    "id": "widgets/OverflowBarAlignment",
-    "url": "https://api.flutter.dev/flutter/widgets/OverflowBarAlignment.html",
-    "name": "OverflowBarAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
-  },
-  {
-    "id": "dart-ui/PaintingStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PaintingStyle.html",
-    "name": "PaintingStyle",
-    "values": [
-      "fill",
-      "stroke"
-    ]
-  },
-  {
-    "id": "widgets/PanAxis",
-    "url": "https://api.flutter.dev/flutter/widgets/PanAxis.html",
-    "name": "PanAxis",
-    "values": [
-      "horizontal",
-      "vertical",
-      "aligned",
-      "free"
-    ]
-  },
-  {
-    "id": "dart-ui/PathFillType",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathFillType.html",
-    "name": "PathFillType",
-    "values": [
-      "nonZero",
-      "evenOdd"
-    ]
-  },
-  {
-    "id": "dart-ui/PathOperation",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathOperation.html",
-    "name": "PathOperation",
-    "values": [
-      "difference",
-      "intersect",
-      "union",
-      "xor",
-      "reverseDifference"
-    ]
-  },
-  {
-    "id": "dart-ui/PlaceholderAlignment",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PlaceholderAlignment.html",
-    "name": "PlaceholderAlignment",
-    "values": [
-      "baseline",
-      "aboveBaseline",
-      "belowBaseline",
-      "top",
-      "bottom",
-      "middle"
-    ]
-  },
-  {
-    "id": "widgets/PlatformProvidedMenuItemType",
-    "url": "https://api.flutter.dev/flutter/widgets/PlatformProvidedMenuItemType.html",
-    "name": "PlatformProvidedMenuItemType",
-    "values": [
-      "about",
-      "quit",
-      "servicesSubmenu",
-      "hide",
-      "hideOtherApplications",
-      "showAllApplications",
-      "startSpeaking",
-      "stopSpeaking",
-      "toggleFullScreen",
-      "minimizeWindow",
-      "zoomWindow",
-      "arrangeWindowsInFront"
-    ]
+    "values": ["none", "selected", "all"]
   },
   {
     "id": "material/PopupMenuPosition",
     "url": "https://api.flutter.dev/flutter/material/PopupMenuPosition.html",
     "name": "PopupMenuPosition",
-    "values": [
-      "over",
-      "under"
-    ]
+    "values": ["over", "under"]
   },
   {
     "id": "material/RefreshIndicatorTriggerMode",
     "url": "https://api.flutter.dev/flutter/material/RefreshIndicatorTriggerMode.html",
     "name": "RefreshIndicatorTriggerMode",
-    "values": [
-      "anywhere",
-      "onEdge"
-    ]
-  },
-  {
-    "id": "painting/RenderComparison",
-    "url": "https://api.flutter.dev/flutter/painting/RenderComparison.html",
-    "name": "RenderComparison",
-    "values": [
-      "identical",
-      "metadata",
-      "paint",
-      "layout"
-    ]
-  },
-  {
-    "id": "widgets/RouteInformationReportingType",
-    "url": "https://api.flutter.dev/flutter/widgets/RouteInformationReportingType.html",
-    "name": "RouteInformationReportingType",
-    "values": [
-      "none",
-      "neglect",
-      "navigate"
-    ]
-  },
-  {
-    "id": "widgets/RoutePopDisposition",
-    "url": "https://api.flutter.dev/flutter/widgets/RoutePopDisposition.html",
-    "name": "RoutePopDisposition",
-    "values": [
-      "pop",
-      "doNotPop",
-      "bubble"
-    ]
+    "values": ["anywhere", "onEdge"]
   },
   {
     "id": "material/ScriptCategory",
     "url": "https://api.flutter.dev/flutter/material/ScriptCategory.html",
     "name": "ScriptCategory",
-    "values": [
-      "englishLike",
-      "dense",
-      "tall"
-    ]
-  },
-  {
-    "id": "widgets/ScrollbarOrientation",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollbarOrientation.html",
-    "name": "ScrollbarOrientation",
-    "values": [
-      "left",
-      "right",
-      "top",
-      "bottom"
-    ]
-  },
-  {
-    "id": "widgets/ScrollDecelerationRate",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollDecelerationRate.html",
-    "name": "ScrollDecelerationRate",
-    "values": [
-      "normal",
-      "fast"
-    ]
-  },
-  {
-    "id": "widgets/ScrollIncrementType",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollIncrementType.html",
-    "name": "ScrollIncrementType",
-    "values": [
-      "line",
-      "page"
-    ]
-  },
-  {
-    "id": "widgets/ScrollPositionAlignmentPolicy",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollPositionAlignmentPolicy.html",
-    "name": "ScrollPositionAlignmentPolicy",
-    "values": [
-      "explicit",
-      "keepVisibleAtEnd",
-      "keepVisibleAtStart"
-    ]
-  },
-  {
-    "id": "widgets/ScrollViewKeyboardDismissBehavior",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollViewKeyboardDismissBehavior.html",
-    "name": "ScrollViewKeyboardDismissBehavior",
-    "values": [
-      "manual",
-      "onDrag"
-    ]
-  },
-  {
-    "id": "services/SelectionChangedCause",
-    "url": "https://api.flutter.dev/flutter/services/SelectionChangedCause.html",
-    "name": "SelectionChangedCause",
-    "values": [
-      "tap",
-      "doubleTap",
-      "longPress",
-      "forcePress",
-      "keyboard",
-      "toolbar",
-      "drag",
-      "scribble"
-    ]
+    "values": ["englishLike", "dense", "tall"]
   },
   {
     "id": "material/ShowValueIndicator",
     "url": "https://api.flutter.dev/flutter/material/ShowValueIndicator.html",
     "name": "ShowValueIndicator",
-    "values": [
-      "onlyForDiscrete",
-      "onlyForContinuous",
-      "always",
-      "never"
-    ]
-  },
-  {
-    "id": "services/SmartDashesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartDashesType.html",
-    "name": "SmartDashesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
-  },
-  {
-    "id": "services/SmartQuotesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartQuotesType.html",
-    "name": "SmartQuotesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
+    "values": ["onlyForDiscrete", "onlyForContinuous", "always", "never"]
   },
   {
     "id": "material/SnackBarBehavior",
     "url": "https://api.flutter.dev/flutter/material/SnackBarBehavior.html",
     "name": "SnackBarBehavior",
-    "values": [
-      "fixed",
-      "floating"
-    ]
+    "values": ["fixed", "floating"]
   },
   {
     "id": "material/SnackBarClosedReason",
     "url": "https://api.flutter.dev/flutter/material/SnackBarClosedReason.html",
     "name": "SnackBarClosedReason",
-    "values": [
-      "action",
-      "dismiss",
-      "swipe",
-      "hide",
-      "remove",
-      "timeout"
-    ]
-  },
-  {
-    "id": "widgets/SnapshotMode",
-    "url": "https://api.flutter.dev/flutter/widgets/SnapshotMode.html",
-    "name": "SnapshotMode",
-    "values": [
-      "permissive",
-      "normal",
-      "forced"
-    ]
-  },
-  {
-    "id": "rendering/StackFit",
-    "url": "https://api.flutter.dev/flutter/rendering/StackFit.html",
-    "name": "StackFit",
-    "values": [
-      "loose",
-      "expand",
-      "passthrough"
-    ]
+    "values": ["action", "dismiss", "swipe", "hide", "remove", "timeout"]
   },
   {
     "id": "material/StepperType",
     "url": "https://api.flutter.dev/flutter/material/StepperType.html",
     "name": "StepperType",
-    "values": [
-      "vertical",
-      "horizontal"
-    ]
+    "values": ["vertical", "horizontal"]
   },
   {
     "id": "material/StepState",
     "url": "https://api.flutter.dev/flutter/material/StepState.html",
     "name": "StepState",
-    "values": [
-      "indexed",
-      "editing",
-      "complete",
-      "disabled",
-      "error"
-    ]
+    "values": ["indexed", "editing", "complete", "disabled", "error"]
   },
   {
     "id": "material/StretchMode",
     "url": "https://api.flutter.dev/flutter/material/StretchMode.html",
     "name": "StretchMode",
-    "values": [
-      "zoomBackground",
-      "blurBackground",
-      "fadeTitle"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeCap",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeCap.html",
-    "name": "StrokeCap",
-    "values": [
-      "butt",
-      "round",
-      "square"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeJoin",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeJoin.html",
-    "name": "StrokeJoin",
-    "values": [
-      "miter",
-      "round",
-      "bevel"
-    ]
+    "values": ["zoomBackground", "blurBackground", "fadeTitle"]
   },
   {
     "id": "material/TabBarIndicatorSize",
     "url": "https://api.flutter.dev/flutter/material/TabBarIndicatorSize.html",
     "name": "TabBarIndicatorSize",
-    "values": [
-      "tab",
-      "label"
-    ]
-  },
-  {
-    "id": "rendering/TableCellVerticalAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/TableCellVerticalAlignment.html",
-    "name": "TableCellVerticalAlignment",
-    "values": [
-      "top",
-      "middle",
-      "bottom",
-      "baseline",
-      "fill"
-    ]
-  },
-  {
-    "id": "foundation/TargetPlatform",
-    "url": "https://api.flutter.dev/flutter/foundation/TargetPlatform.html",
-    "name": "TargetPlatform",
-    "values": [
-      "android",
-      "fuchsia",
-      "iOS",
-      "linux",
-      "macOS",
-      "windows"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAffinity",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
-    "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAlign",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
-    "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/TextBaseline",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextBaseline.html",
-    "name": "TextBaseline",
-    "values": [
-      "alphabetic",
-      "ideographic"
-    ]
-  },
-  {
-    "id": "services/TextCapitalization",
-    "url": "https://api.flutter.dev/flutter/services/TextCapitalization.html",
-    "name": "TextCapitalization",
-    "values": [
-      "words",
-      "sentences",
-      "characters",
-      "none"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDecorationStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDecorationStyle.html",
-    "name": "TextDecorationStyle",
-    "values": [
-      "solid",
-      "double",
-      "dotted",
-      "dashed",
-      "wavy"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
-  },
-  {
-    "id": "services/TextInputAction",
-    "url": "https://api.flutter.dev/flutter/services/TextInputAction.html",
-    "name": "TextInputAction",
-    "values": [
-      "none",
-      "unspecified",
-      "done",
-      "go",
-      "search",
-      "send",
-      "next",
-      "previous",
-      "continueAction",
-      "join",
-      "route",
-      "emergencyCall",
-      "newline"
-    ]
-  },
-  {
-    "id": "dart-ui/TextLeadingDistribution",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextLeadingDistribution.html",
-    "name": "TextLeadingDistribution",
-    "values": [
-      "proportional",
-      "even"
-    ]
-  },
-  {
-    "id": "painting/TextOverflow",
-    "url": "https://api.flutter.dev/flutter/painting/TextOverflow.html",
-    "name": "TextOverflow",
-    "values": [
-      "clip",
-      "fade",
-      "ellipsis",
-      "visible"
-    ]
-  },
-  {
-    "id": "rendering/TextSelectionHandleType",
-    "url": "https://api.flutter.dev/flutter/rendering/TextSelectionHandleType.html",
-    "name": "TextSelectionHandleType",
-    "values": [
-      "left",
-      "right",
-      "collapsed"
-    ]
-  },
-  {
-    "id": "painting/TextWidthBasis",
-    "url": "https://api.flutter.dev/flutter/painting/TextWidthBasis.html",
-    "name": "TextWidthBasis",
-    "values": [
-      "parent",
-      "longestLine"
-    ]
+    "values": ["tab", "label"]
   },
   {
     "id": "material/ThemeMode",
     "url": "https://api.flutter.dev/flutter/material/ThemeMode.html",
     "name": "ThemeMode",
-    "values": [
-      "system",
-      "light",
-      "dark"
-    ]
+    "values": ["system", "light", "dark"]
   },
   {
     "id": "material/Thumb",
     "url": "https://api.flutter.dev/flutter/material/Thumb.html",
     "name": "Thumb",
-    "values": [
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/TileMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TileMode.html",
-    "name": "TileMode",
-    "values": [
-      "clamp",
-      "repeated",
-      "mirror",
-      "decal"
-    ]
+    "values": ["start", "end"]
   },
   {
     "id": "material/TimeOfDayFormat",
@@ -2302,462 +980,37 @@
     "id": "material/TimePickerEntryMode",
     "url": "https://api.flutter.dev/flutter/material/TimePickerEntryMode.html",
     "name": "TimePickerEntryMode",
-    "values": [
-      "dial",
-      "input",
-      "dialOnly",
-      "inputOnly"
-    ]
+    "values": ["dial", "input", "dialOnly", "inputOnly"]
   },
   {
     "id": "material/TooltipTriggerMode",
     "url": "https://api.flutter.dev/flutter/material/TooltipTriggerMode.html",
     "name": "TooltipTriggerMode",
-    "values": [
-      "manual",
-      "longPress",
-      "tap"
-    ]
-  },
-  {
-    "id": "widgets/TraversalDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/TraversalDirection.html",
-    "name": "TraversalDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
-  },
-  {
-    "id": "widgets/UnfocusDisposition",
-    "url": "https://api.flutter.dev/flutter/widgets/UnfocusDisposition.html",
-    "name": "UnfocusDisposition",
-    "values": [
-      "scope",
-      "previouslyFocusedChild"
-    ]
-  },
-  {
-    "id": "dart-ui/VertexMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/VertexMode.html",
-    "name": "VertexMode",
-    "values": [
-      "triangles",
-      "triangleStrip",
-      "triangleFan"
-    ]
-  },
-  {
-    "id": "painting/VerticalDirection",
-    "url": "https://api.flutter.dev/flutter/painting/VerticalDirection.html",
-    "name": "VerticalDirection",
-    "values": [
-      "up",
-      "down"
-    ]
-  },
-  {
-    "id": "widgets/WidgetInspectorServiceExtensions",
-    "url": "https://api.flutter.dev/flutter/widgets/WidgetInspectorServiceExtensions.html",
-    "name": "WidgetInspectorServiceExtensions",
-    "values": [
-      "structuredErrors",
-      "show",
-      "trackRebuildDirtyWidgets",
-      "trackRepaintWidgets",
-      "disposeAllGroups",
-      "disposeGroup",
-      "isWidgetTreeReady",
-      "disposeId",
-      "setPubRootDirectories",
-      "addPubRootDirectories",
-      "removePubRootDirectories",
-      "getPubRootDirectories",
-      "setSelectionById",
-      "getParentChain",
-      "getProperties",
-      "getChildren",
-      "getChildrenSummaryTree",
-      "getChildrenDetailsSubtree",
-      "getRootWidget",
-      "getRootRenderObject",
-      "getRootWidgetSummaryTree",
-      "getRootWidgetSummaryTreeWithPreviews",
-      "getDetailsSubtree",
-      "getSelectedRenderObject",
-      "getSelectedWidget",
-      "getSelectedSummaryWidget",
-      "isWidgetCreationTracked",
-      "screenshot",
-      "getLayoutExplorerNode",
-      "setFlexFit",
-      "setFlexFactor",
-      "setFlexProperties"
-    ]
-  },
-  {
-    "id": "widgets/WidgetsServiceExtensions",
-    "url": "https://api.flutter.dev/flutter/widgets/WidgetsServiceExtensions.html",
-    "name": "WidgetsServiceExtensions",
-    "values": [
-      "debugDumpApp",
-      "showPerformanceOverlay",
-      "didSendFirstFrameEvent",
-      "didSendFirstFrameRasterizedEvent",
-      "fastReassemble",
-      "profileWidgetBuilds",
-      "profileUserWidgetBuilds",
-      "debugAllowBanner"
-    ]
-  },
-  {
-    "id": "rendering/WrapAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapAlignment.html",
-    "name": "WrapAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/WrapCrossAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapCrossAlignment.html",
-    "name": "WrapCrossAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
+    "values": ["manual", "longPress", "tap"]
   },
   {
     "id": "physics/SpringType",
     "url": "https://api.flutter.dev/flutter/physics/SpringType.html",
     "name": "SpringType",
-    "values": [
-      "criticallyDamped",
-      "underDamped",
-      "overDamped"
-    ]
+    "values": ["criticallyDamped", "underDamped", "overDamped"]
   },
   {
     "id": "semantics/Assertiveness",
     "url": "https://api.flutter.dev/flutter/semantics/Assertiveness.html",
     "name": "Assertiveness",
-    "values": [
-      "polite",
-      "assertive"
-    ]
-  },
-  {
-    "id": "painting/Axis",
-    "url": "https://api.flutter.dev/flutter/painting/Axis.html",
-    "name": "Axis",
-    "values": [
-      "horizontal",
-      "vertical"
-    ]
-  },
-  {
-    "id": "painting/AxisDirection",
-    "url": "https://api.flutter.dev/flutter/painting/AxisDirection.html",
-    "name": "AxisDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
-  },
-  {
-    "id": "dart-ui/BlendMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlendMode.html",
-    "name": "BlendMode",
-    "values": [
-      "clear",
-      "src",
-      "dst",
-      "srcOver",
-      "dstOver",
-      "srcIn",
-      "dstIn",
-      "srcOut",
-      "dstOut",
-      "srcATop",
-      "dstATop",
-      "xor",
-      "plus",
-      "modulate",
-      "screen",
-      "overlay",
-      "darken",
-      "lighten",
-      "colorDodge",
-      "colorBurn",
-      "hardLight",
-      "softLight",
-      "difference",
-      "exclusion",
-      "multiply",
-      "hue",
-      "saturation",
-      "color",
-      "luminosity"
-    ]
-  },
-  {
-    "id": "dart-ui/BlurStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlurStyle.html",
-    "name": "BlurStyle",
-    "values": [
-      "normal",
-      "solid",
-      "outer",
-      "inner"
-    ]
-  },
-  {
-    "id": "painting/BorderStyle",
-    "url": "https://api.flutter.dev/flutter/painting/BorderStyle.html",
-    "name": "BorderStyle",
-    "values": [
-      "none",
-      "solid"
-    ]
-  },
-  {
-    "id": "painting/BoxFit",
-    "url": "https://api.flutter.dev/flutter/painting/BoxFit.html",
-    "name": "BoxFit",
-    "values": [
-      "fill",
-      "contain",
-      "cover",
-      "fitWidth",
-      "fitHeight",
-      "none",
-      "scaleDown"
-    ]
-  },
-  {
-    "id": "painting/BoxShape",
-    "url": "https://api.flutter.dev/flutter/painting/BoxShape.html",
-    "name": "BoxShape",
-    "values": [
-      "rectangle",
-      "circle"
-    ]
+    "values": ["polite", "assertive"]
   },
   {
     "id": "rendering/CacheExtentStyle",
     "url": "https://api.flutter.dev/flutter/rendering/CacheExtentStyle.html",
     "name": "CacheExtentStyle",
-    "values": [
-      "pixel",
-      "viewport"
-    ]
-  },
-  {
-    "id": "dart-ui/Clip",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Clip.html",
-    "name": "Clip",
-    "values": [
-      "none",
-      "hardEdge",
-      "antiAlias",
-      "antiAliasWithSaveLayer"
-    ]
-  },
-  {
-    "id": "rendering/CrossAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/CrossAxisAlignment.html",
-    "name": "CrossAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "stretch",
-      "baseline"
-    ]
+    "values": ["pixel", "viewport"]
   },
   {
     "id": "semantics/DebugSemanticsDumpOrder",
     "url": "https://api.flutter.dev/flutter/semantics/DebugSemanticsDumpOrder.html",
     "name": "DebugSemanticsDumpOrder",
-    "values": [
-      "inverseHitTest",
-      "traversalOrder"
-    ]
-  },
-  {
-    "id": "rendering/DecorationPosition",
-    "url": "https://api.flutter.dev/flutter/rendering/DecorationPosition.html",
-    "name": "DecorationPosition",
-    "values": [
-      "background",
-      "foreground"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticsTreeStyle",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html",
-    "name": "DiagnosticsTreeStyle",
-    "values": [
-      "none",
-      "sparse",
-      "offstage",
-      "dense",
-      "transition",
-      "error",
-      "whitespace",
-      "flat",
-      "singleLine",
-      "errorProperty",
-      "shallow",
-      "truncateChildren"
-    ]
-  },
-  {
-    "id": "dart-ui/FilterQuality",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FilterQuality.html",
-    "name": "FilterQuality",
-    "values": [
-      "none",
-      "low",
-      "medium",
-      "high"
-    ]
-  },
-  {
-    "id": "rendering/FlexFit",
-    "url": "https://api.flutter.dev/flutter/rendering/FlexFit.html",
-    "name": "FlexFit",
-    "values": [
-      "tight",
-      "loose"
-    ]
-  },
-  {
-    "id": "painting/FlutterLogoStyle",
-    "url": "https://api.flutter.dev/flutter/painting/FlutterLogoStyle.html",
-    "name": "FlutterLogoStyle",
-    "values": [
-      "markOnly",
-      "horizontal",
-      "stacked"
-    ]
-  },
-  {
-    "id": "dart-ui/FontStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FontStyle.html",
-    "name": "FontStyle",
-    "values": [
-      "normal",
-      "italic"
-    ]
-  },
-  {
-    "id": "rendering/GrowthDirection",
-    "url": "https://api.flutter.dev/flutter/rendering/GrowthDirection.html",
-    "name": "GrowthDirection",
-    "values": [
-      "forward",
-      "reverse"
-    ]
-  },
-  {
-    "id": "rendering/HitTestBehavior",
-    "url": "https://api.flutter.dev/flutter/rendering/HitTestBehavior.html",
-    "name": "HitTestBehavior",
-    "values": [
-      "deferToChild",
-      "opaque",
-      "translucent"
-    ]
-  },
-  {
-    "id": "painting/ImageRepeat",
-    "url": "https://api.flutter.dev/flutter/painting/ImageRepeat.html",
-    "name": "ImageRepeat",
-    "values": [
-      "repeat",
-      "repeatX",
-      "repeatY",
-      "noRepeat"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisAlignment.html",
-    "name": "MainAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisSize",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisSize.html",
-    "name": "MainAxisSize",
-    "values": [
-      "min",
-      "max"
-    ]
-  },
-  {
-    "id": "dart-ui/PaintingStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PaintingStyle.html",
-    "name": "PaintingStyle",
-    "values": [
-      "fill",
-      "stroke"
-    ]
-  },
-  {
-    "id": "dart-ui/PathFillType",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathFillType.html",
-    "name": "PathFillType",
-    "values": [
-      "nonZero",
-      "evenOdd"
-    ]
-  },
-  {
-    "id": "dart-ui/PathOperation",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathOperation.html",
-    "name": "PathOperation",
-    "values": [
-      "difference",
-      "intersect",
-      "union",
-      "xor",
-      "reverseDifference"
-    ]
+    "values": ["inverseHitTest", "traversalOrder"]
   },
   {
     "id": "rendering/PerformanceOverlayOption",
@@ -2771,49 +1024,16 @@
     ]
   },
   {
-    "id": "dart-ui/PlaceholderAlignment",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PlaceholderAlignment.html",
-    "name": "PlaceholderAlignment",
-    "values": [
-      "baseline",
-      "aboveBaseline",
-      "belowBaseline",
-      "top",
-      "bottom",
-      "middle"
-    ]
-  },
-  {
     "id": "rendering/PlatformViewHitTestBehavior",
     "url": "https://api.flutter.dev/flutter/rendering/PlatformViewHitTestBehavior.html",
     "name": "PlatformViewHitTestBehavior",
-    "values": [
-      "opaque",
-      "translucent",
-      "transparent"
-    ]
+    "values": ["opaque", "translucent", "transparent"]
   },
   {
     "id": "rendering/RenderAnimatedSizeState",
     "url": "https://api.flutter.dev/flutter/rendering/RenderAnimatedSizeState.html",
     "name": "RenderAnimatedSizeState",
-    "values": [
-      "start",
-      "stable",
-      "changed",
-      "unstable"
-    ]
-  },
-  {
-    "id": "painting/RenderComparison",
-    "url": "https://api.flutter.dev/flutter/painting/RenderComparison.html",
-    "name": "RenderComparison",
-    "values": [
-      "identical",
-      "metadata",
-      "paint",
-      "layout"
-    ]
+    "values": ["start", "stable", "changed", "unstable"]
   },
   {
     "id": "rendering/RenderingServiceExtensions",
@@ -2839,11 +1059,7 @@
     "id": "rendering/ScrollDirection",
     "url": "https://api.flutter.dev/flutter/rendering/ScrollDirection.html",
     "name": "ScrollDirection",
-    "values": [
-      "idle",
-      "forward",
-      "reverse"
-    ]
+    "values": ["idle", "forward", "reverse"]
   },
   {
     "id": "rendering/SelectionEventType",
@@ -2863,242 +1079,25 @@
     "id": "rendering/SelectionExtendDirection",
     "url": "https://api.flutter.dev/flutter/rendering/SelectionExtendDirection.html",
     "name": "SelectionExtendDirection",
-    "values": [
-      "previousLine",
-      "nextLine",
-      "forward",
-      "backward"
-    ]
+    "values": ["previousLine", "nextLine", "forward", "backward"]
   },
   {
     "id": "rendering/SelectionResult",
     "url": "https://api.flutter.dev/flutter/rendering/SelectionResult.html",
     "name": "SelectionResult",
-    "values": [
-      "next",
-      "previous",
-      "end",
-      "pending",
-      "none"
-    ]
+    "values": ["next", "previous", "end", "pending", "none"]
   },
   {
     "id": "rendering/SelectionStatus",
     "url": "https://api.flutter.dev/flutter/rendering/SelectionStatus.html",
     "name": "SelectionStatus",
-    "values": [
-      "uncollapsed",
-      "collapsed",
-      "none"
-    ]
-  },
-  {
-    "id": "rendering/StackFit",
-    "url": "https://api.flutter.dev/flutter/rendering/StackFit.html",
-    "name": "StackFit",
-    "values": [
-      "loose",
-      "expand",
-      "passthrough"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeCap",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeCap.html",
-    "name": "StrokeCap",
-    "values": [
-      "butt",
-      "round",
-      "square"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeJoin",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeJoin.html",
-    "name": "StrokeJoin",
-    "values": [
-      "miter",
-      "round",
-      "bevel"
-    ]
-  },
-  {
-    "id": "rendering/TableCellVerticalAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/TableCellVerticalAlignment.html",
-    "name": "TableCellVerticalAlignment",
-    "values": [
-      "top",
-      "middle",
-      "bottom",
-      "baseline",
-      "fill"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAffinity",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
-    "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAlign",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
-    "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/TextBaseline",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextBaseline.html",
-    "name": "TextBaseline",
-    "values": [
-      "alphabetic",
-      "ideographic"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDecorationStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDecorationStyle.html",
-    "name": "TextDecorationStyle",
-    "values": [
-      "solid",
-      "double",
-      "dotted",
-      "dashed",
-      "wavy"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
+    "values": ["uncollapsed", "collapsed", "none"]
   },
   {
     "id": "rendering/TextGranularity",
     "url": "https://api.flutter.dev/flutter/rendering/TextGranularity.html",
     "name": "TextGranularity",
-    "values": [
-      "character",
-      "word",
-      "line",
-      "document"
-    ]
-  },
-  {
-    "id": "dart-ui/TextLeadingDistribution",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextLeadingDistribution.html",
-    "name": "TextLeadingDistribution",
-    "values": [
-      "proportional",
-      "even"
-    ]
-  },
-  {
-    "id": "painting/TextOverflow",
-    "url": "https://api.flutter.dev/flutter/painting/TextOverflow.html",
-    "name": "TextOverflow",
-    "values": [
-      "clip",
-      "fade",
-      "ellipsis",
-      "visible"
-    ]
-  },
-  {
-    "id": "rendering/TextSelectionHandleType",
-    "url": "https://api.flutter.dev/flutter/rendering/TextSelectionHandleType.html",
-    "name": "TextSelectionHandleType",
-    "values": [
-      "left",
-      "right",
-      "collapsed"
-    ]
-  },
-  {
-    "id": "painting/TextWidthBasis",
-    "url": "https://api.flutter.dev/flutter/painting/TextWidthBasis.html",
-    "name": "TextWidthBasis",
-    "values": [
-      "parent",
-      "longestLine"
-    ]
-  },
-  {
-    "id": "dart-ui/TileMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TileMode.html",
-    "name": "TileMode",
-    "values": [
-      "clamp",
-      "repeated",
-      "mirror",
-      "decal"
-    ]
-  },
-  {
-    "id": "dart-ui/VertexMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/VertexMode.html",
-    "name": "VertexMode",
-    "values": [
-      "triangles",
-      "triangleStrip",
-      "triangleFan"
-    ]
-  },
-  {
-    "id": "painting/VerticalDirection",
-    "url": "https://api.flutter.dev/flutter/painting/VerticalDirection.html",
-    "name": "VerticalDirection",
-    "values": [
-      "up",
-      "down"
-    ]
-  },
-  {
-    "id": "rendering/WrapAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapAlignment.html",
-    "name": "WrapAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/WrapCrossAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapCrossAlignment.html",
-    "name": "WrapCrossAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
-  },
-  {
-    "id": "dart-ui/AppLifecycleState",
-    "url": "https://api.flutter.dev/flutter/dart-ui/AppLifecycleState.html",
-    "name": "AppLifecycleState",
-    "values": [
-      "resumed",
-      "inactive",
-      "paused",
-      "detached"
-    ]
+    "values": ["character", "word", "line", "document"]
   },
   {
     "id": "scheduler/SchedulerPhase",
@@ -3116,147 +1115,37 @@
     "id": "scheduler/SchedulerServiceExtensions",
     "url": "https://api.flutter.dev/flutter/scheduler/SchedulerServiceExtensions.html",
     "name": "SchedulerServiceExtensions",
-    "values": [
-      "timeDilation"
-    ]
-  },
-  {
-    "id": "semantics/Assertiveness",
-    "url": "https://api.flutter.dev/flutter/semantics/Assertiveness.html",
-    "name": "Assertiveness",
-    "values": [
-      "polite",
-      "assertive"
-    ]
-  },
-  {
-    "id": "semantics/DebugSemanticsDumpOrder",
-    "url": "https://api.flutter.dev/flutter/semantics/DebugSemanticsDumpOrder.html",
-    "name": "DebugSemanticsDumpOrder",
-    "values": [
-      "inverseHitTest",
-      "traversalOrder"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticsTreeStyle",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html",
-    "name": "DiagnosticsTreeStyle",
-    "values": [
-      "none",
-      "sparse",
-      "offstage",
-      "dense",
-      "transition",
-      "error",
-      "whitespace",
-      "flat",
-      "singleLine",
-      "errorProperty",
-      "shallow",
-      "truncateChildren"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
-  },
-  {
-    "id": "dart-ui/Brightness",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Brightness.html",
-    "name": "Brightness",
-    "values": [
-      "dark",
-      "light"
-    ]
+    "values": ["timeDilation"]
   },
   {
     "id": "services/DeviceOrientation",
     "url": "https://api.flutter.dev/flutter/services/DeviceOrientation.html",
     "name": "DeviceOrientation",
-    "values": [
-      "portraitUp",
-      "landscapeLeft",
-      "portraitDown",
-      "landscapeRight"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
+    "values": ["portraitUp", "landscapeLeft", "portraitDown", "landscapeRight"]
   },
   {
     "id": "services/FloatingCursorDragState",
     "url": "https://api.flutter.dev/flutter/services/FloatingCursorDragState.html",
     "name": "FloatingCursorDragState",
-    "values": [
-      "Start",
-      "Update",
-      "End"
-    ]
+    "values": ["Start", "Update", "End"]
   },
   {
     "id": "services/KeyboardSide",
     "url": "https://api.flutter.dev/flutter/services/KeyboardSide.html",
     "name": "KeyboardSide",
-    "values": [
-      "any",
-      "left",
-      "right",
-      "all"
-    ]
+    "values": ["any", "left", "right", "all"]
   },
   {
     "id": "services/KeyDataTransitMode",
     "url": "https://api.flutter.dev/flutter/services/KeyDataTransitMode.html",
     "name": "KeyDataTransitMode",
-    "values": [
-      "rawKeyData",
-      "keyDataThenRawKeyData"
-    ]
+    "values": ["rawKeyData", "keyDataThenRawKeyData"]
   },
   {
     "id": "services/MaxLengthEnforcement",
     "url": "https://api.flutter.dev/flutter/services/MaxLengthEnforcement.html",
     "name": "MaxLengthEnforcement",
-    "values": [
-      "none",
-      "enforced",
-      "truncateAfterCompositionEnds"
-    ]
+    "values": ["none", "enforced", "truncateAfterCompositionEnds"]
   },
   {
     "id": "services/ModifierKey",
@@ -3275,54 +1164,16 @@
     ]
   },
   {
-    "id": "services/SelectionChangedCause",
-    "url": "https://api.flutter.dev/flutter/services/SelectionChangedCause.html",
-    "name": "SelectionChangedCause",
-    "values": [
-      "tap",
-      "doubleTap",
-      "longPress",
-      "forcePress",
-      "keyboard",
-      "toolbar",
-      "drag",
-      "scribble"
-    ]
-  },
-  {
     "id": "services/ServicesServiceExtensions",
     "url": "https://api.flutter.dev/flutter/services/ServicesServiceExtensions.html",
     "name": "ServicesServiceExtensions",
-    "values": [
-      "evict"
-    ]
-  },
-  {
-    "id": "services/SmartDashesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartDashesType.html",
-    "name": "SmartDashesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
-  },
-  {
-    "id": "services/SmartQuotesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartQuotesType.html",
-    "name": "SmartQuotesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
+    "values": ["evict"]
   },
   {
     "id": "services/SystemSoundType",
     "url": "https://api.flutter.dev/flutter/services/SystemSoundType.html",
     "name": "SystemSoundType",
-    "values": [
-      "click",
-      "alert"
-    ]
+    "values": ["click", "alert"]
   },
   {
     "id": "services/SystemUiMode",
@@ -3340,1041 +1191,7 @@
     "id": "services/SystemUiOverlay",
     "url": "https://api.flutter.dev/flutter/services/SystemUiOverlay.html",
     "name": "SystemUiOverlay",
-    "values": [
-      "top",
-      "bottom"
-    ]
-  },
-  {
-    "id": "foundation/TargetPlatform",
-    "url": "https://api.flutter.dev/flutter/foundation/TargetPlatform.html",
-    "name": "TargetPlatform",
-    "values": [
-      "android",
-      "fuchsia",
-      "iOS",
-      "linux",
-      "macOS",
-      "windows"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAffinity",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
-    "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAlign",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
-    "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "services/TextCapitalization",
-    "url": "https://api.flutter.dev/flutter/services/TextCapitalization.html",
-    "name": "TextCapitalization",
-    "values": [
-      "words",
-      "sentences",
-      "characters",
-      "none"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
-  },
-  {
-    "id": "services/TextInputAction",
-    "url": "https://api.flutter.dev/flutter/services/TextInputAction.html",
-    "name": "TextInputAction",
-    "values": [
-      "none",
-      "unspecified",
-      "done",
-      "go",
-      "search",
-      "send",
-      "next",
-      "previous",
-      "continueAction",
-      "join",
-      "route",
-      "emergencyCall",
-      "newline"
-    ]
-  },
-  {
-    "id": "widgets/AndroidOverscrollIndicator",
-    "url": "https://api.flutter.dev/flutter/widgets/AndroidOverscrollIndicator.html",
-    "name": "AndroidOverscrollIndicator",
-    "values": [
-      "stretch",
-      "glow"
-    ]
-  },
-  {
-    "id": "animation/AnimationBehavior",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationBehavior.html",
-    "name": "AnimationBehavior",
-    "values": [
-      "normal",
-      "preserve"
-    ]
-  },
-  {
-    "id": "animation/AnimationStatus",
-    "url": "https://api.flutter.dev/flutter/animation/AnimationStatus.html",
-    "name": "AnimationStatus",
-    "values": [
-      "dismissed",
-      "forward",
-      "reverse",
-      "completed"
-    ]
-  },
-  {
-    "id": "dart-ui/AppLifecycleState",
-    "url": "https://api.flutter.dev/flutter/dart-ui/AppLifecycleState.html",
-    "name": "AppLifecycleState",
-    "values": [
-      "resumed",
-      "inactive",
-      "paused",
-      "detached"
-    ]
-  },
-  {
-    "id": "widgets/AutofillContextAction",
-    "url": "https://api.flutter.dev/flutter/widgets/AutofillContextAction.html",
-    "name": "AutofillContextAction",
-    "values": [
-      "commit",
-      "cancel"
-    ]
-  },
-  {
-    "id": "widgets/AutovalidateMode",
-    "url": "https://api.flutter.dev/flutter/widgets/AutovalidateMode.html",
-    "name": "AutovalidateMode",
-    "values": [
-      "disabled",
-      "always",
-      "onUserInteraction"
-    ]
-  },
-  {
-    "id": "painting/Axis",
-    "url": "https://api.flutter.dev/flutter/painting/Axis.html",
-    "name": "Axis",
-    "values": [
-      "horizontal",
-      "vertical"
-    ]
-  },
-  {
-    "id": "painting/AxisDirection",
-    "url": "https://api.flutter.dev/flutter/painting/AxisDirection.html",
-    "name": "AxisDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
-  },
-  {
-    "id": "widgets/BannerLocation",
-    "url": "https://api.flutter.dev/flutter/widgets/BannerLocation.html",
-    "name": "BannerLocation",
-    "values": [
-      "topStart",
-      "topEnd",
-      "bottomStart",
-      "bottomEnd"
-    ]
-  },
-  {
-    "id": "dart-ui/BlendMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlendMode.html",
-    "name": "BlendMode",
-    "values": [
-      "clear",
-      "src",
-      "dst",
-      "srcOver",
-      "dstOver",
-      "srcIn",
-      "dstIn",
-      "srcOut",
-      "dstOut",
-      "srcATop",
-      "dstATop",
-      "xor",
-      "plus",
-      "modulate",
-      "screen",
-      "overlay",
-      "darken",
-      "lighten",
-      "colorDodge",
-      "colorBurn",
-      "hardLight",
-      "softLight",
-      "difference",
-      "exclusion",
-      "multiply",
-      "hue",
-      "saturation",
-      "color",
-      "luminosity"
-    ]
-  },
-  {
-    "id": "dart-ui/BlurStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlurStyle.html",
-    "name": "BlurStyle",
-    "values": [
-      "normal",
-      "solid",
-      "outer",
-      "inner"
-    ]
-  },
-  {
-    "id": "painting/BorderStyle",
-    "url": "https://api.flutter.dev/flutter/painting/BorderStyle.html",
-    "name": "BorderStyle",
-    "values": [
-      "none",
-      "solid"
-    ]
-  },
-  {
-    "id": "painting/BoxFit",
-    "url": "https://api.flutter.dev/flutter/painting/BoxFit.html",
-    "name": "BoxFit",
-    "values": [
-      "fill",
-      "contain",
-      "cover",
-      "fitWidth",
-      "fitHeight",
-      "none",
-      "scaleDown"
-    ]
-  },
-  {
-    "id": "painting/BoxShape",
-    "url": "https://api.flutter.dev/flutter/painting/BoxShape.html",
-    "name": "BoxShape",
-    "values": [
-      "rectangle",
-      "circle"
-    ]
-  },
-  {
-    "id": "dart-ui/Clip",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Clip.html",
-    "name": "Clip",
-    "values": [
-      "none",
-      "hardEdge",
-      "antiAlias",
-      "antiAliasWithSaveLayer"
-    ]
-  },
-  {
-    "id": "widgets/ClipboardStatus",
-    "url": "https://api.flutter.dev/flutter/widgets/ClipboardStatus.html",
-    "name": "ClipboardStatus",
-    "values": [
-      "pasteable",
-      "unknown",
-      "notPasteable"
-    ]
-  },
-  {
-    "id": "widgets/ConnectionState",
-    "url": "https://api.flutter.dev/flutter/widgets/ConnectionState.html",
-    "name": "ConnectionState",
-    "values": [
-      "none",
-      "waiting",
-      "active",
-      "done"
-    ]
-  },
-  {
-    "id": "widgets/ContextMenuButtonType",
-    "url": "https://api.flutter.dev/flutter/widgets/ContextMenuButtonType.html",
-    "name": "ContextMenuButtonType",
-    "values": [
-      "cut",
-      "copy",
-      "paste",
-      "selectAll",
-      "custom"
-    ]
-  },
-  {
-    "id": "rendering/CrossAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/CrossAxisAlignment.html",
-    "name": "CrossAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "stretch",
-      "baseline"
-    ]
-  },
-  {
-    "id": "widgets/CrossFadeState",
-    "url": "https://api.flutter.dev/flutter/widgets/CrossFadeState.html",
-    "name": "CrossFadeState",
-    "values": [
-      "showFirst",
-      "showSecond"
-    ]
-  },
-  {
-    "id": "rendering/DecorationPosition",
-    "url": "https://api.flutter.dev/flutter/rendering/DecorationPosition.html",
-    "name": "DecorationPosition",
-    "values": [
-      "background",
-      "foreground"
-    ]
-  },
-  {
-    "id": "foundation/DiagnosticLevel",
-    "url": "https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html",
-    "name": "DiagnosticLevel",
-    "values": [
-      "hidden",
-      "fine",
-      "debug",
-      "info",
-      "warning",
-      "hint",
-      "summary",
-      "error",
-      "off"
-    ]
-  },
-  {
-    "id": "widgets/DismissDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/DismissDirection.html",
-    "name": "DismissDirection",
-    "values": [
-      "vertical",
-      "horizontal",
-      "endToStart",
-      "startToEnd",
-      "up",
-      "down",
-      "none"
-    ]
-  },
-  {
-    "id": "dart-ui/FilterQuality",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FilterQuality.html",
-    "name": "FilterQuality",
-    "values": [
-      "none",
-      "low",
-      "medium",
-      "high"
-    ]
-  },
-  {
-    "id": "rendering/FlexFit",
-    "url": "https://api.flutter.dev/flutter/rendering/FlexFit.html",
-    "name": "FlexFit",
-    "values": [
-      "tight",
-      "loose"
-    ]
-  },
-  {
-    "id": "painting/FlutterLogoStyle",
-    "url": "https://api.flutter.dev/flutter/painting/FlutterLogoStyle.html",
-    "name": "FlutterLogoStyle",
-    "values": [
-      "markOnly",
-      "horizontal",
-      "stacked"
-    ]
-  },
-  {
-    "id": "widgets/FocusHighlightMode",
-    "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightMode.html",
-    "name": "FocusHighlightMode",
-    "values": [
-      "touch",
-      "traditional"
-    ]
-  },
-  {
-    "id": "widgets/FocusHighlightStrategy",
-    "url": "https://api.flutter.dev/flutter/widgets/FocusHighlightStrategy.html",
-    "name": "FocusHighlightStrategy",
-    "values": [
-      "automatic",
-      "alwaysTouch",
-      "alwaysTraditional"
-    ]
-  },
-  {
-    "id": "dart-ui/FontStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FontStyle.html",
-    "name": "FontStyle",
-    "values": [
-      "normal",
-      "italic"
-    ]
-  },
-  {
-    "id": "rendering/GrowthDirection",
-    "url": "https://api.flutter.dev/flutter/rendering/GrowthDirection.html",
-    "name": "GrowthDirection",
-    "values": [
-      "forward",
-      "reverse"
-    ]
-  },
-  {
-    "id": "widgets/HeroFlightDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/HeroFlightDirection.html",
-    "name": "HeroFlightDirection",
-    "values": [
-      "push",
-      "pop"
-    ]
-  },
-  {
-    "id": "rendering/HitTestBehavior",
-    "url": "https://api.flutter.dev/flutter/rendering/HitTestBehavior.html",
-    "name": "HitTestBehavior",
-    "values": [
-      "deferToChild",
-      "opaque",
-      "translucent"
-    ]
-  },
-  {
-    "id": "painting/ImageRepeat",
-    "url": "https://api.flutter.dev/flutter/painting/ImageRepeat.html",
-    "name": "ImageRepeat",
-    "values": [
-      "repeat",
-      "repeatX",
-      "repeatY",
-      "noRepeat"
-    ]
-  },
-  {
-    "id": "widgets/KeyEventResult",
-    "url": "https://api.flutter.dev/flutter/widgets/KeyEventResult.html",
-    "name": "KeyEventResult",
-    "values": [
-      "handled",
-      "ignored",
-      "skipRemainingHandlers"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisAlignment.html",
-    "name": "MainAxisAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/MainAxisSize",
-    "url": "https://api.flutter.dev/flutter/rendering/MainAxisSize.html",
-    "name": "MainAxisSize",
-    "values": [
-      "min",
-      "max"
-    ]
-  },
-  {
-    "id": "widgets/NavigationMode",
-    "url": "https://api.flutter.dev/flutter/widgets/NavigationMode.html",
-    "name": "NavigationMode",
-    "values": [
-      "traditional",
-      "directional"
-    ]
-  },
-  {
-    "id": "widgets/Orientation",
-    "url": "https://api.flutter.dev/flutter/widgets/Orientation.html",
-    "name": "Orientation",
-    "values": [
-      "portrait",
-      "landscape"
-    ]
-  },
-  {
-    "id": "widgets/OverflowBarAlignment",
-    "url": "https://api.flutter.dev/flutter/widgets/OverflowBarAlignment.html",
-    "name": "OverflowBarAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
-  },
-  {
-    "id": "dart-ui/PaintingStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PaintingStyle.html",
-    "name": "PaintingStyle",
-    "values": [
-      "fill",
-      "stroke"
-    ]
-  },
-  {
-    "id": "widgets/PanAxis",
-    "url": "https://api.flutter.dev/flutter/widgets/PanAxis.html",
-    "name": "PanAxis",
-    "values": [
-      "horizontal",
-      "vertical",
-      "aligned",
-      "free"
-    ]
-  },
-  {
-    "id": "dart-ui/PathFillType",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathFillType.html",
-    "name": "PathFillType",
-    "values": [
-      "nonZero",
-      "evenOdd"
-    ]
-  },
-  {
-    "id": "dart-ui/PathOperation",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathOperation.html",
-    "name": "PathOperation",
-    "values": [
-      "difference",
-      "intersect",
-      "union",
-      "xor",
-      "reverseDifference"
-    ]
-  },
-  {
-    "id": "dart-ui/PlaceholderAlignment",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PlaceholderAlignment.html",
-    "name": "PlaceholderAlignment",
-    "values": [
-      "baseline",
-      "aboveBaseline",
-      "belowBaseline",
-      "top",
-      "bottom",
-      "middle"
-    ]
-  },
-  {
-    "id": "widgets/PlatformProvidedMenuItemType",
-    "url": "https://api.flutter.dev/flutter/widgets/PlatformProvidedMenuItemType.html",
-    "name": "PlatformProvidedMenuItemType",
-    "values": [
-      "about",
-      "quit",
-      "servicesSubmenu",
-      "hide",
-      "hideOtherApplications",
-      "showAllApplications",
-      "startSpeaking",
-      "stopSpeaking",
-      "toggleFullScreen",
-      "minimizeWindow",
-      "zoomWindow",
-      "arrangeWindowsInFront"
-    ]
-  },
-  {
-    "id": "painting/RenderComparison",
-    "url": "https://api.flutter.dev/flutter/painting/RenderComparison.html",
-    "name": "RenderComparison",
-    "values": [
-      "identical",
-      "metadata",
-      "paint",
-      "layout"
-    ]
-  },
-  {
-    "id": "widgets/RouteInformationReportingType",
-    "url": "https://api.flutter.dev/flutter/widgets/RouteInformationReportingType.html",
-    "name": "RouteInformationReportingType",
-    "values": [
-      "none",
-      "neglect",
-      "navigate"
-    ]
-  },
-  {
-    "id": "widgets/RoutePopDisposition",
-    "url": "https://api.flutter.dev/flutter/widgets/RoutePopDisposition.html",
-    "name": "RoutePopDisposition",
-    "values": [
-      "pop",
-      "doNotPop",
-      "bubble"
-    ]
-  },
-  {
-    "id": "widgets/ScrollbarOrientation",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollbarOrientation.html",
-    "name": "ScrollbarOrientation",
-    "values": [
-      "left",
-      "right",
-      "top",
-      "bottom"
-    ]
-  },
-  {
-    "id": "widgets/ScrollDecelerationRate",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollDecelerationRate.html",
-    "name": "ScrollDecelerationRate",
-    "values": [
-      "normal",
-      "fast"
-    ]
-  },
-  {
-    "id": "widgets/ScrollIncrementType",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollIncrementType.html",
-    "name": "ScrollIncrementType",
-    "values": [
-      "line",
-      "page"
-    ]
-  },
-  {
-    "id": "widgets/ScrollPositionAlignmentPolicy",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollPositionAlignmentPolicy.html",
-    "name": "ScrollPositionAlignmentPolicy",
-    "values": [
-      "explicit",
-      "keepVisibleAtEnd",
-      "keepVisibleAtStart"
-    ]
-  },
-  {
-    "id": "widgets/ScrollViewKeyboardDismissBehavior",
-    "url": "https://api.flutter.dev/flutter/widgets/ScrollViewKeyboardDismissBehavior.html",
-    "name": "ScrollViewKeyboardDismissBehavior",
-    "values": [
-      "manual",
-      "onDrag"
-    ]
-  },
-  {
-    "id": "services/SelectionChangedCause",
-    "url": "https://api.flutter.dev/flutter/services/SelectionChangedCause.html",
-    "name": "SelectionChangedCause",
-    "values": [
-      "tap",
-      "doubleTap",
-      "longPress",
-      "forcePress",
-      "keyboard",
-      "toolbar",
-      "drag",
-      "scribble"
-    ]
-  },
-  {
-    "id": "services/SmartDashesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartDashesType.html",
-    "name": "SmartDashesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
-  },
-  {
-    "id": "services/SmartQuotesType",
-    "url": "https://api.flutter.dev/flutter/services/SmartQuotesType.html",
-    "name": "SmartQuotesType",
-    "values": [
-      "disabled",
-      "enabled"
-    ]
-  },
-  {
-    "id": "widgets/SnapshotMode",
-    "url": "https://api.flutter.dev/flutter/widgets/SnapshotMode.html",
-    "name": "SnapshotMode",
-    "values": [
-      "permissive",
-      "normal",
-      "forced"
-    ]
-  },
-  {
-    "id": "rendering/StackFit",
-    "url": "https://api.flutter.dev/flutter/rendering/StackFit.html",
-    "name": "StackFit",
-    "values": [
-      "loose",
-      "expand",
-      "passthrough"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeCap",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeCap.html",
-    "name": "StrokeCap",
-    "values": [
-      "butt",
-      "round",
-      "square"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeJoin",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeJoin.html",
-    "name": "StrokeJoin",
-    "values": [
-      "miter",
-      "round",
-      "bevel"
-    ]
-  },
-  {
-    "id": "rendering/TableCellVerticalAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/TableCellVerticalAlignment.html",
-    "name": "TableCellVerticalAlignment",
-    "values": [
-      "top",
-      "middle",
-      "bottom",
-      "baseline",
-      "fill"
-    ]
-  },
-  {
-    "id": "foundation/TargetPlatform",
-    "url": "https://api.flutter.dev/flutter/foundation/TargetPlatform.html",
-    "name": "TargetPlatform",
-    "values": [
-      "android",
-      "fuchsia",
-      "iOS",
-      "linux",
-      "macOS",
-      "windows"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAffinity",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
-    "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAlign",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
-    "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/TextBaseline",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextBaseline.html",
-    "name": "TextBaseline",
-    "values": [
-      "alphabetic",
-      "ideographic"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDecorationStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDecorationStyle.html",
-    "name": "TextDecorationStyle",
-    "values": [
-      "solid",
-      "double",
-      "dotted",
-      "dashed",
-      "wavy"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
-  },
-  {
-    "id": "dart-ui/TextLeadingDistribution",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextLeadingDistribution.html",
-    "name": "TextLeadingDistribution",
-    "values": [
-      "proportional",
-      "even"
-    ]
-  },
-  {
-    "id": "painting/TextOverflow",
-    "url": "https://api.flutter.dev/flutter/painting/TextOverflow.html",
-    "name": "TextOverflow",
-    "values": [
-      "clip",
-      "fade",
-      "ellipsis",
-      "visible"
-    ]
-  },
-  {
-    "id": "rendering/TextSelectionHandleType",
-    "url": "https://api.flutter.dev/flutter/rendering/TextSelectionHandleType.html",
-    "name": "TextSelectionHandleType",
-    "values": [
-      "left",
-      "right",
-      "collapsed"
-    ]
-  },
-  {
-    "id": "painting/TextWidthBasis",
-    "url": "https://api.flutter.dev/flutter/painting/TextWidthBasis.html",
-    "name": "TextWidthBasis",
-    "values": [
-      "parent",
-      "longestLine"
-    ]
-  },
-  {
-    "id": "dart-ui/TileMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TileMode.html",
-    "name": "TileMode",
-    "values": [
-      "clamp",
-      "repeated",
-      "mirror",
-      "decal"
-    ]
-  },
-  {
-    "id": "widgets/TraversalDirection",
-    "url": "https://api.flutter.dev/flutter/widgets/TraversalDirection.html",
-    "name": "TraversalDirection",
-    "values": [
-      "up",
-      "right",
-      "down",
-      "left"
-    ]
-  },
-  {
-    "id": "widgets/UnfocusDisposition",
-    "url": "https://api.flutter.dev/flutter/widgets/UnfocusDisposition.html",
-    "name": "UnfocusDisposition",
-    "values": [
-      "scope",
-      "previouslyFocusedChild"
-    ]
-  },
-  {
-    "id": "dart-ui/VertexMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/VertexMode.html",
-    "name": "VertexMode",
-    "values": [
-      "triangles",
-      "triangleStrip",
-      "triangleFan"
-    ]
-  },
-  {
-    "id": "painting/VerticalDirection",
-    "url": "https://api.flutter.dev/flutter/painting/VerticalDirection.html",
-    "name": "VerticalDirection",
-    "values": [
-      "up",
-      "down"
-    ]
-  },
-  {
-    "id": "widgets/WidgetInspectorServiceExtensions",
-    "url": "https://api.flutter.dev/flutter/widgets/WidgetInspectorServiceExtensions.html",
-    "name": "WidgetInspectorServiceExtensions",
-    "values": [
-      "structuredErrors",
-      "show",
-      "trackRebuildDirtyWidgets",
-      "trackRepaintWidgets",
-      "disposeAllGroups",
-      "disposeGroup",
-      "isWidgetTreeReady",
-      "disposeId",
-      "setPubRootDirectories",
-      "addPubRootDirectories",
-      "removePubRootDirectories",
-      "getPubRootDirectories",
-      "setSelectionById",
-      "getParentChain",
-      "getProperties",
-      "getChildren",
-      "getChildrenSummaryTree",
-      "getChildrenDetailsSubtree",
-      "getRootWidget",
-      "getRootRenderObject",
-      "getRootWidgetSummaryTree",
-      "getRootWidgetSummaryTreeWithPreviews",
-      "getDetailsSubtree",
-      "getSelectedRenderObject",
-      "getSelectedWidget",
-      "getSelectedSummaryWidget",
-      "isWidgetCreationTracked",
-      "screenshot",
-      "getLayoutExplorerNode",
-      "setFlexFit",
-      "setFlexFactor",
-      "setFlexProperties"
-    ]
-  },
-  {
-    "id": "widgets/WidgetsServiceExtensions",
-    "url": "https://api.flutter.dev/flutter/widgets/WidgetsServiceExtensions.html",
-    "name": "WidgetsServiceExtensions",
-    "values": [
-      "debugDumpApp",
-      "showPerformanceOverlay",
-      "didSendFirstFrameEvent",
-      "didSendFirstFrameRasterizedEvent",
-      "fastReassemble",
-      "profileWidgetBuilds",
-      "profileUserWidgetBuilds",
-      "debugAllowBanner"
-    ]
-  },
-  {
-    "id": "rendering/WrapAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapAlignment.html",
-    "name": "WrapAlignment",
-    "values": [
-      "start",
-      "end",
-      "center",
-      "spaceBetween",
-      "spaceAround",
-      "spaceEvenly"
-    ]
-  },
-  {
-    "id": "rendering/WrapCrossAlignment",
-    "url": "https://api.flutter.dev/flutter/rendering/WrapCrossAlignment.html",
-    "name": "WrapCrossAlignment",
-    "values": [
-      "start",
-      "end",
-      "center"
-    ]
-  },
-  {
-    "id": "dart-ui/AppLifecycleState",
-    "url": "https://api.flutter.dev/flutter/dart-ui/AppLifecycleState.html",
-    "name": "AppLifecycleState",
-    "values": [
-      "resumed",
-      "inactive",
-      "paused",
-      "detached"
-    ]
-  },
-  {
-    "id": "dart-ui/BlendMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlendMode.html",
-    "name": "BlendMode",
-    "values": [
-      "clear",
-      "src",
-      "dst",
-      "srcOver",
-      "dstOver",
-      "srcIn",
-      "dstIn",
-      "srcOut",
-      "dstOut",
-      "srcATop",
-      "dstATop",
-      "xor",
-      "plus",
-      "modulate",
-      "screen",
-      "overlay",
-      "darken",
-      "lighten",
-      "colorDodge",
-      "colorBurn",
-      "hardLight",
-      "softLight",
-      "difference",
-      "exclusion",
-      "multiply",
-      "hue",
-      "saturation",
-      "color",
-      "luminosity"
-    ]
-  },
-  {
-    "id": "dart-ui/BlurStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/BlurStyle.html",
-    "name": "BlurStyle",
-    "values": [
-      "normal",
-      "solid",
-      "outer",
-      "inner"
-    ]
+    "values": ["top", "bottom"]
   },
   {
     "id": "dart-ui/BoxHeightStyle",
@@ -4393,91 +1210,31 @@
     "id": "dart-ui/BoxWidthStyle",
     "url": "https://api.flutter.dev/flutter/dart-ui/BoxWidthStyle.html",
     "name": "BoxWidthStyle",
-    "values": [
-      "tight",
-      "max"
-    ]
-  },
-  {
-    "id": "dart-ui/Brightness",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Brightness.html",
-    "name": "Brightness",
-    "values": [
-      "dark",
-      "light"
-    ]
-  },
-  {
-    "id": "dart-ui/Clip",
-    "url": "https://api.flutter.dev/flutter/dart-ui/Clip.html",
-    "name": "Clip",
-    "values": [
-      "none",
-      "hardEdge",
-      "antiAlias",
-      "antiAliasWithSaveLayer"
-    ]
+    "values": ["tight", "max"]
   },
   {
     "id": "dart-ui/ClipOp",
     "url": "https://api.flutter.dev/flutter/dart-ui/ClipOp.html",
     "name": "ClipOp",
-    "values": [
-      "difference",
-      "intersect"
-    ]
+    "values": ["difference", "intersect"]
   },
   {
     "id": "dart-ui/DartPerformanceMode",
     "url": "https://api.flutter.dev/flutter/dart-ui/DartPerformanceMode.html",
     "name": "DartPerformanceMode",
-    "values": [
-      "balanced",
-      "latency",
-      "throughput",
-      "memory"
-    ]
+    "values": ["balanced", "latency", "throughput", "memory"]
   },
   {
     "id": "dart-ui/DisplayFeatureState",
     "url": "https://api.flutter.dev/flutter/dart-ui/DisplayFeatureState.html",
     "name": "DisplayFeatureState",
-    "values": [
-      "unknown",
-      "postureFlat",
-      "postureHalfOpened"
-    ]
+    "values": ["unknown", "postureFlat", "postureHalfOpened"]
   },
   {
     "id": "dart-ui/DisplayFeatureType",
     "url": "https://api.flutter.dev/flutter/dart-ui/DisplayFeatureType.html",
     "name": "DisplayFeatureType",
-    "values": [
-      "unknown",
-      "fold",
-      "hinge",
-      "cutout"
-    ]
-  },
-  {
-    "id": "dart-ui/FilterQuality",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FilterQuality.html",
-    "name": "FilterQuality",
-    "values": [
-      "none",
-      "low",
-      "medium",
-      "high"
-    ]
-  },
-  {
-    "id": "dart-ui/FontStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/FontStyle.html",
-    "name": "FontStyle",
-    "values": [
-      "normal",
-      "italic"
-    ]
+    "values": ["unknown", "fold", "hinge", "cutout"]
   },
   {
     "id": "dart-ui/FramePhase",
@@ -4496,74 +1253,19 @@
     "id": "dart-ui/ImageByteFormat",
     "url": "https://api.flutter.dev/flutter/dart-ui/ImageByteFormat.html",
     "name": "ImageByteFormat",
-    "values": [
-      "rawRgba",
-      "rawStraightRgba",
-      "rawUnmodified",
-      "png"
-    ]
+    "values": ["rawRgba", "rawStraightRgba", "rawUnmodified", "png"]
   },
   {
     "id": "dart-ui/KeyEventType",
     "url": "https://api.flutter.dev/flutter/dart-ui/KeyEventType.html",
     "name": "KeyEventType",
-    "values": [
-      "down",
-      "up",
-      "repeat"
-    ]
-  },
-  {
-    "id": "dart-ui/PaintingStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PaintingStyle.html",
-    "name": "PaintingStyle",
-    "values": [
-      "fill",
-      "stroke"
-    ]
-  },
-  {
-    "id": "dart-ui/PathFillType",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathFillType.html",
-    "name": "PathFillType",
-    "values": [
-      "nonZero",
-      "evenOdd"
-    ]
-  },
-  {
-    "id": "dart-ui/PathOperation",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PathOperation.html",
-    "name": "PathOperation",
-    "values": [
-      "difference",
-      "intersect",
-      "union",
-      "xor",
-      "reverseDifference"
-    ]
+    "values": ["down", "up", "repeat"]
   },
   {
     "id": "dart-ui/PixelFormat",
     "url": "https://api.flutter.dev/flutter/dart-ui/PixelFormat.html",
     "name": "PixelFormat",
-    "values": [
-      "rgba8888",
-      "bgra8888"
-    ]
-  },
-  {
-    "id": "dart-ui/PlaceholderAlignment",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PlaceholderAlignment.html",
-    "name": "PlaceholderAlignment",
-    "values": [
-      "baseline",
-      "aboveBaseline",
-      "belowBaseline",
-      "top",
-      "bottom",
-      "middle"
-    ]
+    "values": ["rgba8888", "bgra8888"]
   },
   {
     "id": "dart-ui/PointerChange",
@@ -4583,151 +1285,22 @@
     ]
   },
   {
-    "id": "dart-ui/PointerDeviceKind",
-    "url": "https://api.flutter.dev/flutter/dart-ui/PointerDeviceKind.html",
-    "name": "PointerDeviceKind",
-    "values": [
-      "touch",
-      "mouse",
-      "stylus",
-      "invertedStylus",
-      "trackpad",
-      "unknown"
-    ]
-  },
-  {
     "id": "dart-ui/PointerSignalKind",
     "url": "https://api.flutter.dev/flutter/dart-ui/PointerSignalKind.html",
     "name": "PointerSignalKind",
-    "values": [
-      "none",
-      "scroll",
-      "scrollInertiaCancel",
-      "scale",
-      "unknown"
-    ]
+    "values": ["none", "scroll", "scrollInertiaCancel", "scale", "unknown"]
   },
   {
     "id": "dart-ui/PointMode",
     "url": "https://api.flutter.dev/flutter/dart-ui/PointMode.html",
     "name": "PointMode",
-    "values": [
-      "points",
-      "lines",
-      "polygon"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeCap",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeCap.html",
-    "name": "StrokeCap",
-    "values": [
-      "butt",
-      "round",
-      "square"
-    ]
-  },
-  {
-    "id": "dart-ui/StrokeJoin",
-    "url": "https://api.flutter.dev/flutter/dart-ui/StrokeJoin.html",
-    "name": "StrokeJoin",
-    "values": [
-      "miter",
-      "round",
-      "bevel"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAffinity",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAffinity.html",
-    "name": "TextAffinity",
-    "values": [
-      "upstream",
-      "downstream"
-    ]
-  },
-  {
-    "id": "dart-ui/TextAlign",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextAlign.html",
-    "name": "TextAlign",
-    "values": [
-      "left",
-      "right",
-      "center",
-      "justify",
-      "start",
-      "end"
-    ]
-  },
-  {
-    "id": "dart-ui/TextBaseline",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextBaseline.html",
-    "name": "TextBaseline",
-    "values": [
-      "alphabetic",
-      "ideographic"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDecorationStyle",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDecorationStyle.html",
-    "name": "TextDecorationStyle",
-    "values": [
-      "solid",
-      "double",
-      "dotted",
-      "dashed",
-      "wavy"
-    ]
-  },
-  {
-    "id": "dart-ui/TextDirection",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextDirection.html",
-    "name": "TextDirection",
-    "values": [
-      "rtl",
-      "ltr"
-    ]
-  },
-  {
-    "id": "dart-ui/TextLeadingDistribution",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TextLeadingDistribution.html",
-    "name": "TextLeadingDistribution",
-    "values": [
-      "proportional",
-      "even"
-    ]
-  },
-  {
-    "id": "dart-ui/TileMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/TileMode.html",
-    "name": "TileMode",
-    "values": [
-      "clamp",
-      "repeated",
-      "mirror",
-      "decal"
-    ]
-  },
-  {
-    "id": "dart-ui/VertexMode",
-    "url": "https://api.flutter.dev/flutter/dart-ui/VertexMode.html",
-    "name": "VertexMode",
-    "values": [
-      "triangles",
-      "triangleStrip",
-      "triangleFan"
-    ]
+    "values": ["points", "lines", "polygon"]
   },
   {
     "id": "dart-io/HttpClientResponseCompressionState",
     "url": "https://api.flutter.dev/flutter/dart-io/HttpClientResponseCompressionState.html",
     "name": "HttpClientResponseCompressionState",
-    "values": [
-      "notCompressed",
-      "decompressed",
-      "compressed"
-    ]
+    "values": ["notCompressed", "decompressed", "compressed"]
   },
   {
     "id": "flutter_test/EnginePhase",
@@ -4759,60 +1332,25 @@
     "id": "flutter_test/TestBindingEventSource",
     "url": "https://api.flutter.dev/flutter/flutter_test/TestBindingEventSource.html",
     "name": "TestBindingEventSource",
-    "values": [
-      "test",
-      "device"
-    ]
-  },
-  {
-    "id": "services/TextInputAction",
-    "url": "https://api.flutter.dev/flutter/services/TextInputAction.html",
-    "name": "TextInputAction",
-    "values": [
-      "none",
-      "unspecified",
-      "done",
-      "go",
-      "search",
-      "send",
-      "next",
-      "previous",
-      "continueAction",
-      "join",
-      "route",
-      "emergencyCall",
-      "newline"
-    ]
+    "values": ["test", "device"]
   },
   {
     "id": "flutter_driver/DiagnosticsType",
     "url": "https://api.flutter.dev/flutter/flutter_driver/DiagnosticsType.html",
     "name": "DiagnosticsType",
-    "values": [
-      "renderObject",
-      "widget"
-    ]
+    "values": ["renderObject", "widget"]
   },
   {
     "id": "flutter_driver/HealthStatus",
     "url": "https://api.flutter.dev/flutter/flutter_driver/HealthStatus.html",
     "name": "HealthStatus",
-    "values": [
-      "ok",
-      "bad"
-    ]
+    "values": ["ok", "bad"]
   },
   {
     "id": "flutter_driver/OffsetType",
     "url": "https://api.flutter.dev/flutter/flutter_driver/OffsetType.html",
     "name": "OffsetType",
-    "values": [
-      "topLeft",
-      "topRight",
-      "bottomLeft",
-      "bottomRight",
-      "center"
-    ]
+    "values": ["topLeft", "topRight", "bottomLeft", "bottomRight", "center"]
   },
   {
     "id": "flutter_driver/TextInputAction",

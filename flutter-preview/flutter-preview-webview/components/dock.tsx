@@ -8,26 +8,34 @@ import {
   PropertyColorInput,
 } from "@editor-ui/property";
 
-type TValue = string | number | boolean;
-
-type Property =
+export type Property =
   | EnumProperty
   | {
       key: string;
-      type: "number" | "text" | "boolean" | "color";
-      value: TValue;
+      type: "number" | "text";
+      value: string | number;
+    }
+  | {
+      key: string;
+      type: "boolean";
+      value: boolean;
+    }
+  | {
+      key: string;
+      type: "color";
+      value: string;
     };
 
 type EnumProperty = {
   key: string;
-  value: TValue;
+  value: string;
   type: "enum";
-  options: Array<string>;
+  options?: Array<{ label: string; value: string }> | Array<string>;
 };
 
 interface DockProps {
   properties: Array<Property>;
-  onPropertyChange: (key: string, value: TValue) => void;
+  onPropertyChange: (key: string, value: any) => void;
 }
 
 export function Dock({ properties, onPropertyChange }: DockProps) {
@@ -40,13 +48,22 @@ export function Dock({ properties, onPropertyChange }: DockProps) {
   }) => {
     switch (p.type) {
       case "boolean":
-        return <PropertyCheckboxInput key={p.key} onChange={onChange} />;
+        return (
+          <PropertyCheckboxInput
+            key={p.key}
+            onChange={onChange}
+            value={p.value}
+          />
+        );
       case "color":
-        return <PropertyColorInput key={p.key} onChange={onChange} />;
+        return (
+          <PropertyColorInput key={p.key} onChange={onChange} value={p.value} />
+        );
       case "enum":
         return (
           <PropertySelectInput
             key={p.key}
+            value={p.value}
             onChange={onChange}
             options={p.options}
           />

@@ -5,7 +5,7 @@
 - [foundation](https://api.flutter.dev/flutter/foundation/foundation-library.html#enums)
 - [gestures](https://api.flutter.dev/flutter/gestures/gestures-library.html#enums)
 - [material](https://api.flutter.dev/flutter/material/material-library.html#enums)
-- [paiting](https://api.flutter.dev/flutter/painting/painting-library.html#enums)
+- [painting](https://api.flutter.dev/flutter/painting/painting-library.html#enums)
 - [physics](https://api.flutter.dev/flutter/physics/physics-library.html#enums)
 - [rendering](https://api.flutter.dev/flutter/rendering/rendering-library.html#enums)
 - [scheduler](https://api.flutter.dev/flutter/scheduler/scheduler-library.html#enums)

@@ -19,7 +19,7 @@ abstract class DartCore extends AstNode with _$DartCore {
     String? key,
     required String? type,
     DartCore? value,
-    @Default(true) bool isOptional,
+    @Default(false) bool isOptional,
     @Default(false) bool isNamed,
     @Default(false) bool isPositional,
     @Default(false) bool isRequired,

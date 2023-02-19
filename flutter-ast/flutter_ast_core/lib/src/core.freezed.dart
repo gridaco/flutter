@@ -581,7 +581,7 @@ class _$DartProperty implements DartProperty {
       this.key,
       required this.type,
       this.value,
-      this.isOptional = true,
+      this.isOptional = false,
       this.isNamed = false,
       this.isPositional = false,
       this.isRequired = false,

@@ -1,0 +1,298 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 276,
+        "end": 920,
+        "constructors": [
+          {
+            "offset": 323,
+            "end": 633,
+            "name": "PressableCard",
+            "properties": [
+              {
+                "offset": 349,
+                "end": 368,
+                "name": "child",
+                "key": null,
+                "type": "Widget",
+                "value": null,
+                "isOptional": false,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": true,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": true,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 374,
+                "end": 391,
+                "name": "borderRadius",
+                "key": null,
+                "type": "BorderRadius",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 442,
+                "end": 458,
+                "name": "upElevation",
+                "key": null,
+                "type": "double",
+                "value": {
+                  "offset": 461,
+                  "end": 462,
+                  "type": "int",
+                  "value": "2",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 468,
+                "end": 486,
+                "name": "downElevation",
+                "key": null,
+                "type": "double",
+                "value": {
+                  "offset": 489,
+                  "end": 490,
+                  "type": "int",
+                  "value": "0",
+                  "runtimeType": "default"
+                },
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 496,
+                "end": 512,
+                "name": "shadowColor",
+                "key": null,
+                "type": "Color",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 542,
+                "end": 555,
+                "name": "duration",
+                "key": null,
+                "type": "Duration",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 597,
+                "end": 611,
+                "name": "onPressed",
+                "key": null,
+                "type": "VoidCallback?",
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 617,
+                "end": 626,
+                "name": "key",
+                "key": null,
+                "type": null,
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 637,
+            "end": 666,
+            "name": "onPressed",
+            "type": "VoidCallback?",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 671,
+            "end": 689,
+            "name": "child",
+            "type": "Widget",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 694,
+            "end": 725,
+            "name": "borderRadius",
+            "type": "BorderRadius",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 730,
+            "end": 754,
+            "name": "upElevation",
+            "type": "double",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 759,
+            "end": 785,
+            "name": "downElevation",
+            "type": "double",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 790,
+            "end": 813,
+            "name": "shadowColor",
+            "type": "Color",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 818,
+            "end": 841,
+            "name": "duration",
+            "type": "Duration",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [
+          {
+            "offset": 846,
+            "end": 918,
+            "name": "createState",
+            "parameters": [],
+            "body": {
+              "offset": 846,
+              "end": 918,
+              "name": "method_declaration",
+              "values": [
+                {
+                  "offset": 858,
+                  "end": 878,
+                  "name": "type",
+                  "value": "State<PressableCard>",
+                  "runtimeType": "simple"
+                }
+              ],
+              "runtimeType": "values"
+            }
+          }
+        ],
+        "name": "PressableCard",
+        "isAbstract": false,
+        "extendsClause": "extends StatefulWidget",
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [],
+    "fields": [],
+    "imports": [
+      {
+        "offset": 235,
+        "end": 274,
+        "uri": "package:flutter/material.dart",
+        "prefix": null,
+        "show": [],
+        "hide": []
+      }
+    ],
+    "methods": []
+  },
+  "errors": []
+}

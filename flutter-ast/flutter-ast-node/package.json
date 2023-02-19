@@ -1,6 +1,6 @@
 {
   "name": "flutter-ast",
-  "version": "0.0.4-3",
+  "version": "0.0.4-4",
   "description": "A Pure Dart File to Ast Serializer/Deserializer.",
   "main": "index.js",
   "typings": "index.d.ts",

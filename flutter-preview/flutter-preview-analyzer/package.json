@@ -13,7 +13,7 @@
     "dev": "tsup --watch --sourcemap"
   },
   "dependencies": {
-    "flutter-ast": "^0.0.4-3"
+    "flutter-ast": "^0.0.4-4"
   },
   "files": [
     "dist",

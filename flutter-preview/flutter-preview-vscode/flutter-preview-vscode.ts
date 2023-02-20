@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import path from "path";
-import { Analyzer } from "@flutter-preview/analyzer";
+import { Analyzer, WidgetAnalysis } from "@flutter-preview/analyzer";
 import { FlutterDaemon } from "./daemon";
 import {
   appurl,
@@ -11,10 +11,14 @@ import {
   VSCodeCommand,
 } from "@flutter-preview/webview";
 import { locatePubspec } from "pubspec";
+import assert from "assert";
 
 const langs = ["dart"] as const;
 
-const APP_HOST = "https://flutter-preview.webview.vscode.grida.co/app"; // "http://localhost:6632";
+const APP_HOST = "http://localhost:6632/app";
+// "https://flutter-preview.webview.vscode.grida.co/app"; //
+
+const analysis: Map<string, Array<WidgetAnalysis>> = new Map();
 
 export class FlutterPreviewVSCode {
   readonly namespace: string;
@@ -35,18 +39,53 @@ export class FlutterPreviewVSCode {
 
     vscode.languages.registerCodeLensProvider(langs, {
       provideCodeLenses: async (document: vscode.TextDocument) => {
+        console.log("analyzing components for..", document.fileName);
+
         const text = document.getText();
         const analyzer = new Analyzer(text);
 
         const components = await analyzer.widgets();
+
+        console.log("analyzed components", components);
+
+        analysis.set(document.fileName, components);
+
         const lenses = components
           .map((_class) => {
             return _class.constructors.map((_constructor) => {
               const args = [document, _class.id, _constructor.name];
 
-              // TODO: support widgets with required arguments
-              // at this moment, we don't support widgets with required arguments
-              if (_constructor.analysis.requires_arguments) {
+              const {
+                requires_properties,
+                required_properties,
+                required_and_unsupported_properties,
+                contains_required_unsupported_properties,
+                contains_unsupported_properties,
+              } = _constructor.analysis;
+
+              // console.log(
+              //   _constructor.name,
+              //   "@required args:",
+              //   required_arguments
+              // );
+
+              if (contains_required_unsupported_properties) {
+                const _try_to_fix_el = required_and_unsupported_properties[0];
+                const start = document.positionAt(_class.start + 2);
+                const lens = new vscode.CodeLens(
+                  new vscode.Range(start, start),
+                  {
+                    command: this.commandId,
+                    arguments: args,
+                    title: `⚠️ Can't Preview ${_class.name}. (Make ${_try_to_fix_el.name} optional)`,
+                  }
+                );
+                return lens;
+              }
+
+              if (requires_properties) {
+                // TODO: support widgets with required arguments
+                // at this moment, we don't support widgets with required arguments
                 return;
               }
 
@@ -101,6 +140,7 @@ async function cmd_dart_preview_handler(
   widgetId: string,
   constructorId: string
 ) {
+  const { fileName } = document;
   const panel_title = `Preview: ${widgetId}`;
 
   const panel = vscode.window.createWebviewPanel(
@@ -144,6 +184,28 @@ async function cmd_dart_preview_handler(
       } as AppStopAction);
     },
   };
+
+  // get the widget analysis
+  const widget_analysis = analysis
+    .get(fileName)
+    ?.find((w) => w.id === widgetId);
+
+  assert(widget_analysis, `Widget analysis not found for ${widgetId}`);
+
+  // get the constructor analysis
+  const constructor_analysis = widget_analysis?.constructors.find(
+    (c) => c.name === constructorId
+  );
+
+  assert(
+    constructor_analysis,
+    `Constructor analysis not found for ${widgetId}.${constructorId}`
+  );
+
+  // map the properties to property metadata to pass to the preview service
+  // TODO: const properties = constructor_analysis..properties.map(
+
+  console.log("analysis", widget_analysis, constructor_analysis);
 
   // run flutter daemon
   const daemon = FlutterDaemon.instance;

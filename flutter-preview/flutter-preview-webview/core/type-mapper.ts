@@ -1,9 +1,4 @@
-import { FlutterEnumType, all } from "@flutter-builder/metadata-enums";
-
-type DartPlainType = "int" | "double" | "num" | "bool" | "String" | "dynamic";
-type DartUIType = "Color";
-
-type DartType = DartPlainType | DartUIType | FlutterEnumType;
+import { type as typeanalyze } from "@flutter-preview/analyzer";
 
 type MappedControlMeta =
   | {
@@ -14,7 +9,7 @@ type MappedControlMeta =
       options?: Array<{ label: string; value: string }> | Array<string>;
     };
 
-export function mapTypes(type: DartType): MappedControlMeta {
+export function mapTypes(type: typeanalyze.DartType): MappedControlMeta {
   switch (type) {
     case "int":
       return { type: "number" };
@@ -36,7 +31,7 @@ export function mapTypes(type: DartType): MappedControlMeta {
   }
 
   // enums
-  const maybeEnum = all.find((e) => e.id === type);
+  const maybeEnum = typeanalyze.isTypeFlutterEnum(type);
   if (maybeEnum) {
     return {
       type: "enum",

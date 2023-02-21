@@ -7,6 +7,7 @@ import {
   PropertySelectInput,
   PropertyColorInput,
 } from "@editor-ui/property";
+import styled from "@emotion/styled";
 
 export type Property =
   | EnumProperty
@@ -81,7 +82,8 @@ export function Dock({ properties, onPropertyChange }: DockProps) {
   };
 
   return (
-    <>
+    <DockLayout>
+      <DockHeader>Props</DockHeader>
       <PropertyLines>
         {properties.map((p, i) => {
           return (
@@ -96,6 +98,17 @@ export function Dock({ properties, onPropertyChange }: DockProps) {
           );
         })}
       </PropertyLines>
-    </>
+    </DockLayout>
   );
 }
+
+const DockLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const DockHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 14px;
+`;

@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter/widgets.dart';
 import './properties_value_state.dart';
 import './mappers/mappers.dart';
@@ -6,6 +7,11 @@ T value<T>(
   BuildContext context,
   String key,
 ) {
+  // Callbacks
+  if (T == Function || T == Function()) {
+    return makeCallbackEventEmitter(key) as T;
+  }
+
   final value = PropertiesStateContainer.of(context)!.properties[key];
 
   // core types
@@ -84,4 +90,16 @@ T value<T>(
   }
 
   return value;
+}
+
+Function() makeCallbackEventEmitter(String name) {
+  return ([dynamic args]) {
+    // Send a event to the parent webapp when the widget is tapped
+    // post message
+    html.window.parent?.postMessage({
+      "event": "@inapp/function-invocation-event",
+      "name": name,
+      "args": args
+    }, "*");
+  };
 }

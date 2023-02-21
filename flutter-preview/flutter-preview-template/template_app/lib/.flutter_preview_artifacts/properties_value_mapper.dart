@@ -1,4 +1,3 @@
-import 'dart:html' as html;
 import 'package:flutter/widgets.dart';
 import './properties_value.dart';
 import './target_widget.dart';
@@ -16,6 +15,7 @@ class PropertiesMapper extends StatelessWidget {
     final enabled = value<bool>(context, "enabled");
     final color = value<Color>(context, "color");
     final alignment = value<CrossAxisAlignment>(context, "alignment");
+    final onTap = value<Function()>(context, "onTap");
     // end_flutter_preview_template:property_variable_declarations
 
     return Column(
@@ -28,20 +28,10 @@ class PropertiesMapper extends StatelessWidget {
           enabled: enabled,
           color: color,
           alignment: alignment,
-          onTap: GENERIC_CALLBACK_HANDLER,
+          onTap: onTap,
         ),
         // end_flutter_preview_template:widget_instantiation
       ],
     );
   }
 }
-
-Function() GENERIC_CALLBACK_HANDLER = ([dynamic args]) {
-  // Send a event to the parent webapp when the widget is tapped
-  // post message
-  html.window.parent?.postMessage({
-    "event": "@inapp/function-invocation-event",
-    "name": 'onTap', // TODO:
-    "args": args
-  }, "*");
-};

@@ -1,5 +1,4 @@
-export default (args: {property_variable_declarations: string, widget_instantiation: string}) => `import 'dart:html' as html;
-import 'package:flutter/widgets.dart';
+export default (args: {property_variable_declarations: string, widget_instantiation: string}) => `import 'package:flutter/widgets.dart';
 import './properties_value.dart';
 import './target_widget.dart';
 
@@ -22,14 +21,4 @@ ${args.widget_instantiation}
     );
   }
 }
-
-Function() GENERIC_CALLBACK_HANDLER = ([dynamic args]) {
-  // Send a event to the parent webapp when the widget is tapped
-  // post message
-  html.window.parent?.postMessage({
-    "event": "@inapp/function-invocation-event",
-    "name": 'onTap', // TODO:
-    "args": args
-  }, "*");
-};
 `

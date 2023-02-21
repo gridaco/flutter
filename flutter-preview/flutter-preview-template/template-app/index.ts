@@ -1,6 +1,6 @@
 import type { DartProperty } from "flutter-ast";
 import mustache from "mustache";
-import * as templates from "./templates";
+import * as v1 from "./templates/v1";
 
 interface FlutterTemplateArgs {
   /**
@@ -60,7 +60,7 @@ function buildMainContent({
   _seed_imports.add(_import);
 
   // render the template
-  const main_dart_src = mustache.render(templates.main_dart_mustache, {
+  const main_dart_src = mustache.render(v1.main_dart_mustache, {
     imports: Array.from(_seed_imports),
     title: "Preview - " + identifier,
     widget: initializationName,
@@ -74,3 +74,5 @@ function buildInitialProperties() {
 }
 
 function buildPropertyConnectors() {}
+
+//

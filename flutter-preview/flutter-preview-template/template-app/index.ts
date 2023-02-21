@@ -12,6 +12,7 @@ import v2_lib_flutter_preview_artifacts__target_widget from "./templates/v2/lib/
 import v2_lib_flutter_preview_artifacts__mappers__mappers from "./templates/v2/lib/.flutter_preview_artifacts/mappers/mappers";
 import v2_lib_flutter_preview_artifacts__mappers__flutter_enums_ext from "./templates/v2/lib/.flutter_preview_artifacts/mappers/flutter_enums_ext";
 import v2_lib_flutter_preview_artifacts__mappers__flutter_types_ext from "./templates/v2/lib/.flutter_preview_artifacts/mappers/flutter_types_ext";
+import { defaultValueByType } from "./defaults";
 
 const templates = {
   "lib/main.dart": v2_lib_main,
@@ -179,7 +180,7 @@ function buildInitialProperties(properties: DartProperty[]) {
 
       return `${dartstring(p.name)}: ${dartvalue(
         // TODO: remove illegal casting
-        p.value as any,
+        (p.value as any) ?? defaultValueByType(p.type! as any),
         p.type
       )}`;
     })

@@ -1,4 +1,5 @@
 import type { DartProperty } from "flutter-ast";
+import { type } from "@flutter-preview/analyzer";
 
 import v2_lib_main from "./templates/v2/lib/main";
 import v2_lib_flutter_preview_artifacts__initial_properties from "./templates/v2/lib/.flutter_preview_artifacts/initial_properties";
@@ -50,7 +51,7 @@ interface FlutterTemplateArgs {
     identifier: string;
     initializationName: string;
     import: string;
-    properties: DartProperty[];
+    controls: DartProperty[];
   };
 }
 
@@ -71,7 +72,7 @@ export default function template({
   const __flutter_preview_artifacts__initial_properties = templates[
     "lib/.flutter_preview_artifacts/initial_properties.dart"
   ]({
-    initial_properties: buildInitialProperties(),
+    initial_properties: buildInitialProperties(target.controls),
   });
 
   const __flutter_preview_artifacts__preview = templates[
@@ -80,7 +81,12 @@ export default function template({
 
   const __flutter_preview_artifacts__properties_value_mapper = templates[
     "lib/.flutter_preview_artifacts/properties_value_mapper.dart"
-  ](buildPropertyConnectorsWithInstanciation());
+  ](
+    buildPropertyConnectorsWithInstanciation({
+      constructorName: target.initializationName,
+      properties: target.controls,
+    })
+  );
 
   const __flutter_preview_artifacts__properties_value_state = templates[
     "lib/.flutter_preview_artifacts/properties_value_state.dart"
@@ -93,6 +99,7 @@ export default function template({
   const __flutter_preview_artifacts__target_widget = templates[
     "lib/.flutter_preview_artifacts/target_widget.dart"
   ]({
+    // TODO: make target.import relative to /lib/.flutter_preview_artifacts/target_widget.dart
     target_widget: `export '${target.import}'`,
   });
 
@@ -157,16 +164,68 @@ function buildMainContent({ identifier }: FlutterTemplateArgs["target"]) {
   return main_dart_src;
 }
 
-function buildInitialProperties() {
-  // TODO:
-  return "";
+function buildInitialProperties(properties: DartProperty[]) {
+  // ```dart
+  // Map <String, dynamic> initialProperties = {
+  //   // make lines to go here
+  // }
+  // ```
+
+  return properties
+    .map((p) => {
+      if (!p.name) {
+        return "";
+      }
+
+      return `${dartstring(p.name)}: ${dartvalue(
+        // TODO: remove illegal casting
+        p.value as any,
+        p.type
+      )}`;
+    })
+    .join(",\n");
 }
 
-function buildPropertyConnectorsWithInstanciation() {
+function buildPropertyConnectorsWithInstanciation({
+  constructorName,
+  properties,
+}: {
+  constructorName: string;
+  properties: DartProperty[];
+}) {
   // TODO:
+  const declarations = properties
+    .map(({ key, type }) => {
+      // e.g. `final name = value<String>(context, "name");`;
+      return `final ${key!} = value<${type!}>(context, ${dartstring(key!)});`;
+      //
+    })
+    .join("\n");
+
+  // TODO:
+  const args = properties
+    .sort((a, b) => {
+      return (a.position ?? 0) - (b.position ?? 0);
+    })
+    .map(({ key, isPositional, isOptionalNamed }) => {
+      if (isPositional) {
+        return key;
+      }
+
+      if (isOptionalNamed) {
+        return `${key}: ${key}`;
+      }
+
+      // TODO: check me
+      return `${key}: ${key}`;
+      // throw new Error(`Unsupported argument type`);
+    })
+    .join(",\n");
+  const instanciation = `${constructorName}(${args})`;
+
   return {
-    property_variable_declarations: "", // TODO:
-    widget_instantiation: "", // TODO:
+    property_variable_declarations: declarations,
+    widget_instantiation: instanciation,
   };
 }
 
@@ -174,4 +233,21 @@ function buildPropertyConnectorsWithInstanciation() {
 
 function dartstring(string: string) {
   return JSON.stringify(string);
+}
+
+function dartvalue(value: string, rawtype?: string) {
+  if (rawtype === "Key" || rawtype === "Key?") {
+    // If Key type was specified, we will return null.
+    // However, we won't receive a key becaze the analyzer would ignore it first.
+    return "null";
+  }
+
+  const darttype = rawtype?.replace("?", "") as type.DartType;
+
+  switch (darttype) {
+    case "String":
+      return dartstring(value);
+  }
+
+  throw new Error(`#dartvalue Unsupported type: ${rawtype}`);
 }

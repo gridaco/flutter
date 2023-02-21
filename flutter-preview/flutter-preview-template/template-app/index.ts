@@ -1,6 +1,39 @@
 import type { DartProperty } from "flutter-ast";
-import mustache from "mustache";
-import * as v1 from "./templates/v1";
+
+import v2_lib_main from "./templates/v2/lib/main";
+import v2_lib_flutter_preview_artifacts__initial_properties from "./templates/v2/lib/.flutter_preview_artifacts/initial_properties";
+import v2_lib_flutter_preview_artifacts__preview from "./templates/v2/lib/.flutter_preview_artifacts/preview";
+import v2_lib_flutter_preview_artifacts__properties_value_mapper from "./templates/v2/lib/.flutter_preview_artifacts/properties_value_mapper";
+import v2_lib_flutter_preview_artifacts__properties_value_state from "./templates/v2/lib/.flutter_preview_artifacts/properties_value_state";
+import v2_lib_flutter_preview_artifacts__properties_value from "./templates/v2/lib/.flutter_preview_artifacts/properties_value";
+import v2_lib_flutter_preview_artifacts__target_widget from "./templates/v2/lib/.flutter_preview_artifacts/target_widget";
+// mappers
+import v2_lib_flutter_preview_artifacts__mappers__mappers from "./templates/v2/lib/.flutter_preview_artifacts/mappers/mappers";
+import v2_lib_flutter_preview_artifacts__mappers__flutter_enums_ext from "./templates/v2/lib/.flutter_preview_artifacts/mappers/flutter_enums_ext";
+import v2_lib_flutter_preview_artifacts__mappers__flutter_types_ext from "./templates/v2/lib/.flutter_preview_artifacts/mappers/flutter_types_ext";
+
+const templates = {
+  "lib/main.dart": v2_lib_main,
+  "lib/.flutter_preview_artifacts/initial_properties.dart":
+    v2_lib_flutter_preview_artifacts__initial_properties,
+  "lib/.flutter_preview_artifacts/preview.dart":
+    v2_lib_flutter_preview_artifacts__preview,
+  "lib/.flutter_preview_artifacts/properties_value_mapper.dart":
+    v2_lib_flutter_preview_artifacts__properties_value_mapper,
+  "lib/.flutter_preview_artifacts/properties_value_state.dart":
+    v2_lib_flutter_preview_artifacts__properties_value_state,
+  "lib/.flutter_preview_artifacts/properties_value.dart":
+    v2_lib_flutter_preview_artifacts__properties_value,
+  "lib/.flutter_preview_artifacts/target_widget.dart":
+    v2_lib_flutter_preview_artifacts__target_widget,
+  // mappers
+  "lib/.flutter_preview_artifacts/mappers/mappers.dart":
+    v2_lib_flutter_preview_artifacts__mappers__mappers,
+  "lib/.flutter_preview_artifacts/mappers/flutter_enums_ext.dart":
+    v2_lib_flutter_preview_artifacts__mappers__flutter_enums_ext,
+  "lib/.flutter_preview_artifacts/mappers/flutter_types_ext.dart":
+    v2_lib_flutter_preview_artifacts__mappers__flutter_types_ext,
+} as const;
 
 interface FlutterTemplateArgs {
   /**
@@ -35,44 +68,110 @@ export default function template({
   hash = "",
   target,
 }: FlutterTemplateArgs): TemplateData {
+  const __flutter_preview_artifacts__initial_properties = templates[
+    "lib/.flutter_preview_artifacts/initial_properties.dart"
+  ]({
+    initial_properties: buildInitialProperties(),
+  });
+
+  const __flutter_preview_artifacts__preview = templates[
+    "lib/.flutter_preview_artifacts/preview.dart"
+  ]({});
+
+  const __flutter_preview_artifacts__properties_value_mapper = templates[
+    "lib/.flutter_preview_artifacts/properties_value_mapper.dart"
+  ](buildPropertyConnectorsWithInstanciation());
+
+  const __flutter_preview_artifacts__properties_value_state = templates[
+    "lib/.flutter_preview_artifacts/properties_value_state.dart"
+  ]({});
+
+  const __flutter_preview_artifacts__properties_value = templates[
+    "lib/.flutter_preview_artifacts/properties_value.dart"
+  ]({});
+
+  const __flutter_preview_artifacts__target_widget = templates[
+    "lib/.flutter_preview_artifacts/target_widget.dart"
+  ]({
+    target_widget: `export '${target.import}'`,
+  });
+
+  // mappers
+  const __flutter_preview_artifacts__mappers__mappers = templates[
+    "lib/.flutter_preview_artifacts/mappers/mappers.dart"
+  ]({});
+
+  const __flutter_preview_artifacts__mappers__flutter_enums_ext = templates[
+    "lib/.flutter_preview_artifacts/mappers/flutter_enums_ext.dart"
+  ]({});
+
   return {
     main: {
       path: "lib/main.dart",
       content: buildMainContent(target),
     },
-    artifacts: [],
+    artifacts: [
+      {
+        path: `lib/.flutter_preview_artifacts/initial_properties.dart`,
+        content: __flutter_preview_artifacts__initial_properties,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/preview.dart`,
+        content: __flutter_preview_artifacts__preview,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/properties_value_mapper.dart`,
+        content: __flutter_preview_artifacts__properties_value_mapper,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/properties_value_state.dart`,
+        content: __flutter_preview_artifacts__properties_value_state,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/properties_value.dart`,
+        content: __flutter_preview_artifacts__properties_value,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/target_widget.dart`,
+        content: __flutter_preview_artifacts__target_widget,
+      },
+      // mappers
+      {
+        path: `lib/.flutter_preview_artifacts/mappers/mappers.dart`,
+        content: __flutter_preview_artifacts__mappers__mappers,
+      },
+      {
+        path: `lib/.flutter_preview_artifacts/mappers/flutter_enums_ext.dart`,
+        content: __flutter_preview_artifacts__mappers__flutter_enums_ext,
+      },
+    ],
   };
 }
 
-function buildMainContent({
-  identifier,
-  initializationName,
-  import: _import,
-}: FlutterTemplateArgs["target"]) {
-  const _seed_imports = new Set([
-    // default imports
-    "package:flutter/material.dart",
-    // TODO: add main imports later... (disabling it to test the speed of initial compilation)
-    // ...imports,
-  ]);
-
-  // add the target import from main.dart
-  _seed_imports.add(_import);
-
+function buildMainContent({ identifier }: FlutterTemplateArgs["target"]) {
   // render the template
-  const main_dart_src = mustache.render(v1.main_dart_mustache, {
-    imports: Array.from(_seed_imports),
-    title: "Preview - " + identifier,
-    widget: initializationName,
+  const main_dart_src = templates["lib/main.dart"]({
+    title: dartstring("Preview - " + identifier),
   });
 
   return main_dart_src;
 }
 
 function buildInitialProperties() {
-  //
+  // TODO:
+  return "";
 }
 
-function buildPropertyConnectors() {}
+function buildPropertyConnectorsWithInstanciation() {
+  // TODO:
+  return {
+    property_variable_declarations: "", // TODO:
+    widget_instantiation: "", // TODO:
+  };
+}
 
 //
+
+function dartstring(string: string) {
+  return JSON.stringify(string);
+}

@@ -178,7 +178,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
   /**
    * override the main.dart file since we cannot customize the entry file for the daemon proc
    */
-  private override_main_dart() {
+  private template() {
     // if - the target is inside the main.dart file, we need to copy the main.dart content to X, remove the `void main() {}`, re-import the X from the newly seeded main.dart file.
     // else - the target is elsewhere from the main.dart file (normal case)
 
@@ -210,7 +210,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       );
     }
 
-    const { main } = template({
+    const { main, artifacts } = template({
       target: {
         identifier: this.m_target.identifier,
         initializationName: this.m_target.initializationName,
@@ -219,8 +219,18 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       },
     });
 
-    // write the file
+    // write the lib/main.dart file
     fs.writeFileSync(this.main, main.content);
+
+    // write the artifacts
+    artifacts.forEach((a) => {
+      const target = path.join(this.root, a.path);
+      console.log(target);
+      // safely create the directory if it doesn't exist
+      mkdirp.sync(path.dirname(target));
+      // write the file
+      fs.writeFileSync(target, a.content);
+    });
   }
 
   private resolve_assets() {
@@ -341,7 +351,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
       ...others,
     });
 
-    this.override_main_dart();
+    this.template();
   }
 
   // #region IFlutterRunnerClient

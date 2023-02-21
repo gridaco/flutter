@@ -6,6 +6,6 @@
     "esModuleInterop": true,
     "sourceMap": false
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "../flutter-preview-template/template-app/templates"],
   "exclude": ["node_modules", "dist", "__tests__", "**/*.spec.ts"]
 }

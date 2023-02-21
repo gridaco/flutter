@@ -4,7 +4,6 @@ import tmp from "tmp";
 import path from "path";
 import { mkdirp } from "mkdirp";
 import rimraf from "rimraf";
-import mustache from "mustache";
 import ast, { DartImport } from "flutter-ast";
 import * as pubspec from "pubspec";
 import {
@@ -12,7 +11,7 @@ import {
   FlutterProject,
   IFlutterRunnerClient,
 } from "@flutter-daemon/server";
-import * as templates from "./templates";
+import template from "@flutter-preview/template";
 
 interface IFlutterPreviewWidgetClass {
   /**
@@ -186,14 +185,8 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     // const mainsrc = fs.readFileSync(this.originMainProxy, "utf-8");
     // const { imports } = ast.parse(mainsrc).file;
 
-    const _seed_imports = new Set([
-      // default imports
-      "package:flutter/material.dart",
-      // TODO: add main imports later... (disabling it to test the speed of initial compilation)
-      // ...imports,
-    ]);
-
     const target = this.m_target.path;
+    let target_import_path;
 
     if (
       // if the target is the main.dart file
@@ -202,31 +195,32 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
     ) {
       // add the copied main file as import
       // make it relative to lib/main.dart -> e.g. 'xxx_tmp_xxx.dart'
-      _seed_imports.add(
-        path.relative(
-          path.join(this.root, "./lib"),
-          path.join(this.originMainProxy)
-        )
+      target_import_path = path.relative(
+        path.join(this.root, "./lib"),
+        path.join(this.originMainProxy)
       );
     } else {
       // read & analyze the main entry file
 
       // add the target node as import
       // make it relative to lib/main.dart -> e.g. './src/demo.dart'
-      _seed_imports.add(
-        path.relative(path.join(this.root, "./lib"), this.abspath(target))
+      target_import_path = path.relative(
+        path.join(this.root, "./lib"),
+        this.abspath(target)
       );
     }
 
-    // render the template
-    const main_dart_src = mustache.render(templates.main_dart_mustache, {
-      imports: Array.from(_seed_imports),
-      title: "Preview - " + this.m_target.identifier,
-      widget: this.m_target.initializationName,
+    const { main } = template({
+      target: {
+        identifier: this.m_target.identifier,
+        initializationName: this.m_target.initializationName,
+        import: target_import_path,
+        properties: [], // TODO:
+      },
     });
 
     // write the file
-    fs.writeFileSync(this.main, main_dart_src);
+    fs.writeFileSync(this.main, main.content);
   }
 
   private resolve_assets() {

@@ -45,8 +45,17 @@ interface IFlutterPreviewWidgetClass {
 class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
   // private _cached: IFlutterPreviewWidgetClass;
 
+  /**
+   * the root path of the project, where the pubspec.yaml file is copied to, where this widget is originally located
+   */
+  private _root: string;
+
+  private get absolutePath() {
+    return path.join(this._root, this.path);
+  }
+
   get text() {
-    const _text = fs.readFileSync(this.path, "utf-8");
+    const _text = fs.readFileSync(this.absolutePath, "utf-8");
     return _text;
   }
 
@@ -80,13 +89,21 @@ class FlutterPreviewWidgetClass implements IFlutterPreviewWidgetClass {
     });
   }
 
-  constructor({ path, identifier, constructor }: ITargetIdentifier) {
+  get properties() {
+    return ast
+      .parse(this.text)
+      .file.classes.find((c) => c.name === this.identifier)
+      .constructors.find((c) => c.name === this.constructorName).properties;
+  }
+
+  constructor({ root, path, identifier, constructor }: ITargetInitializer) {
+    this._root = root;
     this.path = path;
     this.identifier = identifier;
     this.constructorName = constructor;
   }
 
-  static from(p: ITargetIdentifier) {
+  static from(p: ITargetInitializer) {
     return new FlutterPreviewWidgetClass(p);
   }
 }
@@ -215,7 +232,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
         identifier: this.m_target.identifier,
         initializationName: this.m_target.initializationName,
         import: target_import_path,
-        properties: [], // TODO:
+        controls: this.m_target.properties, // TODO: get this from analyzer [required or supported]
       },
     });
 
@@ -347,6 +364,7 @@ export class FlutterPreviewProject implements IFlutterRunnerClient {
 
     this.m_target = FlutterPreviewWidgetClass.from({
       // if the path is absolute, then use make it relative to the origin
+      root: this.origin,
       path: path.isAbsolute(_path) ? path.relative(this.origin, _path) : _path,
       ...others,
     });
@@ -437,4 +455,8 @@ export interface ITargetIdentifier {
   path: string;
   identifier: string;
   constructor: string;
+}
+
+interface ITargetInitializer extends ITargetIdentifier {
+  root: string;
 }

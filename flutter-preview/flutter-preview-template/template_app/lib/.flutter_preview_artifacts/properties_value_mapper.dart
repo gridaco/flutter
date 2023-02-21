@@ -9,15 +9,18 @@ class PropertiesMapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // read the value of the "name" property from the parent state container
+    // start_flutter_preview_template:property_variable_declarations
     final name = value<String>(context, "name");
     final radius = value<int>(context, "radius");
     final description = value<String>(context, "description");
     final enabled = value<bool>(context, "enabled");
     final color = value<Color>(context, "color");
     final alignment = value<CrossAxisAlignment>(context, "alignment");
+    // end_flutter_preview_template:property_variable_declarations
 
     return Column(
       children: [
+        // start_flutter_preview_template:widget_instantiation
         Sample1Widget(
           name,
           radius: radius,
@@ -27,6 +30,7 @@ class PropertiesMapper extends StatelessWidget {
           alignment: alignment,
           onTap: GENERIC_CALLBACK_HANDLER,
         ),
+        // end_flutter_preview_template:widget_instantiation
       ],
     );
   }

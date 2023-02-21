@@ -12,7 +12,11 @@ class FlutterPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "{{title}}",
+        title:
+            // start_flutter_preview_template:title
+            "Flutter Widget Preview"
+        // end_flutter_preview_template:title
+        ,
         theme: ThemeData(),
         home: Scaffold(
             body: PropertiesStateManager(

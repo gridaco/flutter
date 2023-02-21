@@ -33,7 +33,7 @@ _$DartProperty _$$DartPropertyFromJson(Map<String, dynamic> json) =>
       value: json['value'] == null
           ? null
           : DartCore.fromJson(json['value'] as Map<String, dynamic>),
-      isOptional: json['isOptional'] as bool? ?? true,
+      isOptional: json['isOptional'] as bool? ?? false,
       isNamed: json['isNamed'] as bool? ?? false,
       isPositional: json['isPositional'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,

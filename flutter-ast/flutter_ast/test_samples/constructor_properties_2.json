@@ -1,0 +1,148 @@
+{
+  "file": {
+    "path": null,
+    "classes": [
+      {
+        "offset": 276,
+        "end": 766,
+        "constructors": [
+          {
+            "offset": 321,
+            "end": 413,
+            "name": "VeggieCard",
+            "properties": [
+              {
+                "offset": 338,
+                "end": 349,
+                "name": "veggie",
+                "key": null,
+                "type": "Veggie",
+                "value": null,
+                "isOptional": false,
+                "isNamed": false,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 351,
+                "end": 366,
+                "name": "isInSeason",
+                "key": null,
+                "type": "bool",
+                "value": null,
+                "isOptional": false,
+                "isNamed": false,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 368,
+                "end": 392,
+                "name": "isPreferredCategory",
+                "key": null,
+                "type": "bool",
+                "value": null,
+                "isOptional": false,
+                "isNamed": false,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": false,
+                "position": null,
+                "runtimeType": "property"
+              },
+              {
+                "offset": 401,
+                "end": 410,
+                "name": "key",
+                "key": null,
+                "type": null,
+                "value": null,
+                "isOptional": true,
+                "isNamed": true,
+                "isPositional": false,
+                "isRequired": false,
+                "isRequiredPositional": false,
+                "isSynthetic": false,
+                "isRequiredNamed": false,
+                "isOptionalNamed": true,
+                "position": null,
+                "runtimeType": "property"
+              }
+            ]
+          }
+        ],
+        "comments": [],
+        "fields": [
+          {
+            "offset": 459,
+            "end": 478,
+            "name": "veggie",
+            "type": "Veggie",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 631,
+            "end": 652,
+            "name": "isInSeason",
+            "type": "bool",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          },
+          {
+            "offset": 733,
+            "end": 763,
+            "name": "isPreferredCategory",
+            "type": "bool",
+            "value": null,
+            "isFinal": false,
+            "isConst": false,
+            "isStatic": false,
+            "runtimeType": "field"
+          }
+        ],
+        "methods": [],
+        "name": "VeggieCard",
+        "isAbstract": false,
+        "extendsClause": "extends StatelessWidget",
+        "implementsClause": null,
+        "withClause": null
+      }
+    ],
+    "enums": [],
+    "fields": [],
+    "imports": [
+      {
+        "offset": 235,
+        "end": 274,
+        "uri": "package:flutter/material.dart",
+        "prefix": null,
+        "show": [],
+        "hide": []
+      }
+    ],
+    "methods": []
+  },
+  "errors": []
+}

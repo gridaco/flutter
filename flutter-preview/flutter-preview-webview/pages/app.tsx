@@ -9,11 +9,14 @@ import {
   AppStopAction,
   VSCodeOpenExternalCommand,
   NotifyVSCodeThatAppIsReady,
+  NotifyPropertyChange,
 } from "@flutter-preview/webview";
 import { Appbar } from "components/appbar";
 import { Stage } from "components/stage";
 import { LoadingView } from "components/loading";
 import { ErrorView } from "components/error";
+import { Dock, Property } from "components/dock";
+import { mapTypes } from "core/type-mapper";
 
 export default function FlutterWidgetPreview({
   initial,
@@ -37,6 +40,8 @@ export default function FlutterWidgetPreview({
   const onToggleReload = React.useCallback(() => {
     setRefresh((prev) => prev + 1);
   }, [setRefresh]);
+
+  const appWindowRef = React.useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     // send message to vscode to notify that the webview is ready
@@ -92,6 +97,46 @@ export default function FlutterWidgetPreview({
     }
   };
 
+  const properties_meta = [
+    {
+      key: "name",
+      default: "Flutter Preview",
+      type: "String",
+    },
+    {
+      key: "radius",
+      default: 12,
+      type: "int",
+    },
+    {
+      key: "description",
+      default:
+        "Flutter Preview is a tool that allows you to preview your Flutter app in the browser",
+      type: "String",
+    },
+    {
+      key: "color",
+      default: "#000000",
+      type: "Color",
+    },
+    {
+      key: "enabled",
+      default: true,
+      type: "bool",
+    },
+    {
+      key: "alignment",
+      default: "start",
+      type: "rendering/CrossAxisAlignment",
+    },
+  ] as const;
+
+  const properties = properties_meta.map((p) => ({
+    key: p.key,
+    value: p.default,
+    ...mapTypes(p.type),
+  })) as Array<Property>;
+
   return (
     <>
       <Head>
@@ -106,13 +151,28 @@ export default function FlutterWidgetPreview({
         />
         <Stage onResize={(size) => setSize(size)} fullsize={fullsize}>
           {webLaunchUrl ? (
-            <WebLaunchPreview src={webLaunchUrl} refreshKey={refresh} />
+            <WebLaunchPreview
+              ref={appWindowRef}
+              src={webLaunchUrl}
+              refreshKey={refresh}
+            />
           ) : error ? (
             <ErrorView messages={[error.message]} />
           ) : (
             <LoadingView />
           )}
         </Stage>
+        <Dock
+          properties={properties}
+          onPropertyChange={(key, value) => {
+            const msg: NotifyPropertyChange = {
+              event: "@inapp/property-change",
+              key,
+              value,
+            };
+            appWindowRef?.current?.contentWindow?.postMessage(msg, "*");
+          }}
+        />
       </Body>
     </>
   );
@@ -126,27 +186,33 @@ export default function FlutterWidgetPreview({
  *
  * @returns
  */
-function WebLaunchPreview({
-  src,
-  refreshKey,
-}: {
-  src: string;
-  refreshKey: number;
-}) {
+const WebLaunchPreview = React.forwardRef(function WebLaunchPreview(
+  {
+    src,
+    refreshKey,
+  }: {
+    src: string;
+    refreshKey: number;
+  },
+  ref?: React.Ref<HTMLIFrameElement>
+) {
   return (
     <FramesContainer>
-      <ContentFrame refreshKey={refreshKey} src={src} />
+      <ContentFrame ref={ref} refreshKey={refreshKey} src={src} />
     </FramesContainer>
   );
-}
+});
 
-function ContentFrame({
-  refreshKey,
-  src,
-}: {
-  refreshKey: number;
-  src: string;
-}) {
+const ContentFrame = React.forwardRef(function ContentFrame(
+  {
+    refreshKey,
+    src,
+  }: {
+    refreshKey: number;
+    src: string;
+  },
+  ref?: React.Ref<HTMLIFrameElement>
+) {
   return (
     <ContentFrameWrapper
       transition={{
@@ -165,6 +231,7 @@ function ContentFrame({
       }}
     >
       <iframe
+        ref={ref}
         key={refreshKey}
         sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
         src={src}
@@ -176,7 +243,7 @@ function ContentFrame({
       />
     </ContentFrameWrapper>
   );
-}
+});
 
 const Body = styled.div`
   display: flex;

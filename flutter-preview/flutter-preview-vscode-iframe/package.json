@@ -1,0 +1,7 @@
+{
+  "name": "@flutter-preview/vscode-iframe-dev",
+  "description": "DEV only package for testing & integrating iframe source to be used on vscode (a webview host)",
+  "dependencies": {
+    "@flutter-preview/webview": "0.0.2"
+  }
+}

@@ -80,7 +80,7 @@ interface DartConstructor extends AstNode {
 
 interface DartProperty extends DartCore {
   /**
-   * @default true
+   * @default false
    */
   isOptional: boolean;
 

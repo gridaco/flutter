@@ -12,7 +12,7 @@ import { identifier } from "../decorations";
  */
 @identifier("RaisedButton")
 export class RaisedButton extends MaterialButton {
-  onPressed: VoidCallback;
+  declare onPressed: VoidCallback;
   child: Widget;
   onLongPress?: VoidCallback;
   textColor?: Color;

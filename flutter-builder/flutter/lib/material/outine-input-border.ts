@@ -9,7 +9,7 @@ import { identifier } from "../decorations";
  */
 @identifier("OutlineInputBorder")
 export class OutlineInputBorder extends InputBorder {
-  borderSide?: BorderSide;
+  declare borderSide?: BorderSide;
   borderRadius?: BorderRadius;
   gapPadding?: double;
 

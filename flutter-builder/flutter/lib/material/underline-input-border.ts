@@ -8,7 +8,7 @@ import { identifier } from "../decorations";
  */
 @identifier("UnderlineInputBorder")
 export class UnderlineInputBorder extends InputBorder {
-  borderSide?: BorderSide;
+  declare borderSide?: BorderSide;
   borderRadius?: BorderRadius;
 
   /**

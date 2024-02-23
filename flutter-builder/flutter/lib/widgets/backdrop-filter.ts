@@ -9,7 +9,7 @@ import { identifier } from "../decorations";
  */
 @identifier("BackdropFilter")
 export class BackdropFilter extends SingleChildRenderObjectWidget {
-  key?: Key;
+  declare key?: Key;
   filter: ImageFilter;
   blendMode: BlendMode;
 

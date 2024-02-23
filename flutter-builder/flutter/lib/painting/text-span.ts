@@ -9,7 +9,7 @@ import { identifier } from "../decorations";
 export class TextSpan extends InlineSpan {
   text?: string;
   children?: Array<InlineSpan>;
-  style?: TextStyle;
+  declare style?: TextStyle;
 
   /**
    * https://api.flutter.dev/flutter/painting/TextSpan/TextSpan.html

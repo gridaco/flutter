@@ -12,7 +12,7 @@ import { MaterialButton } from "./material-button";
  */
 @identifier("FlatButton")
 export class FlatButton extends MaterialButton {
-  onPressed: VoidCallback;
+  declare onPressed: VoidCallback;
   child: Widget;
   onLongPress?: VoidCallback;
   textColor?: Color;
